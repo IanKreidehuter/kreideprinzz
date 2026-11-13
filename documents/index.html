@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Documents</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#3b3452;--pink:#ffd3e6;--sky:#bfe3ff;--mint:#d6f5d2;--butter:#fff0a6;--lav:#dccbff;--red:#ff4a5f;--purple:#8c5bd8;
+ --wob:14px 24px 16px 22px/22px 14px 24px 16px;--bg:url("https://iankreidehuter.space/assets/background.jpg")}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font:19px/1.3 "Patrick Hand","Comic Sans MS",cursive;color:var(--ink);min-height:100vh;overflow-x:hidden;background:#c6e5ff}
+:focus-visible{outline:3px dashed var(--purple);outline-offset:3px}
+h1,h2{font-family:"Gochi Hand",cursive;font-weight:400}
+.bg-layer{position:fixed;inset:0;z-index:-2;background:var(--bg) center/cover no-repeat,#c6e5ff}
+.bg-overlay{position:fixed;inset:0;z-index:-1;background:repeating-linear-gradient(118deg,transparent 0 5px,rgba(255,255,255,.35) 5px 7px),rgba(255,255,255,.22)}
+#fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.fx-s{position:absolute;height:auto;animation:bob 5s ease-in-out var(--d,0s) infinite}.fx-s.tw{animation:tw 2.6s ease-in-out var(--d,0s) infinite}.fx-s.spin{animation:spin 30s linear infinite}
+.page{position:relative;z-index:1;display:flex;justify-content:center;padding:44px 16px 90px}
+.wrap{width:100%;max-width:960px;display:grid;gap:22px}
+.paper{position:relative;background:#fffdf8;border:3px solid #fff;border-radius:var(--wob);box-shadow:0 0 0 2px #a9d2f2,3px 5px 0 rgba(60,50,90,.12)}
+.paper::before{content:"";position:absolute;top:-11px;left:50%;width:78px;height:20px;transform:translateX(-50%) rotate(-3deg);background:repeating-linear-gradient(90deg,#ffb3c9 0 8px,#fff 8px 16px);opacity:.88;pointer-events:none}
+header{padding:20px 24px 16px;animation:pop .6s both}
+h1{font-size:clamp(38px,8vw,58px);line-height:1;color:var(--red);text-shadow:2px 2px 0 #fff,4px 4px 0 rgba(140,91,216,.3)}
+#crumbs{margin-top:8px;font-size:18px}#crumbs a{color:var(--purple)}#crumbs span{opacity:.6}
+.tools{display:grid;gap:12px;padding:14px 18px;animation:pop .6s .1s both}
+#q{width:100%;padding:10px 16px;font:inherit;font-size:20px;color:var(--ink);background:#fff;border:3px dashed #a9d2f2;border-radius:var(--wob);outline:none}
+#q:focus{border:3px solid var(--purple)}
+#chips{display:flex;flex-wrap:wrap;gap:8px}
+#chips button{font:inherit;font-size:17px;padding:2px 14px;border:2px solid #fff;border-radius:99px;background:#eef4ff;color:var(--ink);cursor:pointer}
+#chips button[aria-pressed=true]{background:var(--pink);box-shadow:2px 2px 0 var(--purple)}
+.state{padding:26px;text-align:center;background:var(--lav);border-radius:var(--wob);font-size:21px}
+.state small{display:block;margin-top:8px;font-size:16px;opacity:.8}
+.list{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:22px 16px}
+.item{animation:pop .5s both}
+.card{position:relative;display:grid;grid-template-columns:auto 1fr;gap:2px 12px;align-items:center;width:100%;min-height:84px;padding:10px 12px;text-align:left;font:inherit;color:inherit;cursor:pointer;
+ background:#fff;border:3px solid #fff;border-radius:var(--wob);box-shadow:0 0 0 2px #cfe3f5,2px 4px 0 rgba(60,50,90,.12);transition:transform .2s}
+.item:nth-child(3n+1) .card{transform:rotate(-.8deg)}.item:nth-child(3n+2) .card{transform:rotate(.6deg)}.item:nth-child(3n) .card{transform:rotate(-.3deg)}
+@media(hover:hover){.card:hover{transform:translateY(-4px) rotate(0)}}
+.ic{grid-row:span 2;display:grid;place-items:center;width:58px;height:58px;overflow:hidden;border-radius:50%;font-size:30px;background:var(--lav)}
+.ic img{width:100%;height:100%;object-fit:cover}
+.ic.dir{background:var(--butter)}.ic.vid{background:var(--pink)}.ic.aud{background:var(--mint)}.ic.img{background:var(--sky)}.ic.pdf{background:#ffd1d1}
+.nm{align-self:end;font-size:19px;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.mt{align-self:start;font-size:15px;opacity:.7}
+dialog{width:min(820px,calc(100vw - 28px));max-height:calc(100dvh - 28px);padding:0;overflow:visible;color:var(--ink);background:#fffdf8;border:3px solid #fff;border-radius:var(--wob);box-shadow:0 0 0 2px #ff9a3c,6px 8px 0 rgba(0,0,0,.2);animation:pop .35s cubic-bezier(.2,.9,.3,1.2)}
+dialog::backdrop{background:rgba(80,60,120,.45);backdrop-filter:blur(2px)}
+.vx{position:absolute;top:-14px;right:-8px;z-index:2;width:44px;height:44px;padding:0;font:22px/1 "Patrick Hand",cursive;color:var(--ink);background:var(--pink);border:3px solid #fff;border-radius:50%;box-shadow:2px 3px 0 rgba(60,50,90,.25);cursor:pointer}
+.vb{max-height:calc(100dvh - 28px);overflow:auto;padding:22px;border-radius:inherit}
+.vt{font-size:28px;margin-bottom:12px;overflow-wrap:anywhere}
+.vm{display:flex;justify-content:center;background:var(--lav);border-radius:10px;overflow:hidden}
+.vm img,.vm video{display:block;max-width:100%;max-height:64dvh;width:auto;height:auto}.vv{background:#000}.vv video{width:100%}
+.va{flex-direction:column;align-items:center;gap:10px;padding:18px}.vc{font-size:84px;line-height:1.1;animation:bob 2.4s ease-in-out infinite}.va audio{width:100%}
+.vf{display:block;width:100%;height:68dvh;border:0;border-radius:10px;background:#fff}
+.vp{max-height:62dvh;overflow:auto;padding:14px;font:16px/1.4 ui-monospace,Consolas,monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:#fff;border:2px dashed #a9d2f2;border-radius:10px}
+.vn{margin-top:10px;font-size:17px}
+.vbar{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.btn{display:inline-block;padding:8px 20px;color:var(--ink);text-decoration:none;background:var(--mint);border-radius:99px;box-shadow:2px 3px 0 rgba(60,50,90,.2)}.btn.alt{background:var(--pink)}
+html:has(dialog[open]){overflow:hidden}
+@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.96)}}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-9px) rotate(calc(var(--r,0deg) + 4deg))}}
+@keyframes tw{0%,100%{transform:scale(1) rotate(var(--r,0deg));opacity:1}50%{transform:scale(1.2) rotate(calc(var(--r,0deg) + 12deg));opacity:.7}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bg-layer"></div><div class="bg-overlay"></div>
+<main class="page"><div class="wrap">
+  <header class="paper"><h1>Documents</h1><p id="crumbs"></p></header>
+  <div class="tools paper"><input id="q" type="search" placeholder="Search files…" aria-label="Search files"><div id="chips" role="group" aria-label="Filter by type"></div></div>
+  <div id="state" class="state" role="status" aria-live="polite">Loading files…</div>
+  <ul id="list" class="list"></ul>
+</div></main>
+<dialog id="viewer" aria-label="File viewer"><button type="button" class="vx" aria-label="Close">✕</button><div class="vb"></div></dialog>
+
+<script>
+(() => {
+  /* ---- settings: change these if you move things ---- */
+  const CFG = {
+    owner: "iankreidehuter",          // GitHub user that owns the site repo
+    repo: "luminiferous69aether-",    // the repo's name
+    branch: "",                       // "" = the repo's default branch
+    path: "documents",                // the folder this page lists (this page must live inside it)
+    hide: ["index.html", "files.json"],
+    assets: "https://iankreidehuter.space/assets/"
+  };
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const DIR = location.pathname.replace(/[^/]*$/, "");   // folder this page is served from
+  const KINDS = {
+    img: " jpg jpeg png gif webp svg avif bmp ico ", vid: " mp4 webm mov m4v ogv ", aud: " mp3 wav ogg m4a aac flac opus ",
+    pdf: " pdf ", txt: " txt md json csv log ini xml yml yaml js css tsv "
+  };
+  const ICON = {dir: "📁", img: "🖼️", vid: "🎬", aud: "🎵", pdf: "📕", txt: "📝", file: "📦"};
+  const LABEL = {all: "All", dir: "Folders", vid: "Videos", aud: "Audio", img: "Images", pdf: "PDF", txt: "Text", file: "Other"};
+  const extOf = n => (n.includes(".") ? n.split(".").pop() : "").toLowerCase();
+  const kindOf = it => { if (it.dir) return "dir"; const e = " " + extOf(it.name) + " "; for (const k in KINDS) if (KINDS[k].includes(e)) return k; return "file"; };
+  const fmt = b => b == null ? "" : b < 1024 ? b + " B" : b < 1048576 ? (b / 1024).toFixed(0) + " KB" : (b / 1048576).toFixed(1) + " MB";
+  const subOf = () => { try { return decodeURIComponent(location.hash.replace(/^#\/?/, "")).split("/").filter(s => s && s !== "." && s !== "..").join("/"); } catch (e) { return ""; } };
+  const enc = p => p.split("/").filter(Boolean).map(encodeURIComponent).join("/");
+  const urlOf = (sub, name) => DIR + (sub ? enc(sub) + "/" : "") + encodeURIComponent(name);
+
+  let items = [], sub = "", flt = "all", shown = [];
+
+  async function fetchList(s) {   // GitHub's folder listing first, then files.json as a backup
+    const key = "docs:" + s, now = Date.now();
+    let old = null; try { old = JSON.parse(sessionStorage.getItem(key)); } catch (e) {}
+    if (old && now - old.t < 60000) return old.items;
+    try {
+      const api = `https://api.github.com/repos/${CFG.owner}/${CFG.repo}/contents/${CFG.path}${s ? "/" + enc(s) : ""}${CFG.branch ? "?ref=" + encodeURIComponent(CFG.branch) : ""}`;
+      const r = await fetch(api, {headers: {Accept: "application/vnd.github+json"}});
+      if (!r.ok) throw new Error("GitHub said " + r.status);
+      const d = await r.json(); if (!Array.isArray(d)) throw new Error("not a folder");
+      const out = d.map(x => ({name: x.name, dir: x.type === "dir", size: x.type === "dir" ? null : x.size}));
+      try { sessionStorage.setItem(key, JSON.stringify({t: now, items: out})); } catch (e) {}
+      return out;
+    } catch (err) {
+      try {
+        if (s) throw err;                                   // files.json only describes the main folder
+        const r = await fetch(DIR + "files.json?_=" + now, {cache: "no-store"});
+        if (!r.ok) throw err;
+        return (await r.json()).map(x => typeof x === "string" ? {name: x} : x);
+      } catch (e2) { if (old) return old.items; throw err; }
+    }
+  }
+  const say = (m, small) => { const s = $("#state"); s.hidden = false; s.innerHTML = esc(m) + (small ? `<small>${esc(small)}</small>` : ""); $("#list").innerHTML = ""; };
+
+  function crumbs() {
+    const parts = sub ? sub.split("/") : [];
+    $("#crumbs").innerHTML = ['<a href="#">Documents</a>'].concat(parts.map((p, i) => `<span>/</span> <a href="#/${esc(enc(parts.slice(0, i + 1).join("/")))}">${esc(p)}</a>`)).join(" ");
+  }
+  function chips() {
+    const have = new Set(items.map(kindOf)), order = ["all", "dir", "vid", "aud", "img", "pdf", "txt", "file"].filter(k => k === "all" || have.has(k));
+    if (!order.includes(flt)) flt = "all";
+    $("#chips").innerHTML = order.map(k => `<button type="button" data-k="${k}" aria-pressed="${k === flt}">${LABEL[k]}</button>`).join("");
+  }
+  function render() {
+    const q = $("#q").value.trim().toLowerCase();
+    shown = items.filter(it => (flt === "all" || kindOf(it) === flt) && it.name.toLowerCase().includes(q));
+    if (!shown.length) return say(items.length ? "No files match." : "This folder is empty.", items.length ? "" : "Upload files to the folder in your repo and refresh.");
+    $("#state").hidden = true;
+    $("#list").innerHTML = shown.map((it, i) => {
+      const k = kindOf(it), thumb = k === "img" && (it.size == null || it.size < 4194304) ? `<img loading="lazy" src="${esc(urlOf(sub, it.name))}" alt="">` : ICON[k];
+      const meta = it.dir ? "Folder" : (extOf(it.name) || "file").toUpperCase() + (it.size != null ? " · " + fmt(it.size) : "");
+      return `<li class="item" style="animation-delay:${Math.min(i, 12) * 40}ms"><button type="button" class="card" data-i="${i}" title="${esc(it.name)}"><span class="ic ${k}" aria-hidden="true">${thumb}</span><span class="nm">${esc(it.name)}</span><span class="mt">${esc(meta)}</span></button></li>`;
+    }).join("");
+  }
+  async function load() {
+    sub = subOf(); crumbs(); say("Loading files…");
+    try {
+      items = (await fetchList(sub)).filter(x => !x.name.startsWith(".") && !(sub === "" && CFG.hide.includes(x.name)))
+        .sort((a, b) => (b.dir - a.dir) || a.name.localeCompare(b.name, undefined, {numeric: true, sensitivity: "base"}));
+      chips(); render();
+    } catch (e) {
+      say("Couldn't load the file list.", "GitHub may be busy or the repo name in this page's settings is wrong. As a backup, add a files.json next to this page (see the comment in the code).");
+    }
+  }
+
+  /* ---- viewer ---- */
+  const dlg = $("#viewer"), vb = dlg.querySelector(".vb");
+  function view(it) {
+    const k = kindOf(it), href = urlOf(sub, it.name), u = esc(href);
+    const body = k === "img" ? `<div class="vm"><img src="${u}" alt="${esc(it.name)}"></div>`
+      : k === "vid" ? `<div class="vm vv"><video src="${u}" controls autoplay playsinline></video></div>`
+      : k === "aud" ? `<div class="vm va"><div class="vc" aria-hidden="true">🎵</div><audio src="${u}" controls autoplay></audio></div>`
+      : k === "pdf" ? `<iframe class="vf" src="${u}" title="${esc(it.name)}"></iframe><p class="vn">If the PDF doesn't show here, use “Open in new tab”.</p>`
+      : k === "txt" ? `<pre class="vp">Loading…</pre>`
+      : `<p class="vn">This kind of file can't be previewed. Use “Open in new tab” or “Download”.</p>`;
+    vb.innerHTML = `<h2 class="vt">${esc(it.name)}</h2>${body}<div class="vbar"><a class="btn" href="${u}" target="_blank" rel="noopener noreferrer">Open in new tab ↗</a><a class="btn alt" href="${u}" download="${esc(it.name)}">Download ⬇</a></div>`;
+    dlg.showModal();
+    if (k === "txt") fetch(href).then(r => { if (!r.ok) throw 0; return r.text(); }).then(t => { const p = vb.querySelector(".vp"); if (p) p.textContent = t.length > 200000 ? t.slice(0, 200000) + "\n\n… (shortened: open the file to read all of it)" : t; })
+      .catch(() => { const p = vb.querySelector(".vp"); if (p) p.textContent = "Couldn't load this file."; });
+  }
+  $("#list").addEventListener("click", e => {
+    const b = e.target.closest(".card"); if (!b) return;
+    const it = shown[+b.dataset.i]; if (!it) return;
+    if (it.dir) location.hash = "#/" + enc((sub ? sub + "/" : "") + it.name); else view(it);
+  });
+  $("#chips").addEventListener("click", e => { const b = e.target.closest("button"); if (!b) return; flt = b.dataset.k; chips(); render(); });
+  $("#q").addEventListener("input", render);
+  dlg.querySelector(".vx").onclick = () => dlg.close();
+  dlg.addEventListener("click", e => { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener("close", () => { vb.innerHTML = ""; });   // stops playing video / audio
+  addEventListener("hashchange", load);
+  load();
+
+  /* ---- stickers (decoration only) ---- */
+  const k2 = innerWidth < 600 ? .7 : 1, fx = document.createElement("div"); fx.id = "fx"; fx.setAttribute("aria-hidden", "true");
+  const sp = [["cloud.png",3,2,96,0,""],["rainbow.png",74,1,130,5,""],["sun.png",44,2,66,-8,"spin"],["yellow_love.png",8,26,38,-10,"tw"],["love.png",91,34,40,10,"tw"],
+    ["flower.png",3,72,64,0,""],["cat.png",85,64,86,-6,""],["leaf.png",20,91,50,8,""],["flower.png",72,89,64,0,""],["dog.png",1,86,80,6,""]];
+  fx.innerHTML = sp.map((s, i) => `<img class="fx-s ${s[5]}" src="${CFG.assets}${s[0]}" alt="" style="left:${s[1]}%;top:${s[2]}%;width:${Math.round(s[3] * k2)}px;--r:${s[4]}deg;--d:-${(i * 7) % 5}s">`).join("");
+  fx.addEventListener("error", e => { if (e.target.tagName === "IMG") e.target.style.visibility = "hidden"; }, true);
+  document.body.appendChild(fx);
+})();
+/* BACKUP LIST (optional): if the GitHub listing ever fails, put a file called files.json next to this page, e.g.
+   ["song.mp3", "notes.txt", {"name": "movie.mp4", "size": 5242880}]  */
+</script>
+</body>
+</html>
