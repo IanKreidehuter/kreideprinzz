@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#c6e5ff">
+<title>Adrian Aditya Portofolio</title>
+<meta name="description" content="Fahlan Aditya's little scrapbook corner of the internet.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Patrick+Hand&display=swap" rel="stylesheet">
+<script>var V=Date.now()</script>
+<script>document.write('<link rel="stylesheet" href="style.css?v='+V+'">')</script>
+</head>
+<body>
+<div class="wrap">
+  <figure class="pol tape"><img id="profile" alt="Portrait of Fahlan Aditya"><figcaption><b>Fahlan Aditya</b><small>Student / Learner / Creator</small></figcaption></figure>
+  <nav id="nav" class="nav" aria-label="Main"></nav>
+  <div id="decoSide" class="decoSide" aria-hidden="true"></div>
+  <p class="note tilt">A little progress is still progress :)</p>
+
+  <main>
+    <header id="home" class="hero">
+      <div id="decoHero" aria-hidden="true"></div><div id="decoHeroM" aria-hidden="true"></div>
+      <img id="profile2" class="mprof" alt="Portrait of Fahlan Aditya">
+      <h1><span class="r">Fahlan</span> <span class="b">Aditya</span></h1>
+      <p class="sub">Just a boy trying his best.</p>
+      <ul id="msocial" class="msocial" aria-label="Social links"></ul>
+    </header>
+
+    <section id="about" class="card about" aria-labelledby="h-about">
+      <h2 id="h-about">About Me</h2>
+      <ul id="info" class="info"></ul>
+      <p class="note paper">Just a guy who likes simple things, learning languages, making stuff, playing games, and collecting random ideas. This is my little space to share what I do, what I like, and probably some messy thoughts too.</p>
+    </section>
+
+    <div class="row">
+      <section id="portfolio" class="card mint" aria-labelledby="h-skills">
+        <h2 id="h-skills">Skills &amp; Interests</h2>
+        <ul id="skills" class="skills"></ul>
+      </section>
+      <section class="card find" aria-labelledby="h-find">
+        <h2 id="h-find">Find me on</h2>
+        <ul id="social" class="social"></ul>
+      </section>
+    </div>
+
+    <section id="posts" class="card posts" aria-labelledby="h-posts">
+      <div class="phead"><h2 id="h-posts">Latest Posts</h2><div id="filters" class="filters" role="group" aria-label="Filter posts"></div></div>
+      <div id="state" class="state" role="status" aria-live="polite"></div>
+      <div id="grid" class="grid"></div>
+    </section>
+
+    <section id="contact" class="card contact" aria-labelledby="h-contact">
+      <h2 id="h-contact">Contact</h2>
+      <p class="hand tilt">Feel free to reach out!</p>
+      <div id="contactLinks" class="clinks"></div>
+      <p class="note paper">Collab? Project talk? Just want to say hi? I'm open!</p>
+    </section>
+  </main>
+</div>
+<dialog id="more"><h3>More places</h3><ul id="moreList"></ul><button id="moreClose" type="button">Close</button></dialog>
+<script>['config.js','api.js','script.js'].forEach(function(f){document.write('<script src="'+f+'?v='+V+'"><\/script>')})</script>
+</body>
+</html>

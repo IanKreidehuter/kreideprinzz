@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kanji Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Patrick+Hand&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#3b3452;--pink:#ffd3e6;--sky:#bfe3ff;--mint:#d6f5d2;--butter:#fff0a6;--lav:#dccbff;--red:#ff4a5f;--purple:#8c5bd8;
+ --wob:14px 24px 16px 22px/22px 14px 24px 16px;--bg:url("https://iankreidehuter.space/assets/background.jpg")}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font:19px/1.3 "Patrick Hand","Comic Sans MS",cursive;color:var(--ink);min-height:100vh;overflow-x:hidden;background:#c6e5ff}
+:focus-visible{outline:3px dashed var(--purple);outline-offset:3px}
+h1,h2{font-family:"Gochi Hand",cursive;font-weight:400}
+button{font:inherit;color:inherit;cursor:pointer}
+[hidden]{display:none!important}
+[lang=ja]{font-family:"Klee One","UD Digi Kyokasho N-R","UD デジタル 教科書体 N-R","Kyokasho ICA","Hiragino Maru Gothic ProN","Yu Gothic",serif;font-weight:600}
+.bg-layer{position:fixed;inset:0;z-index:-2;background:var(--bg) center/cover no-repeat,#c6e5ff}
+.bg-overlay{position:fixed;inset:0;z-index:-1;background:repeating-linear-gradient(118deg,transparent 0 5px,rgba(255,255,255,.35) 5px 7px),rgba(255,255,255,.22)}
+.page{position:relative;z-index:1;display:flex;justify-content:center;padding:40px 14px 90px}
+.wrap{width:100%;max-width:1080px;display:grid;gap:20px}
+.paper{position:relative;background:#fffdf8;border:3px solid #fff;border-radius:var(--wob);box-shadow:0 0 0 2px #a9d2f2,3px 5px 0 rgba(60,50,90,.12)}
+.paper::before{content:"";position:absolute;top:-11px;left:50%;width:78px;height:20px;transform:translateX(-50%) rotate(-3deg);background:repeating-linear-gradient(90deg,#ffb3c9 0 8px,#fff 8px 16px);opacity:.88;pointer-events:none}
+header{padding:20px 24px 18px;display:grid;gap:10px;animation:pop .6s both}
+h1{font-size:clamp(34px,7vw,54px);line-height:1;color:var(--red);text-shadow:2px 2px 0 #fff,4px 4px 0 rgba(140,91,216,.3)}
+.sub{font-size:20px}.lvl{display:inline-block;padding:0 14px;border-radius:99px;background:var(--butter);font-size:17px}
+.bar{height:20px;border:3px solid #fff;border-radius:99px;background:#fff;overflow:hidden;box-shadow:2px 3px 0 rgba(60,50,90,.15)}
+.bar b{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#ff8ac0,#ffd75e,#8de08d);transition:width .5s}
+.pc{font-size:18px}
+details{font-size:16px}summary{cursor:pointer;color:var(--purple)}details p{margin-top:6px}
+.modes{display:flex;flex-wrap:wrap;gap:10px}
+.modes button,.langs button,.btn{padding:8px 18px;border:2px solid #fff;border-radius:99px;background:#eef4ff;box-shadow:2px 3px 0 rgba(60,50,90,.18);transition:transform .2s}
+.modes button[aria-selected=true],.langs button[aria-pressed=true]{background:var(--pink);box-shadow:2px 3px 0 var(--purple)}
+a.btn{display:inline-block;color:var(--ink);text-decoration:none}
+.hrow{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between}.langs{display:flex;flex-wrap:wrap;gap:8px}
+.btn.go{background:var(--mint)}.btn.alt{background:var(--lav)}
+@media(hover:hover){.modes button:hover,.langs button:hover,.btn:hover{transform:translateY(-2px) rotate(-1deg)}}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:12px 16px}
+#q{flex:1 1 200px;min-width:0;padding:8px 14px;font:inherit;font-size:20px;color:var(--ink);background:#fff;border:3px dashed #a9d2f2;border-radius:var(--wob);outline:none}#q:focus{border:3px solid var(--purple)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}.chips button{padding:2px 14px;border:2px solid #fff;border-radius:99px;background:#eef4ff;font-size:17px}.chips button[aria-pressed=true]{background:var(--pink);box-shadow:2px 2px 0 var(--purple)}
+#lesson{max-width:100%;padding:8px 12px;font:inherit;font-size:18px;color:var(--ink);background:#fff;border:3px dashed #a9d2f2;border-radius:var(--wob)}
+#vStudy{display:grid;gap:26px}.ls{display:grid;gap:12px}
+.lh{display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-size:30px;color:var(--purple);text-shadow:2px 2px 0 #fff}
+.lh .no{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--butter);color:var(--ink);font-size:24px;text-shadow:none;box-shadow:2px 3px 0 rgba(60,50,90,.2)}
+.lh small{padding:0 12px;border-radius:99px;background:#fff;color:var(--ink);font-family:"Patrick Hand",cursive;font-size:19px;text-shadow:none}
+.state{padding:26px;text-align:center;background:var(--lav);border-radius:var(--wob);font-size:21px}.state .btn{margin-top:12px;display:inline-block}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:20px 16px}
+.kc{--h:var(--pink);--b:#ff9ec6;background:#fffdf8;border:3px solid var(--b);border-radius:var(--wob);overflow:hidden;box-shadow:3px 5px 0 rgba(60,50,90,.12);animation:pop .5s both;content-visibility:auto;contain-intrinsic-size:auto 300px}
+.t1{--h:var(--sky);--b:#7fc0ee}.t2{--h:var(--mint);--b:#7fcf86}.t3{--h:var(--butter);--b:#f0c63c}.t4{--h:var(--lav);--b:#b79af0}
+.kh{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:10px 14px;background:var(--h)}
+.kj{font-size:68px;line-height:1.05;text-shadow:2px 2px 0 #fff}
+.mn{display:block;font-family:"Gochi Hand",cursive;font-size:24px;line-height:1.1}
+.rd{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.chip{display:inline-flex;gap:6px;align-items:baseline;padding:0 10px;border-radius:99px;background:rgba(255,255,255,.75);font-size:16px}.chip b{font-weight:400;font-size:13px;color:var(--purple)}
+.kn{width:44px;height:44px;border-radius:50%;border:3px solid #fff;background:#fff;font-size:22px;filter:grayscale(1);opacity:.55;box-shadow:2px 3px 0 rgba(60,50,90,.2);transition:transform .25s,filter .25s}
+.kn[aria-pressed=true]{filter:none;opacity:1;background:var(--butter);transform:rotate(12deg) scale(1.08)}
+.kb{padding:8px 14px 12px}.lt{margin:6px 0 2px;font-family:"Gochi Hand",cursive;font-size:20px}
+.wl{list-style:none;display:grid;gap:4px}
+.wl li{display:grid;grid-template-columns:auto auto 1fr;gap:8px;align-items:center}
+.wl ruby{font-size:24px}.wl rt{font-size:12px;color:var(--purple)}.wm{font-size:16px;opacity:.8}
+.sp{display:none;width:30px;height:30px;border:0;border-radius:50%;background:var(--sky);font-size:14px}.tts .sp{display:block}
+.fl{display:grid;gap:14px;justify-items:center}
+.fc{width:min(100%,560px);height:min(66vh,440px);perspective:1200px;cursor:pointer}
+.fcard{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .55s cubic-bezier(.3,1.3,.5,1)}.fcard.flip{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;overflow:auto;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:grid;place-content:center;justify-items:center;gap:8px;padding:18px;text-align:center;background:#fffdf8;border:4px solid var(--b);border-radius:var(--wob);box-shadow:3px 5px 0 rgba(60,50,90,.15)}
+.face.back{transform:rotateY(180deg);background:var(--h);place-content:start center}
+.big{font-size:min(38vw,190px);line-height:1}.tap{font-size:16px;opacity:.65}
+.fbar{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;align-items:center}
+.qz{max-width:620px;margin:0 auto;padding:24px 22px;display:grid;gap:14px;text-align:center}
+.qn{font-size:17px;opacity:.7}.qp{font-family:"Gochi Hand",cursive;font-size:36px;line-height:1.1;color:var(--purple)}.qp.big{font-family:"Klee One",serif;font-weight:600;font-size:110px;color:var(--ink);text-shadow:3px 3px 0 var(--pink)}
+.qo{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.opt{padding:12px 10px;min-height:58px;font-size:20px;background:#fff;border:3px solid #cfe3f5;border-radius:var(--wob);transition:transform .2s}
+.opt[lang=ja]{font-size:40px}.opt.good{background:var(--mint);border-color:#7fcf86;animation:pop .4s}.opt.bad{background:#ffd1d1;border-color:#ff8a9b}.opt:disabled{cursor:default}
+.qf{min-height:70px;font-size:22px}.sc{font-family:"Gochi Hand",cursive;font-size:60px;color:var(--red)}
+.wrongs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}.wrongs span{padding:0 12px;font-size:28px;background:var(--pink);border-radius:var(--wob)}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.96)}}
+@media(max-width:520px){.grid{grid-template-columns:1fr}.qo{grid-template-columns:1fr}.kj{font-size:60px}header{padding:18px 16px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="bg-layer"></div><div class="bg-overlay"></div>
+<main class="page"><div class="wrap">
+  <header class="paper">
+    <div class="hrow"><h1 id="ttl">Kanji Study</h1><div class="langs" role="group" aria-label="Language / Bahasa"><a class="btn go" data-t="home" href="https://iankreidehuter.space/">🏠 Home</a><button type="button" data-l="id">🇮🇩 Indonesia</button><button type="button" data-l="en">🇬🇧 English</button></div></div>
+    <p class="sub"><span class="lvl" id="lvl">...</span> <span data-t="sub">Look · Say · Remember</span></p>
+    <div class="bar" role="progressbar" aria-label="Kanji you know" id="pbar" aria-valuemin="0" aria-valuemax="100"><b id="pfill"></b></div>
+    <p class="pc" id="ptxt"></p>
+    <details><summary data-t="about">About this list</summary><p id="note"></p></details>
+    <nav class="modes" role="tablist" aria-label="Study mode">
+      <button type="button" role="tab" data-m="study" aria-selected="true" data-t="cards">📖 Cards</button>
+      <button type="button" role="tab" data-m="flash" aria-selected="false" data-t="flash">🃏 Flashcards</button>
+      <button type="button" role="tab" data-m="quiz" aria-selected="false" data-t="quiz">🎯 Quiz</button>
+      <label class="btn alt" title="Load a different kanji JSON file"><span data-t="load">📂 Load JSON</span><input id="pick" type="file" accept=".json,application/json" hidden></label>
+    </nav>
+  </header>
+  <div class="tools paper" id="tools"><select id="lesson" aria-label="Lesson" hidden></select><input id="q" type="search" data-tp="search" placeholder="Search kanji, reading or meaning…" aria-label="Search"><div class="chips" id="chips" role="group" aria-label="Filter"></div></div>
+  <div id="state" class="state" role="status" aria-live="polite">Loading kanji…</div>
+  <section id="vStudy" hidden></section>
+  <section id="vFlash" class="fl" hidden></section>
+  <section id="vQuiz" class="qz paper" hidden></section>
+</div></main>
+<script>
+(() => {
+  /* ---- settings: JSON is loaded from the /assets folder ---- */
+  const CFG = { data: {
+      id: ["assets/textbook_kanji_cards_indonesian.json", "/assets/textbook_kanji_cards_indonesian.json"],
+      en: ["assets/textbook_kanji_cards_english.json", "/assets/textbook_kanji_cards_english.json"] },
+    quizLen: 10 };
+  const T = {
+    en: {home:"🏠 Home",sub:"Look · Say · Remember",cards:"📖 Cards",flash:"🃏 Flashcards",quiz:"🎯 Quiz",load:"📂 Load JSON",about:"About this list",search:"Search kanji, reading or meaning…",all:"All",learn:"Learning",known:"Known",words:"Examples",mix:"Mix & match",lesson:"Lesson",alll:"All lessons",nomatch:"No kanji match. Try another search!",nothing:"Nothing here. Pick another filter!",tap:"tap to flip ↻",back:"◀ Back",next:"Next ▶",shuf:"🔀 Shuffle",shufd:"🔀 Shuffled",iknow:"☆ I know it",isknown:"⭐ Known",q:"Question",qm:"What does it mean?",qk:"Which kanji is this?",yes:"Yes!! 🎉",oops:"Oops!",again:"🔁 Play again",tocards:"📖 Back to cards",prac:"Practise these:",nomist:"No mistakes!",s1:"Amazing!! 🌈",s2:"Great job! ⭐",s3:"Nice try! Keep going 💪",kn:"kanji known",done:" — you did it! 🎉",loadfail:"Couldn't load the kanji list from /assets.",badfile:"Couldn't read that file. Is it the kanji JSON?",nokanji:"That file has no kanji in it.",choose:"📂 Choose the JSON file",need4:"Need at least 4 kanji to play.",nolist:"No example words yet.",nextq:"Next ▶",finish:"Finish ▶",hint:"Tap a card's star when you know that kanji. Your stars are saved on this device."},
+    id: {home:"🏠 Beranda",sub:"Lihat · Ucapkan · Ingat",cards:"📖 Kartu",flash:"🃏 Kartu Hafalan",quiz:"🎯 Kuis",load:"📂 Muat JSON",about:"Tentang daftar ini",search:"Cari kanji, bacaan, atau arti…",all:"Semua",learn:"Belajar",known:"Hafal",words:"Contoh kata",mix:"Gabungan kata",lesson:"Pelajaran",alll:"Semua pelajaran",nomatch:"Tidak ada kanji yang cocok. Coba cari yang lain!",nothing:"Kosong. Pilih filter lain!",tap:"ketuk untuk membalik ↻",back:"◀ Kembali",next:"Lanjut ▶",shuf:"🔀 Acak",shufd:"🔀 Teracak",iknow:"☆ Aku hafal",isknown:"⭐ Hafal",q:"Soal",qm:"Apa artinya?",qk:"Kanji yang mana ini?",yes:"Benar!! 🎉",oops:"Yah!",again:"🔁 Main lagi",tocards:"📖 Kembali ke kartu",prac:"Latih yang ini:",nomist:"Tidak ada yang salah!",s1:"Luar biasa!! 🌈",s2:"Kerja bagus! ⭐",s3:"Ayo coba lagi! 💪",kn:"kanji dihafal",done:" — kamu berhasil! 🎉",loadfail:"Daftar kanji tidak bisa dimuat dari /assets.",badfile:"File tidak bisa dibaca. Apakah ini JSON kanji?",nokanji:"File itu tidak berisi kanji.",choose:"📂 Pilih file JSON",need4:"Butuh minimal 4 kanji untuk bermain.",nolist:"Belum ada contoh kata.",nextq:"Lanjut ▶",finish:"Selesai ▶",hint:"Ketuk bintang pada kartu saat kamu sudah hafal kanjinya. Bintangmu tersimpan di perangkat ini."} };
+  const LN = {住所:["Address","Alamat"],形容詞:["Adjectives","Kata sifat"],趣味:["Hobbies","Hobi"],仕事:["Work","Pekerjaan"],自然:["Nature","Alam"],季節:["Seasons","Musim"],体:["Body","Tubuh"],時間:["Time","Waktu"],動詞:["Verbs","Kata kerja"],家族:["Family","Keluarga"],生活:["Daily life","Kehidupan"],食べ物:["Food","Makanan"],部首:["Radicals","Radikal"],場所:["Places","Tempat"],交通:["Transport","Transportasi"],学校:["School","Sekolah"]};
+  const $ = s => document.querySelector(s);
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+  const arr = a => Array.isArray(a) ? a.map(String) : [];
+  const parseV = s => { s = String(s ?? "").trim(); if (!s) return null; const m = s.match(/^(.+?)[（(]([^）)]*)[）)]$/); return m ? {word: m[1].trim(), reading: m[2].trim(), meaning: ""} : {word: s, reading: "", meaning: ""}; };
+  const wl = a => Array.isArray(a) ? a.map(w => typeof w === "string" ? parseV(w) : (w && w.word ? {word: String(w.word), reading: String(w.reading || ""), meaning: String(w.meaning || "")} : null)).filter(Boolean) : [];
+  const hira = s => s.replace(/[\u30a1-\u30f6]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60)).toLowerCase();
+  const shuffle = a => { for (let i = a.length - 1; i > 0; i--) { const j = Math.random() * (i + 1) | 0; [a[i], a[j]] = [a[j], a[i]]; } return a; };
+  let lang = "en", D = {}, K = [], lessons = [], known = new Set(), mode = "study", flt = "all", lessonSel = 0, fdeck = [], fi = 0, shuf = false, qz = null;
+  const t = k => (T[lang] && T[lang][k]) || T.en[k] || k;
+  const KEY = () => "kanjiKnown:" + (D.source || D.level || D.title || "list");
+  const lTr = name => { const m = String(name).match(/^(.*?)([0-9０-９]*)$/), e = LN[m[1]]; return e ? e[lang === "id" ? 1 : 0] + (m[2] ? " " + m[2].replace(/[０-９]/g, c => String.fromCharCode(c.charCodeAt(0) - 0xFEE0)) : "") : ""; };
+  const mean = k => k.meaning || (k.lessonWord ? lTr(k.kanji) : "");
+  if ("speechSynthesis" in window) document.documentElement.classList.add("tts");
+  const say = x => { try { speechSynthesis.cancel(); const u = new SpeechSynthesisUtterance(x); u.lang = "ja-JP"; u.rate = .8; speechSynthesis.speak(u); } catch (e) {} };
+
+  function applyText() {
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-t]").forEach(e => { e.textContent = t(e.dataset.t); });
+    document.querySelectorAll("[data-tp]").forEach(e => { e.placeholder = t(e.dataset.tp); });
+    document.querySelectorAll("[data-l]").forEach(b => b.setAttribute("aria-pressed", b.dataset.l === lang));
+  }
+  function init(d, keep) {
+    // Accepts the textbook "cards" JSON (one kanji per card) and the older "kanji" JSON.
+    if (!Array.isArray(d.kanji) && Array.isArray(d.cards)) {
+      d = {...d, kanji: d.cards.map(c => ({kanji: c.kanji, meaning: c.heading || c.meaning || "", onyomi: c.onyomi, kunyomi: c.kunyomi, vocabulary_examples: c.vocabulary, combinations: c.combinations}))};
+    }
+    D = d;
+    const L = Array.isArray(d.lesson_order) ? d.lesson_order : [], lmap = new Map();
+    lessons = L.map((l, i) => { (l.kanji || []).forEach(x => { if (!lmap.has(String(x))) lmap.set(String(x), i + 1); }); return {n: i + 1, name: String(l.lesson || "")}; });
+    K = (d.kanji || []).filter(k => k && k.kanji).map(k => {
+      const o = {kanji: String(k.kanji), meaning: String(k.meaning || "").trim(), onyomi: arr(k.onyomi), kunyomi: arr(k.kunyomi), lesson: lmap.get(String(k.kanji)) || 0};
+      const ex = wl(k.vocabulary_examples || k.standalone_words);
+      o.words = ex; o.combos = wl(k.combinations);
+      o.lessonWord = !o.meaning && o.lesson && lessons[o.lesson - 1].name === o.kanji;
+      o.hay = hira([o.kanji, mean(o), ...o.onyomi, ...o.kunyomi, ...o.words.concat(o.combos).flatMap(w => [w.word, w.reading, w.meaning])].join(" "));
+      return o;
+    });
+    if (!K.length) return fail(t("nokanji"));
+    try { known = new Set(JSON.parse(localStorage.getItem(KEY()) || "[]")); } catch (e) { known = new Set(); }
+    $("#ttl").textContent = d.title || "Kanji Study"; $("#lvl").textContent = d.level || d.language || "Kanji";
+    $("#note").textContent = [d.note || d.format_note, t("hint")].filter(Boolean).join(" ");
+    document.title = d.title || "Kanji Study";
+    if (!keep) { flt = "all"; lessonSel = 0; fi = 0; $("#q").value = ""; }
+    if (lessonSel > lessons.length) lessonSel = 0;
+    lessonOpts(); chips(); progress(); setMode(mode);
+  }
+  const save = () => { try { localStorage.setItem(KEY(), JSON.stringify([...known])); } catch (e) {} };
+  const fail = m => { $("#state").hidden = false; $("#state").innerHTML = esc(m) + `<br><label class="btn go">${esc(t("choose"))}<input type="file" accept=".json,application/json" hidden id="pick2"></label>`; ["#vStudy", "#vFlash", "#vQuiz"].forEach(s => $(s).hidden = true); };
+  function lessonOpts() {
+    const s = $("#lesson"); s.hidden = !lessons.length; if (!lessons.length) return;
+    s.innerHTML = `<option value="0">${esc(t("alll"))}</option>` + lessons.map(l => `<option value="${l.n}">${esc(t("lesson"))} ${l.n} · ${esc(l.name)}${lTr(l.name) ? " (" + esc(lTr(l.name)) + ")" : ""}</option>`).join("");
+    s.value = String(lessonSel);
+  }
+  function progress() {
+    const n = known.size, tot = K.length, p = tot ? Math.round(100 * n / tot) : 0;
+    $("#pfill").style.width = p + "%"; $("#pbar").setAttribute("aria-valuenow", p);
+    $("#ptxt").textContent = `${n} / ${tot} ${t("kn")} ⭐` + (n === tot && tot ? t("done") : "");
+  }
+  function chips() {
+    const L = K.filter(k => !known.has(k.kanji)).length, items = [["all", t("all") + " " + K.length], ["learn", t("learn") + " " + L], ["known", t("known") + " " + (K.length - L)]];
+    $("#chips").innerHTML = items.map(([k, l]) => `<button type="button" data-k="${k}" aria-pressed="${k === flt}">${l}</button>`).join("");
+  }
+  const inFilter = k => (!lessonSel || k.lesson === lessonSel) && (flt === "all" || (flt === "known") === known.has(k.kanji));
+  const list = (title, a) => a.length ? `<p class="lt">${esc(title)}:</p><ul class="wl">${a.map(w => `<li><button type="button" class="sp" data-say="${esc(w.reading || w.word)}" aria-label="Listen to ${esc(w.word)}">🔊</button><ruby lang="ja">${esc(w.word)}<rt>${esc(w.reading)}</rt></ruby><span class="wm">${esc(w.meaning)}</span></li>`).join("")}</ul>` : "";
+  const reads = k => (k.onyomi.length ? `<span class="chip"><b>音 on</b><span lang="ja">${k.onyomi.map(esc).join("・")}</span></span>` : "") + (k.kunyomi.length ? `<span class="chip"><b>訓 kun</b><span lang="ja">${k.kunyomi.map(esc).join("・")}</span></span>` : "");
+  const star = k => `<button type="button" class="kn" data-k="${esc(k.kanji)}" aria-pressed="${known.has(k.kanji)}" aria-label="I know ${esc(k.kanji)}" title="★">⭐</button>`;
+  const body = k => list(t("words"), k.words) + list(t("mix"), k.combos);
+  const card = (k, i) => `<article class="kc t${i % 5}" style="animation-delay:${Math.min(i, 10) * 40}ms"><div class="kh"><div class="kj" lang="ja"${k.kanji.length > 1 ? ' style="font-size:44px"' : ""}>${esc(k.kanji)}</div><div><span class="mn">${esc(mean(k))}</span><div class="rd">${reads(k)}</div></div>${star(k)}</div><div class="kb">${body(k) || `<p class="wm">${esc(t("nolist"))}</p>`}</div></article>`;
+
+  /* ---- cards ---- */
+  function study() {
+    const q = hira($("#q").value.trim()), v = K.filter(k => inFilter(k) && k.hay.includes(q)), g = new Map();
+    v.forEach(k => { if (!g.has(k.lesson)) g.set(k.lesson, []); g.get(k.lesson).push(k); });
+    let n = 0, html = "";
+    [...g].sort((a, b) => a[0] - b[0]).forEach(([no, items]) => {
+      const ls = no && lessons[no - 1], tr = ls && lTr(ls.name);
+      html += `<section class="ls">${ls ? `<h2 class="lh"><span class="no">${no}</span><span lang="ja">${esc(ls.name)}</span>${tr ? `<small>${esc(tr)}</small>` : ""}</h2>` : ""}<div class="grid">${items.map(k => card(k, n++)).join("")}</div></section>`;
+    });
+    $("#vStudy").innerHTML = html;
+    $("#state").hidden = v.length > 0; if (!v.length) $("#state").textContent = t("nomatch");
+  }
+
+  /* ---- flashcards ---- */
+  function flashDeck() { fdeck = K.filter(inFilter); if (shuf) shuffle(fdeck); fi = Math.min(fi, Math.max(fdeck.length - 1, 0)); flash(); }
+  function flash() {
+    const k = fdeck[fi], box = $("#vFlash");
+    $("#state").hidden = !!k; if (!k) { $("#state").textContent = t("nothing"); box.innerHTML = ""; return; }
+    const isK = known.has(k.kanji);
+    box.innerHTML = `<div class="fc kc t${fi % 5}" id="fc" tabindex="0" role="button" aria-label="Flip card" style="animation:none;box-shadow:none;border:0;background:none;overflow:visible"><div class="fcard" id="fcard">
+      <div class="face"><div class="big" lang="ja"${k.kanji.length > 1 ? ' style="font-size:min(22vw,110px)"' : ""}>${esc(k.kanji)}</div><p class="tap">${esc(t("tap"))}</p></div>
+      <div class="face back"><div class="kj" lang="ja">${esc(k.kanji)}</div><span class="mn">${esc(mean(k))}</span><div class="rd" style="justify-content:center">${reads(k)}</div>${body(k)}</div></div></div>
+      <div class="fbar"><button type="button" class="btn" data-a="prev">${esc(t("back"))}</button><span>${fi + 1} / ${fdeck.length}</span><button type="button" class="btn go" data-a="next">${esc(t("next"))}</button></div>
+      <div class="fbar"><button type="button" class="btn alt" data-a="shuf">${esc(shuf ? t("shufd") : t("shuf"))}</button><button type="button" class="btn" data-a="known" aria-pressed="${isK}">${esc(isK ? t("isknown") : t("iknow"))}</button></div>`;
+  }
+  const flip = () => { const c = $("#fcard"); if (c) c.classList.toggle("flip"); };
+  const fgo = d => { if (!fdeck.length) return; fi = (fi + d + fdeck.length) % fdeck.length; flash(); };
+
+  /* ---- quiz ---- */
+  function quizStart() {
+    const usable = a => a.filter(k => mean(k));
+    let pool = usable(K.filter(inFilter));
+    if (new Set(pool.map(mean)).size < 4 || pool.length < 4) pool = usable(K);
+    if (new Set(pool.map(mean)).size < 4) { qz = null; $("#state").hidden = false; $("#state").textContent = t("need4"); $("#vQuiz").innerHTML = ""; return; }
+    $("#state").hidden = true;
+    const all = usable(K);
+    const items = shuffle(pool.slice()).slice(0, CFG.quizLen).map((k, i) => {
+      const type = i % 2 ? "k" : "m", seen = new Set([mean(k)]), opts = [k];
+      shuffle(all.slice()).forEach(o => { if (opts.length < 4 && !seen.has(mean(o)) && o.kanji !== k.kanji) { seen.add(mean(o)); opts.push(o); } });
+      return {k, type, opts: shuffle(opts)};
+    });
+    qz = {items, i: 0, score: 0, wrong: [], answered: false};
+    quiz();
+  }
+  function quiz() {
+    const box = $("#vQuiz");
+    if (!qz) return;
+    if (qz.i >= qz.items.length) {
+      const n = qz.items.length, p = qz.score / n, msg = p >= .9 ? t("s1") : p >= .6 ? t("s2") : t("s3");
+      box.innerHTML = `<p class="qp">${esc(msg)}</p><p class="sc">${qz.score} / ${n}</p>` +
+        (qz.wrong.length ? `<p class="qn">${esc(t("prac"))}</p><div class="wrongs">${qz.wrong.map(k => `<span lang="ja">${esc(k.kanji)}</span>`).join("")}</div>` : `<p class="qf">${esc(t("nomist"))}</p>`) +
+        `<div class="fbar"><button type="button" class="btn go" data-a="qagain">${esc(t("again"))}</button><button type="button" class="btn alt" data-a="tocards">${esc(t("tocards"))}</button></div>`;
+      return;
+    }
+    const it = qz.items[qz.i], k = it.k, last = qz.i === qz.items.length - 1;
+    box.innerHTML = `<p class="qn">${esc(t("q"))} ${qz.i + 1} / ${qz.items.length}</p>` +
+      (it.type === "m" ? `<p class="qp">${esc(t("qm"))}</p><p class="qp big" lang="ja">${esc(k.kanji)}</p>` : `<p class="qp">${esc(t("qk"))}</p><p class="qp">${esc(mean(k))}</p>`) +
+      `<div class="qo">${it.opts.map((o, n) => `<button type="button" class="opt" data-o="${n}"${it.type === "k" ? ' lang="ja"' : ""}>${esc(it.type === "m" ? mean(o) : o.kanji)}</button>`).join("")}</div>` +
+      `<p class="qf" aria-live="polite"></p><div class="fbar"><button type="button" class="btn go" data-a="qnext" hidden>${esc(last ? t("finish") : t("nextq"))}</button></div>`;
+    qz.answered = false;
+  }
+  function answer(n) {
+    if (!qz || qz.answered) return;
+    qz.answered = true;
+    const it = qz.items[qz.i], ok = it.opts[n].kanji === it.k.kanji, bs = [...document.querySelectorAll("#vQuiz .opt")];
+    bs.forEach((b, i) => { b.disabled = true; if (it.opts[i].kanji === it.k.kanji) b.classList.add("good"); else if (i === n) b.classList.add("bad"); });
+    if (ok) qz.score++; else qz.wrong.push(it.k);
+    const f = $("#vQuiz .qf");
+    f.innerHTML = ok ? esc(t("yes")) : `${esc(t("oops"))} <span lang="ja">${esc(it.k.kanji)}</span> = ${esc(mean(it.k))}${it.k.onyomi.length || it.k.kunyomi.length ? ` <span lang="ja">(${[...it.k.onyomi, ...it.k.kunyomi].map(esc).join("・")})</span>` : ""}`;
+    $("#vQuiz [data-a=qnext]").hidden = false;
+  }
+
+  /* ---- modes ---- */
+  function setMode(m) {
+    mode = m;
+    document.querySelectorAll("[data-m]").forEach(b => b.setAttribute("aria-selected", b.dataset.m === m));
+    $("#vStudy").hidden = m !== "study"; $("#vFlash").hidden = m !== "flash"; $("#vQuiz").hidden = m !== "quiz";
+    $("#q").hidden = m !== "study";
+    if (!K.length) return;
+    if (m === "study") study(); else if (m === "flash") flashDeck(); else quizStart();
+  }
+  const rerender = () => setMode(mode);
+
+  /* ---- loading ---- */
+  async function loadLang(l) {
+    lang = l; try { localStorage.setItem("kanjiLang", l); } catch (e) {}
+    applyText(); $("#state").hidden = false; $("#state").textContent = "…";
+    for (const url of CFG.data[l]) {
+      try { const r = await fetch(url); if (!r.ok) continue; return init(await r.json(), true); } catch (e) {}
+    }
+    fail(t("loadfail"));
+  }
+  function readFile(f) {
+    if (!f) return;
+    const r = new FileReader();
+    r.onload = () => { try { init(JSON.parse(r.result)); } catch (e) { fail(t("badfile")); } };
+    r.onerror = () => fail(t("badfile"));
+    r.readAsText(f);
+  }
+
+  /* ---- events ---- */
+  document.addEventListener("click", e => {
+    const el = e.target.closest("button,#fc,a");
+    if (!el) return;
+    if (el.dataset.say) { say(el.dataset.say); return; }
+    if (el.dataset.l) { if (el.dataset.l !== lang) loadLang(el.dataset.l); return; }
+    if (el.dataset.m) { setMode(el.dataset.m); return; }
+    if (el.classList.contains("kn")) {
+      const k = el.dataset.k; known.has(k) ? known.delete(k) : known.add(k);
+      el.setAttribute("aria-pressed", known.has(k)); save(); progress(); chips(); return;
+    }
+    if (el.closest("#chips")) { flt = el.dataset.k; chips(); fi = 0; rerender(); return; }
+    if (el.id === "fc") { flip(); return; }
+    if (el.dataset.o !== undefined) { answer(+el.dataset.o); return; }
+    switch (el.dataset.a) {
+      case "prev": fgo(-1); break;
+      case "next": fgo(1); break;
+      case "shuf": shuf = !shuf; flashDeck(); break;
+      case "known": { const k = fdeck[fi]; if (!k) break; known.has(k.kanji) ? known.delete(k.kanji) : known.add(k.kanji); save(); progress(); chips(); flash(); break; }
+      case "qnext": qz.i++; quiz(); break;
+      case "qagain": quizStart(); break;
+      case "tocards": setMode("study"); break;
+    }
+  });
+  document.addEventListener("keydown", e => {
+    if (mode !== "flash" || /INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) return;
+    if (e.key === "ArrowRight") fgo(1); else if (e.key === "ArrowLeft") fgo(-1);
+    else if ((e.key === "Enter" || e.key === " ") && e.target.id === "fc") { e.preventDefault(); flip(); }
+  });
+  $("#q").addEventListener("input", () => { if (mode === "study") study(); });
+  $("#lesson").addEventListener("change", e => { lessonSel = +e.target.value; fi = 0; rerender(); });
+  document.addEventListener("change", e => { if (e.target.id === "pick" || e.target.id === "pick2") readFile(e.target.files[0]); });
+
+  let start = "en";
+  try { start = localStorage.getItem("kanjiLang") || (/^id/i.test(navigator.language) ? "id" : "en"); } catch (e) {}
+  loadLang(start === "id" ? "id" : "en");
+})();
+</script>
+</body>
+</html>

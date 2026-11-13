@@ -1,0 +1,23 @@
+/* Decoration only: stickers + animation for admin.html. Nothing here changes behaviour. */
+#fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.adm{position:relative;z-index:1}
+.fx-s{position:absolute;height:auto;animation:fx-bob 5s ease-in-out var(--d,0s) infinite}
+.fx-s.spin{animation:fx-spin 30s linear infinite}
+.fx-s.tw{animation:fx-tw 2.6s ease-in-out var(--d,0s) infinite}
+.adm h1{animation:fx-sway 6s ease-in-out infinite}
+.card{animation:fx-rise .6s both}.main>.card:nth-child(2){animation-delay:.12s}
+.item{animation:fx-rise .45s both;transition:transform .2s}
+#msg{animation:fx-pop .35s}
+#preview{animation:fx-pop .4s}
+.b{transition:transform .15s}.b:active{transform:scale(.95)}.b:disabled{animation:fx-pulse 1s ease-in-out infinite}
+input,select,textarea{transition:box-shadow .2s,border-color .2s}
+input:focus,select:focus,textarea:focus{border-color:var(--purple);box-shadow:0 0 0 3px rgba(140,91,216,.22)}
+@media(hover:hover){.b:not(:disabled):hover{transform:translateY(-2px) rotate(-1.5deg)}.item:hover{transform:translateX(4px)}}
+@keyframes fx-bob{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-10px) rotate(calc(var(--r,0deg) + 5deg))}}
+@keyframes fx-spin{to{transform:rotate(360deg)}}
+@keyframes fx-tw{0%,100%{transform:scale(1) rotate(var(--r,0deg));opacity:1}50%{transform:scale(1.22) rotate(calc(var(--r,0deg) + 12deg));opacity:.7}}
+@keyframes fx-sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(1deg) translateY(-3px)}}
+@keyframes fx-rise{from{opacity:0;transform:translateY(16px)}}
+@keyframes fx-pop{0%{opacity:0;transform:scale(.9)}60%{transform:scale(1.04)}}
+@keyframes fx-pulse{50%{opacity:.8}}
+@media(prefers-reduced-motion:reduce){.fx-s,.adm h1,.card,.item,#msg,#preview,.b{animation:none!important}}
