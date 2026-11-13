@@ -1,0 +1,4445 @@
+{
+  "title": "Textbook Kanji — Screenshot Style",
+  "language": "English",
+  "source": "User's textbook photo, Part 2 のかんじ, Lessons 1–20",
+  "format_note": "Each kanji is a separate study card: meaning heading, Onyomi/Kunyomi, large kanji character, then vocabulary with reading and translation.",
+  "kanji_count": 200,
+  "cards": [
+    {
+      "heading": "Address",
+      "onyomi": [],
+      "kunyomi": [],
+      "kanji": "住",
+      "vocabulary": []
+    },
+    {
+      "heading": "place; address",
+      "onyomi": [
+        "ショ"
+      ],
+      "kunyomi": [
+        "ところ"
+      ],
+      "kanji": "所",
+      "vocabulary": [
+        {
+          "word": "所",
+          "reading": "ところ",
+          "meaning": "place"
+        },
+        {
+          "word": "住所",
+          "reading": "じゅうしょ",
+          "meaning": "address"
+        }
+      ]
+    },
+    {
+      "heading": "capital",
+      "onyomi": [
+        "キョウ",
+        "ケイ"
+      ],
+      "kunyomi": [
+        "みやこ"
+      ],
+      "kanji": "京",
+      "vocabulary": [
+        {
+          "word": "東京",
+          "reading": "とうきょう",
+          "meaning": "Tokyo"
+        },
+        {
+          "word": "京都",
+          "reading": "きょうと",
+          "meaning": "Kyoto"
+        }
+      ]
+    },
+    {
+      "heading": "metropolis; capital",
+      "onyomi": [
+        "ト",
+        "ツ"
+      ],
+      "kunyomi": [
+        "みやこ"
+      ],
+      "kanji": "都",
+      "vocabulary": [
+        {
+          "word": "都",
+          "reading": "みやこ",
+          "meaning": "metropolis; capital"
+        },
+        {
+          "word": "京都",
+          "reading": "きょうと",
+          "meaning": "Kyoto"
+        }
+      ]
+    },
+    {
+      "heading": "urban prefecture; government office",
+      "onyomi": [
+        "フ"
+      ],
+      "kunyomi": [],
+      "kanji": "府",
+      "vocabulary": [
+        {
+          "word": "大阪府",
+          "reading": "おおさかふ",
+          "meaning": "Osaka Prefecture"
+        },
+        {
+          "word": "京都府",
+          "reading": "きょうとふ",
+          "meaning": "urban prefecture; government office"
+        }
+      ]
+    },
+    {
+      "heading": "prefecture",
+      "onyomi": [
+        "ケン"
+      ],
+      "kunyomi": [],
+      "kanji": "県",
+      "vocabulary": [
+        {
+          "word": "県",
+          "reading": "けん",
+          "meaning": "prefecture"
+        },
+        {
+          "word": "県立",
+          "reading": "けんりつ",
+          "meaning": "prefecture"
+        }
+      ]
+    },
+    {
+      "heading": "city; market",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "いち"
+      ],
+      "kanji": "市",
+      "vocabulary": [
+        {
+          "word": "市",
+          "reading": "し",
+          "meaning": "city; market"
+        },
+        {
+          "word": "市役所",
+          "reading": "しやくしょ",
+          "meaning": "city; market"
+        }
+      ]
+    },
+    {
+      "heading": "ward; district",
+      "onyomi": [
+        "ク"
+      ],
+      "kunyomi": [],
+      "kanji": "区",
+      "vocabulary": [
+        {
+          "word": "区",
+          "reading": "く",
+          "meaning": "ward; district"
+        },
+        {
+          "word": "区役所",
+          "reading": "くやくしょ",
+          "meaning": "ward; district"
+        }
+      ]
+    },
+    {
+      "heading": "town",
+      "onyomi": [
+        "チョウ"
+      ],
+      "kunyomi": [
+        "まち"
+      ],
+      "kanji": "町",
+      "vocabulary": [
+        {
+          "word": "町",
+          "reading": "まち",
+          "meaning": "town"
+        },
+        {
+          "word": "町長",
+          "reading": "ちょうちょう",
+          "meaning": "town"
+        }
+      ]
+    },
+    {
+      "heading": "village",
+      "onyomi": [
+        "ソン"
+      ],
+      "kunyomi": [
+        "むら"
+      ],
+      "kanji": "村",
+      "vocabulary": [
+        {
+          "word": "村",
+          "reading": "むら",
+          "meaning": "village"
+        },
+        {
+          "word": "村人",
+          "reading": "むらびと",
+          "meaning": "village"
+        }
+      ]
+    },
+    {
+      "heading": "bright; clear",
+      "onyomi": [
+        "メイ",
+        "ミョウ"
+      ],
+      "kunyomi": [
+        "あか(るい)",
+        "あ(ける)"
+      ],
+      "kanji": "明",
+      "vocabulary": [
+        {
+          "word": "明るい",
+          "reading": "あかるい",
+          "meaning": "bright"
+        },
+        {
+          "word": "説明",
+          "reading": "せつめい",
+          "meaning": "explanation"
+        }
+      ]
+    },
+    {
+      "heading": "dark",
+      "onyomi": [
+        "アン"
+      ],
+      "kunyomi": [
+        "くら(い)"
+      ],
+      "kanji": "暗",
+      "vocabulary": [
+        {
+          "word": "暗い",
+          "reading": "くらい",
+          "meaning": "dark"
+        },
+        {
+          "word": "暗記",
+          "reading": "あんき",
+          "meaning": "dark"
+        }
+      ]
+    },
+    {
+      "heading": "far",
+      "onyomi": [
+        "エン"
+      ],
+      "kunyomi": [
+        "とお(い)"
+      ],
+      "kanji": "遠",
+      "vocabulary": [
+        {
+          "word": "遠い",
+          "reading": "とおい",
+          "meaning": "far"
+        },
+        {
+          "word": "遠足",
+          "reading": "えんそく",
+          "meaning": "far"
+        }
+      ]
+    },
+    {
+      "heading": "near",
+      "onyomi": [
+        "キン"
+      ],
+      "kunyomi": [
+        "ちか(い)"
+      ],
+      "kanji": "近",
+      "vocabulary": [
+        {
+          "word": "近い",
+          "reading": "ちかい",
+          "meaning": "near"
+        },
+        {
+          "word": "近所",
+          "reading": "きんじょ",
+          "meaning": "near"
+        }
+      ]
+    },
+    {
+      "heading": "strong",
+      "onyomi": [
+        "キョウ",
+        "ゴウ"
+      ],
+      "kunyomi": [
+        "つよ(い)",
+        "つよ(める)"
+      ],
+      "kanji": "強",
+      "vocabulary": [
+        {
+          "word": "強い",
+          "reading": "つよい",
+          "meaning": "strong"
+        },
+        {
+          "word": "勉強",
+          "reading": "べんきょう",
+          "meaning": "study"
+        }
+      ]
+    },
+    {
+      "heading": "weak",
+      "onyomi": [
+        "ジャク"
+      ],
+      "kunyomi": [
+        "よわ(い)"
+      ],
+      "kanji": "弱",
+      "vocabulary": [
+        {
+          "word": "弱い",
+          "reading": "よわい",
+          "meaning": "weak"
+        },
+        {
+          "word": "弱点",
+          "reading": "じゃくてん",
+          "meaning": "weak"
+        }
+      ]
+    },
+    {
+      "heading": "heavy; important",
+      "onyomi": [
+        "ジュウ",
+        "チョウ"
+      ],
+      "kunyomi": [
+        "おも(い)",
+        "かさ(なる)"
+      ],
+      "kanji": "重",
+      "vocabulary": [
+        {
+          "word": "重い",
+          "reading": "おもい",
+          "meaning": "heavy"
+        },
+        {
+          "word": "体重",
+          "reading": "たいじゅう",
+          "meaning": "heavy; important"
+        }
+      ]
+    },
+    {
+      "heading": "light; not heavy",
+      "onyomi": [
+        "ケイ"
+      ],
+      "kunyomi": [
+        "かる(い)"
+      ],
+      "kanji": "軽",
+      "vocabulary": [
+        {
+          "word": "軽い",
+          "reading": "かるい",
+          "meaning": "light"
+        },
+        {
+          "word": "軽食",
+          "reading": "けいしょく",
+          "meaning": "light; not heavy"
+        }
+      ]
+    },
+    {
+      "heading": "thick; fat",
+      "onyomi": [
+        "タイ",
+        "タ"
+      ],
+      "kunyomi": [
+        "ふと(い)",
+        "ふと(る)"
+      ],
+      "kanji": "太",
+      "vocabulary": [
+        {
+          "word": "太い",
+          "reading": "ふとい",
+          "meaning": "thick"
+        },
+        {
+          "word": "太る",
+          "reading": "ふとる",
+          "meaning": "thick; fat"
+        }
+      ]
+    },
+    {
+      "heading": "thin; fine; detailed",
+      "onyomi": [
+        "サイ"
+      ],
+      "kunyomi": [
+        "ほそ(い)",
+        "こま(かい)"
+      ],
+      "kanji": "細",
+      "vocabulary": [
+        {
+          "word": "細い",
+          "reading": "ほそい",
+          "meaning": "thin"
+        },
+        {
+          "word": "細かい",
+          "reading": "こまかい",
+          "meaning": "thin; fine; detailed"
+        }
+      ]
+    },
+    {
+      "heading": "special",
+      "onyomi": [
+        "トク"
+      ],
+      "kunyomi": [],
+      "kanji": "特",
+      "vocabulary": [
+        {
+          "word": "特別",
+          "reading": "とくべつ",
+          "meaning": "special"
+        },
+        {
+          "word": "特急",
+          "reading": "とっきゅう",
+          "meaning": "special"
+        }
+      ]
+    },
+    {
+      "heading": "separate; different",
+      "onyomi": [
+        "ベツ"
+      ],
+      "kunyomi": [
+        "わか(れる)"
+      ],
+      "kanji": "別",
+      "vocabulary": [
+        {
+          "word": "別れる",
+          "reading": "わかれる",
+          "meaning": "separate; different"
+        },
+        {
+          "word": "特別",
+          "reading": "とくべつ",
+          "meaning": "special"
+        }
+      ]
+    },
+    {
+      "heading": "exist; have",
+      "onyomi": [
+        "ユウ",
+        "ウ"
+      ],
+      "kunyomi": [
+        "あ(る)"
+      ],
+      "kanji": "有",
+      "vocabulary": [
+        {
+          "word": "有る",
+          "reading": "ある",
+          "meaning": "exist; have"
+        },
+        {
+          "word": "有名",
+          "reading": "ゆうめい",
+          "meaning": "exist; have"
+        }
+      ]
+    },
+    {
+      "heading": "convenience; mail",
+      "onyomi": [
+        "ベン",
+        "ビン"
+      ],
+      "kunyomi": [
+        "たよ(り)"
+      ],
+      "kanji": "便",
+      "vocabulary": [
+        {
+          "word": "便利",
+          "reading": "べんり",
+          "meaning": "convenient"
+        },
+        {
+          "word": "郵便",
+          "reading": "ゆうびん",
+          "meaning": "convenience; mail"
+        }
+      ]
+    },
+    {
+      "heading": "benefit; advantage",
+      "onyomi": [
+        "リ"
+      ],
+      "kunyomi": [
+        "き(く)"
+      ],
+      "kanji": "利",
+      "vocabulary": [
+        {
+          "word": "便利",
+          "reading": "べんり",
+          "meaning": "convenient"
+        },
+        {
+          "word": "利用",
+          "reading": "りよう",
+          "meaning": "benefit; advantage"
+        }
+      ]
+    },
+    {
+      "heading": "not; un-",
+      "onyomi": [
+        "フ",
+        "ブ"
+      ],
+      "kunyomi": [],
+      "kanji": "不",
+      "vocabulary": [
+        {
+          "word": "不便",
+          "reading": "ふべん",
+          "meaning": "inconvenient"
+        },
+        {
+          "word": "不安",
+          "reading": "ふあん",
+          "meaning": "not; un-"
+        }
+      ]
+    },
+    {
+      "heading": "cut; important (in 大切)",
+      "onyomi": [
+        "セツ",
+        "サイ"
+      ],
+      "kunyomi": [
+        "き(る)",
+        "き(れる)"
+      ],
+      "kanji": "切",
+      "vocabulary": [
+        {
+          "word": "切る",
+          "reading": "きる",
+          "meaning": "cut; important (in 大切)"
+        },
+        {
+          "word": "大切",
+          "reading": "たいせつ",
+          "meaning": "important"
+        }
+      ]
+    },
+    {
+      "heading": "origin; former",
+      "onyomi": [
+        "ゲン",
+        "ガン"
+      ],
+      "kunyomi": [
+        "もと"
+      ],
+      "kanji": "元",
+      "vocabulary": [
+        {
+          "word": "元気",
+          "reading": "げんき",
+          "meaning": "healthy; energetic"
+        },
+        {
+          "word": "元々",
+          "reading": "もともと",
+          "meaning": "origin; former"
+        }
+      ]
+    },
+    {
+      "heading": "like; fond of",
+      "onyomi": [
+        "コウ"
+      ],
+      "kunyomi": [
+        "す(き)",
+        "この(む)"
+      ],
+      "kanji": "好",
+      "vocabulary": [
+        {
+          "word": "好き",
+          "reading": "すき",
+          "meaning": "to like"
+        },
+        {
+          "word": "好きな",
+          "reading": "すきな",
+          "meaning": "like; fond of"
+        }
+      ]
+    },
+    {
+      "heading": "urgent; sudden",
+      "onyomi": [
+        "キュウ"
+      ],
+      "kunyomi": [
+        "いそ(ぐ)"
+      ],
+      "kanji": "急",
+      "vocabulary": [
+        {
+          "word": "急ぐ",
+          "reading": "いそぐ",
+          "meaning": "to hurry"
+        },
+        {
+          "word": "急に",
+          "reading": "きゅうに",
+          "meaning": "urgent; sudden"
+        }
+      ]
+    },
+    {
+      "heading": "low",
+      "onyomi": [
+        "テイ"
+      ],
+      "kunyomi": [
+        "ひく(い)",
+        "ひく(める)"
+      ],
+      "kanji": "低",
+      "vocabulary": [
+        {
+          "word": "低い",
+          "reading": "ひくい",
+          "meaning": "low"
+        },
+        {
+          "word": "低温",
+          "reading": "ていおん",
+          "meaning": "low"
+        }
+      ]
+    },
+    {
+      "heading": "wide; spacious",
+      "onyomi": [
+        "コウ"
+      ],
+      "kunyomi": [
+        "ひろ(い)",
+        "ひろ(がる)"
+      ],
+      "kanji": "広",
+      "vocabulary": [
+        {
+          "word": "広い",
+          "reading": "ひろい",
+          "meaning": "wide"
+        },
+        {
+          "word": "広場",
+          "reading": "ひろば",
+          "meaning": "wide; spacious"
+        }
+      ]
+    },
+    {
+      "heading": "short",
+      "onyomi": [
+        "タン"
+      ],
+      "kunyomi": [
+        "みじか(い)"
+      ],
+      "kanji": "短",
+      "vocabulary": [
+        {
+          "word": "短い",
+          "reading": "みじかい",
+          "meaning": "short"
+        },
+        {
+          "word": "短時間",
+          "reading": "たんじかん",
+          "meaning": "short"
+        }
+      ]
+    },
+    {
+      "heading": "good",
+      "onyomi": [
+        "リョウ"
+      ],
+      "kunyomi": [
+        "よ(い)"
+      ],
+      "kanji": "良",
+      "vocabulary": [
+        {
+          "word": "良い",
+          "reading": "よい",
+          "meaning": "good"
+        },
+        {
+          "word": "仲良し",
+          "reading": "なかよし",
+          "meaning": "good"
+        }
+      ]
+    },
+    {
+      "heading": "bad",
+      "onyomi": [
+        "アク",
+        "オ"
+      ],
+      "kunyomi": [
+        "わる(い)"
+      ],
+      "kanji": "悪",
+      "vocabulary": [
+        {
+          "word": "悪い",
+          "reading": "わるい",
+          "meaning": "bad"
+        },
+        {
+          "word": "悪口",
+          "reading": "わるぐち",
+          "meaning": "bad"
+        }
+      ]
+    },
+    {
+      "heading": "correct; proper",
+      "onyomi": [
+        "セイ",
+        "ショウ"
+      ],
+      "kunyomi": [
+        "ただ(しい)",
+        "ただ(す)"
+      ],
+      "kanji": "正",
+      "vocabulary": [
+        {
+          "word": "正しい",
+          "reading": "ただしい",
+          "meaning": "correct"
+        },
+        {
+          "word": "正月",
+          "reading": "しょうがつ",
+          "meaning": "correct; proper"
+        }
+      ]
+    },
+    {
+      "heading": "strange; change",
+      "onyomi": [
+        "ヘン"
+      ],
+      "kunyomi": [
+        "か(わる)",
+        "か(える)"
+      ],
+      "kanji": "変",
+      "vocabulary": [
+        {
+          "word": "変わる",
+          "reading": "かわる",
+          "meaning": "to change"
+        },
+        {
+          "word": "大変",
+          "reading": "たいへん",
+          "meaning": "strange; change"
+        }
+      ]
+    },
+    {
+      "heading": "red",
+      "onyomi": [
+        "セキ",
+        "シャク"
+      ],
+      "kunyomi": [
+        "あか",
+        "あか(い)"
+      ],
+      "kanji": "赤",
+      "vocabulary": [
+        {
+          "word": "赤い",
+          "reading": "あかい",
+          "meaning": "red"
+        },
+        {
+          "word": "赤ちゃん",
+          "reading": "あかちゃん",
+          "meaning": "red"
+        }
+      ]
+    },
+    {
+      "heading": "blue",
+      "onyomi": [
+        "セイ",
+        "ショウ"
+      ],
+      "kunyomi": [
+        "あお",
+        "あお(い)"
+      ],
+      "kanji": "青",
+      "vocabulary": [
+        {
+          "word": "青い",
+          "reading": "あおい",
+          "meaning": "blue"
+        },
+        {
+          "word": "青空",
+          "reading": "あおぞら",
+          "meaning": "blue"
+        }
+      ]
+    },
+    {
+      "heading": "black",
+      "onyomi": [
+        "コク"
+      ],
+      "kunyomi": [
+        "くろ",
+        "くろ(い)"
+      ],
+      "kanji": "黒",
+      "vocabulary": [
+        {
+          "word": "黒い",
+          "reading": "くろい",
+          "meaning": "black"
+        },
+        {
+          "word": "黒板",
+          "reading": "こくばん",
+          "meaning": "black"
+        }
+      ]
+    },
+    {
+      "heading": "reflect; project",
+      "onyomi": [
+        "エイ"
+      ],
+      "kunyomi": [
+        "うつ(る)",
+        "うつ(す)"
+      ],
+      "kanji": "映",
+      "vocabulary": [
+        {
+          "word": "映画",
+          "reading": "えいが",
+          "meaning": "movie"
+        },
+        {
+          "word": "映る",
+          "reading": "うつる",
+          "meaning": "reflect; project"
+        }
+      ]
+    },
+    {
+      "heading": "picture; drawing",
+      "onyomi": [
+        "ガ",
+        "カク"
+      ],
+      "kunyomi": [],
+      "kanji": "画",
+      "vocabulary": [
+        {
+          "word": "映画",
+          "reading": "えいが",
+          "meaning": "movie"
+        },
+        {
+          "word": "画家",
+          "reading": "がか",
+          "meaning": "picture; drawing"
+        }
+      ]
+    },
+    {
+      "heading": "sound",
+      "onyomi": [
+        "オン",
+        "イン"
+      ],
+      "kunyomi": [
+        "おと",
+        "ね"
+      ],
+      "kanji": "音",
+      "vocabulary": [
+        {
+          "word": "音",
+          "reading": "おと",
+          "meaning": "sound"
+        },
+        {
+          "word": "音楽",
+          "reading": "おんがく",
+          "meaning": "music"
+        }
+      ]
+    },
+    {
+      "heading": "music; fun",
+      "onyomi": [
+        "ガク",
+        "ラク"
+      ],
+      "kunyomi": [
+        "たの(しい)",
+        "たの(しむ)"
+      ],
+      "kanji": "楽",
+      "vocabulary": [
+        {
+          "word": "音楽",
+          "reading": "おんがく",
+          "meaning": "music"
+        },
+        {
+          "word": "楽しい",
+          "reading": "たのしい",
+          "meaning": "music; fun"
+        }
+      ]
+    },
+    {
+      "heading": "song; sing",
+      "onyomi": [
+        "カ"
+      ],
+      "kunyomi": [
+        "うた",
+        "うた(う)"
+      ],
+      "kanji": "歌",
+      "vocabulary": [
+        {
+          "word": "歌",
+          "reading": "うた",
+          "meaning": "song"
+        },
+        {
+          "word": "歌う",
+          "reading": "うたう",
+          "meaning": "song; sing"
+        }
+      ]
+    },
+    {
+      "heading": "copy; photograph",
+      "onyomi": [
+        "シャ"
+      ],
+      "kunyomi": [
+        "うつ(す)",
+        "うつ(る)"
+      ],
+      "kanji": "写",
+      "vocabulary": [
+        {
+          "word": "写真",
+          "reading": "しゃしん",
+          "meaning": "photograph"
+        },
+        {
+          "word": "写す",
+          "reading": "うつす",
+          "meaning": "copy; photograph"
+        }
+      ]
+    },
+    {
+      "heading": "true; real",
+      "onyomi": [
+        "シン"
+      ],
+      "kunyomi": [
+        "ま"
+      ],
+      "kanji": "真",
+      "vocabulary": [
+        {
+          "word": "写真",
+          "reading": "しゃしん",
+          "meaning": "photograph"
+        },
+        {
+          "word": "真ん中",
+          "reading": "まんなか",
+          "meaning": "true; real"
+        }
+      ]
+    },
+    {
+      "heading": "trip; travel",
+      "onyomi": [
+        "リョ"
+      ],
+      "kunyomi": [
+        "たび"
+      ],
+      "kanji": "旅",
+      "vocabulary": [
+        {
+          "word": "旅",
+          "reading": "たび",
+          "meaning": "trip"
+        },
+        {
+          "word": "旅行",
+          "reading": "りょこう",
+          "meaning": "trip; travel"
+        }
+      ]
+    },
+    {
+      "heading": "world; generation",
+      "onyomi": [
+        "セイ",
+        "セ"
+      ],
+      "kunyomi": [
+        "よ"
+      ],
+      "kanji": "世",
+      "vocabulary": [
+        {
+          "word": "世界",
+          "reading": "せかい",
+          "meaning": "world"
+        },
+        {
+          "word": "世の中",
+          "reading": "よのなか",
+          "meaning": "world; generation"
+        }
+      ]
+    },
+    {
+      "heading": "world; boundary",
+      "onyomi": [
+        "カイ"
+      ],
+      "kunyomi": [],
+      "kanji": "界",
+      "vocabulary": [
+        {
+          "word": "世界",
+          "reading": "せかい",
+          "meaning": "world"
+        },
+        {
+          "word": "業界",
+          "reading": "ぎょうかい",
+          "meaning": "world; boundary"
+        }
+      ]
+    },
+    {
+      "heading": "serve; do (as in work)",
+      "onyomi": [
+        "シ",
+        "ジ"
+      ],
+      "kunyomi": [
+        "つか(える)"
+      ],
+      "kanji": "仕",
+      "vocabulary": [
+        {
+          "word": "仕事",
+          "reading": "しごと",
+          "meaning": "work; job"
+        },
+        {
+          "word": "仕方",
+          "reading": "しかた",
+          "meaning": "serve; do (as in work)"
+        }
+      ]
+    },
+    {
+      "heading": "thing; matter",
+      "onyomi": [
+        "ジ",
+        "ズ"
+      ],
+      "kunyomi": [
+        "こと"
+      ],
+      "kanji": "事",
+      "vocabulary": [
+        {
+          "word": "仕事",
+          "reading": "しごと",
+          "meaning": "work; job"
+        },
+        {
+          "word": "食事",
+          "reading": "しょくじ",
+          "meaning": "thing; matter"
+        }
+      ]
+    },
+    {
+      "heading": "silver",
+      "onyomi": [
+        "ギン"
+      ],
+      "kunyomi": [],
+      "kanji": "銀",
+      "vocabulary": [
+        {
+          "word": "銀行",
+          "reading": "ぎんこう",
+          "meaning": "bank"
+        },
+        {
+          "word": "銀色",
+          "reading": "ぎんいろ",
+          "meaning": "silver"
+        }
+      ]
+    },
+    {
+      "heading": "member; staff",
+      "onyomi": [
+        "イン"
+      ],
+      "kunyomi": [],
+      "kanji": "員",
+      "vocabulary": [
+        {
+          "word": "会社員",
+          "reading": "かいしゃいん",
+          "meaning": "company employee"
+        },
+        {
+          "word": "店員",
+          "reading": "てんいん",
+          "meaning": "member; staff"
+        }
+      ]
+    },
+    {
+      "heading": "medicine; doctor",
+      "onyomi": [
+        "イ"
+      ],
+      "kunyomi": [],
+      "kanji": "医",
+      "vocabulary": [
+        {
+          "word": "医者",
+          "reading": "いしゃ",
+          "meaning": "doctor"
+        },
+        {
+          "word": "医学",
+          "reading": "いがく",
+          "meaning": "medicine; doctor"
+        }
+      ]
+    },
+    {
+      "heading": "person",
+      "onyomi": [
+        "シャ"
+      ],
+      "kunyomi": [
+        "もの"
+      ],
+      "kanji": "者",
+      "vocabulary": [
+        {
+          "word": "医者",
+          "reading": "いしゃ",
+          "meaning": "doctor"
+        },
+        {
+          "word": "若者",
+          "reading": "わかもの",
+          "meaning": "person"
+        }
+      ]
+    },
+    {
+      "heading": "work",
+      "onyomi": [
+        "ドウ"
+      ],
+      "kunyomi": [
+        "はたら(く)"
+      ],
+      "kanji": "働",
+      "vocabulary": [
+        {
+          "word": "働く",
+          "reading": "はたらく",
+          "meaning": "to work"
+        },
+        {
+          "word": "労働",
+          "reading": "ろうどう",
+          "meaning": "work"
+        }
+      ]
+    },
+    {
+      "heading": "shop; roof",
+      "onyomi": [
+        "オク"
+      ],
+      "kunyomi": [
+        "や"
+      ],
+      "kanji": "屋",
+      "vocabulary": [
+        {
+          "word": "部屋",
+          "reading": "へや",
+          "meaning": "room"
+        },
+        {
+          "word": "本屋",
+          "reading": "ほんや",
+          "meaning": "shop; roof"
+        }
+      ]
+    },
+    {
+      "heading": "produce; give birth",
+      "onyomi": [
+        "サン"
+      ],
+      "kunyomi": [
+        "う(む)",
+        "う(まれる)"
+      ],
+      "kanji": "産",
+      "vocabulary": [
+        {
+          "word": "産業",
+          "reading": "さんぎょう",
+          "meaning": "industry"
+        },
+        {
+          "word": "お土産",
+          "reading": "おみやげ",
+          "meaning": "produce; give birth"
+        }
+      ]
+    },
+    {
+      "heading": "business; work",
+      "onyomi": [
+        "ギョウ",
+        "ゴウ"
+      ],
+      "kunyomi": [
+        "わざ"
+      ],
+      "kanji": "業",
+      "vocabulary": [
+        {
+          "word": "産業",
+          "reading": "さんぎょう",
+          "meaning": "industry"
+        },
+        {
+          "word": "授業",
+          "reading": "じゅぎょう",
+          "meaning": "business; work"
+        }
+      ]
+    },
+    {
+      "heading": "woods",
+      "onyomi": [
+        "リン"
+      ],
+      "kunyomi": [
+        "はやし"
+      ],
+      "kanji": "林",
+      "vocabulary": [
+        {
+          "word": "林",
+          "reading": "はやし",
+          "meaning": "woods"
+        },
+        {
+          "word": "森林",
+          "reading": "しんりん",
+          "meaning": "woods"
+        }
+      ]
+    },
+    {
+      "heading": "forest",
+      "onyomi": [
+        "シン"
+      ],
+      "kunyomi": [
+        "もり"
+      ],
+      "kanji": "森",
+      "vocabulary": [
+        {
+          "word": "森",
+          "reading": "もり",
+          "meaning": "forest"
+        },
+        {
+          "word": "森林",
+          "reading": "しんりん",
+          "meaning": "forest"
+        }
+      ]
+    },
+    {
+      "heading": "earth; ground",
+      "onyomi": [
+        "チ",
+        "ジ"
+      ],
+      "kunyomi": [],
+      "kanji": "地",
+      "vocabulary": [
+        {
+          "word": "地図",
+          "reading": "ちず",
+          "meaning": "map"
+        },
+        {
+          "word": "地下",
+          "reading": "ちか",
+          "meaning": "earth; ground"
+        }
+      ]
+    },
+    {
+      "heading": "pond",
+      "onyomi": [
+        "チ"
+      ],
+      "kunyomi": [
+        "いけ"
+      ],
+      "kanji": "池",
+      "vocabulary": [
+        {
+          "word": "池",
+          "reading": "いけ",
+          "meaning": "pond"
+        },
+        {
+          "word": "電池",
+          "reading": "でんち",
+          "meaning": "pond"
+        }
+      ]
+    },
+    {
+      "heading": "sea",
+      "onyomi": [
+        "カイ"
+      ],
+      "kunyomi": [
+        "うみ"
+      ],
+      "kanji": "海",
+      "vocabulary": [
+        {
+          "word": "海",
+          "reading": "うみ",
+          "meaning": "sea"
+        },
+        {
+          "word": "海外",
+          "reading": "かいがい",
+          "meaning": "sea"
+        }
+      ]
+    },
+    {
+      "heading": "ocean; western",
+      "onyomi": [
+        "ヨウ"
+      ],
+      "kunyomi": [],
+      "kanji": "洋",
+      "vocabulary": [
+        {
+          "word": "太平洋",
+          "reading": "たいへいよう",
+          "meaning": "Pacific Ocean"
+        },
+        {
+          "word": "洋服",
+          "reading": "ようふく",
+          "meaning": "ocean; western"
+        }
+      ]
+    },
+    {
+      "heading": "snow",
+      "onyomi": [
+        "セツ"
+      ],
+      "kunyomi": [
+        "ゆき"
+      ],
+      "kanji": "雪",
+      "vocabulary": [
+        {
+          "word": "雪",
+          "reading": "ゆき",
+          "meaning": "snow"
+        },
+        {
+          "word": "大雪",
+          "reading": "おおゆき",
+          "meaning": "snow"
+        }
+      ]
+    },
+    {
+      "heading": "light; shine",
+      "onyomi": [
+        "コウ"
+      ],
+      "kunyomi": [
+        "ひか(る)",
+        "ひかり"
+      ],
+      "kanji": "光",
+      "vocabulary": [
+        {
+          "word": "光",
+          "reading": "ひかり",
+          "meaning": "light"
+        },
+        {
+          "word": "光る",
+          "reading": "ひかる",
+          "meaning": "light; shine"
+        }
+      ]
+    },
+    {
+      "heading": "stand; platform; counter",
+      "onyomi": [
+        "ダイ",
+        "タイ"
+      ],
+      "kunyomi": [],
+      "kanji": "台",
+      "vocabulary": [
+        {
+          "word": "台風",
+          "reading": "たいふう",
+          "meaning": "typhoon"
+        },
+        {
+          "word": "台所",
+          "reading": "だいどころ",
+          "meaning": "stand; platform; counter"
+        }
+      ]
+    },
+    {
+      "heading": "wind; style",
+      "onyomi": [
+        "フウ",
+        "フ"
+      ],
+      "kunyomi": [
+        "かぜ",
+        "かざ"
+      ],
+      "kanji": "風",
+      "vocabulary": [
+        {
+          "word": "風",
+          "reading": "かぜ",
+          "meaning": "wind; style"
+        },
+        {
+          "word": "台風",
+          "reading": "たいふう",
+          "meaning": "typhoon"
+        }
+      ]
+    },
+    {
+      "heading": "season",
+      "onyomi": [
+        "キ"
+      ],
+      "kunyomi": [],
+      "kanji": "季",
+      "vocabulary": [
+        {
+          "word": "季節",
+          "reading": "きせつ",
+          "meaning": "season"
+        },
+        {
+          "word": "四季",
+          "reading": "しき",
+          "meaning": "season"
+        }
+      ]
+    },
+    {
+      "heading": "season; joint",
+      "onyomi": [
+        "セツ",
+        "セチ"
+      ],
+      "kunyomi": [
+        "ふし"
+      ],
+      "kanji": "節",
+      "vocabulary": [
+        {
+          "word": "季節",
+          "reading": "きせつ",
+          "meaning": "season"
+        },
+        {
+          "word": "節分",
+          "reading": "せつぶん",
+          "meaning": "season; joint"
+        }
+      ]
+    },
+    {
+      "heading": "spring",
+      "onyomi": [
+        "シュン"
+      ],
+      "kunyomi": [
+        "はる"
+      ],
+      "kanji": "春",
+      "vocabulary": [
+        {
+          "word": "春",
+          "reading": "はる",
+          "meaning": "spring"
+        },
+        {
+          "word": "春休み",
+          "reading": "はるやすみ",
+          "meaning": "spring"
+        }
+      ]
+    },
+    {
+      "heading": "summer",
+      "onyomi": [
+        "カ",
+        "ゲ"
+      ],
+      "kunyomi": [
+        "なつ"
+      ],
+      "kanji": "夏",
+      "vocabulary": [
+        {
+          "word": "夏",
+          "reading": "なつ",
+          "meaning": "summer"
+        },
+        {
+          "word": "夏休み",
+          "reading": "なつやすみ",
+          "meaning": "summer"
+        }
+      ]
+    },
+    {
+      "heading": "autumn",
+      "onyomi": [
+        "シュウ"
+      ],
+      "kunyomi": [
+        "あき"
+      ],
+      "kanji": "秋",
+      "vocabulary": [
+        {
+          "word": "秋",
+          "reading": "あき",
+          "meaning": "autumn"
+        },
+        {
+          "word": "秋分",
+          "reading": "しゅうぶん",
+          "meaning": "autumn"
+        }
+      ]
+    },
+    {
+      "heading": "winter",
+      "onyomi": [
+        "トウ"
+      ],
+      "kunyomi": [
+        "ふゆ"
+      ],
+      "kanji": "冬",
+      "vocabulary": [
+        {
+          "word": "冬",
+          "reading": "ふゆ",
+          "meaning": "winter"
+        },
+        {
+          "word": "冬休み",
+          "reading": "ふゆやすみ",
+          "meaning": "winter"
+        }
+      ]
+    },
+    {
+      "heading": "hot (weather)",
+      "onyomi": [
+        "ショ"
+      ],
+      "kunyomi": [
+        "あつ(い)"
+      ],
+      "kanji": "暑",
+      "vocabulary": [
+        {
+          "word": "暑い",
+          "reading": "あつい",
+          "meaning": "hot (weather)"
+        },
+        {
+          "word": "暑さ",
+          "reading": "あつさ",
+          "meaning": "hot (weather)"
+        }
+      ]
+    },
+    {
+      "heading": "cold (weather)",
+      "onyomi": [
+        "カン"
+      ],
+      "kunyomi": [
+        "さむ(い)"
+      ],
+      "kanji": "寒",
+      "vocabulary": [
+        {
+          "word": "寒い",
+          "reading": "さむい",
+          "meaning": "cold (weather)"
+        },
+        {
+          "word": "寒さ",
+          "reading": "さむさ",
+          "meaning": "cold (weather)"
+        }
+      ]
+    },
+    {
+      "heading": "warm",
+      "onyomi": [
+        "ダン"
+      ],
+      "kunyomi": [
+        "あたた(かい)",
+        "あたた(める)"
+      ],
+      "kanji": "暖",
+      "vocabulary": [
+        {
+          "word": "暖かい",
+          "reading": "あたたかい",
+          "meaning": "warm"
+        },
+        {
+          "word": "暖房",
+          "reading": "だんぼう",
+          "meaning": "warm"
+        }
+      ]
+    },
+    {
+      "heading": "cool; refreshing",
+      "onyomi": [
+        "リョウ"
+      ],
+      "kunyomi": [
+        "すず(しい)"
+      ],
+      "kanji": "涼",
+      "vocabulary": [
+        {
+          "word": "涼しい",
+          "reading": "すずしい",
+          "meaning": "cool; refreshing"
+        },
+        {
+          "word": "涼風",
+          "reading": "りょうふう",
+          "meaning": "cool; refreshing"
+        }
+      ]
+    },
+    {
+      "heading": "body",
+      "onyomi": [
+        "タイ",
+        "テイ"
+      ],
+      "kunyomi": [
+        "からだ"
+      ],
+      "kanji": "体",
+      "vocabulary": [
+        {
+          "word": "体",
+          "reading": "からだ",
+          "meaning": "body"
+        },
+        {
+          "word": "体重",
+          "reading": "たいじゅう",
+          "meaning": "body"
+        }
+      ]
+    },
+    {
+      "heading": "head",
+      "onyomi": [
+        "トウ",
+        "ズ",
+        "ト"
+      ],
+      "kunyomi": [
+        "あたま"
+      ],
+      "kanji": "頭",
+      "vocabulary": [
+        {
+          "word": "頭",
+          "reading": "あたま",
+          "meaning": "head"
+        },
+        {
+          "word": "頭痛",
+          "reading": "ずつう",
+          "meaning": "head"
+        }
+      ]
+    },
+    {
+      "heading": "face",
+      "onyomi": [
+        "ガン"
+      ],
+      "kunyomi": [
+        "かお"
+      ],
+      "kanji": "顔",
+      "vocabulary": [
+        {
+          "word": "顔",
+          "reading": "かお",
+          "meaning": "face"
+        },
+        {
+          "word": "笑顔",
+          "reading": "えがお",
+          "meaning": "face"
+        }
+      ]
+    },
+    {
+      "heading": "neck; head",
+      "onyomi": [
+        "シュ"
+      ],
+      "kunyomi": [
+        "くび"
+      ],
+      "kanji": "首",
+      "vocabulary": [
+        {
+          "word": "首",
+          "reading": "くび",
+          "meaning": "neck"
+        },
+        {
+          "word": "首都",
+          "reading": "しゅと",
+          "meaning": "neck; head"
+        }
+      ]
+    },
+    {
+      "heading": "heart; mind",
+      "onyomi": [
+        "シン"
+      ],
+      "kunyomi": [
+        "こころ"
+      ],
+      "kanji": "心",
+      "vocabulary": [
+        {
+          "word": "心",
+          "reading": "こころ",
+          "meaning": "heart; mind"
+        },
+        {
+          "word": "心配",
+          "reading": "しんぱい",
+          "meaning": "heart; mind"
+        }
+      ]
+    },
+    {
+      "heading": "voice",
+      "onyomi": [
+        "セイ",
+        "ショウ"
+      ],
+      "kunyomi": [
+        "こえ",
+        "こわ"
+      ],
+      "kanji": "声",
+      "vocabulary": [
+        {
+          "word": "声",
+          "reading": "こえ",
+          "meaning": "voice"
+        },
+        {
+          "word": "大声",
+          "reading": "おおごえ",
+          "meaning": "voice"
+        }
+      ]
+    },
+    {
+      "heading": "illness",
+      "onyomi": [
+        "ビョウ",
+        "ヘイ"
+      ],
+      "kunyomi": [
+        "や(む)",
+        "やまい"
+      ],
+      "kanji": "病",
+      "vocabulary": [
+        {
+          "word": "病気",
+          "reading": "びょうき",
+          "meaning": "illness"
+        },
+        {
+          "word": "病院",
+          "reading": "びょういん",
+          "meaning": "hospital"
+        }
+      ]
+    },
+    {
+      "heading": "medicine",
+      "onyomi": [
+        "ヤク"
+      ],
+      "kunyomi": [
+        "くすり"
+      ],
+      "kanji": "薬",
+      "vocabulary": [
+        {
+          "word": "薬",
+          "reading": "くすり",
+          "meaning": "medicine"
+        },
+        {
+          "word": "薬局",
+          "reading": "やっきょく",
+          "meaning": "medicine"
+        }
+      ]
+    },
+    {
+      "heading": "department; subject",
+      "onyomi": [
+        "カ"
+      ],
+      "kunyomi": [],
+      "kanji": "科",
+      "vocabulary": [
+        {
+          "word": "内科",
+          "reading": "ないか",
+          "meaning": "internal medicine"
+        },
+        {
+          "word": "科学",
+          "reading": "かがく",
+          "meaning": "department; subject"
+        }
+      ]
+    },
+    {
+      "heading": "inside",
+      "onyomi": [
+        "ナイ",
+        "ダイ"
+      ],
+      "kunyomi": [
+        "うち"
+      ],
+      "kanji": "内",
+      "vocabulary": [
+        {
+          "word": "内",
+          "reading": "うち",
+          "meaning": "inside"
+        },
+        {
+          "word": "国内",
+          "reading": "こくない",
+          "meaning": "inside"
+        }
+      ]
+    },
+    {
+      "heading": "morning",
+      "onyomi": [
+        "チョウ"
+      ],
+      "kunyomi": [
+        "あさ"
+      ],
+      "kanji": "朝",
+      "vocabulary": [
+        {
+          "word": "朝",
+          "reading": "あさ",
+          "meaning": "morning"
+        },
+        {
+          "word": "朝食",
+          "reading": "ちょうしょく",
+          "meaning": "morning"
+        }
+      ]
+    },
+    {
+      "heading": "daytime; noon",
+      "onyomi": [
+        "チュウ"
+      ],
+      "kunyomi": [
+        "ひる"
+      ],
+      "kanji": "昼",
+      "vocabulary": [
+        {
+          "word": "昼",
+          "reading": "ひる",
+          "meaning": "noon; daytime"
+        },
+        {
+          "word": "昼食",
+          "reading": "ちゅうしょく",
+          "meaning": "daytime; noon"
+        }
+      ]
+    },
+    {
+      "heading": "night",
+      "onyomi": [
+        "ヤ"
+      ],
+      "kunyomi": [
+        "よる",
+        "よ"
+      ],
+      "kanji": "夜",
+      "vocabulary": [
+        {
+          "word": "夜",
+          "reading": "よる",
+          "meaning": "night"
+        },
+        {
+          "word": "今夜",
+          "reading": "こんや",
+          "meaning": "night"
+        }
+      ]
+    },
+    {
+      "heading": "evening",
+      "onyomi": [
+        "セキ"
+      ],
+      "kunyomi": [
+        "ゆう"
+      ],
+      "kanji": "夕",
+      "vocabulary": [
+        {
+          "word": "夕方",
+          "reading": "ゆうがた",
+          "meaning": "evening"
+        },
+        {
+          "word": "夕食",
+          "reading": "ゆうしょく",
+          "meaning": "evening"
+        }
+      ]
+    },
+    {
+      "heading": "direction; person; way",
+      "onyomi": [
+        "ホウ"
+      ],
+      "kunyomi": [
+        "かた"
+      ],
+      "kanji": "方",
+      "vocabulary": [
+        {
+          "word": "夕方",
+          "reading": "ゆうがた",
+          "meaning": "evening"
+        },
+        {
+          "word": "方法",
+          "reading": "ほうほう",
+          "meaning": "direction; person; way"
+        }
+      ]
+    },
+    {
+      "heading": "evening; night",
+      "onyomi": [
+        "バン"
+      ],
+      "kunyomi": [],
+      "kanji": "晩",
+      "vocabulary": [
+        {
+          "word": "今晩",
+          "reading": "こんばん",
+          "meaning": "evening; night"
+        },
+        {
+          "word": "毎晩",
+          "reading": "まいばん",
+          "meaning": "evening; night"
+        }
+      ]
+    },
+    {
+      "heading": "measure; plan",
+      "onyomi": [
+        "ケイ"
+      ],
+      "kunyomi": [
+        "はか(る)"
+      ],
+      "kanji": "計",
+      "vocabulary": [
+        {
+          "word": "時計",
+          "reading": "とけい",
+          "meaning": "clock; watch"
+        },
+        {
+          "word": "計画",
+          "reading": "けいかく",
+          "meaning": "measure; plan"
+        }
+      ]
+    },
+    {
+      "heading": "weekday",
+      "onyomi": [
+        "ヨウ"
+      ],
+      "kunyomi": [],
+      "kanji": "曜",
+      "vocabulary": [
+        {
+          "word": "曜日",
+          "reading": "ようび",
+          "meaning": "day of the week"
+        },
+        {
+          "word": "月曜日",
+          "reading": "げつようび",
+          "meaning": "weekday"
+        }
+      ]
+    },
+    {
+      "heading": "by means of; since",
+      "onyomi": [
+        "イ"
+      ],
+      "kunyomi": [],
+      "kanji": "以",
+      "vocabulary": [
+        {
+          "word": "以上",
+          "reading": "いじょう",
+          "meaning": "more than; above"
+        },
+        {
+          "word": "以下",
+          "reading": "いか",
+          "meaning": "by means of; since"
+        }
+      ]
+    },
+    {
+      "heading": "degree; time",
+      "onyomi": [
+        "ド",
+        "ト",
+        "タク"
+      ],
+      "kunyomi": [
+        "たび"
+      ],
+      "kanji": "度",
+      "vocabulary": [
+        {
+          "word": "一度",
+          "reading": "いちど",
+          "meaning": "once"
+        },
+        {
+          "word": "今度",
+          "reading": "こんど",
+          "meaning": "degree; time"
+        }
+      ]
+    },
+    {
+      "heading": "stop",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "と(まる)",
+        "と(める)"
+      ],
+      "kanji": "止",
+      "vocabulary": [
+        {
+          "word": "止まる",
+          "reading": "とまる",
+          "meaning": "to stop"
+        },
+        {
+          "word": "止める",
+          "reading": "とめる",
+          "meaning": "stop"
+        }
+      ]
+    },
+    {
+      "heading": "walk; step",
+      "onyomi": [
+        "ホ",
+        "ブ",
+        "フ"
+      ],
+      "kunyomi": [
+        "ある(く)",
+        "あゆ(む)"
+      ],
+      "kanji": "歩",
+      "vocabulary": [
+        {
+          "word": "歩く",
+          "reading": "あるく",
+          "meaning": "to walk"
+        },
+        {
+          "word": "散歩",
+          "reading": "さんぽ",
+          "meaning": "walk; stroll"
+        }
+      ]
+    },
+    {
+      "heading": "run",
+      "onyomi": [
+        "ソウ"
+      ],
+      "kunyomi": [
+        "はし(る)"
+      ],
+      "kanji": "走",
+      "vocabulary": [
+        {
+          "word": "走る",
+          "reading": "はしる",
+          "meaning": "to run"
+        },
+        {
+          "word": "競走",
+          "reading": "きょうそう",
+          "meaning": "run"
+        }
+      ]
+    },
+    {
+      "heading": "get up; happen",
+      "onyomi": [
+        "キ"
+      ],
+      "kunyomi": [
+        "お(きる)",
+        "お(こる)",
+        "お(こす)"
+      ],
+      "kanji": "起",
+      "vocabulary": [
+        {
+          "word": "起きる",
+          "reading": "おきる",
+          "meaning": "to wake up"
+        },
+        {
+          "word": "起こす",
+          "reading": "おこす",
+          "meaning": "get up; happen"
+        }
+      ]
+    },
+    {
+      "heading": "hold; have",
+      "onyomi": [
+        "ジ"
+      ],
+      "kunyomi": [
+        "も(つ)"
+      ],
+      "kanji": "持",
+      "vocabulary": [
+        {
+          "word": "持つ",
+          "reading": "もつ",
+          "meaning": "to hold; have"
+        },
+        {
+          "word": "気持ち",
+          "reading": "きもち",
+          "meaning": "hold; have"
+        }
+      ]
+    },
+    {
+      "heading": "wait",
+      "onyomi": [
+        "タイ"
+      ],
+      "kunyomi": [
+        "ま(つ)"
+      ],
+      "kanji": "待",
+      "vocabulary": [
+        {
+          "word": "待つ",
+          "reading": "まつ",
+          "meaning": "to wait"
+        },
+        {
+          "word": "招待",
+          "reading": "しょうたい",
+          "meaning": "wait"
+        }
+      ]
+    },
+    {
+      "heading": "borrow",
+      "onyomi": [
+        "シャク"
+      ],
+      "kunyomi": [
+        "か(りる)"
+      ],
+      "kanji": "借",
+      "vocabulary": [
+        {
+          "word": "借りる",
+          "reading": "かりる",
+          "meaning": "to borrow"
+        },
+        {
+          "word": "借金",
+          "reading": "しゃっきん",
+          "meaning": "borrow"
+        }
+      ]
+    },
+    {
+      "heading": "lend",
+      "onyomi": [
+        "タイ"
+      ],
+      "kunyomi": [
+        "か(す)"
+      ],
+      "kanji": "貸",
+      "vocabulary": [
+        {
+          "word": "貸す",
+          "reading": "かす",
+          "meaning": "to lend"
+        },
+        {
+          "word": "貸し出し",
+          "reading": "かしだし",
+          "meaning": "lend"
+        }
+      ]
+    },
+    {
+      "heading": "begin",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "はじ(める)",
+        "はじ(まる)"
+      ],
+      "kanji": "始",
+      "vocabulary": [
+        {
+          "word": "始める",
+          "reading": "はじめる",
+          "meaning": "to start something"
+        },
+        {
+          "word": "始まる",
+          "reading": "はじまる",
+          "meaning": "to begin"
+        }
+      ]
+    },
+    {
+      "heading": "end; finish",
+      "onyomi": [
+        "シュウ"
+      ],
+      "kunyomi": [
+        "お(わる)",
+        "お(える)"
+      ],
+      "kanji": "終",
+      "vocabulary": [
+        {
+          "word": "終わる",
+          "reading": "おわる",
+          "meaning": "to finish"
+        },
+        {
+          "word": "終了",
+          "reading": "しゅうりょう",
+          "meaning": "end; finish"
+        }
+      ]
+    },
+    {
+      "heading": "house; family",
+      "onyomi": [
+        "カ",
+        "ケ"
+      ],
+      "kunyomi": [
+        "いえ",
+        "や"
+      ],
+      "kanji": "家",
+      "vocabulary": [
+        {
+          "word": "家",
+          "reading": "いえ",
+          "meaning": "house"
+        },
+        {
+          "word": "家族",
+          "reading": "かぞく",
+          "meaning": "family"
+        }
+      ]
+    },
+    {
+      "heading": "family; tribe",
+      "onyomi": [
+        "ゾク"
+      ],
+      "kunyomi": [],
+      "kanji": "族",
+      "vocabulary": [
+        {
+          "word": "家族",
+          "reading": "かぞく",
+          "meaning": "family"
+        },
+        {
+          "word": "民族",
+          "reading": "みんぞく",
+          "meaning": "family; tribe"
+        }
+      ]
+    },
+    {
+      "heading": "I; private",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "わたし",
+        "わたくし"
+      ],
+      "kanji": "私",
+      "vocabulary": [
+        {
+          "word": "私",
+          "reading": "わたし",
+          "meaning": "I; me"
+        },
+        {
+          "word": "私立",
+          "reading": "しりつ",
+          "meaning": "I; private"
+        }
+      ]
+    },
+    {
+      "heading": "self",
+      "onyomi": [
+        "ジ",
+        "シ"
+      ],
+      "kunyomi": [
+        "みずか(ら)"
+      ],
+      "kanji": "自",
+      "vocabulary": [
+        {
+          "word": "自分",
+          "reading": "じぶん",
+          "meaning": "oneself"
+        },
+        {
+          "word": "自転車",
+          "reading": "じてんしゃ",
+          "meaning": "self"
+        }
+      ]
+    },
+    {
+      "heading": "parent; close",
+      "onyomi": [
+        "シン"
+      ],
+      "kunyomi": [
+        "おや",
+        "した(しい)"
+      ],
+      "kanji": "親",
+      "vocabulary": [
+        {
+          "word": "親",
+          "reading": "おや",
+          "meaning": "parent"
+        },
+        {
+          "word": "両親",
+          "reading": "りょうしん",
+          "meaning": "parents"
+        }
+      ]
+    },
+    {
+      "heading": "both",
+      "onyomi": [
+        "リョウ"
+      ],
+      "kunyomi": [],
+      "kanji": "両",
+      "vocabulary": [
+        {
+          "word": "両親",
+          "reading": "りょうしん",
+          "meaning": "parents"
+        },
+        {
+          "word": "両方",
+          "reading": "りょうほう",
+          "meaning": "both"
+        }
+      ]
+    },
+    {
+      "heading": "older brother",
+      "onyomi": [
+        "ケイ",
+        "キョウ"
+      ],
+      "kunyomi": [
+        "あに"
+      ],
+      "kanji": "兄",
+      "vocabulary": [
+        {
+          "word": "兄",
+          "reading": "あに",
+          "meaning": "older brother"
+        },
+        {
+          "word": "兄弟",
+          "reading": "きょうだい",
+          "meaning": "older brother"
+        }
+      ]
+    },
+    {
+      "heading": "younger brother",
+      "onyomi": [
+        "テイ",
+        "ダイ"
+      ],
+      "kunyomi": [
+        "おとうと"
+      ],
+      "kanji": "弟",
+      "vocabulary": [
+        {
+          "word": "弟",
+          "reading": "おとうと",
+          "meaning": "younger brother"
+        },
+        {
+          "word": "兄弟",
+          "reading": "きょうだい",
+          "meaning": "younger brother"
+        }
+      ]
+    },
+    {
+      "heading": "older sister",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "あね"
+      ],
+      "kanji": "姉",
+      "vocabulary": [
+        {
+          "word": "姉",
+          "reading": "あね",
+          "meaning": "older sister"
+        },
+        {
+          "word": "姉妹",
+          "reading": "しまい",
+          "meaning": "older sister"
+        }
+      ]
+    },
+    {
+      "heading": "younger sister",
+      "onyomi": [
+        "マイ"
+      ],
+      "kunyomi": [
+        "いもうと"
+      ],
+      "kanji": "妹",
+      "vocabulary": [
+        {
+          "word": "妹",
+          "reading": "いもうと",
+          "meaning": "younger sister"
+        },
+        {
+          "word": "姉妹",
+          "reading": "しまい",
+          "meaning": "younger sister"
+        }
+      ]
+    },
+    {
+      "heading": "live; active",
+      "onyomi": [
+        "カツ"
+      ],
+      "kunyomi": [
+        "い(きる)"
+      ],
+      "kanji": "活",
+      "vocabulary": [
+        {
+          "word": "生活",
+          "reading": "せいかつ",
+          "meaning": "daily life"
+        },
+        {
+          "word": "活動",
+          "reading": "かつどう",
+          "meaning": "live; active"
+        }
+      ]
+    },
+    {
+      "heading": "turn; time",
+      "onyomi": [
+        "カイ",
+        "エ"
+      ],
+      "kunyomi": [
+        "まわ(る)",
+        "まわ(す)"
+      ],
+      "kanji": "回",
+      "vocabulary": [
+        {
+          "word": "回る",
+          "reading": "まわる",
+          "meaning": "to turn"
+        },
+        {
+          "word": "一回",
+          "reading": "いっかい",
+          "meaning": "once; one time"
+        }
+      ]
+    },
+    {
+      "heading": "main; owner",
+      "onyomi": [
+        "シュ",
+        "ス"
+      ],
+      "kunyomi": [
+        "ぬし",
+        "おも"
+      ],
+      "kanji": "主",
+      "vocabulary": [
+        {
+          "word": "主人",
+          "reading": "しゅじん",
+          "meaning": "husband; master"
+        },
+        {
+          "word": "主人公",
+          "reading": "しゅじんこう",
+          "meaning": "main; owner"
+        }
+      ]
+    },
+    {
+      "heading": "color",
+      "onyomi": [
+        "ショク",
+        "シキ"
+      ],
+      "kunyomi": [
+        "いろ"
+      ],
+      "kanji": "色",
+      "vocabulary": [
+        {
+          "word": "色",
+          "reading": "いろ",
+          "meaning": "colour"
+        },
+        {
+          "word": "茶色",
+          "reading": "ちゃいろ",
+          "meaning": "color"
+        }
+      ]
+    },
+    {
+      "heading": "shape; form",
+      "onyomi": [
+        "ケイ",
+        "ギョウ"
+      ],
+      "kunyomi": [
+        "かたち"
+      ],
+      "kanji": "形",
+      "vocabulary": [
+        {
+          "word": "形",
+          "reading": "かたち",
+          "meaning": "shape"
+        },
+        {
+          "word": "人形",
+          "reading": "にんぎょう",
+          "meaning": "shape; form"
+        }
+      ]
+    },
+    {
+      "heading": "goods; item",
+      "onyomi": [
+        "ヒン"
+      ],
+      "kunyomi": [
+        "しな"
+      ],
+      "kanji": "品",
+      "vocabulary": [
+        {
+          "word": "品物",
+          "reading": "しなもの",
+          "meaning": "goods; article"
+        },
+        {
+          "word": "食品",
+          "reading": "しょくひん",
+          "meaning": "food product"
+        }
+      ]
+    },
+    {
+      "heading": "people; nation",
+      "onyomi": [
+        "ミン"
+      ],
+      "kunyomi": [
+        "たみ"
+      ],
+      "kanji": "民",
+      "vocabulary": [
+        {
+          "word": "国民",
+          "reading": "こくみん",
+          "meaning": "citizens; people"
+        },
+        {
+          "word": "民族",
+          "reading": "みんぞく",
+          "meaning": "people; nation"
+        }
+      ]
+    },
+    {
+      "heading": "clothes",
+      "onyomi": [
+        "フク"
+      ],
+      "kunyomi": [],
+      "kanji": "服",
+      "vocabulary": [
+        {
+          "word": "服",
+          "reading": "ふく",
+          "meaning": "clothes"
+        },
+        {
+          "word": "洋服",
+          "reading": "ようふく",
+          "meaning": "clothes"
+        }
+      ]
+    },
+    {
+      "heading": "dog",
+      "onyomi": [
+        "ケン"
+      ],
+      "kunyomi": [
+        "いぬ"
+      ],
+      "kanji": "犬",
+      "vocabulary": [
+        {
+          "word": "犬",
+          "reading": "いぬ",
+          "meaning": "dog"
+        },
+        {
+          "word": "子犬",
+          "reading": "こいぬ",
+          "meaning": "dog"
+        }
+      ]
+    },
+    {
+      "heading": "same",
+      "onyomi": [
+        "ドウ"
+      ],
+      "kunyomi": [
+        "おな(じ)"
+      ],
+      "kanji": "同",
+      "vocabulary": [
+        {
+          "word": "同じ",
+          "reading": "おなじ",
+          "meaning": "same"
+        },
+        {
+          "word": "同時",
+          "reading": "どうじ",
+          "meaning": "same"
+        }
+      ]
+    },
+    {
+      "heading": "rice; America",
+      "onyomi": [
+        "ベイ",
+        "マイ"
+      ],
+      "kunyomi": [
+        "こめ"
+      ],
+      "kanji": "米",
+      "vocabulary": [
+        {
+          "word": "米",
+          "reading": "こめ",
+          "meaning": "rice"
+        },
+        {
+          "word": "米国",
+          "reading": "べいこく",
+          "meaning": "rice; America"
+        }
+      ]
+    },
+    {
+      "heading": "fee; material",
+      "onyomi": [
+        "リョウ"
+      ],
+      "kunyomi": [],
+      "kanji": "料",
+      "vocabulary": [
+        {
+          "word": "料理",
+          "reading": "りょうり",
+          "meaning": "cooking; food"
+        },
+        {
+          "word": "料金",
+          "reading": "りょうきん",
+          "meaning": "fee"
+        }
+      ]
+    },
+    {
+      "heading": "reason; manage",
+      "onyomi": [
+        "リ"
+      ],
+      "kunyomi": [],
+      "kanji": "理",
+      "vocabulary": [
+        {
+          "word": "料理",
+          "reading": "りょうり",
+          "meaning": "cooking; food"
+        },
+        {
+          "word": "理由",
+          "reading": "りゆう",
+          "meaning": "reason; manage"
+        }
+      ]
+    },
+    {
+      "heading": "meat",
+      "onyomi": [
+        "ニク"
+      ],
+      "kunyomi": [],
+      "kanji": "肉",
+      "vocabulary": [
+        {
+          "word": "肉",
+          "reading": "にく",
+          "meaning": "meat"
+        },
+        {
+          "word": "牛肉",
+          "reading": "ぎゅうにく",
+          "meaning": "meat"
+        }
+      ]
+    },
+    {
+      "heading": "bird",
+      "onyomi": [
+        "チョウ"
+      ],
+      "kunyomi": [
+        "とり"
+      ],
+      "kanji": "鳥",
+      "vocabulary": [
+        {
+          "word": "鳥",
+          "reading": "とり",
+          "meaning": "bird"
+        },
+        {
+          "word": "焼き鳥",
+          "reading": "やきとり",
+          "meaning": "bird"
+        }
+      ]
+    },
+    {
+      "heading": "field; wild",
+      "onyomi": [
+        "ヤ"
+      ],
+      "kunyomi": [
+        "の"
+      ],
+      "kanji": "野",
+      "vocabulary": [
+        {
+          "word": "野菜",
+          "reading": "やさい",
+          "meaning": "vegetables"
+        },
+        {
+          "word": "野球",
+          "reading": "やきゅう",
+          "meaning": "field; wild"
+        }
+      ]
+    },
+    {
+      "heading": "vegetable; greens",
+      "onyomi": [
+        "サイ"
+      ],
+      "kunyomi": [
+        "な"
+      ],
+      "kanji": "菜",
+      "vocabulary": [
+        {
+          "word": "野菜",
+          "reading": "やさい",
+          "meaning": "vegetables"
+        },
+        {
+          "word": "菜の花",
+          "reading": "なのはな",
+          "meaning": "vegetable; greens"
+        }
+      ]
+    },
+    {
+      "heading": "tea",
+      "onyomi": [
+        "チャ",
+        "サ"
+      ],
+      "kunyomi": [],
+      "kanji": "茶",
+      "vocabulary": [
+        {
+          "word": "お茶",
+          "reading": "おちゃ",
+          "meaning": "tea"
+        },
+        {
+          "word": "茶色",
+          "reading": "ちゃいろ",
+          "meaning": "tea"
+        }
+      ]
+    },
+    {
+      "heading": "cooked rice; meal",
+      "onyomi": [
+        "ハン"
+      ],
+      "kunyomi": [
+        "めし"
+      ],
+      "kanji": "飯",
+      "vocabulary": [
+        {
+          "word": "ご飯",
+          "reading": "ごはん",
+          "meaning": "cooked rice; meal"
+        },
+        {
+          "word": "朝ご飯",
+          "reading": "あさごはん",
+          "meaning": "cooked rice; meal"
+        }
+      ]
+    },
+    {
+      "heading": "taste; flavor",
+      "onyomi": [
+        "ミ"
+      ],
+      "kunyomi": [
+        "あじ",
+        "あじ(わう)"
+      ],
+      "kanji": "味",
+      "vocabulary": [
+        {
+          "word": "味",
+          "reading": "あじ",
+          "meaning": "taste; flavour"
+        },
+        {
+          "word": "意味",
+          "reading": "いみ",
+          "meaning": "meaning"
+        }
+      ]
+    },
+    {
+      "heading": "generation; substitute",
+      "onyomi": [
+        "ダイ",
+        "タイ"
+      ],
+      "kunyomi": [
+        "か(わる)",
+        "か(える)",
+        "よ"
+      ],
+      "kanji": "代",
+      "vocabulary": [
+        {
+          "word": "時代",
+          "reading": "じだい",
+          "meaning": "era"
+        },
+        {
+          "word": "代わる",
+          "reading": "かわる",
+          "meaning": "generation; substitute"
+        }
+      ]
+    },
+    {
+      "heading": "use",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "つか(う)"
+      ],
+      "kanji": "使",
+      "vocabulary": [
+        {
+          "word": "使う",
+          "reading": "つかう",
+          "meaning": "to use"
+        },
+        {
+          "word": "大使",
+          "reading": "たいし",
+          "meaning": "use"
+        }
+      ]
+    },
+    {
+      "heading": "make; create",
+      "onyomi": [
+        "サク",
+        "サ"
+      ],
+      "kunyomi": [
+        "つく(る)"
+      ],
+      "kanji": "作",
+      "vocabulary": [
+        {
+          "word": "作る",
+          "reading": "つくる",
+          "meaning": "to make"
+        },
+        {
+          "word": "作文",
+          "reading": "さくぶん",
+          "meaning": "make; create"
+        }
+      ]
+    },
+    {
+      "heading": "change; -ification",
+      "onyomi": [
+        "カ",
+        "ケ"
+      ],
+      "kunyomi": [
+        "ば(ける)",
+        "ば(かす)"
+      ],
+      "kanji": "化",
+      "vocabulary": [
+        {
+          "word": "文化",
+          "reading": "ぶんか",
+          "meaning": "culture"
+        },
+        {
+          "word": "変化",
+          "reading": "へんか",
+          "meaning": "change; -ification"
+        }
+      ]
+    },
+    {
+      "heading": "believe; trust",
+      "onyomi": [
+        "シン"
+      ],
+      "kunyomi": [
+        "しん(じる)"
+      ],
+      "kanji": "信",
+      "vocabulary": [
+        {
+          "word": "信じる",
+          "reading": "しんじる",
+          "meaning": "to believe"
+        },
+        {
+          "word": "自信",
+          "reading": "じしん",
+          "meaning": "believe; trust"
+        }
+      ]
+    },
+    {
+      "heading": "advance; proceed",
+      "onyomi": [
+        "シン"
+      ],
+      "kunyomi": [
+        "すす(む)",
+        "すす(める)"
+      ],
+      "kanji": "進",
+      "vocabulary": [
+        {
+          "word": "進む",
+          "reading": "すすむ",
+          "meaning": "to advance"
+        },
+        {
+          "word": "進学",
+          "reading": "しんがく",
+          "meaning": "advance; proceed"
+        }
+      ]
+    },
+    {
+      "heading": "send",
+      "onyomi": [
+        "ソウ"
+      ],
+      "kunyomi": [
+        "おく(る)"
+      ],
+      "kanji": "送",
+      "vocabulary": [
+        {
+          "word": "送る",
+          "reading": "おくる",
+          "meaning": "to send"
+        },
+        {
+          "word": "放送",
+          "reading": "ほうそう",
+          "meaning": "send"
+        }
+      ]
+    },
+    {
+      "heading": "return; give back",
+      "onyomi": [
+        "ヘン"
+      ],
+      "kunyomi": [
+        "かえ(す)",
+        "かえ(る)"
+      ],
+      "kanji": "返",
+      "vocabulary": [
+        {
+          "word": "返す",
+          "reading": "かえす",
+          "meaning": "to return; give back"
+        },
+        {
+          "word": "返事",
+          "reading": "へんじ",
+          "meaning": "return; give back"
+        }
+      ]
+    },
+    {
+      "heading": "wash",
+      "onyomi": [
+        "セン"
+      ],
+      "kunyomi": [
+        "あら(う)"
+      ],
+      "kanji": "洗",
+      "vocabulary": [
+        {
+          "word": "洗う",
+          "reading": "あらう",
+          "meaning": "to wash"
+        },
+        {
+          "word": "洗濯",
+          "reading": "せんたく",
+          "meaning": "wash"
+        }
+      ]
+    },
+    {
+      "heading": "pour; attention",
+      "onyomi": [
+        "チュウ"
+      ],
+      "kunyomi": [
+        "そそ(ぐ)"
+      ],
+      "kanji": "注",
+      "vocabulary": [
+        {
+          "word": "注意",
+          "reading": "ちゅうい",
+          "meaning": "caution; attention"
+        },
+        {
+          "word": "注文",
+          "reading": "ちゅうもん",
+          "meaning": "order"
+        }
+      ]
+    },
+    {
+      "heading": "place; venue",
+      "onyomi": [
+        "ジョウ"
+      ],
+      "kunyomi": [
+        "ば"
+      ],
+      "kanji": "場",
+      "vocabulary": [
+        {
+          "word": "場所",
+          "reading": "ばしょ",
+          "meaning": "place"
+        },
+        {
+          "word": "工場",
+          "reading": "こうじょう",
+          "meaning": "factory"
+        }
+      ]
+    },
+    {
+      "heading": "build",
+      "onyomi": [
+        "ケン",
+        "コン"
+      ],
+      "kunyomi": [
+        "た(てる)",
+        "た(つ)"
+      ],
+      "kanji": "建",
+      "vocabulary": [
+        {
+          "word": "建てる",
+          "reading": "たてる",
+          "meaning": "to build"
+        },
+        {
+          "word": "建物",
+          "reading": "たてもの",
+          "meaning": "building"
+        }
+      ]
+    },
+    {
+      "heading": "thing; object",
+      "onyomi": [
+        "ブツ",
+        "モツ"
+      ],
+      "kunyomi": [
+        "もの"
+      ],
+      "kanji": "物",
+      "vocabulary": [
+        {
+          "word": "物",
+          "reading": "もの",
+          "meaning": "thing; object"
+        },
+        {
+          "word": "建物",
+          "reading": "たてもの",
+          "meaning": "building"
+        }
+      ]
+    },
+    {
+      "heading": "institution; hospital",
+      "onyomi": [
+        "イン"
+      ],
+      "kunyomi": [],
+      "kanji": "院",
+      "vocabulary": [
+        {
+          "word": "病院",
+          "reading": "びょういん",
+          "meaning": "hospital"
+        },
+        {
+          "word": "大学院",
+          "reading": "だいがくいん",
+          "meaning": "institution; hospital"
+        }
+      ]
+    },
+    {
+      "heading": "building; hall",
+      "onyomi": [
+        "カン"
+      ],
+      "kunyomi": [],
+      "kanji": "館",
+      "vocabulary": [
+        {
+          "word": "図書館",
+          "reading": "としょかん",
+          "meaning": "library"
+        },
+        {
+          "word": "映画館",
+          "reading": "えいがかん",
+          "meaning": "building; hall"
+        }
+      ]
+    },
+    {
+      "heading": "hall",
+      "onyomi": [
+        "ドウ"
+      ],
+      "kunyomi": [],
+      "kanji": "堂",
+      "vocabulary": [
+        {
+          "word": "食堂",
+          "reading": "しょくどう",
+          "meaning": "dining hall"
+        },
+        {
+          "word": "講堂",
+          "reading": "こうどう",
+          "meaning": "hall"
+        }
+      ]
+    },
+    {
+      "heading": "room",
+      "onyomi": [
+        "シツ"
+      ],
+      "kunyomi": [
+        "むろ"
+      ],
+      "kanji": "室",
+      "vocabulary": [
+        {
+          "word": "教室",
+          "reading": "きょうしつ",
+          "meaning": "classroom"
+        },
+        {
+          "word": "部屋",
+          "reading": "へや",
+          "meaning": "room"
+        }
+      ]
+    },
+    {
+      "heading": "craft; construction",
+      "onyomi": [
+        "コウ",
+        "ク"
+      ],
+      "kunyomi": [],
+      "kanji": "工",
+      "vocabulary": [
+        {
+          "word": "工場",
+          "reading": "こうじょう",
+          "meaning": "factory"
+        },
+        {
+          "word": "工事",
+          "reading": "こうじ",
+          "meaning": "construction"
+        }
+      ]
+    },
+    {
+      "heading": "diagram; map",
+      "onyomi": [
+        "ズ",
+        "ト"
+      ],
+      "kunyomi": [
+        "はか(る)"
+      ],
+      "kanji": "図",
+      "vocabulary": [
+        {
+          "word": "地図",
+          "reading": "ちず",
+          "meaning": "map"
+        },
+        {
+          "word": "図書館",
+          "reading": "としょかん",
+          "meaning": "library"
+        }
+      ]
+    },
+    {
+      "heading": "number; title",
+      "onyomi": [
+        "ゴウ"
+      ],
+      "kunyomi": [],
+      "kanji": "号",
+      "vocabulary": [
+        {
+          "word": "番号",
+          "reading": "ばんごう",
+          "meaning": "number"
+        },
+        {
+          "word": "信号",
+          "reading": "しんごう",
+          "meaning": "number; title"
+        }
+      ]
+    },
+    {
+      "heading": "mix; interact",
+      "onyomi": [
+        "コウ"
+      ],
+      "kunyomi": [
+        "ま(じる)",
+        "ま(ぜる)",
+        "ま(じわる)"
+      ],
+      "kanji": "交",
+      "vocabulary": [
+        {
+          "word": "交通",
+          "reading": "こうつう",
+          "meaning": "traffic; transportation"
+        },
+        {
+          "word": "交番",
+          "reading": "こうばん",
+          "meaning": "police box"
+        }
+      ]
+    },
+    {
+      "heading": "pass; commute",
+      "onyomi": [
+        "ツウ",
+        "ツ"
+      ],
+      "kunyomi": [
+        "とお(る)",
+        "とお(す)",
+        "かよ(う)"
+      ],
+      "kanji": "通",
+      "vocabulary": [
+        {
+          "word": "交通",
+          "reading": "こうつう",
+          "meaning": "traffic; transportation"
+        },
+        {
+          "word": "通る",
+          "reading": "とおる",
+          "meaning": "pass; commute"
+        }
+      ]
+    },
+    {
+      "heading": "move",
+      "onyomi": [
+        "ドウ"
+      ],
+      "kunyomi": [
+        "うご(く)",
+        "うご(かす)"
+      ],
+      "kanji": "動",
+      "vocabulary": [
+        {
+          "word": "動く",
+          "reading": "うごく",
+          "meaning": "to move"
+        },
+        {
+          "word": "運動",
+          "reading": "うんどう",
+          "meaning": "move"
+        }
+      ]
+    },
+    {
+      "heading": "ride; get on",
+      "onyomi": [
+        "ジョウ"
+      ],
+      "kunyomi": [
+        "の(る)",
+        "の(せる)"
+      ],
+      "kanji": "乗",
+      "vocabulary": [
+        {
+          "word": "乗る",
+          "reading": "のる",
+          "meaning": "to ride; get on"
+        },
+        {
+          "word": "乗り物",
+          "reading": "のりもの",
+          "meaning": "ride; get on"
+        }
+      ]
+    },
+    {
+      "heading": "get off; fall",
+      "onyomi": [
+        "コウ",
+        "ゴ"
+      ],
+      "kunyomi": [
+        "お(りる)",
+        "お(ろす)",
+        "ふ(る)"
+      ],
+      "kanji": "降",
+      "vocabulary": [
+        {
+          "word": "降りる",
+          "reading": "おりる",
+          "meaning": "to get off"
+        },
+        {
+          "word": "降る",
+          "reading": "ふる",
+          "meaning": "to fall (rain/snow)"
+        }
+      ]
+    },
+    {
+      "heading": "carry; luck",
+      "onyomi": [
+        "ウン"
+      ],
+      "kunyomi": [
+        "はこ(ぶ)"
+      ],
+      "kanji": "運",
+      "vocabulary": [
+        {
+          "word": "運ぶ",
+          "reading": "はこぶ",
+          "meaning": "to carry"
+        },
+        {
+          "word": "運転",
+          "reading": "うんてん",
+          "meaning": "driving"
+        }
+      ]
+    },
+    {
+      "heading": "turn; fall",
+      "onyomi": [
+        "テン"
+      ],
+      "kunyomi": [
+        "ころ(ぶ)",
+        "ころ(がる)"
+      ],
+      "kanji": "転",
+      "vocabulary": [
+        {
+          "word": "運転",
+          "reading": "うんてん",
+          "meaning": "driving"
+        },
+        {
+          "word": "自転車",
+          "reading": "じてんしゃ",
+          "meaning": "turn; fall"
+        }
+      ]
+    },
+    {
+      "heading": "return home",
+      "onyomi": [
+        "キ"
+      ],
+      "kunyomi": [
+        "かえ(る)",
+        "かえ(す)"
+      ],
+      "kanji": "帰",
+      "vocabulary": [
+        {
+          "word": "帰る",
+          "reading": "かえる",
+          "meaning": "to return home"
+        },
+        {
+          "word": "帰国",
+          "reading": "きこく",
+          "meaning": "return home"
+        }
+      ]
+    },
+    {
+      "heading": "depart; emit; start",
+      "onyomi": [
+        "ハツ",
+        "ホツ"
+      ],
+      "kunyomi": [],
+      "kanji": "発",
+      "vocabulary": [
+        {
+          "word": "出発",
+          "reading": "しゅっぱつ",
+          "meaning": "departure"
+        },
+        {
+          "word": "発音",
+          "reading": "はつおん",
+          "meaning": "depart; emit; start"
+        }
+      ]
+    },
+    {
+      "heading": "arrive; wear",
+      "onyomi": [
+        "チャク",
+        "ジャク"
+      ],
+      "kunyomi": [
+        "き(る)",
+        "つ(く)",
+        "つ(ける)"
+      ],
+      "kanji": "着",
+      "vocabulary": [
+        {
+          "word": "着く",
+          "reading": "つく",
+          "meaning": "to arrive"
+        },
+        {
+          "word": "着る",
+          "reading": "きる",
+          "meaning": "to wear"
+        }
+      ]
+    },
+    {
+      "heading": "Chinese; kanji",
+      "onyomi": [
+        "カン"
+      ],
+      "kunyomi": [],
+      "kanji": "漢",
+      "vocabulary": [
+        {
+          "word": "漢字",
+          "reading": "かんじ",
+          "meaning": "kanji"
+        },
+        {
+          "word": "漢語",
+          "reading": "かんご",
+          "meaning": "Chinese; kanji"
+        }
+      ]
+    },
+    {
+      "heading": "character; letter",
+      "onyomi": [
+        "ジ"
+      ],
+      "kunyomi": [
+        "あざ"
+      ],
+      "kanji": "字",
+      "vocabulary": [
+        {
+          "word": "字",
+          "reading": "じ",
+          "meaning": "character; letter"
+        },
+        {
+          "word": "漢字",
+          "reading": "かんじ",
+          "meaning": "kanji"
+        }
+      ]
+    },
+    {
+      "heading": "sentence; writing",
+      "onyomi": [
+        "ブン",
+        "モン"
+      ],
+      "kunyomi": [
+        "ふみ"
+      ],
+      "kanji": "文",
+      "vocabulary": [
+        {
+          "word": "文",
+          "reading": "ぶん",
+          "meaning": "sentence"
+        },
+        {
+          "word": "文化",
+          "reading": "ぶんか",
+          "meaning": "culture"
+        }
+      ]
+    },
+    {
+      "heading": "teach",
+      "onyomi": [
+        "キョウ"
+      ],
+      "kunyomi": [
+        "おし(える)",
+        "おそ(わる)"
+      ],
+      "kanji": "教",
+      "vocabulary": [
+        {
+          "word": "教える",
+          "reading": "おしえる",
+          "meaning": "to teach"
+        },
+        {
+          "word": "教室",
+          "reading": "きょうしつ",
+          "meaning": "classroom"
+        }
+      ]
+    },
+    {
+      "heading": "exertion; study (in 勉強)",
+      "onyomi": [
+        "ベン"
+      ],
+      "kunyomi": [],
+      "kanji": "勉",
+      "vocabulary": [
+        {
+          "word": "勉強",
+          "reading": "べんきょう",
+          "meaning": "study"
+        }
+      ]
+    },
+    {
+      "heading": "learn; practice",
+      "onyomi": [
+        "シュウ"
+      ],
+      "kunyomi": [
+        "なら(う)"
+      ],
+      "kanji": "習",
+      "vocabulary": [
+        {
+          "word": "習う",
+          "reading": "ならう",
+          "meaning": "to learn"
+        },
+        {
+          "word": "練習",
+          "reading": "れんしゅう",
+          "meaning": "learn; practice"
+        }
+      ]
+    },
+    {
+      "heading": "English; excellent",
+      "onyomi": [
+        "エイ"
+      ],
+      "kunyomi": [],
+      "kanji": "英",
+      "vocabulary": [
+        {
+          "word": "英語",
+          "reading": "えいご",
+          "meaning": "English"
+        },
+        {
+          "word": "英国",
+          "reading": "えいこく",
+          "meaning": "English; excellent"
+        }
+      ]
+    },
+    {
+      "heading": "think; consider",
+      "onyomi": [
+        "コウ"
+      ],
+      "kunyomi": [
+        "かんが(える)"
+      ],
+      "kanji": "考",
+      "vocabulary": [
+        {
+          "word": "考える",
+          "reading": "かんがえる",
+          "meaning": "to think"
+        },
+        {
+          "word": "参考",
+          "reading": "さんこう",
+          "meaning": "think; consider"
+        }
+      ]
+    },
+    {
+      "heading": "sharpen; research (in 研究)",
+      "onyomi": [
+        "ケン"
+      ],
+      "kunyomi": [
+        "と(ぐ)"
+      ],
+      "kanji": "研",
+      "vocabulary": [
+        {
+          "word": "研究",
+          "reading": "けんきゅう",
+          "meaning": "research"
+        },
+        {
+          "word": "研究室",
+          "reading": "けんきゅうしつ",
+          "meaning": "research room"
+        }
+      ]
+    },
+    {
+      "heading": "research; investigate",
+      "onyomi": [
+        "キュウ"
+      ],
+      "kunyomi": [
+        "きわ(める)"
+      ],
+      "kanji": "究",
+      "vocabulary": [
+        {
+          "word": "研究",
+          "reading": "けんきゅう",
+          "meaning": "research"
+        },
+        {
+          "word": "研究者",
+          "reading": "けんきゅうしゃ",
+          "meaning": "research; investigate"
+        }
+      ]
+    },
+    {
+      "heading": "question; ask",
+      "onyomi": [
+        "モン"
+      ],
+      "kunyomi": [
+        "と(う)"
+      ],
+      "kanji": "問",
+      "vocabulary": [
+        {
+          "word": "問題",
+          "reading": "もんだい",
+          "meaning": "problem; question"
+        },
+        {
+          "word": "問う",
+          "reading": "とう",
+          "meaning": "question; ask"
+        }
+      ]
+    },
+    {
+      "heading": "topic; problem",
+      "onyomi": [
+        "ダイ"
+      ],
+      "kunyomi": [],
+      "kanji": "題",
+      "vocabulary": [
+        {
+          "word": "問題",
+          "reading": "もんだい",
+          "meaning": "problem; question"
+        },
+        {
+          "word": "宿題",
+          "reading": "しゅくだい",
+          "meaning": "homework"
+        }
+      ]
+    },
+    {
+      "heading": "try; test",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "ため(す)",
+        "こころ(みる)"
+      ],
+      "kanji": "試",
+      "vocabulary": [
+        {
+          "word": "試験",
+          "reading": "しけん",
+          "meaning": "exam"
+        },
+        {
+          "word": "試す",
+          "reading": "ためす",
+          "meaning": "try; test"
+        }
+      ]
+    },
+    {
+      "heading": "test; experience",
+      "onyomi": [
+        "ケン",
+        "ゲン"
+      ],
+      "kunyomi": [],
+      "kanji": "験",
+      "vocabulary": [
+        {
+          "word": "試験",
+          "reading": "しけん",
+          "meaning": "exam"
+        },
+        {
+          "word": "経験",
+          "reading": "けいけん",
+          "meaning": "experience"
+        }
+      ]
+    },
+    {
+      "heading": "quality; question",
+      "onyomi": [
+        "シツ",
+        "シチ",
+        "チ"
+      ],
+      "kunyomi": [],
+      "kanji": "質",
+      "vocabulary": [
+        {
+          "word": "質問",
+          "reading": "しつもん",
+          "meaning": "question"
+        },
+        {
+          "word": "品質",
+          "reading": "ひんしつ",
+          "meaning": "quality; question"
+        }
+      ]
+    },
+    {
+      "heading": "fit; combine",
+      "onyomi": [
+        "ゴウ",
+        "ガッ",
+        "カッ"
+      ],
+      "kunyomi": [
+        "あ(う)",
+        "あ(わせる)"
+      ],
+      "kanji": "合",
+      "vocabulary": [
+        {
+          "word": "合う",
+          "reading": "あう",
+          "meaning": "to fit; match"
+        },
+        {
+          "word": "合格",
+          "reading": "ごうかく",
+          "meaning": "fit; combine"
+        }
+      ]
+    },
+    {
+      "heading": "answer",
+      "onyomi": [
+        "トウ"
+      ],
+      "kunyomi": [
+        "こた(える)",
+        "こた(え)"
+      ],
+      "kanji": "答",
+      "vocabulary": [
+        {
+          "word": "答える",
+          "reading": "こたえる",
+          "meaning": "to answer"
+        },
+        {
+          "word": "答え",
+          "reading": "こたえ",
+          "meaning": "answer"
+        }
+      ]
+    },
+    {
+      "heading": "use; business",
+      "onyomi": [
+        "ヨウ"
+      ],
+      "kunyomi": [
+        "もち(いる)"
+      ],
+      "kanji": "用",
+      "vocabulary": [
+        {
+          "word": "用事",
+          "reading": "ようじ",
+          "meaning": "errand; business"
+        },
+        {
+          "word": "使用",
+          "reading": "しよう",
+          "meaning": "use; business"
+        }
+      ]
+    },
+    {
+      "heading": "paper",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "かみ"
+      ],
+      "kanji": "紙",
+      "vocabulary": [
+        {
+          "word": "紙",
+          "reading": "かみ",
+          "meaning": "paper"
+        },
+        {
+          "word": "手紙",
+          "reading": "てがみ",
+          "meaning": "letter"
+        }
+      ]
+    },
+    {
+      "heading": "meaning; intention",
+      "onyomi": [
+        "イ"
+      ],
+      "kunyomi": [],
+      "kanji": "意",
+      "vocabulary": [
+        {
+          "word": "意味",
+          "reading": "いみ",
+          "meaning": "meaning"
+        },
+        {
+          "word": "意見",
+          "reading": "いけん",
+          "meaning": "meaning; intention"
+        }
+      ]
+    },
+    {
+      "heading": "pull; draw",
+      "onyomi": [
+        "イン"
+      ],
+      "kunyomi": [
+        "ひ(く)",
+        "ひ(ける)"
+      ],
+      "kanji": "引",
+      "vocabulary": [
+        {
+          "word": "引く",
+          "reading": "ひく",
+          "meaning": "to pull"
+        },
+        {
+          "word": "引き出し",
+          "reading": "ひきだし",
+          "meaning": "pull; draw"
+        }
+      ]
+    },
+    {
+      "heading": "open",
+      "onyomi": [
+        "カイ"
+      ],
+      "kunyomi": [
+        "あ(く)",
+        "あ(ける)",
+        "ひら(く)"
+      ],
+      "kanji": "開",
+      "vocabulary": [
+        {
+          "word": "開ける",
+          "reading": "あける",
+          "meaning": "to open"
+        },
+        {
+          "word": "開く",
+          "reading": "ひらく",
+          "meaning": "to open"
+        }
+      ]
+    },
+    {
+      "heading": "close",
+      "onyomi": [
+        "ヘイ"
+      ],
+      "kunyomi": [
+        "し(める)",
+        "し(まる)",
+        "と(じる)"
+      ],
+      "kanji": "閉",
+      "vocabulary": [
+        {
+          "word": "閉める",
+          "reading": "しめる",
+          "meaning": "to close"
+        },
+        {
+          "word": "閉まる",
+          "reading": "しまる",
+          "meaning": "to close"
+        }
+      ]
+    },
+    {
+      "heading": "leave; past",
+      "onyomi": [
+        "キョ",
+        "コ"
+      ],
+      "kunyomi": [
+        "さ(る)"
+      ],
+      "kanji": "去",
+      "vocabulary": [
+        {
+          "word": "去年",
+          "reading": "きょねん",
+          "meaning": "last year"
+        },
+        {
+          "word": "去る",
+          "reading": "さる",
+          "meaning": "leave; past"
+        }
+      ]
+    },
+    {
+      "heading": "die",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "し(ぬ)"
+      ],
+      "kanji": "死",
+      "vocabulary": [
+        {
+          "word": "死ぬ",
+          "reading": "しぬ",
+          "meaning": "to die"
+        },
+        {
+          "word": "死亡",
+          "reading": "しぼう",
+          "meaning": "die"
+        }
+      ]
+    },
+    {
+      "heading": "gather; collect",
+      "onyomi": [
+        "シュウ"
+      ],
+      "kunyomi": [
+        "あつ(まる)",
+        "あつ(める)"
+      ],
+      "kanji": "集",
+      "vocabulary": [
+        {
+          "word": "集まる",
+          "reading": "あつまる",
+          "meaning": "to gather"
+        },
+        {
+          "word": "集める",
+          "reading": "あつめる",
+          "meaning": "to collect"
+        }
+      ]
+    },
+    {
+      "heading": "know",
+      "onyomi": [
+        "チ"
+      ],
+      "kunyomi": [
+        "し(る)"
+      ],
+      "kanji": "知",
+      "vocabulary": [
+        {
+          "word": "知る",
+          "reading": "しる",
+          "meaning": "to know"
+        },
+        {
+          "word": "知識",
+          "reading": "ちしき",
+          "meaning": "know"
+        }
+      ]
+    },
+    {
+      "heading": "sell",
+      "onyomi": [
+        "バイ"
+      ],
+      "kunyomi": [
+        "う(る)",
+        "う(れる)"
+      ],
+      "kanji": "売",
+      "vocabulary": [
+        {
+          "word": "売る",
+          "reading": "うる",
+          "meaning": "to sell"
+        },
+        {
+          "word": "売店",
+          "reading": "ばいてん",
+          "meaning": "sell"
+        }
+      ]
+    },
+    {
+      "heading": "explain; theory",
+      "onyomi": [
+        "セツ"
+      ],
+      "kunyomi": [
+        "と(く)"
+      ],
+      "kanji": "説",
+      "vocabulary": [
+        {
+          "word": "説明",
+          "reading": "せつめい",
+          "meaning": "explanation"
+        },
+        {
+          "word": "小説",
+          "reading": "しょうせつ",
+          "meaning": "explain; theory"
+        }
+      ]
+    },
+    {
+      "heading": "think; feel",
+      "onyomi": [
+        "シ"
+      ],
+      "kunyomi": [
+        "おも(う)"
+      ],
+      "kanji": "思",
+      "vocabulary": [
+        {
+          "word": "思う",
+          "reading": "おもう",
+          "meaning": "to think"
+        },
+        {
+          "word": "思い出す",
+          "reading": "おもいだす",
+          "meaning": "to remember"
+        }
+      ]
+    }
+  ]
+}
