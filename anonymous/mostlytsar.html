@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<title>Adrian Kreidehüter — Anonymous Message</title>
+
+<!-- ================================================== -->
+<!-- CSS                                                 -->
+<!-- ================================================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#3b3452;--text-primary:#3b3452;--text-secondary:rgba(59,52,82,.68);
+  --pink:#ffd3e6;--sky:#bfe3ff;--mint:#d6f5d2;--butter:#fff0a6;--lav:#dccbff;--red:#ff4a5f;--purple:#8c5bd8;--blue:#3b8de0;
+  --wob:14px 24px 16px 22px/22px 14px 24px 16px;
+  /* assets: change this one folder if you move them */
+  --bg:url("https://iankreidehuter.space/assets/background.jpg");--s-sun:url("https://iankreidehuter.space/assets/sun.png");--s-cat:url("https://iankreidehuter.space/assets/cat.png");--s-love:url("https://iankreidehuter.space/assets/love.png");--s-star:url("https://iankreidehuter.space/assets/yellow_love.png");--s-flower:url("https://iankreidehuter.space/assets/flower.png");
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{font:19px/1.3 "Patrick Hand","Comic Sans MS",cursive;color:var(--ink);min-height:100vh;overflow-x:hidden;position:relative;background:#c6e5ff}
+:focus-visible{outline:3px dashed var(--purple);outline-offset:3px}
+.bg-layer{position:fixed;inset:0;z-index:-3;background:var(--bg) center/cover no-repeat,#c6e5ff}
+.bg-overlay{position:fixed;inset:0;z-index:-2;background:repeating-linear-gradient(118deg,transparent 0 5px,rgba(255,255,255,.35) 5px 7px),rgba(255,255,255,.22)}
+.bg-vignette{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(140,91,216,.18) 100%)}
+#fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.fx-s{position:absolute;height:auto;animation:fx-bob 5s ease-in-out var(--d,0s) infinite}
+.fx-s.spin{animation:fx-spin 30s linear infinite}.fx-s.tw{animation:fx-tw 2.6s ease-in-out var(--d,0s) infinite}
+.page{position:relative;z-index:1;width:100%;min-height:100vh}
+h1,h2,h3{font-family:"Gochi Hand",cursive;font-weight:400}
+.glass{position:relative;background:#fffdf8;border:3px solid #fff;border-radius:var(--wob);box-shadow:0 0 0 2px #a9d2f2,3px 5px 0 rgba(60,50,90,.12)}
+.glass::before{content:"";position:absolute;top:-11px;left:50%;width:78px;height:20px;transform:translateX(-50%) rotate(-3deg);background:repeating-linear-gradient(90deg,#ffb3c9 0 8px,#fff 8px 16px);opacity:.88;pointer-events:none}
+@keyframes pop{from{opacity:0;transform:translateY(22px) rotate(-2deg) scale(.94)}}
+@keyframes sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(1deg) translateY(-3px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes fx-bob{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-10px) rotate(calc(var(--r,0deg) + 5deg))}}
+@keyframes fx-spin{to{transform:rotate(360deg)}}
+@keyframes fx-tw{0%,100%{transform:scale(1) rotate(var(--r,0deg));opacity:1}50%{transform:scale(1.22) rotate(calc(var(--r,0deg) + 12deg));opacity:.7}}
+.page{display:flex;flex-direction:column;align-items:center;padding:56px 18px 90px}
+.stack{width:100%;max-width:460px;display:flex;flex-direction:column;gap:34px}
+.fade-in{animation:pop .7s cubic-bezier(.2,.9,.3,1.2) both}.fade-in:nth-child(1){animation-delay:.05s}.fade-in:nth-child(2){animation-delay:.2s}
+.profile-card{padding:20px 22px;display:flex;align-items:center;gap:16px}
+.profile-card::after{content:"";position:absolute;right:-14px;top:-24px;width:64px;height:64px;background:var(--s-sun) center/contain no-repeat;animation:fx-spin 30s linear infinite;pointer-events:none}
+.profile-pic{width:70px;height:70px;border-radius:50%;object-fit:cover;flex-shrink:0;border:4px solid #fff;background:var(--pink);box-shadow:0 0 0 3px var(--sky),3px 4px 0 rgba(60,50,90,.18)}
+.profile-info{display:flex;flex-direction:column;gap:2px;min-width:0}
+.profile-name{font:30px/1.05 "Gochi Hand",cursive;color:var(--red);text-shadow:2px 2px 0 #fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.profile-username{align-self:flex-start;font-size:17px;padding:0 12px;border-radius:99px;background:var(--butter)}
+.message-card{padding:28px 22px 22px;display:flex;flex-direction:column;gap:18px}
+.message-card::after{content:"";position:absolute;right:-10px;top:-38px;width:72px;height:72px;background:var(--s-cat) center/contain no-repeat;animation:fx-bob 4s ease-in-out infinite;pointer-events:none}
+.prompt-text{font:32px/1.05 "Gochi Hand",cursive;color:var(--purple);text-shadow:2px 2px 0 #fff;transform:rotate(-1deg)}
+.toggle-row{display:flex;align-items:center;justify-content:space-between}
+.toggle-label{font-size:20px}
+.switch{position:relative;width:58px;height:34px;flex-shrink:0}.switch input{opacity:0;width:0;height:0;position:absolute}
+.switch-track{position:absolute;inset:0;background:#eee9f7;border:3px dashed #b9a6e8;border-radius:99px;cursor:pointer;transition:background .3s,border-color .3s}
+.switch-thumb{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;border:2px solid var(--ink);box-shadow:1px 2px 0 rgba(0,0,0,.2);transition:transform .35s cubic-bezier(.3,1.6,.5,1)}
+.switch input:checked+.switch-track{background:var(--mint);border-color:#7fcf86}
+.switch input:checked+.switch-track .switch-thumb{transform:translateX(24px)}
+.switch input:focus-visible+.switch-track{outline:3px dashed var(--purple);outline-offset:3px}
+.field-wrap{display:grid;grid-template-rows:1fr;transition:grid-template-rows .4s cubic-bezier(.4,0,.2,1),opacity .35s ease;opacity:1}
+.field-wrap.collapsed{grid-template-rows:0fr;opacity:0;pointer-events:none}
+.field-wrap>div{overflow:hidden;min-height:0}
+.glass-input,.glass-textarea{width:100%;background:#fff;border:3px dashed #a9d2f2;border-radius:var(--wob);color:var(--ink);font:inherit;font-size:20px;padding:12px 16px;outline:none;transition:border-color .25s,background .25s}
+.glass-input::placeholder,.glass-textarea::placeholder{color:rgba(59,52,82,.5)}
+.glass-input:focus,.glass-textarea:focus{border:3px solid var(--purple);background:#fffefb}
+.glass-textarea{resize:none;min-height:140px;line-height:28px;background-image:repeating-linear-gradient(transparent 0 27px,#d7ebf9 27px 28px);background-attachment:local}
+.send-row{display:flex;align-items:center;gap:12px}
+.status-line{flex:1;min-width:0;font-size:17px;color:var(--text-secondary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.status-line.success{color:#2e9d5b}.status-line.error{color:#d6335b}
+.send-btn{position:relative;flex-shrink:0;width:60px;height:60px;border-radius:50%;border:3px solid #fff;background:var(--pink);box-shadow:0 0 0 2px #ff9ec6,3px 5px 0 rgba(60,50,90,.2);display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);transition:transform .2s}
+.send-btn svg{width:24px;height:24px;transform:translateX(1px)}
+.send-btn:hover{transform:rotate(-8deg) scale(1.08)}.send-btn:active{transform:scale(.9)}
+.send-btn.sending{cursor:default;pointer-events:none;opacity:.8}.send-btn.sending svg{animation:spin .9s linear infinite}
+.send-btn.success{background:var(--mint);box-shadow:0 0 0 2px #7fcf86,3px 5px 0 rgba(60,50,90,.2)}
+@media(max-width:400px){.page{padding:44px 14px 80px}.stack{gap:30px}.prompt-text{font-size:28px}.profile-name{font-size:26px}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<!-- ================================================== -->
+<!-- HTML STRUCTURE                                      -->
+<!-- ================================================== -->
+
+<div class="bg-layer"></div>
+<div class="bg-overlay"></div>
+<div class="bg-vignette"></div>
+
+<div class="page">
+  <div class="stack">
+
+    <!-- Profile card -->
+    <section class="glass profile-card fade-in">
+      <img class="profile-pic" src="profile.jpg" alt="Adrian Kreidehüter">
+      <div class="profile-info">
+        <div class="profile-name">Adrian Kreidehüter</div>
+        <div class="profile-username">@Kreidehuter</div>
+      </div>
+    </section>
+
+    <!-- Message card -->
+    <section class="glass message-card fade-in">
+      <p class="prompt-text">Send your anonymous message<br>to Adrian here.</p>
+
+      <!-- Anonymous toggle -->
+      <div class="toggle-row">
+        <span class="toggle-label">Send anonymously</span>
+        <label class="switch">
+          <input type="checkbox" id="anonToggle" checked>
+          <span class="switch-track"><span class="switch-thumb"></span></span>
+        </label>
+      </div>
+
+      <!-- Name field (hidden when anonymous) -->
+      <div class="field-wrap collapsed" id="nameFieldWrap">
+        <div>
+          <input type="text" id="nameInput" class="glass-input" placeholder="Input your name here" maxlength="60">
+        </div>
+      </div>
+
+      <!-- Message textarea -->
+      <textarea id="messageInput" class="glass-textarea" placeholder="Write your message here..." maxlength="1000"></textarea>
+
+      <!-- Status + send button -->
+      <div class="send-row">
+        <span class="status-line" id="statusLine"></span>
+        <button class="send-btn" id="sendBtn" aria-label="Send message" type="button">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M6 4L16 12L6 20" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<!-- ================================================== -->
+<!-- JAVASCRIPT                                          -->
+<!-- ================================================== -->
+<script>
+(function () {
+  "use strict";
+
+  /* -------------------------------------------------- */
+  /* API configuration                                  */
+  /* -------------------------------------------------- */
+  const API_URL = "https://script.google.com/macros/s/AKfycbxP2zrsxB1TyIfXpH-PdgaR3huJgpoQuYkjmMDQWl99ZI_3VErsrpVygnMZ6lf1gpDa1Q/exec";
+
+  /* -------------------------------------------------- */
+  /* Element references                                 */
+  /* -------------------------------------------------- */
+  const anonToggle   = document.getElementById("anonToggle");
+  const nameFieldWrap = document.getElementById("nameFieldWrap");
+  const nameInput    = document.getElementById("nameInput");
+  const messageInput = document.getElementById("messageInput");
+  const sendBtn      = document.getElementById("sendBtn");
+  const statusLine   = document.getElementById("statusLine");
+
+  const sendIconHTML = sendBtn.innerHTML;
+
+  /* -------------------------------------------------- */
+  /* Anonymous toggle logic                              */
+  /* -------------------------------------------------- */
+  function syncAnonState() {
+    if (anonToggle.checked) {
+      nameFieldWrap.classList.add("collapsed");
+      nameInput.value = "";
+    } else {
+      nameFieldWrap.classList.remove("collapsed");
+    }
+  }
+
+  anonToggle.addEventListener("change", syncAnonState);
+  syncAnonState(); // initialize on load (defaults to anonymous ON)
+
+  /* -------------------------------------------------- */
+  /* Status helper                                       */
+  /* -------------------------------------------------- */
+  let statusTimer = null;
+
+  function setStatus(text, type) {
+    statusLine.textContent = text;
+    statusLine.classList.remove("success", "error");
+    if (type) statusLine.classList.add(type);
+
+    if (statusTimer) clearTimeout(statusTimer);
+    if (text) {
+      statusTimer = setTimeout(() => {
+        statusLine.textContent = "";
+        statusLine.classList.remove("success", "error");
+      }, 4000);
+    }
+  }
+
+  /* -------------------------------------------------- */
+  /* Form validation                                     */
+  /* -------------------------------------------------- */
+  function getMessageText() {
+    return messageInput.value.trim();
+  }
+
+  function isValidSubmission() {
+    return getMessageText().length > 0;
+  }
+
+  /* -------------------------------------------------- */
+  /* Sending state lock                                  */
+  /* -------------------------------------------------- */
+  let isSending = false;
+
+  function enterSendingState() {
+    isSending = true;
+    sendBtn.classList.add("sending");
+    sendBtn.classList.remove("success");
+    sendBtn.setAttribute("aria-label", "Sending message");
+    sendBtn.innerHTML =
+      '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+      '<circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="2.4" ' +
+      'stroke-linecap="round" stroke-dasharray="34 20"/></svg>';
+  }
+
+  function exitSendingState() {
+    isSending = false;
+    sendBtn.classList.remove("sending");
+    sendBtn.setAttribute("aria-label", "Send message");
+    sendBtn.innerHTML = sendIconHTML;
+  }
+
+  function flashSuccessIcon() {
+    sendBtn.classList.add("success");
+    sendBtn.innerHTML =
+      '<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+      '<path d="M5 12.5L10 17.5L19 7" stroke="currentColor" stroke-width="2.6" ' +
+      'stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    setTimeout(() => {
+      sendBtn.classList.remove("success");
+      sendBtn.innerHTML = sendIconHTML;
+    }, 1400);
+  }
+
+  /* -------------------------------------------------- */
+  /* Message sending                                     */
+  /* -------------------------------------------------- */
+  async function handleSend() {
+    if (isSending) return; // prevent duplicate submissions
+
+    if (!isValidSubmission()) {
+      setStatus("Please write a message first.", "error");
+      return;
+    }
+
+    const isAnonymous = anonToggle.checked;
+    const messageText = getMessageText();
+    const senderName = isAnonymous
+      ? "Anonymous"
+      : (nameInput.value.trim() || "Anonymous");
+
+    enterSendingState();
+    setStatus("Sending…");
+
+    try {
+      await fetch(API_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "text/plain;charset=utf-8"
+        },
+        body: JSON.stringify({
+          name: senderName,
+          message: messageText,
+          anonymous: isAnonymous
+        })
+      });
+
+      // no-cors means we cannot read the real response;
+      // if fetch didn't throw, treat it as sent.
+      flashSuccessIcon();
+      setStatus("Message sent.", "success");
+
+      messageInput.value = "";
+      nameInput.value = "";
+    } catch (err) {
+      setStatus("Failed to send message. Please try again.", "error");
+    } finally {
+      exitSendingState();
+    }
+  }
+
+  sendBtn.addEventListener("click", handleSend);
+
+})();
+</script>
+
+<script>
+/* Decoration only: floating stickers behind the page. Change the folder with ASSETS. */
+(function(){
+  var ASSETS="https://iankreidehuter.space/assets/", k=innerWidth<600?.7:1, box=document.createElement("div");
+  var spots=[["cloud.png",3,2,96,0,""],["rainbow.png",68,1,130,5,""],["yellow_love.png",8,26,38,-10,"tw"],["love.png",90,34,40,10,"tw"],
+    ["flower.png",4,70,64,0,""],["cat.png",84,62,86,-6,""],["leaf.png",20,90,50,8,""],["flower.png",72,88,64,0,""],
+    ["yellow_love.png",50,94,34,0,"tw"],["dog.png",1,84,80,6,""],["sun.png",44,1,70,-8,"spin"]];
+  box.id="fx"; box.setAttribute("aria-hidden","true");
+  box.innerHTML=spots.map(function(s,i){return '<img class="fx-s '+s[5]+'" src="'+ASSETS+s[0]+'" alt="" style="left:'+s[1]+'%;top:'+s[2]+'%;width:'+Math.round(s[3]*k)+'px;--r:'+s[4]+'deg;--d:-'+(i*7)%5+'s">';}).join("");
+  box.addEventListener("error",function(e){if(e.target.tagName==="IMG")e.target.style.visibility="hidden";},true);
+  document.body.appendChild(box);
+})();
+</script>
+</body>
+</html>

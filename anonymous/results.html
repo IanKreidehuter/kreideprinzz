@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+<title>Adrian Kreidehüter — Messages</title>
+
+<!-- ================================================== -->
+<!-- CSS                                                 -->
+<!-- ================================================== -->
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#3b3452;--text-primary:#3b3452;--text-secondary:rgba(59,52,82,.68);
+  --pink:#ffd3e6;--sky:#bfe3ff;--mint:#d6f5d2;--butter:#fff0a6;--lav:#dccbff;--red:#ff4a5f;--purple:#8c5bd8;--blue:#3b8de0;
+  --wob:14px 24px 16px 22px/22px 14px 24px 16px;
+  /* assets: change this one folder if you move them */
+  --bg:url("https://iankreidehuter.space/assets/background.jpg");--s-sun:url("https://iankreidehuter.space/assets/sun.png");--s-cat:url("https://iankreidehuter.space/assets/cat.png");--s-love:url("https://iankreidehuter.space/assets/love.png");--s-star:url("https://iankreidehuter.space/assets/yellow_love.png");--s-flower:url("https://iankreidehuter.space/assets/flower.png");
+}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{font:19px/1.3 "Patrick Hand","Comic Sans MS",cursive;color:var(--ink);min-height:100vh;overflow-x:hidden;position:relative;background:#c6e5ff}
+:focus-visible{outline:3px dashed var(--purple);outline-offset:3px}
+.bg-layer{position:fixed;inset:0;z-index:-3;background:var(--bg) center/cover no-repeat,#c6e5ff}
+.bg-overlay{position:fixed;inset:0;z-index:-2;background:repeating-linear-gradient(118deg,transparent 0 5px,rgba(255,255,255,.35) 5px 7px),rgba(255,255,255,.22)}
+.bg-vignette{position:fixed;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(120% 90% at 50% 40%,transparent 55%,rgba(140,91,216,.18) 100%)}
+#fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.fx-s{position:absolute;height:auto;animation:fx-bob 5s ease-in-out var(--d,0s) infinite}
+.fx-s.spin{animation:fx-spin 30s linear infinite}.fx-s.tw{animation:fx-tw 2.6s ease-in-out var(--d,0s) infinite}
+.page{position:relative;z-index:1;width:100%;min-height:100vh}
+h1,h2,h3{font-family:"Gochi Hand",cursive;font-weight:400}
+.glass{position:relative;background:#fffdf8;border:3px solid #fff;border-radius:var(--wob);box-shadow:0 0 0 2px #a9d2f2,3px 5px 0 rgba(60,50,90,.12)}
+.glass::before{content:"";position:absolute;top:-11px;left:50%;width:78px;height:20px;transform:translateX(-50%) rotate(-3deg);background:repeating-linear-gradient(90deg,#ffb3c9 0 8px,#fff 8px 16px);opacity:.88;pointer-events:none}
+@keyframes pop{from{opacity:0;transform:translateY(22px) rotate(-2deg) scale(.94)}}
+@keyframes sway{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(1deg) translateY(-3px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes fx-bob{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-10px) rotate(calc(var(--r,0deg) + 5deg))}}
+@keyframes fx-spin{to{transform:rotate(360deg)}}
+@keyframes fx-tw{0%,100%{transform:scale(1) rotate(var(--r,0deg));opacity:1}50%{transform:scale(1.22) rotate(calc(var(--r,0deg) + 12deg));opacity:.7}}
+.page{display:flex;justify-content:center;padding:46px 18px 90px}
+.feed{width:100%;max-width:480px;display:flex;flex-direction:column;gap:28px}
+.feed-header{text-align:center;margin-bottom:4px}
+.feed-title{font:clamp(36px,10vw,48px)/1 "Gochi Hand",cursive;color:var(--red);text-shadow:2px 2px 0 #fff,4px 4px 0 rgba(140,91,216,.35);animation:sway 6s ease-in-out infinite}
+.feed-subtitle{margin-top:8px;font-size:17px;color:var(--text-secondary)}
+.feed-subtitle.error-banner{display:inline-block;padding:4px 16px;border-radius:99px;background:#ffd1d1;color:#a8243f;font-size:16px}
+#feedList{display:flex;flex-direction:column;gap:50px}
+.message-group{display:flex;flex-direction:column;gap:14px}
+.message-group.entering{animation:pop .6s cubic-bezier(.2,.9,.3,1.2) both}
+.sender-card{align-self:flex-start;max-width:88%;padding:8px 18px 9px;border-radius:var(--wob);background:var(--butter);transform:rotate(-1.5deg);display:flex;flex-direction:column}
+.sender-card::before{display:none}
+.sender-label{font-size:14px;color:var(--text-secondary)}
+.sender-name{font:25px/1.1 "Gochi Hand",cursive;word-break:break-word}
+.message-card{padding:26px 22px 18px}
+.message-text{font-size:21px;line-height:28px;white-space:pre-wrap;word-break:break-word}
+.message-time{display:inline-block;margin-top:12px;padding:0 12px;border-radius:99px;background:var(--lav);font-size:15px}
+.message-card::after{content:"";position:absolute;right:-8px;bottom:-18px;width:48px;height:48px;background:center/contain no-repeat;pointer-events:none}
+.message-group:nth-child(4n+1) .message-card::after{background-image:var(--s-love)}
+.message-group:nth-child(4n+2) .message-card::after{background-image:var(--s-star)}
+.message-group:nth-child(4n+3) .message-card::after{background-image:var(--s-flower)}
+.message-group:nth-child(4n) .message-card::after{background-image:var(--s-cat)}
+.message-group:nth-child(5n+2) .message-card{background:#fff0f6}.message-group:nth-child(5n+3) .message-card{background:#effbea}
+.message-group:nth-child(5n+4) .message-card{background:#fff9d6}.message-group:nth-child(5n) .message-card{background:#f3edff}
+.message-group:nth-child(odd) .message-card{transform:rotate(-.5deg)}.message-group:nth-child(even) .message-card{transform:rotate(.6deg)}
+.state-card{padding:26px 24px;text-align:center;font-size:21px;background:var(--lav)}
+.dots span{display:inline-block;width:10px;height:10px;margin:0 3px;border-radius:50%;background:var(--pink);font-size:0;animation:dotb 1.1s infinite ease-in-out}
+.dots span:nth-child(2){background:var(--butter);animation-delay:.15s}.dots span:nth-child(3){background:var(--mint);animation-delay:.3s}
+@keyframes dotb{0%,80%,100%{transform:translateY(0)}40%{transform:translateY(-8px)}}
+@media(max-width:400px){.page{padding:36px 14px 80px}.feed{gap:22px}#feedList{gap:42px}.message-card{padding:22px 18px 16px}.message-text{font-size:19px}}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+
+<!-- ================================================== -->
+<!-- HTML STRUCTURE                                      -->
+<!-- ================================================== -->
+
+<div class="bg-layer"></div>
+<div class="bg-overlay"></div>
+<div class="bg-vignette"></div>
+
+<div class="page">
+  <div class="feed">
+
+    <div class="feed-header">
+      <div class="feed-title">Messages for Adrian</div>
+      <div class="feed-subtitle" id="errorBanner"></div>
+    </div>
+
+    <div id="feedList">
+      <!-- Initial loading state -->
+      <div class="glass state-card" id="loadingState">
+        Loading messages<span class="dots"><span>.</span><span>.</span><span>.</span></span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================================================== -->
+<!-- JAVASCRIPT                                          -->
+<!-- ================================================== -->
+<script>
+(function () {
+  "use strict";
+
+  /* -------------------------------------------------- */
+  /* API configuration                                  */
+  /* -------------------------------------------------- */
+  const API_URL = "https://script.google.com/macros/s/AKfycbxP2zrsxB1TyIfXpH-PdgaR3huJgpoQuYkjmMDQWl99ZI_3VErsrpVygnMZ6lf1gpDa1Q/exec";
+  const POLL_INTERVAL_MS = 12000;
+
+  /* -------------------------------------------------- */
+  /* Element references                                 */
+  /* -------------------------------------------------- */
+  const feedList = document.getElementById("feedList");
+  const errorBanner = document.getElementById("errorBanner");
+
+  /* -------------------------------------------------- */
+  /* State                                                */
+  /* -------------------------------------------------- */
+  let hasLoadedOnce = false;
+  let renderedSignature = null; // to avoid unnecessary re-renders
+
+  /* -------------------------------------------------- */
+  /* Helpers                                              */
+  /* -------------------------------------------------- */
+  function resolveDisplayName(item) {
+    if (item.anonymous === true) return "Anonymous";
+    const name = (item.name || "").toString().trim();
+    return name.length > 0 ? name : "Anonymous";
+  }
+
+  function resolveMessageText(item) {
+    return (item.message !== undefined && item.message !== null)
+      ? item.message.toString()
+      : "";
+  }
+
+  function resolveTimestamp(item) {
+    if (!item.timestamp) return null;
+    const d = new Date(item.timestamp);
+    return isNaN(d.getTime()) ? null : d;
+  }
+
+  function formatTimestamp(date) {
+    if (!date) return "";
+    return date.toLocaleString(undefined, {
+      month: "short",
+      day: "numeric",
+      hour: "numeric",
+      minute: "2-digit"
+    });
+  }
+
+  function extractMessagesArray(data) {
+    if (Array.isArray(data)) return data;
+    if (data && Array.isArray(data.messages)) return data.messages;
+    return [];
+  }
+
+  function sortNewestFirst(items) {
+    const withDates = items.map((item, idx) => ({
+      item,
+      idx,
+      date: resolveTimestamp(item)
+    }));
+
+    const anyDates = withDates.some(entry => entry.date !== null);
+    if (!anyDates) {
+      // no usable timestamps; preserve given order (assume API already newest-first)
+      return items;
+    }
+
+    withDates.sort((a, b) => {
+      const at = a.date ? a.date.getTime() : -Infinity;
+      const bt = b.date ? b.date.getTime() : -Infinity;
+      if (bt !== at) return bt - at;
+      return a.idx - b.idx;
+    });
+
+    return withDates.map(entry => entry.item);
+  }
+
+  function buildSignature(items) {
+    // Cheap signature to detect whether content actually changed
+    return items.map(item =>
+      resolveDisplayName(item) + "|" + resolveMessageText(item) + "|" + (item.timestamp || "")
+    ).join("§");
+  }
+
+  /* -------------------------------------------------- */
+  /* Rendering (safe — no innerHTML for user data)         */
+  /* -------------------------------------------------- */
+  function createMessageGroup(item, animate) {
+    const group = document.createElement("div");
+    group.className = "message-group" + (animate ? " entering" : "");
+
+    // Sender card
+    const senderCard = document.createElement("div");
+    senderCard.className = "glass sender-card";
+
+    const senderLabel = document.createElement("div");
+    senderLabel.className = "sender-label";
+    senderLabel.textContent = "From:";
+
+    const senderName = document.createElement("div");
+    senderName.className = "sender-name";
+    senderName.textContent = resolveDisplayName(item);
+
+    senderCard.appendChild(senderLabel);
+    senderCard.appendChild(senderName);
+
+    // Message card
+    const messageCard = document.createElement("div");
+    messageCard.className = "glass message-card";
+
+    const messageText = document.createElement("div");
+    messageText.className = "message-text";
+    messageText.textContent = resolveMessageText(item);
+    messageCard.appendChild(messageText);
+
+    const ts = resolveTimestamp(item);
+    if (ts) {
+      const timeEl = document.createElement("div");
+      timeEl.className = "message-time";
+      timeEl.textContent = formatTimestamp(ts);
+      messageCard.appendChild(timeEl);
+    }
+
+    group.appendChild(senderCard);
+    group.appendChild(messageCard);
+
+    return group;
+  }
+
+  function renderStateCard(text) {
+    feedList.innerHTML = "";
+    const card = document.createElement("div");
+    card.className = "glass state-card";
+    card.textContent = text;
+    feedList.appendChild(card);
+  }
+
+  function renderMessages(items) {
+    feedList.innerHTML = "";
+
+    if (items.length === 0) {
+      renderStateCard("No messages yet.");
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+    items.forEach(item => {
+      fragment.appendChild(createMessageGroup(item, !hasLoadedOnce ? true : true));
+    });
+    feedList.appendChild(fragment);
+  }
+
+  function setErrorBanner(text) {
+    errorBanner.textContent = text || "";
+    errorBanner.classList.toggle("error-banner", !!text);
+  }
+
+  /* -------------------------------------------------- */
+  /* Loading messages                                     */
+  /* -------------------------------------------------- */
+  async function loadMessages() {
+    try {
+      const response = await fetch(API_URL);
+      if (!response.ok) throw new Error("Bad response");
+
+      const data = await response.json();
+      const items = sortNewestFirst(extractMessagesArray(data));
+
+      const signature = buildSignature(items);
+
+      if (signature !== renderedSignature) {
+        renderedSignature = signature;
+        renderMessages(items);
+      }
+
+      setErrorBanner("");
+      hasLoadedOnce = true;
+    } catch (err) {
+      if (!hasLoadedOnce) {
+        renderStateCard("Unable to refresh messages.");
+      } else {
+        // keep previously loaded messages, just flag the issue
+        setErrorBanner("Unable to refresh messages.");
+      }
+    }
+  }
+
+  /* -------------------------------------------------- */
+  /* Init + polling                                       */
+  /* -------------------------------------------------- */
+  loadMessages();
+  setInterval(loadMessages, POLL_INTERVAL_MS);
+
+})();
+</script>
+
+<script>
+/* Decoration only: floating stickers behind the page. Change the folder with ASSETS. */
+(function(){
+  var ASSETS="https://iankreidehuter.space/assets/", k=innerWidth<600?.7:1, box=document.createElement("div");
+  var spots=[["cloud.png",3,2,96,0,""],["rainbow.png",68,1,130,5,""],["yellow_love.png",8,26,38,-10,"tw"],["love.png",90,34,40,10,"tw"],
+    ["flower.png",4,70,64,0,""],["cat.png",84,62,86,-6,""],["leaf.png",20,90,50,8,""],["flower.png",72,88,64,0,""],
+    ["yellow_love.png",50,94,34,0,"tw"],["dog.png",1,84,80,6,""],["sun.png",44,1,70,-8,"spin"]];
+  box.id="fx"; box.setAttribute("aria-hidden","true");
+  box.innerHTML=spots.map(function(s,i){return '<img class="fx-s '+s[5]+'" src="'+ASSETS+s[0]+'" alt="" style="left:'+s[1]+'%;top:'+s[2]+'%;width:'+Math.round(s[3]*k)+'px;--r:'+s[4]+'deg;--d:-'+(i*7)%5+'s">';}).join("");
+  box.addEventListener("error",function(e){if(e.target.tagName==="IMG")e.target.style.visibility="hidden";},true);
+  document.body.appendChild(box);
+})();
+</script>
+</body>
+</html>
