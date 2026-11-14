@@ -1,325 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Journal Studio — Admin</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Write — My Mood Journal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Patrick+Hand&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div id="admin-app-view" class="app-shell">
-    <!-- Top Navigation -->
-    <header class="site-header">
-      <div class="container header-inner">
-        <div class="brand">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <div>
-            <h1 class="brand-title">Journal Studio</h1>
-            <p class="brand-subtitle">Private entry composer &amp; archive management</p>
-          </div>
-        </div>
-        <nav class="header-nav" aria-label="Admin navigation">
-          <a href="index.html" class="nav-link">&larr; View Journal</a>
-          <button type="button" id="btn-open-password-modal" class="btn btn-ghost btn-sm hidden">Password</button>
-          <button type="button" id="btn-logout" class="btn btn-secondary btn-sm hidden">Sign Out</button>
-        </nav>
-      </div>
-    </header>
+<body data-page="admin">
 
-    <main class="container admin-container">
-      <!-- Global Status / Toast Area -->
-      <div id="admin-status-banner" class="status-banner hidden" role="alert"></div>
+<header class="top">
+  <a class="brand" href="index.html">My Mood Journal</a>
+  <nav class="nav" aria-label="Main">
+    <a href="index.html">Journal</a>
+    <a href="admin.html" aria-current="page">Write</a>
+  </nav>
+</header>
 
-      <!-- 1. ADMINISTRATOR LOGIN PANEL -->
-      <section id="admin-login-section" class="auth-card">
-        <div class="auth-header">
-          <h2>Owner Authentication</h2>
-          <p>Sign in with your administrator password to write, edit, or manage journal entries.</p>
-        </div>
+<main class="wrap narrow">
 
-        <form id="login-form" class="stack-form">
-          <div class="form-group">
-            <label for="admin-password" class="field-label">Administrator Password</label>
-            <input
-              type="password"
-              id="admin-password"
-              class="input-control"
-              placeholder="Enter your private password"
-              autocomplete="current-password"
-              required
-            />
-          </div>
-          <button type="submit" id="btn-login-submit" class="btn btn-primary btn-block">
-            Unlock Journal Studio
-          </button>
-        </form>
-        <p class="auth-footnote">
-          Authentication is verified on the Google Apps Script backend using a secure session token.
-        </p>
-      </section>
+  <!-- Sign in -->
+  <section id="login" class="card tape" hidden>
+    <h1>Owner sign-in</h1>
+    <p>Only the owner can write, edit or delete entries.</p>
+    <form id="login-form" class="stack">
+      <label class="fld"><span>Password</span>
+        <input id="pw" type="password" autocomplete="current-password" required></label>
+      <button class="btn primary" type="submit">Sign in</button>
+      <p id="login-msg" class="msg err" role="alert" hidden></p>
+    </form>
+  </section>
 
-      <!-- 2. AUTHENTICATED ADMIN WORKSPACE -->
-      <div id="admin-workspace" class="admin-workspace hidden">
-        <!-- POST COMPOSER CARD -->
-        <section class="composer-card" aria-labelledby="composer-heading">
-          <div class="composer-header">
-            <div>
-              <span id="composer-mode-badge" class="mode-badge">New Entry</span>
-              <h2 id="composer-heading" class="section-title">Document Today's Experience</h2>
-            </div>
-            <button type="button" id="btn-cancel-edit" class="btn btn-ghost btn-sm hidden">
-              Cancel Editing
-            </button>
-          </div>
-
-          <form id="entry-form" class="composer-form" novalidate>
-            <input type="hidden" id="entry-id" value="" />
-
-            <!-- Title & Date Row -->
-            <div class="form-row-2">
-              <div class="form-group">
-                <label for="entry-title" class="field-label">Journal Title <span class="req">*</span></label>
-                <input
-                  type="text"
-                  id="entry-title"
-                  class="input-control"
-                  placeholder="Give this moment a title…"
-                  maxlength="200"
-                  required
-                />
-              </div>
-
-              <div class="form-group">
-                <label for="entry-date" class="field-label">Entry Date &amp; Time <span class="req">*</span></label>
-                <input
-                  type="datetime-local"
-                  id="entry-date"
-                  class="input-control"
-                  required
-                />
-              </div>
-            </div>
-
-            <!-- Written Content -->
-            <div class="form-group">
-              <div class="label-row">
-                <label for="entry-content" class="field-label">Written Reflection <span class="req">*</span></label>
-                <span id="word-counter" class="muted-text text-xs">0 words</span>
-              </div>
-              <textarea
-                id="entry-content"
-                class="input-control textarea-control"
-                rows="7"
-                placeholder="Write freely about what happened, what you noticed, and how it felt…"
-                required
-              ></textarea>
-            </div>
-
-            <!-- INTERACTIVE CATEGORY-BASED MOOD CHECKER -->
-            <div class="mood-checker-box" aria-labelledby="mood-checker-title">
-              <div class="mood-checker-header">
-                <div>
-                  <h3 id="mood-checker-title" class="subsection-title">Emotional Check-In <span class="req">*</span></h3>
-                  <p class="muted-text text-sm">
-                    Explore the emotional categories below and choose <strong>exactly three</strong> feelings that resonate most.
-                  </p>
-                </div>
-                <div id="emotion-counter-badge" class="emotion-counter" aria-live="polite">
-                  0/3 selected
-                </div>
-              </div>
-
-              <!-- Selected 3 Emotion Slots -->
-              <div id="selected-emotions-tray" class="selected-emotions-tray" aria-label="Selected emotions">
-                <span class="emotion-slot empty">1. Select first emotion</span>
-                <span class="emotion-slot empty">2. Select second emotion</span>
-                <span class="emotion-slot empty">3. Select third emotion</span>
-              </div>
-
-              <!-- Primary Category Tabs -->
-              <div id="emotion-category-tabs" class="category-tabs" role="tablist" aria-label="Primary emotion categories"></div>
-
-              <!-- Secondary & Specific Emotions Grid -->
-              <div id="emotion-options-panel" class="emotion-options-panel" role="tabpanel"></div>
-            </div>
-
-            <!-- MEDIA MANAGEMENT (METHOD A: GOOGLE DRIVE UPLOAD & METHOD B: EXTERNAL URLS) -->
-            <div class="media-composer-box">
-              <div class="media-box-header">
-                <h3 class="subsection-title">Photos &amp; Videos</h3>
-                <p class="muted-text text-sm">
-                  Upload files directly to Google Drive or attach external image and video URLs. Mix and reorder freely.
-                </p>
-              </div>
-
-              <div class="media-methods-grid">
-                <!-- Method A: Direct Upload to Google Drive -->
-                <div class="media-method-card">
-                  <div class="method-badge method-drive">Method A &bull; Google Drive Upload</div>
-                  <p class="method-desc">Files selected here upload directly into your private Google Drive folder.</p>
-
-                  <div class="upload-actions-row">
-                    <label class="btn btn-secondary btn-sm file-btn">
-                      <input type="file" id="upload-image-input" accept="image/*" multiple hidden />
-                      + Upload Photos
-                    </label>
-                    <label class="btn btn-secondary btn-sm file-btn">
-                      <input type="file" id="upload-video-input" accept="video/*" multiple hidden />
-                      + Upload Videos
-                    </label>
-                  </div>
-                  <div id="upload-progress-area" class="upload-progress-area hidden"></div>
-                </div>
-
-                <!-- Method B: External Media URLs -->
-                <div class="media-method-card">
-                  <div class="method-badge method-external">Method B &bull; External Media URL</div>
-                  <p class="method-desc">Link external images or videos (MP4, WebM, YouTube, Vimeo) without uploading to Drive.</p>
-
-                  <div class="url-adder-group">
-                    <label for="external-image-url" class="sr-only">External Image URL</label>
-                    <input
-                      type="url"
-                      id="external-image-url"
-                      class="input-control input-sm"
-                      placeholder="https://example.com/photo.jpg"
-                    />
-                    <button type="button" id="btn-add-external-image" class="btn btn-secondary btn-sm">
-                      Add Image
-                    </button>
-                  </div>
-
-                  <div class="url-adder-group">
-                    <label for="external-video-url" class="sr-only">External Video URL</label>
-                    <input
-                      type="url"
-                      id="external-video-url"
-                      class="input-control input-sm"
-                      placeholder="https://youtube.com/watch?v=... or .mp4"
-                    />
-                    <button type="button" id="btn-add-external-video" class="btn btn-secondary btn-sm">
-                      Add Video
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Unified Reorderable Attachment Preview Tray -->
-              <div class="attachments-tray-header">
-                <span class="field-label">Attached Media (<span id="attachment-count">0</span>)</span>
-                <span class="muted-text text-xs">Display order matches top-to-bottom below</span>
-              </div>
-              <div id="media-preview-list" class="media-preview-list">
-                <p class="empty-tray-text">No photos or videos attached yet.</p>
-              </div>
-            </div>
-
-            <!-- OPTIONAL EXTERNAL LINKS -->
-            <div class="links-composer-box">
-              <div class="label-row">
-                <label class="field-label">Optional External Links</label>
-                <span class="muted-text text-xs">Songs, articles, places, or references</span>
-              </div>
-              <div class="link-builder-row">
-                <input
-                  type="text"
-                  id="link-label-input"
-                  class="input-control input-sm"
-                  placeholder="Link title (e.g., Morning playlist)"
-                  maxlength="120"
-                />
-                <input
-                  type="url"
-                  id="link-url-input"
-                  class="input-control input-sm"
-                  placeholder="https://..."
-                />
-                <button type="button" id="btn-add-link" class="btn btn-secondary btn-sm">Add Link</button>
-              </div>
-              <div id="links-preview-list" class="links-preview-list"></div>
-            </div>
-
-            <!-- Composer Submit Actions -->
-            <div class="composer-footer">
-              <button type="button" id="btn-preview-entry" class="btn btn-secondary">
-                Preview Entry
-              </button>
-              <button type="submit" id="btn-save-entry" class="btn btn-primary">
-                Publish Journal Entry
-              </button>
-            </div>
-          </form>
-        </section>
-
-        <!-- MANAGE EXISTING JOURNAL ENTRIES -->
-        <section class="manage-card" aria-labelledby="manage-heading">
-          <div class="manage-header">
-            <div>
-              <h2 id="manage-heading" class="section-title">Manage Journal Entries</h2>
-              <p class="muted-text text-sm">Edit reflections, update emotional selections, reorder media, or delete entries.</p>
-            </div>
-            <input
-              type="search"
-              id="admin-manage-search"
-              class="input-control input-sm manage-search"
-              placeholder="Filter entries…"
-              aria-label="Filter entries to manage"
-            />
-          </div>
-
-          <div id="admin-entries-list" class="admin-entries-list">
-            <p class="muted-text">Loading entries…</p>
-          </div>
-        </section>
-      </div>
-    </main>
-
-    <!-- Entry Preview Modal -->
-    <div id="preview-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-label="Journal entry preview">
-      <div class="modal-dialog modal-dialog-lg">
-        <div class="modal-header">
-          <h3>Entry Preview</h3>
-          <button type="button" id="btn-close-preview" class="modal-close" aria-label="Close preview">&times;</button>
-        </div>
-        <div id="preview-modal-body" class="modal-body"></div>
-      </div>
+  <!-- Composer + manager -->
+  <div id="app" hidden>
+    <div class="bar">
+      <h1 id="composer-title">New entry</h1>
+      <button id="logout" class="btn small" type="button">Sign out</button>
     </div>
 
-    <!-- Change Password Modal -->
-    <div id="password-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-label="Change password">
-      <div class="modal-dialog">
-        <div class="modal-header">
-          <h3>Change Administrator Password</h3>
-          <button type="button" id="btn-close-password-modal" class="modal-close" aria-label="Close modal">&times;</button>
+    <form id="composer" class="card tape stack" novalidate>
+      <p id="edit-banner" class="msg" hidden></p>
+
+      <label class="fld"><span>Title</span>
+        <input id="f-title" type="text" maxlength="200" placeholder="Give today a name" required></label>
+
+      <label class="fld"><span>Date &amp; time</span>
+        <input id="f-when" type="datetime-local" required></label>
+
+      <label class="fld"><span>What happened? How was it?</span>
+        <textarea id="f-content" rows="8" maxlength="40000" placeholder="Write freely…" required></textarea></label>
+
+      <fieldset class="group">
+        <legend>How are you feeling? Pick exactly three</legend>
+        <div id="mood-root" class="mood"></div>
+      </fieldset>
+
+      <fieldset class="group">
+        <legend>Photos &amp; videos</legend>
+        <div class="media-add">
+          <div class="add-card">
+            <h3>Upload from your device</h3>
+            <p class="small-note">Saved to your private Google Drive folder when you publish.</p>
+            <div class="row">
+              <label class="btn small">Choose images
+                <input id="file-images" type="file" accept="image/jpeg,image/png,image/gif,image/webp" multiple hidden></label>
+              <label class="btn small">Choose videos
+                <input id="file-videos" type="file" accept="video/mp4,video/webm,video/quicktime,video/ogg" multiple hidden></label>
+            </div>
+          </div>
+          <div class="add-card">
+            <h3>Paste a link</h3>
+            <p class="small-note">Not uploaded — shown straight from where it lives (https only).</p>
+            <div class="url-row">
+              <input id="url-image" type="url" inputmode="url" placeholder="Image URL (.jpg .png .gif .webp)" aria-label="Image URL">
+              <button id="add-image-url" class="btn small" type="button">Add image</button>
+            </div>
+            <div class="url-row">
+              <input id="url-video" type="url" inputmode="url" placeholder="Video URL (.mp4 .webm, YouTube, Vimeo)" aria-label="Video URL">
+              <button id="add-video-url" class="btn small" type="button">Add video</button>
+            </div>
+          </div>
         </div>
-        <form id="change-password-form" class="modal-body stack-form">
-          <div class="form-group">
-            <label for="current-password" class="field-label">Current Password</label>
-            <input type="password" id="current-password" class="input-control" required />
-          </div>
-          <div class="form-group">
-            <label for="new-password" class="field-label">New Password (min. 8 characters)</label>
-            <input type="password" id="new-password" class="input-control" minlength="8" required />
-          </div>
-          <button type="submit" id="btn-submit-password" class="btn btn-primary btn-block">
-            Update Password
-          </button>
-        </form>
-      </div>
-    </div>
+        <p id="media-msg" class="msg" role="status" hidden></p>
+        <ol id="attachments" class="atts"></ol>
+      </fieldset>
 
-    <!-- Image Lightbox Modal (for previewing attachments) -->
-    <div id="lightbox-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-label="Image viewer">
-      <div class="lightbox-container">
-        <button type="button" id="btn-close-lightbox" class="lightbox-close" aria-label="Close image viewer">&times;</button>
-        <img id="lightbox-image" src="" alt="Expanded attachment" class="lightbox-img" />
-        <p id="lightbox-caption" class="lightbox-caption"></p>
-      </div>
-    </div>
+      <label class="fld"><span>Links (optional, one per line)</span>
+        <textarea id="f-links" rows="3" placeholder="https://example.com/article"></textarea></label>
 
-    <div id="toast-container" class="toast-container" aria-live="polite"></div>
+      <p id="form-msg" class="msg" role="status" hidden></p>
+
+      <div class="actions">
+        <button id="btn-preview" class="btn" type="button">Preview</button>
+        <button id="btn-save" class="btn primary" type="submit">Publish</button>
+        <button id="btn-cancel" class="btn" type="button" hidden>Cancel edit</button>
+      </div>
+    </form>
+
+    <section class="card stack">
+      <h2>Your entries</h2>
+      <div id="manage" class="manage"></div>
+      <div class="actions">
+        <button id="cleanup" class="btn small" type="button">Clean up unused Drive files</button>
+      </div>
+    </section>
   </div>
+</main>
 
-  <script src="script.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
