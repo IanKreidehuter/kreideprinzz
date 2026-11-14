@@ -247,3 +247,16 @@ input:focus,select:focus,textarea:focus{border-color:var(--purple);outline:none;
  .entry-dialog .prose{font-size:22px;max-width:none}
  .entry-dialog .media-img img{max-height:640px}
 }
+
+/* ---------- fixes: filter bar overlap + full-ratio tile images ---------- */
+.fld{grid-template-columns:minmax(0,1fr)}
+.filters input,.filters select{min-width:0}
+@media(min-width:900px){
+ .filters{gap:12px 14px}
+ .filters .fld{flex:1 1 150px}
+ .filters .fld.grow{flex:2 1 240px}
+ .filters .fld:has(input[type=date]),.filters .fld:has(input[type=month]){flex:1 1 175px}
+ .tile-thumb{aspect-ratio:auto;display:block;background:var(--lav);max-height:340px}
+ .tile-thumb img{width:100%;height:auto;max-height:340px;object-fit:contain;background:#f4efff}
+ .tile-thumb .tile-ph{display:block;padding:40px 0;text-align:center}
+}
