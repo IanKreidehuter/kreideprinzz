@@ -29,7 +29,7 @@ function char(p){
   const brow=(cx,cy,a)=>`<path d="M-17 0Q0-9 17 0" transform="translate(${cx} ${cy}) rotate(${a})" fill="none" stroke="${INK}" stroke-width="6" stroke-linecap="round"/>`;
   const arm=(s,sx)=>`<g class="arm" style="transform:translate(${sx}px,215px) rotate(var(--a${s}))"><path d="M0 0V89" stroke="${INK}" stroke-width="27" stroke-linecap="round"/><path d="M0 0V89" stroke="${c}" stroke-width="18" stroke-linecap="round"/><g transform="translate(0 89)"><circle r="33" fill="${c}" stroke="${INK}" stroke-width="5"/><path d="M-14 12v17M0 14v19M14 12v17" stroke="${INK}" stroke-width="4" stroke-linecap="round"/></g></g>`;
   return `<svg class="art${f.still?' still':''}" viewBox="0 -24 300 400" data-h="${p.from||'down'}" style="--hd:${p.hd||1.6}s" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A round smiling character">
-<rect x="-60" y="-90" width="420" height="560" fill="${p.bg}"/>
+
 <ellipse cx="150" cy="265" rx="70" ry="52" fill="${c}" stroke="${INK}" stroke-width="6"/>
 <ellipse cx="108" cy="314" rx="24" ry="11" fill="${c}" stroke="${INK}" stroke-width="5"/><ellipse cx="192" cy="314" rx="24" ry="11" fill="${c}" stroke="${INK}" stroke-width="5"/>
 <g style="transform:rotate(${f.tilt}deg);transform-origin:150px 220px">
@@ -50,7 +50,7 @@ function creature(p){
   for(let k=0;k<5;k++){const a=(-125+k*24)*Math.PI/180,ex=20+48*Math.cos(a),ey=100+48*Math.sin(a);fg+=`<path d="M20 100L${ex} ${ey}" stroke="${INK}" stroke-width="10" stroke-linecap="round"/><path d="M20 100L${ex} ${ey}" stroke="${B}" stroke-width="4" stroke-linecap="round"/>`}
   return `<svg class="art" viewBox="0 -24 300 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A distorted grinning creature">
 <defs><g id="lim"><path d="M72 335Q-14 250 20 100" fill="none" stroke="${INK}" stroke-width="19" stroke-linecap="round"/><path d="M72 335Q-14 250 20 100" fill="none" stroke="${B}" stroke-width="11" stroke-linecap="round"/>${fg}</g></defs>
-<rect x="-60" y="-90" width="420" height="560" fill="${p.bg}"/><circle cx="150" cy="150" r="175" fill="#3a1020"/>
+<circle cx="150" cy="150" r="175" fill="#3a1020"/>
 <use href="#lim"/><use href="#lim" transform="translate(300 0) scale(-1 1)"/>
 <ellipse cx="150" cy="350" rx="66" ry="48" fill="${B}" stroke="${INK}" stroke-width="6"/>
 <ellipse cx="150" cy="262" rx="24" ry="52" fill="${B}" stroke="${INK}" stroke-width="6"/>
@@ -108,7 +108,7 @@ const pageFace=n=>{const p=P[n-1],d=mk('face front',illus(n)+`<div class="txt" s
 const cover=()=>`<div class="cov">${char({bg:'#ffc8dd'})}<h1>PEEK-A-BOO</h1><button id="start">Start reading</button></div>`;
 for(let j=0;j<N;j++){
   const L=mk('leaf');
-  L.append(j?pageFace(j):mk('face front',cover()),mk('face back'));
+  L.append(j?pageFace(j):mk('face front',cover()),mk('sh'));
   book.append(L);leaves.push(L);
 }
 const base=mk('base');base.append(pageFace(N));book.append(base);
@@ -117,8 +117,11 @@ const svgOf=n=>pageEl(n).querySelector('.front svg');
 const locked=()=>Date.now()<lock;
 
 /* leaf z-order + state: leaves 0..s-1 are flipped (left stack) */
-function stack(){
-  leaves.forEach((L,j)=>{L.classList.toggle('flipped',j<s);L.style.zIndex=j<s?j+1:N-j+1});
+function stack(){   // only pages near the reader are rendered (keeps phones smooth); only the current page animates
+  leaves.forEach((L,j)=>{
+    L.classList.toggle('flipped',j<s);L.classList.toggle('cur',j===s);
+    L.classList.toggle('off',j<s-1||j>s+2);L.style.zIndex=j<s?j+1:N-j+1});
+  base.classList.toggle('off',s<N-2);base.classList.toggle('cur',s===N);
   book.classList.toggle('open',s>0);
 }
 stack();
@@ -128,7 +131,7 @@ const dur=()=>RM?60:1100+Math.max(0,s-6)*150;           // later pages turn slow
 function settle(leaf,ang,ms,done){                         // animate leaf to angle, then call done
   leaf.style.transition='';leaf.style.setProperty('--tt',ms+'ms');leaf.classList.add('turning','show');
   requestAnimationFrame(()=>{leaf.style.transform=`rotateY(${ang}deg)`});
-  setTimeout(()=>{leaf.classList.remove('turning','show');leaf.style.transform='';leaf.style.removeProperty('--sh');done()},ms+40);
+  setTimeout(()=>{leaf.classList.remove('turning','show');leaf.style.transform='';leaf.lastChild.style.opacity='';done()},ms+40);
 }
 function turn(d){
   const t=s+d;if(busy||t<0||t>N||locked())return;
@@ -170,7 +173,7 @@ addEventListener('pointermove',e=>{
   if(dr&&dr.d){
     dr.p=Math.min(1,Math.abs(dx)/(book.offsetWidth*.55));
     dr.leaf.style.transform=`rotateY(${dr.d>0?-180*dr.p:-180*(1-dr.p)}deg)`;
-    dr.leaf.style.setProperty('--sh',(Math.sin(Math.PI*dr.p)*.4).toFixed(2));
+    dr.leaf.lastChild.style.opacity=(Math.sin(Math.PI*dr.p)*.4).toFixed(2);
   }
 });
 addEventListener('pointerup',e=>{
@@ -180,7 +183,7 @@ addEventListener('pointerup',e=>{
   if(go)Snd.fx('turn');
   settle(q.leaf,go?(d>0?-180:0):(d>0?0:-180),RM?60:600,()=>{if(go)s+=d;stack();if(go)arrive(d);busy=false});
 });
-addEventListener('pointercancel',()=>{if(dr&&dr.d){dr.leaf.classList.remove('show');dr.leaf.style.transform='';dr.leaf.style.transition='';stack()}dr=null});
+addEventListener('pointercancel',()=>{if(dr&&dr.d){dr.leaf.classList.remove('show');dr.leaf.lastChild.style.opacity='';dr.leaf.style.transform='';dr.leaf.style.transition='';stack()}dr=null});
 
 /* ---------- UI ---------- */
 $('#start').onclick=()=>turn(1);
