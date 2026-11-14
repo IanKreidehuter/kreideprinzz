@@ -15,9 +15,9 @@ const P=[
 {tx:"Let's play again!",sz:.62,bg:'#f4ebc4',f:{w:52,h:32,ps:14,blush:.4}},
 {tx:'Peek...',bg:'#e3dcc3',from:'down',to:'cover',hd:3.2,f:{w:56,h:34,ps:14,blush:.3}},
 {tx:'A-BOO!',bg:'#d3cdbf',from:'cover',to:'open',hd:1.4,f:{w:66,h:40,er2:32,dy2:9,ps:8,px:-5,tilt:4,teeth:6,blush:.2,col:'#efe07c'}},
-{tx:'Are you still there?',sz:.5,bg:'#8d8994',f:{w:76,h:46,er:30,er2:30,ps:4,py:0,teeth:9,tilt:-3,brow:12,blush:0,col:'#dfd585',still:1}},
-{tx:'Peek...',bg:'#47424f',from:'down',to:'cover',hd:5.5,f:{w:82,h:50,teeth:12,blush:0,col:'#d3ca84',still:1}},
-{tx:'A... BOO.',sz:.85,bg:'#1a0f18',creature:1}];
+{tx:'Are you still there?',sz:.5,bg:'#8d8994',ink:'#241a28',f:{w:76,h:46,er:30,er2:30,ps:4,py:0,teeth:9,tilt:-3,brow:12,blush:0,col:'#dfd585',still:1}},
+{tx:'Peek...',bg:'#47424f',ink:'#efe6ec',from:'down',to:'cover',hd:5.5,f:{w:82,h:50,teeth:12,blush:0,col:'#d3ca84',still:1}},
+{tx:'A... BOO.',sz:.85,bg:'#1a0f18',ink:'#e5424f',creature:1}];
 const MOOD=[0,0,0,0,.05,.05,.1,.25,.35,.5,.7,.9,1]; // music distortion per spread
 
 /* ---------- SVG ART (flat 2D, shared outline language) ---------- */
@@ -103,15 +103,17 @@ const Snd=(()=>{
 /* ---------- BOOK: build leaves ---------- */
 const book=$('#book'),leaves=[];let s=0,busy=false,lock=0;
 const mk=(c,h)=>{const d=document.createElement('div');d.className=c;if(h)d.innerHTML=h;return d};
-const txt=n=>`<div class="txt" style="--sz:${P[n-1].sz||1}">${P[n-1].tx}</div><i class="pn">${2*n}</i>`;
+/* one page = illustration + text, coloured with the page's own background */
+const pageFace=n=>{const p=P[n-1],d=mk('face front',illus(n)+`<div class="txt" style="--sz:${p.sz||1}">${p.tx}</div><i class="pn">${n} / ${N}</i>`);d.style.cssText=`background-color:${p.bg};--ink:${p.ink||INK}`;return d};
 const cover=()=>`<div class="cov">${char({bg:'#ffc8dd'})}<h1>PEEK-A-BOO</h1><button id="start">Start reading</button></div>`;
 for(let j=0;j<N;j++){
   const L=mk('leaf');
-  L.append(mk('face front',j?txt(j):cover()),mk('face back',illus(j+1)+`<i class="pn">${2*j+1}</i>`));
+  L.append(j?pageFace(j):mk('face front',cover()),mk('face back'));
   book.append(L);leaves.push(L);
 }
-const base=mk('base');base.append(mk('face front',txt(N)));book.append(base);
-const svgOf=n=>leaves[n-1].querySelector('.back svg');
+const base=mk('base');base.append(pageFace(N));book.append(base);
+const pageEl=n=>n<N?leaves[n]:base;                       // element holding page n
+const svgOf=n=>pageEl(n).querySelector('.front svg');
 const locked=()=>Date.now()<lock;
 
 /* leaf z-order + state: leaves 0..s-1 are flipped (left stack) */
@@ -124,9 +126,9 @@ stack();
 /* ---------- PAGE TURNING ---------- */
 const dur=()=>RM?60:1100+Math.max(0,s-6)*150;           // later pages turn slower
 function settle(leaf,ang,ms,done){                         // animate leaf to angle, then call done
-  leaf.style.transition='';leaf.style.setProperty('--tt',ms+'ms');leaf.classList.add('turning');
+  leaf.style.transition='';leaf.style.setProperty('--tt',ms+'ms');leaf.classList.add('turning','show');
   requestAnimationFrame(()=>{leaf.style.transform=`rotateY(${ang}deg)`});
-  setTimeout(()=>{leaf.classList.remove('turning');leaf.style.transform='';leaf.style.removeProperty('--sh');done()},ms+40);
+  setTimeout(()=>{leaf.classList.remove('turning','show');leaf.style.transform='';leaf.style.removeProperty('--sh');done()},ms+40);
 }
 function turn(d){
   const t=s+d;if(busy||t<0||t>N||locked())return;
@@ -143,7 +145,6 @@ function turn(d){
 /* called after every completed turn */
 function arrive(d){
   const p=s&&P[s-1],ss=s;
-  $('#count').textContent=s?`${s} / ${N}`:'Cover';
   document.body.dataset.m=s>=10?2:s>=7?1:0;
   s===N?book.dataset.f=1:delete book.dataset.f;
   if(s===0)Snd.stop();else if(s===1&&d>0)Snd.start();
@@ -153,7 +154,7 @@ function arrive(d){
   setTimeout(()=>{if(s!==ss)return;                         // hands animate shortly after the page lands
     if(p.to)svgOf(s).dataset.h=p.to;
     Snd.fx(s===N?'reveal':/peek/i.test(p.tx)?'peek':/boo/i.test(p.tx)?'aboo':null)},420);
-  if(s===11){lock=Date.now()+4600;$('#next').classList.add('wait');setTimeout(()=>$('#next').classList.remove('wait'),4600)}
+  if(s===11)lock=Date.now()+4600;       // long pause before the last page
 }
 
 /* drag / swipe / click on the pages */
@@ -163,7 +164,7 @@ addEventListener('pointermove',e=>{
   if(!dr)return;const dx=e.clientX-dr.x;
   if(!dr.d&&Math.abs(dx)>10){
     const d=dx<0?1:-1;if(s+d<0||s+d>N||locked()){dr=null;return}
-    dr.d=d;dr.leaf=leaves[d>0?s:s-1];dr.leaf.style.zIndex=99;dr.leaf.style.transition='none';
+    dr.d=d;dr.leaf=leaves[d>0?s:s-1];dr.leaf.style.zIndex=99;dr.leaf.style.transition='none';dr.leaf.classList.add('show');
     if(d>0&&s===0)book.classList.add('open');Snd.unlock();
   }
   if(dr&&dr.d){
@@ -174,17 +175,15 @@ addEventListener('pointermove',e=>{
 });
 addEventListener('pointerup',e=>{
   if(!dr)return;const q=dr;dr=null;
-  if(!q.d){const r=book.getBoundingClientRect();if(e.target.closest&&book.contains(e.target))turn(e.clientX>r.left+r.width/2?1:-1);return}
+  if(!q.d){const r=book.getBoundingClientRect();if(e.target.closest&&book.contains(e.target))turn(s===0||e.clientX>r.left+r.width*.3?1:-1);return}
   busy=true;const go=q.p>.3,d=q.d;
   if(go)Snd.fx('turn');
   settle(q.leaf,go?(d>0?-180:0):(d>0?0:-180),RM?60:600,()=>{if(go)s+=d;stack();if(go)arrive(d);busy=false});
 });
-addEventListener('pointercancel',()=>{if(dr&&dr.d){dr.leaf.style.transform='';dr.leaf.style.transition='';stack()}dr=null});
+addEventListener('pointercancel',()=>{if(dr&&dr.d){dr.leaf.classList.remove('show');dr.leaf.style.transform='';dr.leaf.style.transition='';stack()}dr=null});
 
 /* ---------- UI ---------- */
 $('#start').onclick=()=>turn(1);
-$('#next').onclick=()=>turn(1);
-$('#prev').onclick=()=>turn(-1);
 $('#snd').onclick=e=>{Snd.unlock();e.currentTarget.style.opacity=Snd.toggle()?1:.4};
 $('#vol').oninput=e=>{Snd.unlock();Snd.vol(e.target.value)};
 $('#fs').onclick=()=>{try{const r=document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();r&&r.catch&&r.catch(()=>{})}catch(e){}};
