@@ -1,0 +1,58 @@
+/* PEEK-A-BOO — all paths relative, no external resources */
+:root{--W:min(94vw,calc((100vh - 76px)*1.5),1000px);--H:calc(var(--W)/1.5);--ink:#3b2a3d;--paper:#fbf4e4;
+--f:"Chalkboard SE","Marker Felt","Comic Sans MS","Trebuchet MS",system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+html,body{height:100%;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none;font-family:var(--f)}
+body{background:#3a2f44;transition:background 3s}
+body[data-m="1"]{background:#312c38}
+body[data-m="2"]{background:#0f090d}
+#stage{height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding-bottom:env(safe-area-inset-bottom)}
+#book{position:relative;width:var(--W);height:var(--H);perspective:calc(var(--W)*1.6);transform:translateX(calc(var(--W)/-4));transition:transform 1s ease;
+--paper:#fbf4e4}
+#book.open{transform:none}
+body[data-m="1"] #book{--paper:#f0e9d6}
+body[data-m="2"] #book{--paper:#cbc2b2}
+#book[data-f]{--paper:#150c12;--ink:#c8323f}
+.leaf,.base{position:absolute;left:50%;top:0;width:50%;height:100%}
+.base{z-index:0}
+.leaf{transform-origin:0 50%;transform-style:preserve-3d;transition:transform var(--tt,1100ms) cubic-bezier(.45,.05,.25,1)}
+.leaf.flipped{transform:rotateY(-180deg)}
+.face{position:absolute;inset:0;overflow:hidden;container-type:size;background-color:var(--paper);transition:background-color 2.5s;
+backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:0 10px 10px 0;
+box-shadow:3px 3px 0 #e4d9bf,6px 5px 0 #d6caae,10px 12px 22px #0007}
+.front::before,.back::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,#0003,#0000 9%)}
+.back{transform:rotateY(180deg);border-radius:10px 0 0 10px;box-shadow:-3px 3px 0 #e4d9bf,-6px 5px 0 #d6caae,-10px 12px 22px #0007}
+.back::before{background:linear-gradient(270deg,#0003,#0000 9%)}
+.face::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(90deg,#000,#0000);opacity:var(--sh,0)}
+.back::after{background:linear-gradient(270deg,#000,#0000)}
+.turning .face::after{animation:shade var(--tt,1100ms) ease-in-out}
+@keyframes shade{50%{opacity:.4}}
+.art{display:block;width:100%;height:100%}
+.txt{height:100%;display:grid;place-items:center;text-align:center;padding:8cqw;color:var(--ink);font-weight:700;font-size:calc(var(--sz,1)*17cqw);line-height:1.05;transition:color 2.5s}
+.pn{position:absolute;bottom:4cqw;right:5cqw;font:700 4.5cqw var(--f);color:var(--ink);opacity:.5;z-index:1}
+.back .pn{right:auto;left:5cqw;color:#3b2a3d}
+.cov{position:absolute;inset:0;background:#ffc8dd;box-shadow:inset 0 0 0 3.5cqw #ff9ebd}
+.cov h1{position:absolute;top:7cqw;width:100%;text-align:center;font-size:13cqw;line-height:1;color:var(--ink);letter-spacing:.5cqw}
+.cov button{position:absolute;bottom:7cqw;left:50%;transform:translateX(-50%);font:700 6cqw var(--f);padding:1.6cqw 6cqw;border-radius:99cqw;border:.9cqw solid var(--ink);background:#ffd95a;color:var(--ink);cursor:pointer;white-space:nowrap}
+.cov button:hover{background:#ffe27d}
+/* character animation */
+.arm{transition:transform var(--hd,1.6s) cubic-bezier(.45,0,.25,1)}
+.art[data-h=down]{--al:12deg;--ar:-12deg}
+.art[data-h=cover]{--al:190deg;--ar:-190deg}
+.art[data-h=open]{--al:125deg;--ar:-125deg}
+.eye{transform-box:fill-box;transform-origin:center;animation:blink 5s infinite}
+.still .eye{animation:none}
+@keyframes blink{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.08)}}
+.cr{transform-origin:150px 200px;animation:creep 8s ease-in-out infinite alternate}
+@keyframes creep{to{transform:scale(1.05) rotate(1.2deg)}}
+.pp{animation:tw 2.6s steps(1) infinite}
+@keyframes tw{0%{transform:none}40%{transform:translate(3px,-2px)}55%{transform:translate(-3px,2px)}70%{transform:none}}
+/* controls */
+#ui{display:flex;align-items:center;gap:8px;color:#fff;font:600 15px var(--f)}
+#ui button{all:unset;cursor:pointer;min-width:40px;height:40px;text-align:center;line-height:40px;border-radius:20px;background:#fff2;color:#fff;font-size:20px}
+#ui button:hover{background:#fff4}
+#ui button.wait{opacity:.3}
+#ui :focus-visible,.cov button:focus-visible{outline:3px solid #ffd95a;outline-offset:2px}
+#count{min-width:62px;text-align:center}
+#vol{width:70px;accent-color:#ffd95a}
+@media(prefers-reduced-motion:reduce){.leaf,#book{transition-duration:.05s!important}.arm{transition-duration:.05s!important}.eye,.cr,.pp{animation:none}}

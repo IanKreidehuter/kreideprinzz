@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Peek-a-Boo</title>
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-m="0">
+<main id="stage">
+  <div id="book"></div>
+  <nav id="ui">
+    <button id="prev" aria-label="Previous page">&#8249;</button>
+    <span id="count">Cover</span>
+    <button id="next" aria-label="Next page">&#8250;</button>
+    <button id="snd" aria-label="Sound on/off">&#9835;</button>
+    <input id="vol" type="range" min="0" max="1" step=".05" value=".6" aria-label="Volume">
+    <button id="fs" aria-label="Fullscreen">&#9974;</button>
+    <button id="rs" aria-label="Restart book">&#8634;</button>
+  </nav>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
