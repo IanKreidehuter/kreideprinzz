@@ -268,6 +268,9 @@ function renderEntry(e, opts = {}) {
       h('h2', { text: e.title }),
       h('time', { datetime: e.entryDate, text: fmtEntryDate(e.entryDate) })),
     h('p', { class: 'prose', text: e.content }),
+    e.response ? h('section', { class: 'response' },
+      h('h3', { text: 'Respon Perilaku / Respon Tubuh' }),
+      h('p', { text: e.response })) : null,
     renderMedia(e.media),
     chipList(e.emotions || [], opts.onEmotion),
     links.length ? h('ul', { class: 'links' }, links.map(u =>
@@ -276,6 +279,50 @@ function renderEntry(e, opts = {}) {
 }
 function parseUrlLoose(s) {
   try { const u = new URL(String(s)); return /^https?:$/.test(u.protocol) ? u : null; } catch (e) { return null; }
+}
+
+/* =====================================================================
+   PC layout: compact tiles in a grid, click to open a bigger popup
+   ===================================================================== */
+const PC_MQ = window.matchMedia('(min-width: 900px)');
+
+function openEntryDialog(e, onEmotion) {
+  const dlg = h('dialog', { class: 'preview-dialog entry-dialog', 'aria-label': e.title });
+  const close = () => dlg.close();
+  dlg.append(
+    h('div', { class: 'bar' }, h('span'), h('button', { type: 'button', class: 'btn small', onclick: close, text: 'Close ✕' })),
+    renderEntry(e, { onEmotion: onEmotion ? (em => { close(); onEmotion(em); }) : null }));
+  dlg.addEventListener('close', () => dlg.remove());
+  dlg.addEventListener('click', ev => { if (ev.target === dlg) close(); });
+  document.body.append(dlg);
+  dlg.showModal();
+}
+
+function renderTile(e, onOpen) {
+  const media = [...(e.media || [])].sort((a, b) => (a.order || 0) - (b.order || 0));
+  const n = media.length;
+  const firstImg = media.find(m => m.type === 'image');
+  const src = firstImg ? imageSrc(firstImg) : null;
+  let thumb = null;
+  if (n) {
+    thumb = h('div', { class: 'tile-thumb' });
+    if (src) {
+      const img = h('img', { src, alt: '', loading: 'lazy', decoding: 'async', referrerpolicy: 'no-referrer' });
+      img.addEventListener('error', () => thumb.replaceChildren(h('span', { class: 'tile-ph', text: '🖼️' })));
+      thumb.append(img);
+    } else thumb.append(h('span', { class: 'tile-ph', text: '🎬' }));
+  }
+  const tile = h('article', { class: 'tile card', tabindex: '0', role: 'button', 'aria-label': `Open entry: ${e.title}` },
+    thumb,
+    h('div', { class: 'tile-body' },
+      h('time', { datetime: e.entryDate, text: fmtEntryDate(e.entryDate) }),
+      h('h2', { text: e.title }),
+      h('p', { class: 'tile-excerpt', text: e.content }),
+      chipList(e.emotions || []),
+      n ? h('small', { class: 'tile-meta', text: `📎 ${n} attachment${n > 1 ? 's' : ''}` }) : null));
+  tile.addEventListener('click', onOpen);
+  tile.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); onOpen(); } });
+  return tile;
 }
 
 /* =====================================================================
@@ -363,6 +410,7 @@ function initJournal() {
   const f = { q: $('#q'), date: $('#f-date'), month: $('#f-month'), year: $('#f-year'), emotion: $('#f-emotion') };
   const years = new Set();
   let reqId = 0, timer;
+  let current = [], loaded = false;
 
   const params = () => ({ q: f.q.value.trim(), date: f.date.value, month: f.month.value, year: f.year.value, emotion: f.emotion.value });
   const hasFilter = () => Object.values(params()).some(Boolean);
@@ -374,6 +422,16 @@ function initJournal() {
     f.year.value = cur;
   }
 
+  function paint() {
+    if (!loaded) return;
+    const pc = PC_MQ.matches;
+    feed.classList.toggle('tiles', pc);
+    feed.replaceChildren(...(current.length
+      ? current.map(e => pc ? renderTile(e, () => openEntryDialog(e, pickEmotion)) : renderEntry(e, { onEmotion: pickEmotion }))
+      : [h('div', { class: 'state' }, hasFilter() ? 'No entries match those filters.' : 'No entries yet. Your first one will appear here.')]));
+  }
+  PC_MQ.addEventListener('change', paint);
+
   async function load() {
     const my = ++reqId;
     feed.setAttribute('aria-busy', 'true');
@@ -383,9 +441,7 @@ function initJournal() {
       const entries = data.entries || [];
       if (!hasFilter() || years.size === 0) { entries.forEach(e => years.add(e.entryDate.slice(0, 4))); fillYears(); }
       count.textContent = entries.length ? `${entries.length} ${entries.length === 1 ? 'entry' : 'entries'}${hasFilter() ? ' found' : ''}` : '';
-      feed.replaceChildren(...(entries.length
-        ? entries.map(e => renderEntry(e, { onEmotion: pickEmotion }))
-        : [h('div', { class: 'state' }, hasFilter() ? 'No entries match those filters.' : 'No entries yet. Your first one will appear here.')]));
+      current = entries; loaded = true; paint();
     } catch (err) {
       if (my !== reqId) return;
       count.textContent = '';
@@ -432,6 +488,7 @@ function initAdmin() {
     login: $('#login'), loginForm: $('#login-form'), pw: $('#pw'), loginMsg: $('#login-msg'),
     app: $('#app'), logout: $('#logout'), form: $('#composer'), title: $('#f-title'), when: $('#f-when'),
     content: $('#f-content'), links: $('#f-links'), mood: $('#mood-root'),
+    response: $('#f-response'), quick: $('#quick-response'),
     fileImages: $('#file-images'), fileVideos: $('#file-videos'),
     urlImage: $('#url-image'), urlVideo: $('#url-video'),
     addImageUrl: $('#add-image-url'), addVideoUrl: $('#add-video-url'),
@@ -586,6 +643,16 @@ function initAdmin() {
   }
 
   /* ---------- form ---------- */
+  if (el.quick) el.quick.addEventListener('click', ev => {
+    const b = ev.target.closest('button[data-add]');
+    if (!b) return;
+    const add = b.dataset.add, cur = el.response.value.trim();
+    const have = cur.toLowerCase().split(/[,\n]/).map(s => s.trim());
+    if (have.includes(add.toLowerCase())) return;
+    el.response.value = cur ? `${cur}, ${add}` : add;
+    el.response.focus();
+  });
+
   function resetForm() {
     state.media.forEach(m => { if (m.preview && m.pending) URL.revokeObjectURL(m.preview); });
     state.media = []; state.editingId = null;
@@ -614,7 +681,7 @@ function initAdmin() {
     if (!content) problems.push('Write something in the journal.');
     if (emotions.length !== 3) problems.push('Select exactly three feelings.');
     links.forEach(l => { if (!parseUrlLoose(l)) problems.push(`Invalid link: ${l.slice(0, 60)}`); });
-    return { problems, title, content, emotions, links, entryDate: el.when.value };
+    return { problems, title, content, emotions, links, entryDate: el.when.value, response: el.response.value.trim() };
   }
 
   el.preview.addEventListener('click', () => {
@@ -625,7 +692,7 @@ function initAdmin() {
         h('button', { type: 'button', class: 'btn small', onclick: () => dlg.close(), text: 'Close' })),
       renderEntry({
         title: d.title || '(untitled)', entryDate: d.entryDate || nowLocalInput(), content: d.content || '',
-        emotions: d.emotions, links: d.links, createdAt: nowIso, updatedAt: nowIso,
+        emotions: d.emotions, links: d.links, response: d.response, createdAt: nowIso, updatedAt: nowIso,
         media: state.media.map((m, i) => ({ ...m, order: i + 1 }))
       }),
       d.problems.length ? h('p', { class: 'msg err', text: `Still needed: ${d.problems.join(' ')}` }) : null);
@@ -667,7 +734,7 @@ function initAdmin() {
       // 2) save the entry
       showMsg(el.formMsg, 'Saving entry…', '');
       const entry = {
-        title: d.title, content: d.content, entryDate: d.entryDate, emotions: d.emotions, links: d.links,
+        title: d.title, content: d.content, response: d.response, entryDate: d.entryDate, emotions: d.emotions, links: d.links,
         media: state.media.map((m, i) => ({ id: m.id, type: m.type, source: m.source, url: m.url, driveId: m.driveId, order: i + 1 }))
       };
       if (state.editingId) entry.id = state.editingId;
@@ -719,6 +786,7 @@ function initAdmin() {
     state.editingId = e.id;
     el.title.value = e.title; el.when.value = e.entryDate.slice(0, 16); el.content.value = e.content;
     el.links.value = (e.links || []).join('\n');
+    el.response.value = e.response || '';
     state.media = [...(e.media || [])].sort((a, b) => (a.order || 0) - (b.order || 0)).map(m => ({ ...m }));
     state.mood.set(e.emotions);
     el.heading.textContent = 'Edit entry';
