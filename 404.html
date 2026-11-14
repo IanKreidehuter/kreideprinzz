@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Page not found</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Patrick+Hand&display=swap" rel="stylesheet">
+<style>
+:root{--pink:#ffd3e6;--sky:#bfe3ff;--mint:#d6f5d2;--butter:#fff0a6;--lav:#dccbff;--red:#ff4a5f;--orange:#ff9a3c;--purple:#8c5bd8;--blue:#3b8de0;--ink:#3b3452;
+--wob:14px 24px 16px 22px/22px 14px 24px 16px;--hatch:repeating-linear-gradient(118deg,transparent 0 5px,rgba(255,255,255,.55) 5px 7px)}
+*{box-sizing:border-box}
+html,body{min-height:100%}
+body{margin:0;font:20px/1.3 "Patrick Hand",cursive;color:var(--ink);background:var(--hatch),#c6e5ff;
+ display:grid;place-items:center;padding:max(18px,env(safe-area-inset-top)) 16px max(18px,env(safe-area-inset-bottom));overflow-x:hidden}
+h1,h2{font-family:"Gochi Hand",cursive;font-weight:400;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px dashed var(--purple);outline-offset:3px}
+
+.card{position:relative;width:min(100%,560px);background:var(--hatch),#fffdf8;border:3px solid #fff;border-radius:var(--wob);
+ box-shadow:0 0 0 2px #a9d2f2,3px 5px 0 rgba(60,50,90,.1);overflow:hidden;text-align:center}
+
+/* sky + grass hero, same as the main site */
+.hero{position:relative;padding:30px 20px 78px;
+ background:linear-gradient(transparent calc(100% - 46px),#9fdc6a calc(100% - 46px),#7fc94f 100%),repeating-linear-gradient(112deg,#8cc8f6 0 5px,#b4dcfb 5px 9px);
+ clip-path:polygon(0 0,100% 0,100% 94%,94% 97%,88% 93%,80% 98%,70% 94%,60% 98%,50% 94%,40% 98%,30% 93%,20% 98%,10% 94%,0 97%)}
+
+.pol{position:relative;width:min(58vw,230px);margin:0 auto;padding:10px 10px 8px;background:#fffdf8;border:3px solid #fff;border-radius:var(--wob);
+ box-shadow:0 0 0 2px #a9d2f2,3px 5px 0 rgba(60,50,90,.12);transform:rotate(-3deg)}
+.pol::before{content:"";position:absolute;top:-12px;left:50%;width:84px;height:22px;transform:translateX(-50%) rotate(-3deg);
+ background:repeating-linear-gradient(90deg,#ffb3c9 0 8px,#fff 8px 16px);opacity:.85}
+.pol img{display:block;width:100%;aspect-ratio:1;object-fit:contain;border-radius:6px;background:var(--pink)}
+.pol figcaption{font:24px "Gochi Hand",cursive;margin-top:6px}
+
+.code{font:400 clamp(72px,22vw,118px)/.9 "Gochi Hand",cursive;margin:18px 0 0;transform:rotate(-5deg);text-shadow:2px 2px 0 #fff;letter-spacing:.02em}
+.code .r{color:var(--red)}.code .b{color:var(--blue)}.code .p{color:var(--purple)}
+
+.sticker{position:absolute;font-size:34px;line-height:1;pointer-events:none;animation:bob 5s ease-in-out var(--d,0s) infinite}
+.sticker.twinkle{animation:twinkle 2.6s ease-in-out var(--d,0s) infinite}
+
+.body{padding:6px 22px 26px}
+.body h1{font-size:clamp(32px,7vw,42px);background:linear-gradient(90deg,var(--red),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent;margin-bottom:8px}
+.paper{margin:0 auto 20px;max-width:400px;background:var(--butter);padding:14px 18px;font-size:21px;border-radius:4px;box-shadow:2px 4px 0 rgba(60,50,90,.12);
+ background-image:repeating-linear-gradient(transparent 0 25px,#e9d98a 25px 26px);transform:rotate(1.5deg)}
+.btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.lbl{display:inline-flex;align-items:center;gap:8px;padding:8px 22px;text-decoration:none;font-size:22px;border-radius:var(--wob);box-shadow:2px 4px 0 rgba(60,50,90,.15);transition:transform .2s}
+.c0{background:#bdf0b8;transform:rotate(-1.5deg)}.c1{background:var(--lav);transform:rotate(1deg)}
+.lbl:hover{transform:rotate(2deg) scale(1.05)}
+.path{display:block;margin:14px auto 0;font-size:16px;opacity:.7;overflow-wrap:anywhere}
+
+@keyframes bob{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-8px) rotate(calc(var(--r,0deg) + 4deg))}}
+@keyframes twinkle{0%,100%{transform:scale(1) rotate(var(--r,0deg));opacity:1}50%{transform:scale(1.22) rotate(calc(var(--r,0deg) + 12deg));opacity:.7}}
+@keyframes wob{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(1deg) translateY(-3px)}}
+.pol{animation:wob 4s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.sticker,.pol{animation:none!important}.lbl{transition:none}}
+@media(max-width:480px){body{font-size:18px}.paper{font-size:19px}.lbl{width:100%;justify-content:center}}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="hero">
+    <span class="sticker twinkle" style="left:8%;top:14%;--r:-10deg">⭐</span>
+    <span class="sticker" style="right:9%;top:10%;--r:8deg;--d:.6s">🌈</span>
+    <span class="sticker twinkle" style="left:12%;top:52%;--r:12deg;--d:1s;font-size:26px">✨</span>
+    <span class="sticker" style="right:12%;top:50%;--r:-6deg;--d:1.4s;font-size:28px">🌱</span>
+    <figure class="pol" style="margin-block:0">
+      <img src="/assets/baby2.png" alt="A surprised baby hugging a toy giraffe">
+      <figcaption>Uh oh!</figcaption>
+    </figure>
+    <p class="code" aria-hidden="true"><span class="r">4</span><span class="b">0</span><span class="p">4</span></p>
+  </div>
+  <div class="body">
+    <h1>Page not found</h1>
+    <p class="paper">We looked everywhere, even behind the giraffe. The link may be broken or the page may have moved.</p>
+    <div class="btns">
+      <a class="lbl c0" href="/">Take me home</a>
+      <a class="lbl c1" href="javascript:history.back()">Go back</a>
+    </div>
+    <span class="path" id="path"></span>
+  </div>
+</main>
+<script>
+  try{document.getElementById('path').textContent=location.pathname}catch(e){}
+</script>
+</body>
+</html>
