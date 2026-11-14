@@ -1,840 +1,249 @@
-/* My Mood Journal — frontend (index.html + admin.html). Vanilla JS, no dependencies. */
-(() => {
-'use strict';
+/* My Mood Journal — scrapbook style (matches the site's existing look).
+   Includes the mood checker, journal feed, media, and admin composer. */
 
-/* =====================================================================
-   CONFIG — paste your deployed Google Apps Script Web App URL (ends in /exec)
-   ===================================================================== */
-const API_URL = 'https://script.google.com/macros/s/AKfycbyxg6kw0d_e2bDLtua6cvx4sH1P3Y8kDnOQOZRadrMZkc-2iwyCoEpJP42wvSM0zWgb-A/exec';
+:root{--pink:#ffd3e6;--sky:#bfe3ff;--mint:#d6f5d2;--butter:#fff0a6;--lav:#dccbff;--red:#ff4a5f;--orange:#ff9a3c;--purple:#8c5bd8;--blue:#3b8de0;--ink:#3b3452;
+--wob:14px 24px 16px 22px/22px 14px 24px 16px;
+--hatch:repeating-linear-gradient(118deg,transparent 0 5px,rgba(255,255,255,.55) 5px 7px)}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:70px}
+body{margin:0;font:20px/1.35 "Patrick Hand",cursive;color:var(--ink);background:var(--hatch),#c6e5ff;min-height:100vh}
+h1,h2,h3{font-family:"Gochi Hand",cursive;font-weight:400;margin:0}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+img,video,iframe{max-width:100%}
+[hidden]{display:none!important}
+:focus-visible{outline:3px dashed var(--purple);outline-offset:3px}
 
-const MAX_UPLOAD_MB = 25;
-const TOKEN_KEY = 'moodjournal.token';
-const IMAGE_TYPES = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-const VIDEO_TYPES = ['video/mp4', 'video/webm', 'video/quicktime', 'video/ogg'];
+/* ---------- header ---------- */
+.top{position:sticky;top:0;z-index:30;display:flex;flex-wrap:wrap;gap:6px 18px;align-items:center;justify-content:space-between;
+ padding:8px max(16px,env(safe-area-inset-right)) 8px max(16px,env(safe-area-inset-left));
+ background:#fffdf8;border-bottom:3px solid #fff;box-shadow:0 2px 0 #a9d2f2}
+.brand{font:30px "Gochi Hand";text-decoration:none;
+ background:linear-gradient(90deg,var(--red),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav{display:flex;gap:8px}
+.nav a{padding:2px 16px;text-decoration:none;border-radius:99px;border:2px solid transparent}
+.nav a[aria-current=page]{background:var(--pink);border-color:#fff;box-shadow:2px 2px 0 var(--purple)}
+.nav a:hover{background:var(--butter)}
 
-/* =====================================================================
-   Small helpers
-   ===================================================================== */
-const $ = (sel, root = document) => root.querySelector(sel);
+/* ---------- layout + cards ---------- */
+.wrap{max-width:860px;margin:0 auto;display:grid;gap:18px;align-content:start;
+ padding:22px max(14px,env(safe-area-inset-right)) max(40px,env(safe-area-inset-bottom)) max(14px,env(safe-area-inset-left))}
+.wrap.narrow{max-width:760px}
+.card{position:relative;min-width:0;padding:20px 22px;background:#fffdf8;border:3px solid #fff;border-radius:var(--wob);
+ box-shadow:0 0 0 2px #a9d2f2,3px 5px 0 rgba(60,50,90,.1)}
+.tape::before{content:"";position:absolute;top:-12px;left:50%;width:84px;height:22px;transform:translateX(-50%) rotate(-3deg);
+ background:repeating-linear-gradient(90deg,#ffb3c9 0 8px,#fff 8px 16px);opacity:.85;pointer-events:none}
+.stack{display:grid;gap:16px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.bar h1,.bar h2{font-size:clamp(30px,6vw,44px);
+ background:linear-gradient(90deg,var(--red),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+h1{font-size:clamp(32px,6vw,44px)}
 
-function h(tag, props, ...kids) {
-  const n = document.createElement(tag);
-  if (props) {
-    for (const [k, v] of Object.entries(props)) {
-      if (v === null || v === undefined || v === false) continue;
-      if (k === 'class') n.className = v;
-      else if (k === 'text') n.textContent = v;
-      else if (k === 'dataset') Object.assign(n.dataset, v);
-      else if (k.startsWith('on') && typeof v === 'function') n.addEventListener(k.slice(2), v);
-      else n.setAttribute(k, v === true ? '' : v);
-    }
-  }
-  kids.flat().forEach(c => {
-    if (c === null || c === undefined || c === false) return;
-    n.append(c.nodeType ? c : document.createTextNode(String(c)));
-  });
-  return n;
+/* ---------- buttons + forms ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:44px;padding:6px 22px;font-size:20px;cursor:pointer;text-decoration:none;
+ background:#fff;border:2px dashed var(--purple);border-radius:var(--wob);box-shadow:2px 4px 0 rgba(60,50,90,.15);transition:transform .2s}
+.btn.primary{background:var(--pink);border:2px solid #fff;box-shadow:3px 4px 0 var(--purple)}
+.btn.danger{background:#ffd0d4;border-color:var(--red)}
+.btn.small{min-height:38px;padding:3px 14px;font-size:18px}
+.btn[disabled],.btn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+@media(hover:hover){.btn:not(:disabled):hover{transform:rotate(-1.5deg) scale(1.04)}}
+
+.fld{display:grid;gap:4px;min-width:0}
+.fld>span{font-size:17px;opacity:.85}
+input[type=text],input[type=search],input[type=url],input[type=password],input[type=date],input[type=month],input[type=datetime-local],select,textarea{
+ width:100%;min-height:44px;padding:6px 12px;background:#fff;border:2px solid #cfe3f6;border-radius:12px}
+textarea{resize:vertical;line-height:1.4}
+input:focus,select:focus,textarea:focus{border-color:var(--purple);outline:none;box-shadow:0 0 0 3px rgba(140,91,216,.2)}
+.group{margin:0;padding:14px 16px 16px;border:2px dashed #cdbff0;border-radius:var(--wob);min-width:0}
+.group>legend{padding:0 10px;font:24px "Gochi Hand"}
+.small-note{margin:0 0 8px;font-size:16px;opacity:.75}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+
+.msg{margin:0;padding:10px 14px;text-align:center;border-radius:var(--wob);background:var(--lav)}
+.msg.ok{background:var(--mint)}.msg.err{background:#ffd0d4}
+
+/* ---------- journal filters ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:10px 12px;align-items:end;background:var(--hatch),#fffdf8}
+.filters .fld{flex:0 1 150px}.filters .fld.grow{flex:1 1 100%}
+.filters .btn{flex:0 0 auto}
+.count{margin:-6px 4px 0;font-size:17px;opacity:.8}
+
+/* ---------- feed + entries ---------- */
+.feed{display:grid;gap:20px}
+.state{padding:26px;text-align:center;background:var(--lav);border-radius:var(--wob)}
+.state.err{background:#ffd0d4}
+.state .btn{margin-left:10px}
+.entry{display:grid;gap:14px}
+.entry-head{display:grid;gap:2px}
+.entry-head h2{font-size:clamp(28px,5vw,38px);line-height:1.05;overflow-wrap:anywhere}
+.entry-head time{font-size:17px;opacity:.75}
+.prose{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.55;font-size:21px;max-width:68ch}
+.entry-foot{font-size:15px;opacity:.65;border-top:2px dotted #d6cfe8;padding-top:8px}
+.links{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:18px}
+.links a{color:var(--blue);overflow-wrap:anywhere}
+
+/* emotion chips */
+.chips{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:0;padding:0}
+.chip{--c:var(--lav);display:inline-block;padding:1px 14px;font-size:18px;background:var(--c);border:2px solid #fff;border-radius:99px;box-shadow:1px 2px 0 rgba(60,50,90,.18)}
+.chip-btn{cursor:pointer}
+@media(hover:hover){.chip-btn:hover{transform:rotate(-2deg) scale(1.06)}}
+
+/* category colors (shared by chips, tabs and panels) */
+[data-cat=joy]{--c:var(--butter)}
+[data-cat=sadness]{--c:var(--sky)}
+[data-cat=anger]{--c:#ffb3ba}
+[data-cat=fear]{--c:var(--lav)}
+[data-cat=disgust]{--c:var(--mint)}
+[data-cat=surprise]{--c:#ffd3a6}
+[data-cat=love]{--c:var(--pink)}
+
+/* ---------- media ---------- */
+.media-grid{display:grid;gap:10px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.media-grid.n1{grid-template-columns:minmax(0,1fr)}
+.media{margin:0;min-width:0;border-radius:12px;overflow:hidden;background:var(--lav)}
+.media-grid.n3 .media:first-child{grid-column:1/-1}
+.media-video,.media-embed{grid-column:1/-1}
+.media-img .zoom{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.media-img img{display:block;width:100%;height:auto;max-height:520px;object-fit:cover}
+.media-grid.n1 .media-img img{object-fit:contain;background:#f4efff}
+.media-video video{display:block;width:100%;max-height:560px;background:#000}
+.media-embed{position:relative;aspect-ratio:16/9;background:#000}
+.media-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.media-fallback{display:grid;gap:4px;justify-items:center;padding:22px 14px;text-align:center;background:#f0eaff;font-size:17px}
+.media-fallback a{color:var(--blue)}
+
+/* lightbox */
+.lightbox{width:min(96vw,1100px);max-width:none;max-height:94vh;padding:0;border:0;background:transparent;overflow:visible}
+.lightbox::backdrop{background:rgba(40,30,70,.82)}
+.lightbox img{display:block;margin:0 auto;max-width:100%;max-height:86vh;border:4px solid #fff;border-radius:10px;background:#fff}
+.lightbox button{position:absolute;width:46px;height:46px;font-size:26px;line-height:1;cursor:pointer;background:#fffdf8;border:2px solid #fff;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.35)}
+.lb-close{top:-8px;right:-4px}
+.lb-prev{left:6px;top:50%;transform:translateY(-50%)}
+.lb-next{right:6px;top:50%;transform:translateY(-50%)}
+.lightbox.single .lb-prev,.lightbox.single .lb-next{display:none}
+.lb-count{margin:8px 0 0;text-align:center;color:#fff;font-size:17px}
+
+/* ---------- mood checker ---------- */
+.mood{display:grid;gap:14px}
+.tray{display:grid;gap:10px;padding:14px;background:var(--butter);border-radius:var(--wob)}
+.tray-top{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;justify-content:space-between}
+.tray h3{font-size:26px}
+.counter{padding:0 16px;font:28px "Gochi Hand";background:#fff;border-radius:99px;box-shadow:2px 3px 0 rgba(60,50,90,.15)}
+.counter.full{background:var(--mint)}
+.slots{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.slot{min-height:52px;display:flex;align-items:center;justify-content:center;gap:6px;padding:4px 10px;text-align:center;overflow-wrap:anywhere;font-size:19px;
+ border:2px dashed rgba(60,50,90,.35);border-radius:var(--wob);background:rgba(255,255,255,.5)}
+.slot.filled{border:2px solid #fff;background:#fff;box-shadow:2px 3px 0 rgba(60,50,90,.15);animation:rise .3s both}
+.slot .x{flex:none;width:30px;height:30px;padding:0;line-height:1;cursor:pointer;border:0;border-radius:50%;background:var(--pink)}
+.slot .x:hover{background:var(--red);color:#fff}
+.hint{margin:0;text-align:center;font-size:17px;opacity:.8}
+
+.cats{display:flex;flex-wrap:wrap;gap:8px}
+.cat{--c:var(--lav);display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:3px 16px;font-size:20px;cursor:pointer;
+ background:var(--c);border:2px solid #fff;border-radius:99px;box-shadow:2px 3px 0 rgba(60,50,90,.15);transition:transform .2s}
+.cat .n{display:none;min-width:22px;padding:0 6px;font-size:15px;text-align:center;background:#fff;border-radius:99px}
+.cat .n.has{display:inline-block}
+.cat[aria-selected=true]{transform:rotate(-2deg) scale(1.06);box-shadow:3px 4px 0 var(--purple)}
+
+.panel{--c:var(--lav);padding:16px;background:var(--hatch),var(--c);border-radius:var(--wob);animation:rise .3s both}
+.panel h3{font-size:clamp(28px,5vw,36px)}
+.panel .desc{margin:0 0 12px;font-size:18px}
+.emos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px}
+.emo{width:100%;min-height:46px;padding:5px 10px;font-size:20px;cursor:pointer;background:#fff;border:2px solid #fff;border-radius:var(--wob);
+ box-shadow:2px 3px 0 rgba(60,50,90,.15);transition:transform .2s}
+.emo[aria-pressed=true]{background:var(--c);border-color:var(--purple);box-shadow:3px 4px 0 var(--purple);transform:rotate(-2deg) scale(1.04)}
+.emo[aria-pressed=true]::before{content:"✓ "}
+.is-full .emo[aria-pressed=false]{opacity:.45;cursor:not-allowed;box-shadow:none}
+.shake{animation:shake .35s}
+@media(hover:hover){.cat:hover{transform:rotate(-2deg) scale(1.05)}.emo:hover{transform:rotate(-1.5deg) scale(1.04)}.is-full .emo[aria-pressed=false]:hover{transform:none}}
+
+/* ---------- behavioral / physical response ---------- */
+.fld small{opacity:.7;font-size:15px}
+.response-box{display:grid;gap:8px;margin-top:14px;padding:12px 14px;background:var(--hatch),#eefaf0;border-radius:var(--wob)}
+.quick{display:flex;flex-wrap:wrap;gap:6px}
+.quick .chip{font-size:16px;background:#fff}
+.response{padding:10px 14px;background:var(--hatch),#eefaf0;border-left:5px solid #9fdc6a;border-radius:var(--wob)}
+.response h3{font-size:22px;margin-bottom:2px}
+.response p{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.5;font-size:20px}
+
+/* ---------- admin: media composer ---------- */
+.media-add{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.add-card{padding:12px 14px;background:var(--hatch),#f6f1ff;border-radius:var(--wob);display:grid;gap:8px;align-content:start;min-width:0}
+.add-card h3{font-size:24px}
+.url-row{display:flex;gap:8px}.url-row input{flex:1;min-width:0}.url-row .btn{flex:none}
+.atts{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:12px}
+.att-empty{padding:14px;text-align:center;opacity:.7}
+.att{display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);gap:12px;padding:10px;background:#fff;border:2px solid #e5e0f2;border-radius:var(--wob)}
+.att-preview{min-width:0}
+.att-preview .media-img img{height:140px;max-height:140px;object-fit:cover}
+.att-preview .media-video video{max-height:140px}
+.att-side{display:grid;gap:6px;align-content:start;min-width:0}
+.att-meta{margin:0;display:flex;flex-wrap:wrap;gap:6px}
+.att-name{margin:0;font-size:16px;opacity:.75;overflow-wrap:anywhere}
+.att-ctl{display:flex;flex-wrap:wrap;gap:6px}
+.badge{padding:0 10px;font-size:15px;background:var(--lav);border-radius:99px}
+.badge.drive{background:var(--mint)}.badge.external{background:var(--sky)}
+
+.manage{display:grid;gap:10px}
+.manage-row{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;justify-content:space-between;padding:10px 12px;background:#fff;border:2px solid #e5e0f2;border-radius:var(--wob)}
+.manage-main{display:grid;gap:2px;min-width:0;flex:1 1 240px}
+.manage-main strong{overflow-wrap:anywhere}
+.manage-main small{font-size:15px;opacity:.7}
+.manage-ctl{display:flex;flex-wrap:wrap;gap:6px}
+
+.preview-dialog{width:min(94vw,820px);max-height:92vh;padding:14px;border:3px solid #fff;border-radius:var(--wob);background:#fffdf8;box-shadow:0 0 0 2px var(--orange),6px 8px 0 rgba(0,0,0,.2)}
+.preview-dialog::backdrop{background:rgba(80,60,120,.4)}
+.preview-dialog .entry{box-shadow:none;border:0;padding:8px 4px}
+
+/* ---------- toast ---------- */
+.toast{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));z-index:60;max-width:min(92vw,520px);padding:10px 20px;
+ background:var(--mint);border:3px solid #fff;border-radius:var(--wob);box-shadow:3px 5px 0 rgba(60,50,90,.2);
+ transform:translate(-50%,30px);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.toast.err{background:#ffd0d4}
+
+/* ---------- motion ---------- */
+@keyframes rise{from{opacity:0;transform:translateY(10px)}}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* ---------- responsive ---------- */
+@media(min-width:700px){.filters .fld.grow{flex:1 1 260px}}
+@media(max-width:700px){
+ body{font-size:19px}
+ .card{padding:16px 14px}
+ .media-add{grid-template-columns:minmax(0,1fr)}
+ .att{grid-template-columns:minmax(0,1fr)}
+ .att-preview .media-img img{height:auto;max-height:240px}
+ .slots{grid-template-columns:1fr}
+ .cats{flex-wrap:nowrap;overflow-x:auto;padding:4px 2px 8px;scrollbar-width:none}
+ .cat{flex:0 0 auto}
+ .emos{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .actions .btn{flex:1 1 100%}
+ .filters .fld{flex:1 1 calc(50% - 8px)}
+ .media-grid,.media-grid.n3{grid-template-columns:minmax(0,1fr)}
+ .url-row{flex-wrap:wrap}.url-row .btn{flex:1 1 100%}
 }
+@media(prefers-reduced-motion:reduce){*,*::before{animation:none!important;transition:none!important}}
 
-let toastTimer;
-function toast(message, kind = 'ok') {
-  let t = $('#toast');
-  if (!t) { t = h('div', { id: 'toast', class: 'toast', role: 'status', 'aria-live': 'polite' }); document.body.append(t); }
-  t.textContent = message;
-  t.className = `toast show ${kind}`;
-  clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => t.classList.remove('show'), 3800);
+/* ---------- PC layout: tiles left to right + popup ---------- */
+@media(min-width:900px){
+ body[data-page=journal] .wrap{max-width:1180px}
+ .feed.tiles{grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
+ .tile{display:flex;flex-direction:column;gap:0;padding:0;overflow:hidden;cursor:pointer;transition:transform .2s}
+ .tile:hover{transform:translateY(-4px) rotate(-.4deg)}
+ .tile-thumb{aspect-ratio:16/10;background:var(--lav);overflow:hidden;display:grid;place-items:center}
+ .tile-thumb img{display:block;width:100%;height:100%;object-fit:cover}
+ .tile-ph{font-size:46px}
+ .tile-body{display:grid;gap:6px;align-content:start;padding:14px 16px 16px;flex:1}
+ .tile time{font-size:15px;opacity:.7}
+ .tile h2{font-size:26px;line-height:1.1;overflow-wrap:anywhere}
+ .tile-excerpt{margin:0;font-size:18px;line-height:1.45;white-space:pre-wrap;overflow-wrap:anywhere;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+ .tile .chip{font-size:16px}
+ .tile-meta{font-size:15px;opacity:.7}
+ .entry-dialog{width:min(94vw,920px);padding:16px 18px}
+ .entry-dialog .entry-head h2{font-size:clamp(34px,4vw,46px)}
+ .entry-dialog .prose{font-size:22px;max-width:none}
+ .entry-dialog .media-img img{max-height:640px}
 }
-
-function showMsg(el, text, kind = '') {
-  if (!el) return;
-  el.textContent = text || '';
-  el.className = `msg ${kind}`.trim();
-  el.hidden = !text;
-}
-
-function parseLocal(s) {
-  const m = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2})/.exec(s || '');
-  return m ? new Date(+m[1], +m[2] - 1, +m[3], +m[4], +m[5]) : null;
-}
-function fmtEntryDate(s) {
-  const d = parseLocal(s);
-  return d ? d.toLocaleString(undefined, { weekday: 'short', year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }) : String(s || '');
-}
-function fmtStamp(iso) {
-  const d = new Date(iso);
-  return isNaN(d) ? String(iso || '') : d.toLocaleString(undefined, { dateStyle: 'medium', timeStyle: 'short' });
-}
-function nowLocalInput() {
-  const d = new Date();
-  d.setMinutes(d.getMinutes() - d.getTimezoneOffset());
-  return d.toISOString().slice(0, 16);
-}
-function uid(prefix) {
-  return `${prefix}_${Math.random().toString(36).slice(2, 8)}${Date.now().toString(36).slice(-4)}`;
-}
-
-/* =====================================================================
-   API  (all requests go to the Apps Script /exec URL with fetch)
-   POST bodies are text/plain JSON so the browser sends a "simple" request (no CORS preflight).
-   ===================================================================== */
-async function api(action, payload = {}, method = 'POST') {
-  if (!/^https:\/\/script\.google\.com\//.test(API_URL)) {
-    throw new Error('Set API_URL at the top of script.js to your deployed Web App /exec URL.');
-  }
-  let res;
-  try {
-    if (method === 'GET') {
-      const qs = new URLSearchParams({ action });
-      Object.entries(payload).forEach(([k, v]) => { if (v !== '' && v != null) qs.set(k, v); });
-      res = await fetch(`${API_URL}?${qs}`);
-    } else {
-      res = await fetch(API_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
-        body: JSON.stringify({ action, ...payload })
-      });
-    }
-  } catch (e) {
-    throw new Error('Could not reach the server. Check your connection and the API URL.');
-  }
-  let json;
-  try { json = await res.json(); } catch (e) { throw new Error('The server returned an unexpected response. Is the Web App deployed for "Anyone"?'); }
-  if (!json || !json.success) throw new Error((json && json.message) || 'Request failed');
-  return json.data;
-}
-
-/* =====================================================================
-   Media: URL validation + safe rendering
-   ===================================================================== */
-function parseHttps(s) {
-  try {
-    const u = new URL(String(s).trim());
-    return u.protocol === 'https:' && !u.username && !u.password ? u : null;
-  } catch (e) { return null; }
-}
-
-/** Returns {kind:'youtube'|'vimeo'|'file', src} or null. Embed URLs are BUILT from parsed IDs, never copied from input. */
-function videoKind(u) {
-  const host = u.hostname.replace(/^www\./, '').toLowerCase();
-  let id = null;
-  if (host === 'youtu.be') id = u.pathname.slice(1).split('/')[0];
-  else if (['youtube.com', 'm.youtube.com', 'youtube-nocookie.com'].includes(host)) {
-    if (u.pathname === '/watch') id = u.searchParams.get('v');
-    else { const m = u.pathname.match(/^\/(?:embed|shorts|live|v)\/([\w-]{11})/); id = m && m[1]; }
-  }
-  if (id && /^[\w-]{11}$/.test(id)) return { kind: 'youtube', src: `https://www.youtube-nocookie.com/embed/${id}` };
-  if (host === 'vimeo.com' || host === 'player.vimeo.com') {
-    const m = u.pathname.match(/\/(?:video\/)?(\d{5,})/);
-    if (m) return { kind: 'vimeo', src: `https://player.vimeo.com/video/${m[1]}` };
-  }
-  if (/\.(mp4|webm|ogv|ogg|mov|m4v)$/i.test(u.pathname)) return { kind: 'file', src: u.href };
-  return null;
-}
-
-function imageSrc(item) {
-  if (item.preview) return item.preview;                       // local blob preview (not yet uploaded)
-  if (item.source === 'drive' && /^[\w-]{10,}$/.test(item.driveId || '')) {
-    return `https://drive.google.com/thumbnail?id=${encodeURIComponent(item.driveId)}&sz=w2000`;
-  }
-  const u = parseHttps(item.url);
-  return u ? u.href : null;
-}
-
-function videoSource(item) {
-  if (item.preview) return { kind: 'file', src: item.preview };
-  if (item.source === 'drive' && /^[\w-]{10,}$/.test(item.driveId || '')) {
-    return { kind: 'drive', src: `https://drive.google.com/file/d/${encodeURIComponent(item.driveId)}/preview` };
-  }
-  const u = parseHttps(item.url);
-  return u ? videoKind(u) : null;
-}
-
-function fallbackBody(item, text) {
-  const u = item.source === 'external' ? parseHttps(item.url) : null;
-  return h('div', { class: 'media-fallback' },
-    h('span', { text }),
-    u ? h('a', { href: u.href, target: '_blank', rel: 'noopener noreferrer nofollow', text: 'Open original ↗' }) : null);
-}
-
-function mediaNode(item, gallery, index) {
-  if (item.type === 'image') {
-    const src = imageSrc(item);
-    const fig = h('figure', { class: 'media media-img' });
-    if (!src) { fig.append(fallbackBody(item, 'Image unavailable.')); return fig; }
-    const img = h('img', { src, alt: item.alt || 'Journal photo', loading: 'lazy', decoding: 'async', referrerpolicy: 'no-referrer' });
-    img.addEventListener('error', () => fig.replaceChildren(fallbackBody(item, 'This image could not be loaded.')));
-    fig.append(h('button', {
-      type: 'button', class: 'zoom', 'aria-label': 'Open image larger',
-      onclick: () => openLightbox(gallery, index)
-    }, img));
-    return fig;
-  }
-
-  const v = videoSource(item);
-  if (!v) return h('div', { class: 'media media-video' }, fallbackBody(item, 'This video link is not supported.'));
-
-  if (v.kind === 'file') {
-    const wrap = h('div', { class: 'media media-video' });
-    const vid = h('video', { controls: true, preload: 'metadata', playsinline: true, src: v.src });
-    vid.addEventListener('error', () => wrap.replaceChildren(fallbackBody(item, 'This video could not be played.')));
-    wrap.append(vid);
-    return wrap;
-  }
-  // YouTube / Vimeo / Drive: sandboxed iframe on a fixed allow-list of hosts
-  return h('div', { class: 'media media-embed' }, h('iframe', {
-    src: v.src, title: 'Embedded video', loading: 'lazy', allowfullscreen: true,
-    referrerpolicy: 'strict-origin-when-cross-origin',
-    sandbox: 'allow-scripts allow-same-origin allow-presentation allow-popups',
-    allow: 'fullscreen; picture-in-picture; encrypted-media'
-  }));
-}
-
-function renderMedia(items) {
-  const sorted = [...(items || [])].sort((a, b) => (a.order || 0) - (b.order || 0));
-  if (!sorted.length) return null;
-  const gallery = sorted.filter(m => m.type === 'image').map(imageSrc).filter(Boolean);
-  let imgIdx = -1;
-  const nodes = sorted.map(m => {
-    if (m.type === 'image') imgIdx++;
-    return mediaNode(m, gallery, imgIdx);
-  });
-  return h('div', { class: `media-grid n${Math.min(sorted.length, 4)}` }, nodes);
-}
-
-/* ---------- lightbox ---------- */
-let lb, lbState = { list: [], i: 0 };
-function ensureLightbox() {
-  if (lb) return lb;
-  const img = h('img', { alt: '' });
-  const count = h('p', { class: 'lb-count' });
-  const step = d => { lbState.i = (lbState.i + d + lbState.list.length) % lbState.list.length; paint(); };
-  const paint = () => {
-    img.src = lbState.list[lbState.i] || '';
-    count.textContent = lbState.list.length > 1 ? `${lbState.i + 1} / ${lbState.list.length}` : '';
-    lb.classList.toggle('single', lbState.list.length < 2);
-  };
-  lb = h('dialog', { class: 'lightbox', 'aria-label': 'Image viewer' },
-    h('button', { type: 'button', class: 'lb-close', 'aria-label': 'Close', onclick: () => lb.close(), text: '✕' }),
-    h('button', { type: 'button', class: 'lb-prev', 'aria-label': 'Previous image', onclick: () => step(-1), text: '‹' }),
-    img,
-    h('button', { type: 'button', class: 'lb-next', 'aria-label': 'Next image', onclick: () => step(1), text: '›' }),
-    count);
-  lb.paint = paint;
-  lb.addEventListener('click', e => { if (e.target === lb) lb.close(); });
-  lb.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft') step(-1);
-    if (e.key === 'ArrowRight') step(1);
-  });
-  document.body.append(lb);
-  return lb;
-}
-function openLightbox(list, i) {
-  if (!list.length) return;
-  ensureLightbox();
-  lbState = { list, i: Math.max(0, i) };
-  lb.paint();
-  if (!lb.open) lb.showModal();
-}
-
-/* =====================================================================
-   Emotion catalog + chips
-   ===================================================================== */
-let CATALOG = [];
-let CAT_OF = {};
-function setCatalog(cat) {
-  CATALOG = cat || [];
-  CAT_OF = {};
-  CATALOG.forEach(c => c.emotions.forEach(e => { CAT_OF[e] = c.id; }));
-}
-
-function chipList(emotions, onPick) {
-  return h('ul', { class: 'chips', 'aria-label': 'Feelings' }, emotions.map(e => {
-    const inner = onPick
-      ? h('button', { type: 'button', class: 'chip chip-btn', dataset: { cat: CAT_OF[e] || '' }, title: `Show entries feeling ${e}`, onclick: () => onPick(e), text: e })
-      : h('span', { class: 'chip', dataset: { cat: CAT_OF[e] || '' }, text: e });
-    return h('li', null, inner);
-  }));
-}
-
-/* =====================================================================
-   Entry card (used by the feed, the admin preview dialog)
-   ===================================================================== */
-function renderEntry(e, opts = {}) {
-  const edited = e.updatedAt && e.createdAt && e.updatedAt !== e.createdAt;
-  const links = (e.links || []).map(parseUrlLoose).filter(Boolean);
-  return h('article', { class: 'entry card' },
-    h('header', { class: 'entry-head' },
-      h('h2', { text: e.title }),
-      h('time', { datetime: e.entryDate, text: fmtEntryDate(e.entryDate) })),
-    h('p', { class: 'prose', text: e.content }),
-    e.response ? h('section', { class: 'response' },
-      h('h3', { text: 'Respon Perilaku / Respon Tubuh' }),
-      h('p', { text: e.response })) : null,
-    renderMedia(e.media),
-    chipList(e.emotions || [], opts.onEmotion),
-    links.length ? h('ul', { class: 'links' }, links.map(u =>
-      h('li', null, h('a', { href: u.href, target: '_blank', rel: 'noopener noreferrer nofollow', text: `${u.hostname.replace(/^www\./, '')}${u.pathname.length > 1 ? u.pathname.slice(0, 40) : ''} ↗` })))) : null,
-    h('footer', { class: 'entry-foot', text: `Saved ${fmtStamp(e.createdAt)}${edited ? ` · edited ${fmtStamp(e.updatedAt)}` : ''}` }));
-}
-function parseUrlLoose(s) {
-  try { const u = new URL(String(s)); return /^https?:$/.test(u.protocol) ? u : null; } catch (e) { return null; }
-}
-
-/* =====================================================================
-   PC layout: compact tiles in a grid, click to open a bigger popup
-   ===================================================================== */
-const PC_MQ = window.matchMedia('(min-width: 900px)');
-
-function openEntryDialog(e, onEmotion) {
-  const dlg = h('dialog', { class: 'preview-dialog entry-dialog', 'aria-label': e.title });
-  const close = () => dlg.close();
-  dlg.append(
-    h('div', { class: 'bar' }, h('span'), h('button', { type: 'button', class: 'btn small', onclick: close, text: 'Close ✕' })),
-    renderEntry(e, { onEmotion: onEmotion ? (em => { close(); onEmotion(em); }) : null }));
-  dlg.addEventListener('close', () => dlg.remove());
-  dlg.addEventListener('click', ev => { if (ev.target === dlg) close(); });
-  document.body.append(dlg);
-  dlg.showModal();
-}
-
-function renderTile(e, onOpen) {
-  const media = [...(e.media || [])].sort((a, b) => (a.order || 0) - (b.order || 0));
-  const n = media.length;
-  const firstImg = media.find(m => m.type === 'image');
-  const src = firstImg ? imageSrc(firstImg) : null;
-  let thumb = null;
-  if (n) {
-    thumb = h('div', { class: 'tile-thumb' });
-    if (src) {
-      const img = h('img', { src, alt: '', loading: 'lazy', decoding: 'async', referrerpolicy: 'no-referrer' });
-      img.addEventListener('error', () => thumb.replaceChildren(h('span', { class: 'tile-ph', text: '🖼️' })));
-      thumb.append(img);
-    } else thumb.append(h('span', { class: 'tile-ph', text: '🎬' }));
-  }
-  const tile = h('article', { class: 'tile card', tabindex: '0', role: 'button', 'aria-label': `Open entry: ${e.title}` },
-    thumb,
-    h('div', { class: 'tile-body' },
-      h('time', { datetime: e.entryDate, text: fmtEntryDate(e.entryDate) }),
-      h('h2', { text: e.title }),
-      h('p', { class: 'tile-excerpt', text: e.content }),
-      chipList(e.emotions || []),
-      n ? h('small', { class: 'tile-meta', text: `📎 ${n} attachment${n > 1 ? 's' : ''}` }) : null));
-  tile.addEventListener('click', onOpen);
-  tile.addEventListener('keydown', ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); onOpen(); } });
-  return tile;
-}
-
-/* =====================================================================
-   MOOD CHECKER — pick exactly three feelings from seven categories
-   ===================================================================== */
-function createMoodChecker(root, { selected = [], onChange } = {}) {
-  let sel = selected.slice(0, 3);
-  let active = (CATALOG[0] || {}).id;
-
-  const counter = h('span', { class: 'counter', 'aria-live': 'polite' });
-  const slots = h('div', { class: 'slots' });
-  const hint = h('p', { class: 'hint', role: 'status' });
-  const tabs = h('div', { class: 'cats', role: 'tablist', 'aria-label': 'Feeling categories' });
-  const panel = h('div', { class: 'panel', role: 'tabpanel' });
-
-  root.replaceChildren(
-    h('div', { class: 'tray' },
-      h('div', { class: 'tray-top' }, h('h3', { text: 'Your three feelings' }), counter),
-      slots, hint),
-    tabs, panel);
-
-  const fire = () => onChange && onChange(sel.slice());
-
-  function toggle(emotion, btn) {
-    const at = sel.indexOf(emotion);
-    if (at >= 0) sel.splice(at, 1);
-    else if (sel.length >= 3) {
-      hint.textContent = 'You already have three. Remove one first to pick another.';
-      if (btn) { btn.classList.remove('shake'); void btn.offsetWidth; btn.classList.add('shake'); }
-      return;
-    } else sel.push(emotion);
-    refresh();
-    fire();
-  }
-
-  function drawTabs() {
-    tabs.replaceChildren(...CATALOG.map(c => {
-      const n = c.emotions.filter(x => sel.includes(x)).length;
-      return h('button', {
-        type: 'button', class: 'cat', role: 'tab', dataset: { cat: c.id },
-        'aria-selected': String(c.id === active),
-        onclick: () => { active = c.id; drawTabs(); drawPanel(); }
-      }, `${c.icon} ${c.label}`, h('span', { class: `n${n ? ' has' : ''}`, text: n || '' }));
-    }));
-  }
-
-  function drawPanel() {
-    const c = CATALOG.find(x => x.id === active);
-    if (!c) return;
-    panel.dataset.cat = c.id;
-    panel.replaceChildren(
-      h('h3', { text: `${c.icon} ${c.label}` }),
-      h('p', { class: 'desc', text: c.hint }),
-      h('ul', { class: 'emos' }, c.emotions.map(e => h('li', null, h('button', {
-        type: 'button', class: 'emo', dataset: { emo: e }, 'aria-pressed': String(sel.includes(e)),
-        onclick: ev => toggle(e, ev.currentTarget), text: e
-      })))));
-  }
-
-  function refresh() {
-    counter.textContent = `${sel.length}/3`;
-    counter.classList.toggle('full', sel.length === 3);
-    root.classList.toggle('is-full', sel.length === 3);
-    hint.textContent = sel.length === 3 ? 'Perfect — that’s your three. Tap one to swap it.' : 'Browse the categories and tap feelings. Mix them however you like.';
-    slots.replaceChildren(...[0, 1, 2].map(i => sel[i]
-      ? h('div', { class: 'slot filled' }, sel[i],
-          h('button', { type: 'button', class: 'x', 'aria-label': `Remove ${sel[i]}`, onclick: () => toggle(sel[i]), text: '✕' }))
-      : h('div', { class: 'slot', text: `Feeling ${i + 1}` })));
-    panel.querySelectorAll('.emo').forEach(b => b.setAttribute('aria-pressed', String(sel.includes(b.dataset.emo))));
-    drawTabs();
-  }
-
-  refresh(); drawPanel();
-  return {
-    get: () => sel.slice(),
-    set(list) { sel = (list || []).slice(0, 3); refresh(); fire(); }
-  };
-}
-
-/* =====================================================================
-   JOURNAL PAGE (index.html)
-   ===================================================================== */
-function initJournal() {
-  const feed = $('#feed'), count = $('#count');
-  const f = { q: $('#q'), date: $('#f-date'), month: $('#f-month'), year: $('#f-year'), emotion: $('#f-emotion') };
-  const years = new Set();
-  let reqId = 0, timer;
-  let current = [], loaded = false;
-
-  const params = () => ({ q: f.q.value.trim(), date: f.date.value, month: f.month.value, year: f.year.value, emotion: f.emotion.value });
-  const hasFilter = () => Object.values(params()).some(Boolean);
-
-  function fillYears() {
-    const cur = f.year.value;
-    f.year.replaceChildren(h('option', { value: '', text: 'All years' }),
-      ...[...years].sort().reverse().map(y => h('option', { value: y, text: y })));
-    f.year.value = cur;
-  }
-
-  function paint() {
-    if (!loaded) return;
-    const pc = PC_MQ.matches;
-    feed.classList.toggle('tiles', pc);
-    feed.replaceChildren(...(current.length
-      ? current.map(e => pc ? renderTile(e, () => openEntryDialog(e, pickEmotion)) : renderEntry(e, { onEmotion: pickEmotion }))
-      : [h('div', { class: 'state' }, hasFilter() ? 'No entries match those filters.' : 'No entries yet. Your first one will appear here.')]));
-  }
-  PC_MQ.addEventListener('change', paint);
-
-  async function load() {
-    const my = ++reqId;
-    feed.setAttribute('aria-busy', 'true');
-    try {
-      const data = await api('list', params(), 'GET');
-      if (my !== reqId) return;
-      const entries = data.entries || [];
-      if (!hasFilter() || years.size === 0) { entries.forEach(e => years.add(e.entryDate.slice(0, 4))); fillYears(); }
-      count.textContent = entries.length ? `${entries.length} ${entries.length === 1 ? 'entry' : 'entries'}${hasFilter() ? ' found' : ''}` : '';
-      current = entries; loaded = true; paint();
-    } catch (err) {
-      if (my !== reqId) return;
-      count.textContent = '';
-      feed.replaceChildren(h('div', { class: 'state err' }, err.message,
-        h('button', { type: 'button', class: 'btn small', onclick: load, text: 'Try again' })));
-    } finally {
-      if (my === reqId) feed.setAttribute('aria-busy', 'false');
-    }
-  }
-
-  function pickEmotion(e) { f.emotion.value = e; load(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-
-  // date / month / year are alternative "when" filters: choosing one clears the others
-  const when = { date: f.date, month: f.month, year: f.year };
-  Object.entries(when).forEach(([name, el]) => el.addEventListener('change', () => {
-    if (el.value) Object.entries(when).forEach(([n, o]) => { if (n !== name) o.value = ''; });
-    load();
-  }));
-  f.emotion.addEventListener('change', load);
-  f.q.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(load, 350); });
-  $('#f-clear').addEventListener('click', () => { Object.values(f).forEach(el => { el.value = ''; }); load(); });
-
-  (async () => {
-    try {
-      const meta = await api('meta', {}, 'GET');
-      setCatalog(meta.catalog);
-      CATALOG.forEach(c => f.emotion.append(h('optgroup', { label: `${c.icon} ${c.label}` },
-        c.emotions.map(e => h('option', { value: e, text: e })))));
-      if (meta.appName) { document.title = meta.appName; const b = $('.brand'); if (b) b.textContent = meta.appName; }
-    } catch (err) {
-      feed.replaceChildren(h('div', { class: 'state err' }, err.message,
-        h('button', { type: 'button', class: 'btn small', onclick: () => location.reload(), text: 'Reload' })));
-      return;
-    }
-    load();
-  })();
-}
-
-/* =====================================================================
-   ADMIN PAGE (admin.html)
-   ===================================================================== */
-function initAdmin() {
-  const el = {
-    login: $('#login'), loginForm: $('#login-form'), pw: $('#pw'), loginMsg: $('#login-msg'),
-    app: $('#app'), logout: $('#logout'), form: $('#composer'), title: $('#f-title'), when: $('#f-when'),
-    content: $('#f-content'), links: $('#f-links'), mood: $('#mood-root'),
-    response: $('#f-response'), quick: $('#quick-response'),
-    fileImages: $('#file-images'), fileVideos: $('#file-videos'),
-    urlImage: $('#url-image'), urlVideo: $('#url-video'),
-    addImageUrl: $('#add-image-url'), addVideoUrl: $('#add-video-url'),
-    mediaMsg: $('#media-msg'), atts: $('#attachments'), formMsg: $('#form-msg'),
-    save: $('#btn-save'), preview: $('#btn-preview'), cancel: $('#btn-cancel'),
-    banner: $('#edit-banner'), heading: $('#composer-title'), manage: $('#manage'), cleanup: $('#cleanup')
-  };
-  const state = { token: sessionStorage.getItem(TOKEN_KEY) || '', editingId: null, media: [], entries: [], mood: null, busy: false };
-
-  /* ---------- auth ---------- */
-  function signOut(message) {
-    sessionStorage.removeItem(TOKEN_KEY);
-    state.token = '';
-    el.app.hidden = true;
-    el.login.hidden = false;
-    showMsg(el.loginMsg, message || '', 'err');
-    el.pw.value = '';
-  }
-  async function authed(action, payload = {}) {
-    try { return await api(action, { token: state.token, ...payload }); }
-    catch (err) {
-      if (/^Unauthorized/.test(err.message)) signOut('Your session expired. Please sign in again.');
-      throw err;
-    }
-  }
-  el.loginForm.addEventListener('submit', async ev => {
-    ev.preventDefault();
-    const btn = el.loginForm.querySelector('button');
-    btn.disabled = true; showMsg(el.loginMsg, '');
-    try {
-      const data = await api('login', { password: el.pw.value });
-      state.token = data.token;
-      sessionStorage.setItem(TOKEN_KEY, state.token);
-      el.pw.value = '';
-      await showApp();
-    } catch (err) { showMsg(el.loginMsg, err.message, 'err'); }
-    finally { btn.disabled = false; }
-  });
-  el.logout.addEventListener('click', () => { resetForm(); signOut(''); });
-
-  async function showApp() {
-    el.login.hidden = true; el.app.hidden = false;
-    try {
-      if (!CATALOG.length) setCatalog((await api('meta', {}, 'GET')).catalog);
-      if (!state.mood) state.mood = createMoodChecker(el.mood);
-      if (!el.when.value) el.when.value = nowLocalInput();
-      await loadEntries();
-      renderAttachments();
-    } catch (err) { if (!el.app.hidden) toast(err.message, 'err'); }
-  }
-
-  /* ---------- attachments ---------- */
-  function mediaNotice(text, kind = 'err') { showMsg(el.mediaMsg, text, kind); }
-
-  function addFiles(fileList, type) {
-    mediaNotice('');
-    const allowed = type === 'image' ? IMAGE_TYPES : VIDEO_TYPES;
-    const problems = [];
-    [...fileList].forEach(file => {
-      if (!allowed.includes(file.type)) { problems.push(`${file.name}: unsupported ${type} type.`); return; }
-      if (file.size > MAX_UPLOAD_MB * 1048576) { problems.push(`${file.name}: larger than ${MAX_UPLOAD_MB} MB.`); return; }
-      state.media.push({ id: uid('media'), type, source: 'drive', pending: true, file, name: file.name, preview: URL.createObjectURL(file) });
-    });
-    if (problems.length) mediaNotice(problems.join(' '));
-    renderAttachments();
-  }
-  el.fileImages.addEventListener('change', () => { addFiles(el.fileImages.files, 'image'); el.fileImages.value = ''; });
-  el.fileVideos.addEventListener('change', () => { addFiles(el.fileVideos.files, 'video'); el.fileVideos.value = ''; });
-
-  function probeImage(url) {
-    return new Promise((resolve, reject) => {
-      const img = new Image(); const t = setTimeout(() => reject(new Error('timeout')), 10000);
-      img.onload = () => { clearTimeout(t); resolve(); };
-      img.onerror = () => { clearTimeout(t); reject(new Error('error')); };
-      img.referrerPolicy = 'no-referrer'; img.src = url;
-    });
-  }
-  function probeVideo(url) {
-    return new Promise((resolve, reject) => {
-      const v = document.createElement('video'); const t = setTimeout(() => { v.src = ''; reject(new Error('timeout')); }, 10000);
-      v.preload = 'metadata';
-      v.onloadedmetadata = () => { clearTimeout(t); resolve(); };
-      v.onerror = () => { clearTimeout(t); reject(new Error('error')); };
-      v.src = url;
-    });
-  }
-
-  async function addImageUrl() {
-    mediaNotice('');
-    const u = parseHttps(el.urlImage.value);
-    if (!u) return mediaNotice('Enter a valid https:// image link.');
-    el.addImageUrl.disabled = true;
-    try {
-      await probeImage(u.href);
-      state.media.push({ id: uid('media'), type: 'image', source: 'external', url: u.href });
-      el.urlImage.value = ''; renderAttachments();
-    } catch (e) {
-      mediaNotice('That link did not load as an image. Use a direct link to a JPG, PNG, GIF or WebP file.');
-    } finally { el.addImageUrl.disabled = false; }
-  }
-  async function addVideoUrl() {
-    mediaNotice('');
-    const u = parseHttps(el.urlVideo.value);
-    if (!u) return mediaNotice('Enter a valid https:// video link.');
-    const kind = videoKind(u);
-    if (!kind) return mediaNotice('Unsupported video link. Use a direct MP4/WebM file, or a YouTube or Vimeo link.');
-    el.addVideoUrl.disabled = true;
-    try {
-      if (kind.kind === 'file') await probeVideo(u.href);
-      state.media.push({ id: uid('media'), type: 'video', source: 'external', url: u.href });
-      el.urlVideo.value = ''; renderAttachments();
-    } catch (e) {
-      mediaNotice('That video could not be loaded. Check the link, or that the host allows embedding.');
-    } finally { el.addVideoUrl.disabled = false; }
-  }
-  el.addImageUrl.addEventListener('click', addImageUrl);
-  el.addVideoUrl.addEventListener('click', addVideoUrl);
-  el.urlImage.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); addImageUrl(); } });
-  el.urlVideo.addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); addVideoUrl(); } });
-
-  function moveMedia(i, d) {
-    const j = i + d;
-    if (j < 0 || j >= state.media.length) return;
-    [state.media[i], state.media[j]] = [state.media[j], state.media[i]];
-    renderAttachments();
-  }
-  function removeMedia(i) {
-    const [m] = state.media.splice(i, 1);
-    if (m && m.preview && m.pending) URL.revokeObjectURL(m.preview);
-    renderAttachments();
-  }
-
-  function renderAttachments() {
-    if (!state.media.length) {
-      el.atts.replaceChildren(h('li', { class: 'att-empty', text: 'No attachments yet.' }));
-      return;
-    }
-    el.atts.replaceChildren(...state.media.map((m, i) => {
-      const where = m.pending ? 'Will upload to Drive on publish' : m.source === 'drive' ? 'Google Drive' : 'External link';
-      return h('li', { class: 'att' },
-        h('div', { class: 'att-preview' }, mediaNode(m, [imageSrc(m)].filter(Boolean), 0)),
-        h('div', { class: 'att-side' },
-          h('p', { class: 'att-meta' },
-            h('span', { class: 'badge', text: `${i + 1}. ${m.type}` }),
-            h('span', { class: `badge ${m.source}`, text: where })),
-          h('p', { class: 'att-name', text: m.name || m.url || '' }),
-          h('div', { class: 'att-ctl' },
-            h('button', { type: 'button', class: 'btn small', 'aria-label': 'Move up', disabled: i === 0, onclick: () => moveMedia(i, -1), text: '↑' }),
-            h('button', { type: 'button', class: 'btn small', 'aria-label': 'Move down', disabled: i === state.media.length - 1, onclick: () => moveMedia(i, 1), text: '↓' }),
-            h('button', { type: 'button', class: 'btn small danger', onclick: () => removeMedia(i), text: 'Remove' }))));
-    }));
-  }
-
-  /* ---------- form ---------- */
-  if (el.quick) el.quick.addEventListener('click', ev => {
-    const b = ev.target.closest('button[data-add]');
-    if (!b) return;
-    const add = b.dataset.add, cur = el.response.value.trim();
-    const have = cur.toLowerCase().split(/[,\n]/).map(s => s.trim());
-    if (have.includes(add.toLowerCase())) return;
-    el.response.value = cur ? `${cur}, ${add}` : add;
-    el.response.focus();
-  });
-
-  function resetForm() {
-    state.media.forEach(m => { if (m.preview && m.pending) URL.revokeObjectURL(m.preview); });
-    state.media = []; state.editingId = null;
-    el.form.reset();
-    el.when.value = nowLocalInput();
-    if (state.mood) state.mood.set([]);
-    el.banner.hidden = true; el.cancel.hidden = true;
-    el.heading.textContent = 'New entry';
-    el.save.textContent = 'Publish';
-    showMsg(el.formMsg, ''); showMsg(el.mediaMsg, '');
-    renderAttachments();
-  }
-  el.cancel.addEventListener('click', resetForm);
-
-  function parseLinks() {
-    return el.links.value.split('\n').map(s => s.trim()).filter(Boolean);
-  }
-
-  function collectDraft() {
-    const problems = [];
-    const title = el.title.value.trim(), content = el.content.value.trim();
-    const emotions = state.mood ? state.mood.get() : [];
-    const links = parseLinks();
-    if (!title) problems.push('Add a title.');
-    if (!el.when.value) problems.push('Choose the date and time.');
-    if (!content) problems.push('Write something in the journal.');
-    if (emotions.length !== 3) problems.push('Select exactly three feelings.');
-    links.forEach(l => { if (!parseUrlLoose(l)) problems.push(`Invalid link: ${l.slice(0, 60)}`); });
-    return { problems, title, content, emotions, links, entryDate: el.when.value, response: el.response.value.trim() };
-  }
-
-  el.preview.addEventListener('click', () => {
-    const d = collectDraft();
-    const nowIso = new Date().toISOString();
-    const dlg = h('dialog', { class: 'preview-dialog', 'aria-label': 'Entry preview' },
-      h('div', { class: 'bar' }, h('h2', { text: 'Preview' }),
-        h('button', { type: 'button', class: 'btn small', onclick: () => dlg.close(), text: 'Close' })),
-      renderEntry({
-        title: d.title || '(untitled)', entryDate: d.entryDate || nowLocalInput(), content: d.content || '',
-        emotions: d.emotions, links: d.links, response: d.response, createdAt: nowIso, updatedAt: nowIso,
-        media: state.media.map((m, i) => ({ ...m, order: i + 1 }))
-      }),
-      d.problems.length ? h('p', { class: 'msg err', text: `Still needed: ${d.problems.join(' ')}` }) : null);
-    dlg.addEventListener('close', () => dlg.remove());
-    dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
-    document.body.append(dlg);
-    dlg.showModal();
-  });
-
-  function fileToBase64(file) {
-    return new Promise((resolve, reject) => {
-      const r = new FileReader();
-      r.onload = () => resolve(String(r.result).split(',')[1] || '');
-      r.onerror = () => reject(new Error(`Could not read ${file.name}`));
-      r.readAsDataURL(file);
-    });
-  }
-
-  el.form.addEventListener('submit', async ev => {
-    ev.preventDefault();
-    if (state.busy) return;
-    const d = collectDraft();
-    if (d.problems.length) return showMsg(el.formMsg, d.problems.join(' '), 'err');
-
-    state.busy = true; el.save.disabled = true; el.preview.disabled = true;
-    const label = el.save.textContent;
-    try {
-      // 1) upload only the files the owner explicitly chose
-      const pending = state.media.filter(m => m.pending);
-      for (let n = 0; n < pending.length; n++) {
-        const m = pending[n];
-        showMsg(el.formMsg, `Uploading ${n + 1} of ${pending.length}: ${m.name}…`, '');
-        const data = await authed('upload', { file: { name: m.file.name, mimeType: m.file.type, data: await fileToBase64(m.file) } });
-        const up = data.media;
-        if (m.preview) URL.revokeObjectURL(m.preview);
-        Object.assign(m, { id: up.id, driveId: up.driveId, url: up.url, source: 'drive', pending: false, preview: null, file: null });
-        renderAttachments();
-      }
-      // 2) save the entry
-      showMsg(el.formMsg, 'Saving entry…', '');
-      const entry = {
-        title: d.title, content: d.content, response: d.response, entryDate: d.entryDate, emotions: d.emotions, links: d.links,
-        media: state.media.map((m, i) => ({ id: m.id, type: m.type, source: m.source, url: m.url, driveId: m.driveId, order: i + 1 }))
-      };
-      if (state.editingId) entry.id = state.editingId;
-      await authed(state.editingId ? 'update' : 'create', { entry });
-      toast(state.editingId ? 'Entry updated' : 'Entry published');
-      resetForm();
-      await loadEntries();
-    } catch (err) {
-      showMsg(el.formMsg, `${err.message}${state.media.some(m => !m.pending && m.source === 'drive') ? ' (Files already uploaded are kept; just press Publish again.)' : ''}`, 'err');
-    } finally {
-      state.busy = false; el.save.disabled = false; el.preview.disabled = false; el.save.textContent = label;
-    }
-  });
-
-  /* ---------- manage entries ---------- */
-  async function loadEntries() {
-    try {
-      const data = await api('list', {}, 'GET');
-      state.entries = data.entries || [];
-      renderManage();
-    } catch (err) {
-      el.manage.replaceChildren(h('div', { class: 'state err', text: err.message }));
-    }
-  }
-
-  function renderManage() {
-    if (!state.entries.length) { el.manage.replaceChildren(h('div', { class: 'state', text: 'No entries yet.' })); return; }
-    el.manage.replaceChildren(...state.entries.map(e => h('div', { class: 'manage-row' },
-      h('div', { class: 'manage-main' },
-        h('strong', { text: e.title }),
-        h('small', { text: `${fmtEntryDate(e.entryDate)} · ${e.emotions.join(', ')} · ${(e.media || []).length} attachment(s)` })),
-      h('div', { class: 'manage-ctl' },
-        h('button', { type: 'button', class: 'btn small', onclick: () => previewSaved(e), text: 'Preview' }),
-        h('button', { type: 'button', class: 'btn small', onclick: () => startEdit(e), text: 'Edit' }),
-        h('button', { type: 'button', class: 'btn small danger', onclick: () => remove(e), text: 'Delete' })))));
-  }
-
-  function previewSaved(e) {
-    const dlg = h('dialog', { class: 'preview-dialog', 'aria-label': 'Entry preview' },
-      h('div', { class: 'bar' }, h('h2', { text: 'Preview' }), h('button', { type: 'button', class: 'btn small', onclick: () => dlg.close(), text: 'Close' })),
-      renderEntry(e));
-    dlg.addEventListener('close', () => dlg.remove());
-    dlg.addEventListener('click', ev => { if (ev.target === dlg) dlg.close(); });
-    document.body.append(dlg); dlg.showModal();
-  }
-
-  function startEdit(e) {
-    resetForm();
-    state.editingId = e.id;
-    el.title.value = e.title; el.when.value = e.entryDate.slice(0, 16); el.content.value = e.content;
-    el.links.value = (e.links || []).join('\n');
-    el.response.value = e.response || '';
-    state.media = [...(e.media || [])].sort((a, b) => (a.order || 0) - (b.order || 0)).map(m => ({ ...m }));
-    state.mood.set(e.emotions);
-    el.heading.textContent = 'Edit entry';
-    el.save.textContent = 'Save changes';
-    el.cancel.hidden = false;
-    showMsg(el.banner, `Editing “${e.title}”. Existing attachments are kept unless you remove them.`, '');
-    renderAttachments();
-    el.form.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-
-  async function remove(e) {
-    if (!confirm(`Delete “${e.title}”? Its uploaded Drive files are moved to the Drive trash.`)) return;
-    try {
-      await authed('delete', { id: e.id });
-      if (state.editingId === e.id) resetForm();
-      toast('Entry deleted');
-      await loadEntries();
-    } catch (err) { toast(err.message, 'err'); }
-  }
-
-  el.cleanup.addEventListener('click', async () => {
-    if (!confirm('Move Drive files that no entry uses (older than 15 minutes) to the Drive trash? Only files in the journal media folder are touched.')) return;
-    el.cleanup.disabled = true;
-    try {
-      const r = await authed('cleanup');
-      toast(`Trashed ${r.trashed} unused file(s); kept ${r.kept}.`);
-    } catch (err) { toast(err.message, 'err'); }
-    finally { el.cleanup.disabled = false; }
-  });
-
-  /* ---------- start ---------- */
-  (async () => {
-    if (!state.token) { el.login.hidden = false; return; }
-    try {
-      await api('verify', { token: state.token });
-      await showApp();
-    } catch (err) {
-      signOut(/^Unauthorized/.test(err.message) ? '' : err.message);
-    }
-  })();
-}
-
-/* =====================================================================
-   Boot
-   ===================================================================== */
-document.addEventListener('DOMContentLoaded', () => {
-  const page = document.body.dataset.page;
-  if (page === 'journal') initJournal();
-  if (page === 'admin') initAdmin();
-});
-})();
