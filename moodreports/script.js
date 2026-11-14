@@ -5,7 +5,7 @@
 
 const APP_CONFIG = {
   // Replace with your deployed Google Apps Script Web App "/exec" URL
-  API_URL: 'YOUR_GOOGLE_APPS_SCRIPT_WEB_APP_EXEC_URL',
+  API_URL: https://script.google.com/macros/s/AKfycbyxg6kw0d_e2bDLtua6cvx4sH1P3Y8kDnOQOZRadrMZkc-2iwyCoEpJP42wvSM0zWgb-A/exec,
 
   // Maximum single file upload size in MB (safe for Google Apps Script POST limits)
   MAX_UPLOAD_MB: 25
