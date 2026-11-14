@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Mood Journal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="journal-feed-view" class="app-shell">
+    <!-- Top Minimalist Navigation -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <div>
+            <h1 id="journal-app-title" class="brand-title">Personal Mood Journal</h1>
+            <p class="brand-subtitle">Private reflections, emotional awareness &amp; everyday moments</p>
+          </div>
+        </div>
+        <nav class="header-nav" aria-label="Primary navigation">
+          <a href="index.html" class="nav-link active" aria-current="page">Journal</a>
+          <a href="admin.html" class="nav-link nav-link-admin">Write / Admin</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="container main-content">
+      <!-- Emotional Overview Strip -->
+      <section class="insights-bar" aria-label="Journal summary">
+        <div class="insight-item">
+          <span class="insight-label">Total Entries</span>
+          <strong id="stat-total-entries" class="insight-value">—</strong>
+        </div>
+        <div class="insight-item">
+          <span class="insight-label">Showing</span>
+          <strong id="stat-filtered-entries" class="insight-value">—</strong>
+        </div>
+        <div class="insight-item insight-item-wide">
+          <span class="insight-label">Most Felt Recently</span>
+          <div id="stat-top-emotions" class="top-emotions-list">
+            <span class="muted-text">Loading reflections…</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Search & Filter Panel -->
+      <section class="filter-card" aria-label="Filter and search journal entries">
+        <div class="filter-search-row">
+          <div class="search-input-wrap">
+            <svg class="icon-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input
+              type="search"
+              id="filter-keyword"
+              class="input-control search-control"
+              placeholder="Search entries by title, reflection, emotion, or link…"
+              aria-label="Search journal entries"
+            />
+          </div>
+          <button type="button" id="btn-reset-filters" class="btn btn-ghost hidden">
+            Reset Filters
+          </button>
+        </div>
+
+        <div class="filter-controls-grid">
+          <div class="filter-field">
+            <label for="filter-emotion" class="field-label">Emotion</label>
+            <select id="filter-emotion" class="input-control">
+              <option value="">All Emotions</option>
+            </select>
+          </div>
+
+          <div class="filter-field">
+            <label for="filter-date" class="field-label">Specific Date</label>
+            <input type="date" id="filter-date" class="input-control" />
+          </div>
+
+          <div class="filter-field">
+            <label for="filter-month" class="field-label">Month</label>
+            <select id="filter-month" class="input-control">
+              <option value="">All Months</option>
+              <option value="01">January</option>
+              <option value="02">February</option>
+              <option value="03">March</option>
+              <option value="04">April</option>
+              <option value="05">May</option>
+              <option value="06">June</option>
+              <option value="07">July</option>
+              <option value="08">August</option>
+              <option value="09">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+            </select>
+          </div>
+
+          <div class="filter-field">
+            <label for="filter-year" class="field-label">Year</label>
+            <select id="filter-year" class="input-control">
+              <option value="">All Years</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Configuration / Error Banner -->
+      <div id="feed-status-banner" class="status-banner hidden" role="alert"></div>
+
+      <!-- Chronological Journal Timeline -->
+      <section id="journal-timeline" class="journal-timeline" aria-live="polite">
+        <div class="loading-state">
+          <div class="spinner" aria-hidden="true"></div>
+          <p>Opening your personal journal…</p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Image Lightbox Modal -->
+    <div id="lightbox-modal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <div class="lightbox-container">
+        <button type="button" id="btn-close-lightbox" class="lightbox-close" aria-label="Close image viewer">&times;</button>
+        <img id="lightbox-image" src="" alt="Expanded journal attachment" class="lightbox-img" />
+        <p id="lightbox-caption" class="lightbox-caption"></p>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <p>Private Personal Mood Journal &bull; Stored securely in your Google Workspace</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
