@@ -1,625 +1,133 @@
-/**
- * Personal Mood Journal — Google Apps Script backend (Code.js)
- *
- * Web App API (deploy as: Execute as ME, Access: ANYONE).
- *  - Public reads : GET  ?action=meta | list | get | ping
- *  - Owner writes : POST {action, token, ...}  (Content-Type: text/plain, JSON body)
- *      login, verify, init, create, update, delete, upload, cleanup
- *
- * Secrets live in Script Properties (Project Settings > Script properties):
- *   ADMIN_PASSWORD  (required) your owner password
- *   TOKEN_SECRET    (auto-generated on first login)
- *   SPREADSHEET_ID  (optional, only if the script is NOT bound to the spreadsheet)
- *
- * Run setup() once from the editor to authorize Drive/Sheets and create the database.
- */
-
-/* ============================ CONFIG ============================ */
-var SPREADSHEET_ID = '';                     // leave '' if script is bound to the spreadsheet
-var APP_NAME = 'My Mood Journal';
-var DRIVE_FOLDER_NAME = 'Mood Journal Media';
-var SHEET_JOURNAL = 'Journal';
-var SHEET_SETTINGS = 'Settings';
-var HEADERS = ['ID', 'CreatedAt', 'UpdatedAt', 'EntryDate', 'Title', 'Content',
-  'Emotion1', 'Emotion2', 'Emotion3', 'Media', 'Links', 'Response'];
-var MAX_UPLOAD_BYTES = 25 * 1024 * 1024;     // per file
-var MAX_MEDIA_PER_ENTRY = 30;
-var MAX_LINKS = 10;
-var DEFAULT_SESSION_HOURS = 12;
-var ALLOWED_UPLOAD = {
-  'image/jpeg': 'jpg', 'image/png': 'png', 'image/gif': 'gif', 'image/webp': 'webp',
-  'video/mp4': 'mp4', 'video/webm': 'webm', 'video/quicktime': 'mov', 'video/ogg': 'ogv'
-};
-
-var CATALOG = [
-  { id: 'joy', label: 'Joy', icon: '☀️', hint: 'Light, warm, glad feelings',
-    emotions: ['Happy', 'Excited', 'Proud', 'Optimistic', 'Content', 'Relieved', 'Playful', 'Hopeful', 'Confident', 'Cheerful', 'Peaceful', 'Inspired'] },
-  { id: 'sadness', label: 'Sadness', icon: '🌧️', hint: 'Heavy, low, tender feelings',
-    emotions: ['Lonely', 'Grief', 'Disappointed', 'Hopeless', 'Vulnerable', 'Empty', 'Hurt', 'Miserable', 'Abandoned', 'Guilty', 'Ashamed', 'Melancholy'] },
-  { id: 'anger', label: 'Anger', icon: '🔥', hint: 'Hot, tense, pushing-back feelings',
-    emotions: ['Frustrated', 'Irritated', 'Resentful', 'Furious', 'Annoyed', 'Bitter', 'Jealous', 'Defensive', 'Betrayed', 'Hostile'] },
-  { id: 'fear', label: 'Fear', icon: '🫧', hint: 'Shaky, uneasy, on-edge feelings',
-    emotions: ['Anxious', 'Insecure', 'Overwhelmed', 'Worried', 'Nervous', 'Terrified', 'Helpless', 'Uncertain', 'Panicked', 'Threatened'] },
-  { id: 'disgust', label: 'Disgust', icon: '🌀', hint: 'Turning-away, not-okay feelings',
-    emotions: ['Disapproval', 'Dislike', 'Revulsion', 'Disturbed', 'Judgmental', 'Uncomfortable', 'Repelled', 'Awkward'] },
-  { id: 'surprise', label: 'Surprise', icon: '⚡', hint: 'Sudden, unexpected feelings',
-    emotions: ['Confused', 'Amazed', 'Astonished', 'Startled', 'Shocked', 'Perplexed', 'Curious', 'Stunned'] },
-  { id: 'love', label: 'Love', icon: '💗', hint: 'Close, warm, connected feelings',
-    emotions: ['Affectionate', 'Caring', 'Trusting', 'Grateful', 'Accepted', 'Appreciated', 'Connected', 'Compassionate', 'Tender', 'Longing'] }
-];
-
-/* ============================ ENTRY POINTS ============================ */
-function doGet(e) {
-  return handle_((e && e.parameter) || {}, false);
-}
-
-function doPost(e) {
-  var body;
-  try {
-    body = JSON.parse((e && e.postData && e.postData.contents) || '{}');
-  } catch (err) {
-    return fail_('Invalid JSON body.');
-  }
-  return handle_(body || {}, true);
-}
-
-/** Run once from the editor: authorizes scopes and creates sheets + Drive folder. */
-function setup() {
-  ensureDatabase_(true);
-  var folder = getFolder_();
-  console.log('Database ready. Drive folder: ' + folder.getUrl());
-  if (!getProp_('ADMIN_PASSWORD')) {
-    console.warn('Now add the ADMIN_PASSWORD script property (Project Settings > Script properties).');
-  }
-}
-
-/* ============================ ROUTER ============================ */
-function handle_(req, viaPost) {
-  var action = String(req.action || '');
-  try {
-    // ---- public actions ----
-    switch (action) {
-      case 'ping':
-        return ok_({ time: new Date().toISOString() }, 'pong');
-      case 'meta':
-        ensureDatabase_();
-        return ok_({ appName: APP_NAME, catalog: CATALOG, maxUploadMB: MAX_UPLOAD_BYTES / 1048576 });
-      case 'list':
-        ensureDatabase_();
-        return ok_({ entries: listEntries_(req) });
-      case 'get':
-        ensureDatabase_();
-        return ok_({ entry: getEntry_(req.id) });
-      case 'login':
-        if (!viaPost) throw new Error('Login requires POST.');
-        return ok_(login_(req.password), 'Signed in');
-    }
-
-    // ---- admin actions (POST + valid token only) ----
-    if (!viaPost) throw new Error('Unauthorized: admin actions require POST.');
-    requireAuth_(req.token);
-
-    switch (action) {
-      case 'verify':
-        return ok_({ valid: true }, 'Session valid');
-      case 'init':
-        ensureDatabase_(true);
-        return ok_({ folderUrl: getFolder_().getUrl() }, 'Database initialized');
-      case 'create':
-        return ok_({ entry: createEntry_(req.entry) }, 'Entry created');
-      case 'update':
-        return ok_({ entry: updateEntry_(req.entry) }, 'Entry updated');
-      case 'delete':
-        return ok_(deleteEntry_(req.id), 'Entry deleted');
-      case 'upload':
-        return ok_({ media: uploadMedia_(req.file) }, 'File uploaded');
-      case 'cleanup':
-        return ok_(cleanupOrphans_(), 'Cleanup finished');
-    }
-    throw new Error('Unknown action: ' + action);
-  } catch (err) {
-    console.error(err && err.stack ? err.stack : String(err));
-    return fail_(err && err.message ? err.message : 'An error occurred');
-  }
-}
-
-function json_(obj) {
-  return ContentService.createTextOutput(JSON.stringify(obj)).setMimeType(ContentService.MimeType.JSON);
-}
-function ok_(data, message) {
-  return json_({ success: true, data: data === undefined ? null : data, message: message || 'Operation completed successfully' });
-}
-function fail_(message) {
-  return json_({ success: false, data: null, message: message || 'An error occurred' });
-}
-
-/* ============================ AUTH ============================ */
-function getProp_(key) {
-  return PropertiesService.getScriptProperties().getProperty(key);
-}
-
-function tokenSecret_() {
-  var s = getProp_('TOKEN_SECRET');
-  if (!s) {
-    s = Utilities.getUuid() + Utilities.getUuid() + Utilities.getUuid();
-    PropertiesService.getScriptProperties().setProperty('TOKEN_SECRET', s);
-  }
-  return s;
-}
-
-function digest_(text) {
-  return Utilities.base64Encode(Utilities.computeDigest(Utilities.DigestAlgorithm.SHA_256, text, Utilities.Charset.UTF_8));
-}
-
-function safeEqual_(a, b) {
-  a = String(a); b = String(b);
-  var diff = a.length ^ b.length;
-  var len = Math.max(a.length, b.length);
-  for (var i = 0; i < len; i++) {
-    diff |= (a.charCodeAt(i) || 0) ^ (b.charCodeAt(i) || 0);
-  }
-  return diff === 0;
-}
-
-function sign_(payloadB64) {
-  return Utilities.base64EncodeWebSafe(
-    Utilities.computeHmacSha256Signature(payloadB64, tokenSecret_()));
-}
-
-function login_(password) {
-  var stored = getProp_('ADMIN_PASSWORD');
-  if (!stored) {
-    throw new Error('Admin password is not configured. Add the ADMIN_PASSWORD script property.');
-  }
-  var cache = CacheService.getScriptCache();
-  var fails = Number(cache.get('login_fails') || 0);
-  if (fails > 0) Utilities.sleep(Math.min(fails, 5) * 1000); // slow down guessing
-
-  if (typeof password !== 'string' || !safeEqual_(digest_(password), digest_(stored))) {
-    cache.put('login_fails', String(fails + 1), 600);
-    Utilities.sleep(800);
-    throw new Error('Incorrect password.');
-  }
-  cache.remove('login_fails');
-
-  var hours = Number(getSettingSafe_('SessionHours')) || DEFAULT_SESSION_HOURS;
-  var exp = Date.now() + hours * 3600 * 1000;
-  var payload = Utilities.base64EncodeWebSafe(JSON.stringify({ exp: exp, pv: digest_(stored).slice(0, 10) }));
-  return { token: payload + '.' + sign_(payload), expiresAt: new Date(exp).toISOString() };
-}
-
-function requireAuth_(token) {
-  var fail = function () { throw new Error('Unauthorized: please sign in again.'); };
-  if (typeof token !== 'string' || token.indexOf('.') < 1) fail();
-  var parts = token.split('.');
-  if (parts.length !== 2 || !safeEqual_(sign_(parts[0]), parts[1])) fail();
-  var data;
-  try {
-    data = JSON.parse(Utilities.newBlob(Utilities.base64DecodeWebSafe(parts[0])).getDataAsString());
-  } catch (e) { fail(); }
-  var stored = getProp_('ADMIN_PASSWORD');
-  if (!stored || !data || !(data.exp > Date.now()) || data.pv !== digest_(stored).slice(0, 10)) fail();
-}
-
-/* ============================ DATABASE ============================ */
-function getSpreadsheet_() {
-  var id = SPREADSHEET_ID || getProp_('SPREADSHEET_ID');
-  var ss = id ? SpreadsheetApp.openById(id) : SpreadsheetApp.getActiveSpreadsheet();
-  if (!ss) throw new Error('No spreadsheet configured. Bind the script to a spreadsheet or set SPREADSHEET_ID.');
-  return ss;
-}
-
-function journalSheet_() { return getSpreadsheet_().getSheetByName(SHEET_JOURNAL); }
-function settingsSheet_() { return getSpreadsheet_().getSheetByName(SHEET_SETTINGS); }
-
-function prepSheet_(sh, headers) {
-  if (sh.getMaxColumns() < headers.length) sh.insertColumnsAfter(sh.getMaxColumns(), headers.length - sh.getMaxColumns());
-  var cur = sh.getRange(1, 1, 1, headers.length).getValues()[0];
-  var same = headers.every(function (h, i) { return cur[i] === h; });
-  if (!same) {
-    sh.getRange(1, 1, 1, headers.length).setNumberFormat('@').setValues([headers]).setFontWeight('bold');
-    sh.setFrozenRow(1);
-  }
-  // keep everything as plain text so Sheets never converts dates/IDs
-  sh.getRange(2, 1, Math.max(sh.getMaxRows() - 1, 1), headers.length).setNumberFormat('@');
-}
-
-function ensureDatabase_(force) {
-  var cache = CacheService.getScriptCache();
-  if (!force && cache.get('db_ok_v2') === '1' && journalSheet_() && settingsSheet_()) return;
-
-  var ss = getSpreadsheet_();
-  var j = ss.getSheetByName(SHEET_JOURNAL) || ss.insertSheet(SHEET_JOURNAL);
-  prepSheet_(j, HEADERS);
-  var s = ss.getSheetByName(SHEET_SETTINGS) || ss.insertSheet(SHEET_SETTINGS);
-  prepSheet_(s, ['Key', 'Value', 'Description']);
-
-  setSettingIfMissing_('AppName', APP_NAME, 'Application name');
-  setSetting_('SchemaVersion', '2', 'Database schema version (2 adds the Response column)');
-  setSettingIfMissing_('CreatedAt', new Date().toISOString(), 'Database creation time');
-  setSettingIfMissing_('SessionHours', String(DEFAULT_SESSION_HOURS), 'Admin session length in hours');
-  setSettingIfMissing_('AuthMode', 'Password in Script Properties; HMAC-signed expiring token', 'Informational only. No secrets are stored in this sheet.');
-  cache.put('db_ok_v2', '1', 21600);
-}
-
-function getSetting_(key) {
-  var sh = settingsSheet_();
-  var last = sh.getLastRow();
-  if (last < 2) return null;
-  var v = sh.getRange(2, 1, last - 1, 2).getValues();
-  for (var i = 0; i < v.length; i++) if (String(v[i][0]) === key) return String(v[i][1]);
-  return null;
-}
-function getSettingSafe_(key) {
-  try { return getSetting_(key); } catch (e) { return null; }
-}
-function setSetting_(key, value, desc) {
-  var sh = settingsSheet_();
-  var last = sh.getLastRow();
-  if (last >= 2) {
-    var v = sh.getRange(2, 1, last - 1, 1).getValues();
-    for (var i = 0; i < v.length; i++) {
-      if (String(v[i][0]) === key) { sh.getRange(i + 2, 2).setValue(String(value)); return; }
-    }
-  }
-  var row = last + 1;
-  if (row > sh.getMaxRows()) sh.insertRowsAfter(sh.getMaxRows(), 20);
-  var rng = sh.getRange(row, 1, 1, 3);
-  rng.setNumberFormat('@');
-  rng.setValues([[key, String(value), desc || '']]);
-}
-function setSettingIfMissing_(key, value, desc) {
-  if (getSetting_(key) === null) setSetting_(key, value, desc);
-}
-
-function withLock_(fn) {
-  var lock = LockService.getScriptLock();
-  lock.waitLock(20000);
-  try { return fn(); } finally { lock.releaseLock(); }
-}
-
-/* ============================ ENTRIES ============================ */
-function parseJson_(text, fallback) {
-  if (text === '' || text === null || text === undefined) return fallback;
-  try {
-    var v = JSON.parse(String(text));
-    return Array.isArray(v) ? v : fallback;
-  } catch (e) { return fallback; }
-}
-
-function rowToEntry_(r) {
-  var media = parseJson_(r[9], []);
-  media.sort(function (a, b) { return (a.order || 0) - (b.order || 0); });
-  return {
-    id: String(r[0]), createdAt: String(r[1]), updatedAt: String(r[2]), entryDate: String(r[3]),
-    title: String(r[4]), content: String(r[5]),
-    emotions: [String(r[6]), String(r[7]), String(r[8])],
-    media: media, links: parseJson_(r[10], []),
-    response: String(r[11] || '')
-  };
-}
-
-function entryToRow_(e) {
-  return [e.id, e.createdAt, e.updatedAt, e.entryDate, e.title, e.content,
-    e.emotions[0], e.emotions[1], e.emotions[2], JSON.stringify(e.media), JSON.stringify(e.links), e.response || ''];
-}
-
-function readAll_() {
-  var sh = journalSheet_();
-  var last = sh.getLastRow();
-  if (last < 2) return [];
-  return sh.getRange(2, 1, last - 1, HEADERS.length).getValues()
-    .map(rowToEntry_).filter(function (e) { return e.id; });
-}
-
-function findRow_(id) {
-  var sh = journalSheet_();
-  var last = sh.getLastRow();
-  if (last < 2) return -1;
-  var ids = sh.getRange(2, 1, last - 1, 1).getValues();
-  for (var i = 0; i < ids.length; i++) if (String(ids[i][0]) === String(id)) return i + 2;
-  return -1;
-}
-
-function getEntry_(id) {
-  if (!id) throw new Error('Entry ID is required.');
-  var row = findRow_(id);
-  if (row < 0) throw new Error('Entry not found.');
-  return rowToEntry_(journalSheet_().getRange(row, 1, 1, HEADERS.length).getValues()[0]);
-}
-
-function listEntries_(p) {
-  var q = String(p.q || '').toLowerCase().trim();
-  var words = q ? q.split(/\s+/) : [];
-  var date = String(p.date || ''), month = String(p.month || ''), year = String(p.year || ''), emotion = String(p.emotion || '');
-
-  var out = readAll_().filter(function (e) {
-    if (date && e.entryDate.slice(0, 10) !== date) return false;
-    if (month && e.entryDate.slice(0, 7) !== month) return false;
-    if (year && e.entryDate.slice(0, 4) !== year) return false;
-    if (emotion && e.emotions.indexOf(emotion) < 0) return false;
-    if (words.length) {
-      var hay = [e.title, e.content, e.response].concat(e.emotions, e.links).join(' ').toLowerCase();
-      for (var i = 0; i < words.length; i++) if (hay.indexOf(words[i]) < 0) return false;
-    }
-    return true;
-  });
-  out.sort(function (a, b) {
-    if (a.entryDate !== b.entryDate) return a.entryDate < b.entryDate ? 1 : -1;
-    return a.createdAt < b.createdAt ? 1 : -1;
-  });
-  return out;
-}
-
-function newId_() { return 'jrn_' + Utilities.getUuid().replace(/-/g, '').slice(0, 16); }
-
-function createEntry_(input) {
-  return withLock_(function () {
-    ensureDatabase_();
-    var clean = sanitizeEntry_(input, null);
-    var now = new Date().toISOString();
-    var entry = {
-      id: newId_(), createdAt: now, updatedAt: now, entryDate: clean.entryDate, title: clean.title,
-      content: clean.content, emotions: clean.emotions, media: clean.media, links: clean.links, response: clean.response
-    };
-    writeRow_(journalSheet_().getLastRow() + 1, entry);
-    return entry;
-  });
-}
-
-function updateEntry_(input) {
-  return withLock_(function () {
-    ensureDatabase_();
-    if (!input || !input.id) throw new Error('Entry ID is required.');
-    var row = findRow_(input.id);
-    if (row < 0) throw new Error('Entry not found.');
-    var old = rowToEntry_(journalSheet_().getRange(row, 1, 1, HEADERS.length).getValues()[0]);
-    var clean = sanitizeEntry_(input, old);
-    var entry = {
-      id: old.id, createdAt: old.createdAt, updatedAt: new Date().toISOString(),
-      entryDate: clean.entryDate, title: clean.title, content: clean.content,
-      emotions: clean.emotions, media: clean.media, links: clean.links, response: clean.response
-    };
-    writeRow_(row, entry);
-
-    // trash Drive files that were removed from this entry (only files inside our folder)
-    var keep = {};
-    entry.media.forEach(function (m) { if (m.driveId) keep[m.driveId] = true; });
-    old.media.forEach(function (m) { if (m.driveId && !keep[m.driveId]) trashDriveFile_(m.driveId); });
-    return entry;
-  });
-}
-
-function deleteEntry_(id) {
-  return withLock_(function () {
-    ensureDatabase_();
-    if (!id) throw new Error('Entry ID is required.');
-    var row = findRow_(id);
-    if (row < 0) throw new Error('Entry not found.');
-    var old = rowToEntry_(journalSheet_().getRange(row, 1, 1, HEADERS.length).getValues()[0]);
-    journalSheet_().deleteRow(row);
-    var trashed = 0;
-    old.media.forEach(function (m) { if (m.driveId && trashDriveFile_(m.driveId)) trashed++; });
-    return { id: id, driveFilesTrashed: trashed };
-  });
-}
-
-function writeRow_(row, entry) {
-  var sh = journalSheet_();
-  if (row > sh.getMaxRows()) sh.insertRowsAfter(sh.getMaxRows(), 50);
-  var rng = sh.getRange(row, 1, 1, HEADERS.length);
-  rng.setNumberFormat('@');
-  rng.setValues([entryToRow_(entry)]);
-}
-
-/* ============================ VALIDATION ============================ */
-function emotionSet_() {
-  var s = {};
-  CATALOG.forEach(function (c) { c.emotions.forEach(function (x) { s[x] = true; }); });
-  return s;
-}
-
-/** Returns {host, path} for a valid URL, otherwise null. */
-function parseUrl_(s, httpsOnly) {
-  if (typeof s !== 'string') return null;
-  s = s.trim();
-  if (!s || s.length > 2000) return null;
-  var re = httpsOnly ? /^https:\/\/([a-z0-9._-]+)(?::\d+)?([\/?#][^\s]*)?$/i
-                     : /^https?:\/\/([a-z0-9._-]+)(?::\d+)?([\/?#][^\s]*)?$/i;
-  var m = s.match(re);
-  if (!m || m[1].indexOf('.') < 0) return null;
-  return { url: s, host: m[1].toLowerCase().replace(/^www\./, ''), rest: m[2] || '' };
-}
-
-function isSupportedVideoUrl_(u) {
-  var path = u.rest.split(/[?#]/)[0];
-  if (/\.(mp4|webm|ogv|ogg|mov|m4v)$/i.test(path)) return true;
-  if (u.host === 'youtu.be') return /^\/[\w-]{11}/.test(path);
-  if (u.host === 'youtube.com' || u.host === 'm.youtube.com' || u.host === 'youtube-nocookie.com') {
-    return /[?&]v=[\w-]{11}/.test(u.rest) || /^\/(embed|shorts|live|v)\/[\w-]{11}/.test(path);
-  }
-  if (u.host === 'vimeo.com' || u.host === 'player.vimeo.com') return /\/(video\/)?\d{5,}/.test(path);
-  return false;
-}
-
-function driveUrl_(type, id) {
-  return type === 'video'
-    ? 'https://drive.google.com/file/d/' + id + '/preview'
-    : 'https://drive.google.com/thumbnail?id=' + id + '&sz=w2000';
-}
-
-function sanitizeText_(v, max, label, required) {
-  v = typeof v === 'string' ? v.replace(/\r\n/g, '\n').trim() : '';
-  if (required && !v) throw new Error(label + ' is required.');
-  if (v.length > max) throw new Error(label + ' is too long (max ' + max + ' characters).');
-  return v;
-}
-
-function sanitizeEntry_(input, old) {
-  if (!input || typeof input !== 'object') throw new Error('Missing entry data.');
-
-  var title = sanitizeText_(input.title, 200, 'Title', true);
-  var content = sanitizeText_(input.content, 40000, 'Journal content', true);
-  var response = sanitizeText_(input.response, 5000, 'Behavioral / physical response', false);
-
-  var entryDate = String(input.entryDate || '');
-  if (!/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}/.test(entryDate)) throw new Error('Entry date and time are invalid.');
-  entryDate = entryDate.slice(0, 16);
-  if (isNaN(new Date(entryDate + ':00').getTime())) throw new Error('Entry date and time are invalid.');
-
-  var emotions = input.emotions;
-  if (!Array.isArray(emotions) || emotions.length !== 3) throw new Error('Select exactly three emotions.');
-  var known = emotionSet_(), seen = {};
-  emotions = emotions.map(function (e) {
-    e = String(e);
-    if (!known[e]) throw new Error('Unknown emotion: ' + e);
-    if (seen[e]) throw new Error('Each emotion can only be chosen once.');
-    seen[e] = true;
-    return e;
-  });
-
-  var links = input.links === undefined || input.links === null ? [] : input.links;
-  if (!Array.isArray(links)) throw new Error('Links must be a list.');
-  if (links.length > MAX_LINKS) throw new Error('Too many links (max ' + MAX_LINKS + ').');
-  links = links.map(function (l) {
-    var u = parseUrl_(l, false);
-    if (!u) throw new Error('Invalid link: ' + String(l).slice(0, 80));
-    return u.url;
-  });
-
-  var media = sanitizeMediaList_(input.media, old);
-
-  var mediaJson = JSON.stringify(media);
-  if (mediaJson.length > 45000) throw new Error('Too many attachments to store.');
-
-  return { title: title, content: content, response: response, entryDate: entryDate, emotions: emotions, links: links, media: media };
-}
-
-function sanitizeMediaList_(list, old) {
-  if (list === undefined || list === null) list = [];
-  if (!Array.isArray(list)) throw new Error('Media must be a list.');
-  if (list.length > MAX_MEDIA_PER_ENTRY) throw new Error('Too many attachments (max ' + MAX_MEDIA_PER_ENTRY + ').');
-
-  var oldDrive = {};
-  if (old) old.media.forEach(function (m) { if (m.driveId) oldDrive[m.driveId] = true; });
-  var folder = null, usedIds = {};
-
-  return list.map(function (m, i) {
-    if (!m || typeof m !== 'object') throw new Error('Invalid attachment.');
-    var type = m.type, source = m.source;
-    if (type !== 'image' && type !== 'video') throw new Error('Attachment type must be image or video.');
-    if (source !== 'drive' && source !== 'external') throw new Error('Attachment source must be drive or external.');
-
-    var id = typeof m.id === 'string' && /^[\w-]{3,64}$/.test(m.id) && !usedIds[m.id]
-      ? m.id : 'media_' + Utilities.getUuid().replace(/-/g, '').slice(0, 12);
-    usedIds[id] = true;
-
-    var out = { id: id, type: type, source: source, order: i + 1 };
-
-    if (source === 'external') {
-      var u = parseUrl_(m.url, true);
-      if (!u) throw new Error('Attachment ' + (i + 1) + ': enter a valid https:// URL.');
-      if (type === 'video' && !isSupportedVideoUrl_(u)) {
-        throw new Error('Attachment ' + (i + 1) + ': video must be a direct MP4/WebM link or a YouTube/Vimeo link.');
-      }
-      out.url = u.url;
-    } else {
-      var driveId = String(m.driveId || '');
-      if (!/^[\w-]{10,}$/.test(driveId)) throw new Error('Attachment ' + (i + 1) + ': invalid Drive file.');
-      if (!oldDrive[driveId]) { // brand-new reference: make sure it lives in OUR folder
-        folder = folder || getFolder_();
-        if (!fileInFolder_(driveId, folder)) throw new Error('Attachment ' + (i + 1) + ': file is not in the journal media folder.');
-      }
-      out.driveId = driveId;
-      out.url = driveUrl_(type, driveId);
-    }
-    return out;
-  });
-}
-
-/* ============================ DRIVE ============================ */
-function getFolder_() {
-  var id = getSettingSafe_('DriveFolderId');
-  if (id) {
-    try {
-      var f = DriveApp.getFolderById(id);
-      if (!f.isTrashed()) return f;
-    } catch (e) { /* recreate below */ }
-  }
-  var it = DriveApp.getFoldersByName(DRIVE_FOLDER_NAME);
-  var folder = it.hasNext() ? it.next() : DriveApp.createFolder(DRIVE_FOLDER_NAME);
-  ensureDatabase_();
-  setSetting_('DriveFolderId', folder.getId(), 'Dedicated Google Drive folder for uploaded media');
-  return folder;
-}
-
-function fileInFolder_(fileId, folder) {
-  try {
-    var f = DriveApp.getFileById(fileId);
-    if (f.isTrashed()) return null;
-    var ps = f.getParents();
-    while (ps.hasNext()) if (ps.next().getId() === folder.getId()) return f;
-  } catch (e) { /* not found / no access */ }
-  return null;
-}
-
-function trashDriveFile_(fileId) {
-  try {
-    var f = fileInFolder_(fileId, getFolder_());
-    if (!f) return false;          // never touch files outside our folder
-    f.setTrashed(true);
-    return true;
-  } catch (e) {
-    console.warn('Could not trash ' + fileId + ': ' + e.message);
-    return false;
-  }
-}
-
-function uploadMedia_(file) {
-  if (!file || typeof file !== 'object') throw new Error('No file received.');
-  var mime = String(file.mimeType || '').toLowerCase();
-  var ext = ALLOWED_UPLOAD[mime];
-  if (!ext) throw new Error('Unsupported file type. Use JPG, PNG, GIF, WebP, MP4, WebM, MOV or OGG.');
-  var data = String(file.data || '').replace(/^data:[^,]*,/, '');
-  if (!data) throw new Error('The file was empty.');
-  if (data.length > MAX_UPLOAD_BYTES * 1.4) throw new Error('File is too large (max ' + (MAX_UPLOAD_BYTES / 1048576) + ' MB).');
-
-  var bytes = Utilities.base64Decode(data);
-  if (bytes.length > MAX_UPLOAD_BYTES) throw new Error('File is too large (max ' + (MAX_UPLOAD_BYTES / 1048576) + ' MB).');
-
-  var base = String(file.name || 'upload').replace(/\.[^.]*$/, '').replace(/[^\w.-]+/g, '_').slice(0, 60) || 'upload';
-  var name = Utilities.formatDate(new Date(), 'UTC', 'yyyyMMdd-HHmmss') + '_' + base + '.' + ext;
-  var type = mime.indexOf('video/') === 0 ? 'video' : 'image';
-
-  var created;
-  try {
-    created = getFolder_().createFile(Utilities.newBlob(bytes, mime, name));
-    created.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
-  } catch (err) {
-    if (created) { try { created.setTrashed(true); } catch (e2) { /* ignore */ } }
-    throw new Error('Drive upload failed: ' + err.message +
-      ' (If your Google Workspace blocks public link sharing, uploaded media cannot be displayed.)');
-  }
-  var id = created.getId();
-  return {
-    id: 'media_' + Utilities.getUuid().replace(/-/g, '').slice(0, 12),
-    type: type, source: 'drive', driveId: id, url: driveUrl_(type, id)
-  };
-}
-
-/** Trash files in OUR folder that no entry references (and are older than 15 minutes). */
-function cleanupOrphans_() {
-  return withLock_(function () {
-    ensureDatabase_();
-    var used = {};
-    readAll_().forEach(function (e) { e.media.forEach(function (m) { if (m.driveId) used[m.driveId] = true; }); });
-    var files = getFolder_().getFiles(), trashed = 0, kept = 0, cutoff = Date.now() - 15 * 60 * 1000;
-    while (files.hasNext()) {
-      var f = files.next();
-      if (used[f.getId()] || f.getDateCreated().getTime() > cutoff) { kept++; continue; }
-      f.setTrashed(true);
-      trashed++;
-    }
-    return { trashed: trashed, kept: kept };
-  });
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Write — My Mood Journal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Patrick+Hand&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="admin">
+
+<header class="top">
+  <a class="brand" href="index.html">My Mood Journal</a>
+  <nav class="nav" aria-label="Main">
+    <a href="index.html">Journal</a>
+    <a href="admin.html" aria-current="page">Write</a>
+  </nav>
+</header>
+
+<main class="wrap narrow">
+
+  <!-- Sign in -->
+  <section id="login" class="card tape" hidden>
+    <h1>Owner sign-in</h1>
+    <p>Only the owner can write, edit or delete entries.</p>
+    <form id="login-form" class="stack">
+      <label class="fld"><span>Password</span>
+        <input id="pw" type="password" autocomplete="current-password" required></label>
+      <button class="btn primary" type="submit">Sign in</button>
+      <p id="login-msg" class="msg err" role="alert" hidden></p>
+    </form>
+  </section>
+
+  <!-- Composer + manager -->
+  <div id="app" hidden>
+    <div class="bar">
+      <h1 id="composer-title">New entry</h1>
+      <button id="logout" class="btn small" type="button">Sign out</button>
+    </div>
+
+    <form id="composer" class="card tape stack" novalidate>
+      <p id="edit-banner" class="msg" hidden></p>
+
+      <label class="fld"><span>Title</span>
+        <input id="f-title" type="text" maxlength="200" placeholder="Give today a name" required></label>
+
+      <label class="fld"><span>Date &amp; time</span>
+        <input id="f-when" type="datetime-local" required></label>
+
+      <label class="fld"><span>What happened? How was it?</span>
+        <textarea id="f-content" rows="8" maxlength="40000" placeholder="Write freely…" required></textarea></label>
+
+      <fieldset class="group">
+        <legend>How are you feeling? Pick exactly three</legend>
+        <div id="mood-root" class="mood"></div>
+        <div class="response-box">
+          <label class="fld"><span>Respon Perilaku / Respon Tubuh <small>(behavioral &amp; physical response, optional)</small></span>
+            <textarea id="f-response" rows="4" maxlength="5000" placeholder="How did your body and behavior react? Write freely…"></textarea></label>
+          <div id="quick-response" class="quick" role="group" aria-label="Tap to add an example">
+            <button type="button" class="chip chip-btn" data-add="Crying">Crying</button>
+            <button type="button" class="chip chip-btn" data-add="Cold sweating">Cold sweating</button>
+            <button type="button" class="chip chip-btn" data-add="Shaking">Shaking</button>
+            <button type="button" class="chip chip-btn" data-add="Heart racing">Heart racing</button>
+            <button type="button" class="chip chip-btn" data-add="Difficulty breathing">Difficulty breathing</button>
+            <button type="button" class="chip chip-btn" data-add="Feeling physically tense">Feeling physically tense</button>
+            <button type="button" class="chip chip-btn" data-add="Staying silent">Staying silent</button>
+            <button type="button" class="chip chip-btn" data-add="Avoiding people">Avoiding people</button>
+            <button type="button" class="chip chip-btn" data-add="Withdrawing from conversations">Withdrawing from conversations</button>
+            <button type="button" class="chip chip-btn" data-add="Raising my voice">Raising my voice</button>
+            <button type="button" class="chip chip-btn" data-add="Feeling restless">Feeling restless</button>
+            <button type="button" class="chip chip-btn" data-add="Having difficulty sleeping">Having difficulty sleeping</button>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="group">
+        <legend>Photos &amp; videos</legend>
+        <div class="media-add">
+          <div class="add-card">
+            <h3>Upload from your device</h3>
+            <p class="small-note">Saved to your private Google Drive folder when you publish.</p>
+            <div class="row">
+              <label class="btn small">Choose images
+                <input id="file-images" type="file" accept="image/jpeg,image/png,image/gif,image/webp" multiple hidden></label>
+              <label class="btn small">Choose videos
+                <input id="file-videos" type="file" accept="video/mp4,video/webm,video/quicktime,video/ogg" multiple hidden></label>
+            </div>
+          </div>
+          <div class="add-card">
+            <h3>Paste a link</h3>
+            <p class="small-note">Not uploaded — shown straight from where it lives (https only).</p>
+            <div class="url-row">
+              <input id="url-image" type="url" inputmode="url" placeholder="Image URL (.jpg .png .gif .webp)" aria-label="Image URL">
+              <button id="add-image-url" class="btn small" type="button">Add image</button>
+            </div>
+            <div class="url-row">
+              <input id="url-video" type="url" inputmode="url" placeholder="Video URL (.mp4 .webm, YouTube, Vimeo)" aria-label="Video URL">
+              <button id="add-video-url" class="btn small" type="button">Add video</button>
+            </div>
+          </div>
+        </div>
+        <p id="media-msg" class="msg" role="status" hidden></p>
+        <ol id="attachments" class="atts"></ol>
+      </fieldset>
+
+      <label class="fld"><span>Links (optional, one per line)</span>
+        <textarea id="f-links" rows="3" placeholder="https://example.com/article"></textarea></label>
+
+      <p id="form-msg" class="msg" role="status" hidden></p>
+
+      <div class="actions">
+        <button id="btn-preview" class="btn" type="button">Preview</button>
+        <button id="btn-save" class="btn primary" type="submit">Publish</button>
+        <button id="btn-cancel" class="btn" type="button" hidden>Cancel edit</button>
+      </div>
+    </form>
+
+    <section class="card stack">
+      <h2>Your entries</h2>
+      <div id="manage" class="manage"></div>
+      <div class="actions">
+        <button id="cleanup" class="btn small" type="button">Clean up unused Drive files</button>
+      </div>
+    </section>
+  </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
