@@ -2,23 +2,22 @@
 :root{--ink:#3b2a3d;--f:"Chalkboard SE","Marker Felt","Comic Sans MS","Trebuchet MS",system-ui,sans-serif}
 *{box-sizing:border-box;margin:0}
 html,body{height:100%;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none;font-family:var(--f)}
-body{background:#3a2f44;transition:background 3s}
+body{background:#3a2f44}
 body[data-m="1"]{background:#312c38}
 body[data-m="2"]{background:#0f090d}
 #stage{height:100vh;height:100dvh;display:grid;place-items:center}
-#book{position:relative;height:100vh;height:100dvh;width:min(100vw,75vh);width:min(100vw,75dvh);perspective:1300px}
+#book{position:relative;height:100vh;height:100dvh;width:min(100vw,75vh);width:min(100vw,75dvh);perspective:1300px;box-shadow:0 18px 40px #0008}
 .leaf,.base{position:absolute;inset:0}
 .base{z-index:0}
-.leaf{transform-origin:0 50%;transform-style:preserve-3d;transition:transform var(--tt,1100ms) cubic-bezier(.45,.05,.25,1)}
+.leaf{transform-origin:0 50%;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:transform var(--tt,1100ms) cubic-bezier(.45,.05,.25,1)}
 .leaf.flipped{transform:rotateY(-180deg);visibility:hidden}
-.leaf.show{visibility:visible}
-.face{position:absolute;inset:0;overflow:hidden;container-type:size;display:flex;flex-direction:column;background:#fbf4e4;
-backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:0 12px 12px 0;box-shadow:6px 0 0 #d6caae,0 18px 40px #0008}
-.back{transform:rotateY(180deg);background:#e8dec6;border-radius:12px 0 0 12px}
-.front::before{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,#0002,#0000 5%)}
-.face::after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(90deg,#000,#0000);opacity:var(--sh,0)}
-.back::after{background:linear-gradient(270deg,#000,#0000)}
-.turning .face::after{animation:shade var(--tt,1100ms) ease-in-out}
+.leaf.show{visibility:visible;will-change:transform}
+.leaf.cur{will-change:transform}
+.leaf.off,.base.off{display:none}
+.face{position:absolute;inset:0;overflow:hidden;container-type:size;display:flex;flex-direction:column;background:#fbf4e4}
+.front::before{content:"";position:absolute;top:0;bottom:0;left:0;width:5%;z-index:2;pointer-events:none;background:linear-gradient(90deg,#0002,#0000)}
+.sh{position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(90deg,#000,#0000);opacity:0}
+.turning .sh{animation:shade var(--tt,1100ms) ease-in-out}
 @keyframes shade{50%{opacity:.4}}
 .art{display:block;width:100%}
 .face>.art{flex:1;min-height:0}
@@ -35,12 +34,14 @@ backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:0 12
 .art[data-h=down]{--al:12deg;--ar:-12deg}
 .art[data-h=cover]{--al:190deg;--ar:-190deg}
 .art[data-h=open]{--al:125deg;--ar:-125deg}
-.eye{transform-box:fill-box;transform-origin:center;animation:blink 5s infinite}
+.eye{transform-box:fill-box;transform-origin:center}
+.cur .eye{animation:blink 5s infinite}
 .still .eye{animation:none}
 @keyframes blink{0%,93%,100%{transform:scaleY(1)}96%{transform:scaleY(.08)}}
-.cr{transform-origin:150px 200px;animation:creep 8s ease-in-out infinite alternate}
+.cr{transform-origin:150px 200px}
+.cur .cr{animation:creep 8s ease-in-out infinite alternate}
 @keyframes creep{to{transform:scale(1.05) rotate(1.2deg)}}
-.pp{animation:tw 2.6s steps(1) infinite}
+.cur .pp{animation:tw 2.6s steps(1) infinite}
 @keyframes tw{0%{transform:none}40%{transform:translate(3px,-2px)}55%{transform:translate(-3px,2px)}70%{transform:none}}
 /* tiny controls, top-right, fade out as the book darkens */
 #ui{position:fixed;z-index:50;top:calc(8px + env(safe-area-inset-top,0px));right:8px;display:flex;align-items:center;gap:6px;opacity:.6;transition:opacity 2s}
@@ -50,4 +51,4 @@ body[data-m="2"] #ui{opacity:.25}
 #ui :focus-visible,.cov button:focus-visible{outline:3px solid #ffd95a;outline-offset:2px}
 #vol{display:none;width:70px;accent-color:#ffd95a}
 @media(hover:hover) and (pointer:fine){#vol{display:block}}
-@media(prefers-reduced-motion:reduce){.leaf{transition-duration:.05s!important}.arm{transition-duration:.05s!important}.eye,.cr,.pp{animation:none}}
+@media(prefers-reduced-motion:reduce){.leaf{transition-duration:.05s!important}.arm{transition-duration:.05s!important}.cur .eye,.cur .cr,.cur .pp{animation:none}}
