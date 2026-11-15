@@ -5,7 +5,7 @@
 /* =====================================================================
    CONFIG — paste your deployed Google Apps Script Web App URL (ends in /exec)
    ===================================================================== */
-const API_URL = 'PASTE_YOUR_WEB_APP_EXEC_URL_HERE';
+const API_URL = 'https://script.google.com/macros/s/AKfycbyxg6kw0d_e2bDLtua6cvx4sH1P3Y8kDnOQOZRadrMZkc-2iwyCoEpJP42wvSM0zWgb-A/exec';
 
 const MAX_UPLOAD_MB = 25;
 const TOKEN_KEY = 'moodjournal.token';
