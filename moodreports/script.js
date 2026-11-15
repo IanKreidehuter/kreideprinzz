@@ -5,7 +5,7 @@
 /* =====================================================================
    CONFIG — paste your deployed Google Apps Script Web App URL (ends in /exec)
    ===================================================================== */
-const API_URL = 'https://script.google.com/macros/s/AKfycbyxg6kw0d_e2bDLtua6cvx4sH1P3Y8kDnOQOZRadrMZkc-2iwyCoEpJP42wvSM0zWgb-A/exec';
+const API_URL = 'PASTE_YOUR_WEB_APP_EXEC_URL_HERE';
 
 const MAX_UPLOAD_MB = 25;
 const TOKEN_KEY = 'moodjournal.token';
@@ -550,7 +550,7 @@ function initAdmin() {
     [...fileList].forEach(file => {
       if (!allowed.includes(file.type)) { problems.push(`${file.name}: unsupported ${type} type.`); return; }
       if (file.size > MAX_UPLOAD_MB * 1048576) { problems.push(`${file.name}: larger than ${MAX_UPLOAD_MB} MB.`); return; }
-      state.media.push({ id: uid('media'), type, source: 'drive', pending: true, file, name: file.name, preview: URL.createObjectURL(file) });
+      state.media.push({ id: uid('media'), type, source: 'github', pending: true, file, name: file.name, preview: URL.createObjectURL(file) });
     });
     if (problems.length) mediaNotice(problems.join(' '));
     renderAttachments();
@@ -627,7 +627,7 @@ function initAdmin() {
       return;
     }
     el.atts.replaceChildren(...state.media.map((m, i) => {
-      const where = m.pending ? 'Will upload to Drive on publish' : m.source === 'drive' ? 'Google Drive' : 'External link';
+      const where = m.pending ? 'Will upload to GitHub on publish' : m.source === 'github' ? 'GitHub' : m.source === 'drive' ? 'Google Drive' : 'External link';
       return h('li', { class: 'att' },
         h('div', { class: 'att-preview' }, mediaNode(m, [imageSrc(m)].filter(Boolean), 0)),
         h('div', { class: 'att-side' },
@@ -728,14 +728,14 @@ function initAdmin() {
         const data = await authed('upload', { file: { name: m.file.name, mimeType: m.file.type, data: await fileToBase64(m.file) } });
         const up = data.media;
         if (m.preview) URL.revokeObjectURL(m.preview);
-        Object.assign(m, { id: up.id, driveId: up.driveId, url: up.url, source: 'drive', pending: false, preview: null, file: null });
+        Object.assign(m, { id: up.id, path: up.path, sha: up.sha, url: up.url, source: 'github', pending: false, preview: null, file: null });
         renderAttachments();
       }
       // 2) save the entry
       showMsg(el.formMsg, 'Saving entry…', '');
       const entry = {
         title: d.title, content: d.content, response: d.response, entryDate: d.entryDate, emotions: d.emotions, links: d.links,
-        media: state.media.map((m, i) => ({ id: m.id, type: m.type, source: m.source, url: m.url, driveId: m.driveId, order: i + 1 }))
+        media: state.media.map((m, i) => ({ id: m.id, type: m.type, source: m.source, url: m.url, driveId: m.driveId, path: m.path, sha: m.sha, order: i + 1 }))
       };
       if (state.editingId) entry.id = state.editingId;
       await authed(state.editingId ? 'update' : 'create', { entry });
@@ -743,7 +743,7 @@ function initAdmin() {
       resetForm();
       await loadEntries();
     } catch (err) {
-      showMsg(el.formMsg, `${err.message}${state.media.some(m => !m.pending && m.source === 'drive') ? ' (Files already uploaded are kept; just press Publish again.)' : ''}`, 'err');
+      showMsg(el.formMsg, `${err.message}${state.media.some(m => !m.pending && m.source !== 'external') ? ' (Files already uploaded are kept; just press Publish again.)' : ''}`, 'err');
     } finally {
       state.busy = false; el.save.disabled = false; el.preview.disabled = false; el.save.textContent = label;
     }
@@ -798,7 +798,7 @@ function initAdmin() {
   }
 
   async function remove(e) {
-    if (!confirm(`Delete “${e.title}”? Its uploaded Drive files are moved to the Drive trash.`)) return;
+    if (!confirm(`Delete “${e.title}”? Its uploaded media files are also deleted from the GitHub repo.`)) return;
     try {
       await authed('delete', { id: e.id });
       if (state.editingId === e.id) resetForm();
@@ -808,11 +808,11 @@ function initAdmin() {
   }
 
   el.cleanup.addEventListener('click', async () => {
-    if (!confirm('Move Drive files that no entry uses (older than 15 minutes) to the Drive trash? Only files in the journal media folder are touched.')) return;
+    if (!confirm('Delete media files in the GitHub media folder that no entry uses (older than 15 minutes)? Only files this app uploaded are touched.')) return;
     el.cleanup.disabled = true;
     try {
       const r = await authed('cleanup');
-      toast(`Trashed ${r.trashed} unused file(s); kept ${r.kept}.`);
+      toast(`Removed ${r.trashed} unused file(s); kept ${r.kept}.`);
     } catch (err) { toast(err.message, 'err'); }
     finally { el.cleanup.disabled = false; }
   });
