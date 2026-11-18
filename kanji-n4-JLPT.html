@@ -155,6 +155,42 @@ rt{display:none;font-size:.5em;color:var(--accent);font-family:var(--f-jp)}
 .wr .ch{font-size:.72rem;color:var(--muted);border:1px solid var(--line);border-radius:99px;padding:0 7px}
 .cover{filter:blur(6px);cursor:pointer;user-select:none}
 .cover.open{filter:none}
+/* tappable kanji and the kanji popup */
+.kj{cursor:pointer;border-radius:5px;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;-webkit-tap-highlight-color:transparent}
+.kj:hover{background:var(--accent-soft)}
+.kjc{font:700 1.05rem var(--f-kanji)}
+.scrim{position:fixed;inset:0;background:rgba(8,12,24,.6);z-index:30}
+.scrim[hidden]{display:none}
+.sheet{position:fixed;z-index:31;left:50%;bottom:0;transform:translateX(-50%);width:min(100%,640px);max-height:88%;overflow-y:auto;overscroll-behavior:contain;
+  background:var(--surface);color:var(--fg);border:1px solid var(--line);border-bottom:0;border-radius:20px 20px 0 0;
+  padding:16px max(16px,env(safe-area-inset-left,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-right,0px));
+  display:grid;gap:16px;align-content:start;animation:sheetup .2s ease-out}
+.sheet[hidden]{display:none}
+@keyframes sheetup{from{transform:translate(-50%,24px);opacity:0}to{transform:translate(-50%,0);opacity:1}}
+@media (min-width:700px){.sheet{bottom:auto;top:50%;max-height:84%;border-bottom:1px solid var(--line);border-radius:20px;animation:none;transform:translate(-50%,-50%)}}
+.sh-top{display:flex;justify-content:space-between;gap:8px}
+.sh-top .btn:last-child{margin-left:auto}
+.sh-hero{display:flex;gap:18px;align-items:center}
+.sh-hero .big{font:700 5.4rem/1 var(--f-kanji);flex:none}
+.sh-m{display:grid;gap:4px;min-width:0}
+.sh-mean{font-size:1.2rem;font-weight:700;line-height:1.3;overflow-wrap:anywhere}
+.rdg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rdg>div{background:var(--surface-2);border-radius:12px;padding:10px 12px;min-width:0}
+.rdg .jp{font:500 1.15rem/1.5 var(--f-jp);overflow-wrap:anywhere}
+.clue{background:var(--accent-soft);border-radius:12px;padding:10px 12px}
+.sw{display:grid;gap:8px;padding:12px 0;border-top:1px solid var(--line)}
+.swh{display:flex;flex-wrap:wrap;gap:2px 12px;align-items:baseline}
+.swh b{font:700 1.3rem var(--f-kanji)}
+.swh .rd{font-family:var(--f-jp)}
+.swh .mn{color:var(--muted);font-size:.9rem;min-width:0}
+.swn{color:var(--muted);margin:0}
+.bk{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.plus{color:var(--muted);font-weight:700}
+.part{display:inline-flex;gap:8px;align-items:baseline;font:inherit;padding:4px 10px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;min-height:36px;max-width:100%}
+.part b{font:700 1.2rem var(--f-kanji)}
+.part span{font-size:.82rem;color:var(--muted);overflow-wrap:anywhere}
+.part:hover{border-color:var(--accent)}
+.part.cur{background:var(--accent-soft);border-color:var(--accent)}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:.88rem;z-index:20;max-width:calc(100% - 32px)}
 .toast[hidden]{display:none}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
@@ -189,6 +225,8 @@ rt{display:none;font-size:.5em;color:var(--accent);font-family:var(--f-jp)}
   </main>
 </div>
 <div class="toast" id="toast" hidden></div>
+<div class="scrim" id="scrim" hidden></div>
+<aside class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Kanji detail" hidden></aside>
 <script id="vocab" type="text/plain">
 =1
 @住
@@ -1056,6 +1094,566 @@ rt{display:none;font-size:.5em;color:var(--accent);font-family:var(--f-jp)}
 思い出|おもいで|Kenangan
 思想|しそう|Pemikiran
 </script>
+<script id="kdata" type="text/plain">
+住|ジュウ|すむ、すまう|tinggal, mendiami|to live, reside
+民|ミン|たみ|rakyat, warga|people, citizens
+所|ショ|ところ|tempat|place
+台|ダイ、タイ|—|alas, meja, unit mesin|stand, platform, counter for machines
+場|ジョウ|ば|tempat, lokasi|place, venue
+東|トウ|ひがし|timur|east
+京|キョウ、ケイ|—|ibu kota|capital
+都|ト、ツ|みやこ|kota besar, metropolis|metropolis, capital
+合|ゴウ、ガッ、カッ|あう、あわせる|cocok, bertemu, bersatu|to fit, meet, join
+首|シュ|くび|leher, kepala (pemimpin)|neck, head, chief
+府|フ|—|pusat pemerintahan, prefektur kota|government seat, urban prefecture
+大|ダイ、タイ|おおきい、おお|besar|big
+阪|ハン|さか|lereng (dalam nama Osaka)|slope (as in Osaka)
+政|セイ、ショウ|まつりごと|politik, pemerintahan|politics, government
+山|サン|やま|gunung|mountain
+口|コウ、ク|くち|mulut, pintu masuk|mouth, opening
+県|ケン|—|prefektur|prefecture
+知|チ|しる|tahu, mengenal|to know
+事|ジ|こと|hal, urusan, kejadian|matter, thing, affair
+市|シ|いち|kota; pasar|city; market
+長|チョウ|ながい|panjang; kepala, pemimpin|long; chief, head
+北|ホク|きた|utara|north
+区|ク|—|distrik, bagian|ward, district, section
+文|ブン、モン|ふみ|kalimat, tulisan|sentence, writing
+町|チョウ|まち|kota kecil, permukiman|town
+下|カ、ゲ|した、しも、くだる|bawah|below, down
+村|ソン|むら|desa|village
+人|ジン、ニン|ひと|orang|person
+明|メイ、ミョウ|あかるい、あきらか|terang, jelas|bright, clear
+日|ニチ、ジツ|ひ、か|hari, matahari|day, sun
+説|セツ|とく|menjelaskan; teori|to explain; theory
+発|ハツ、ホツ|—|berangkat, memancarkan, memulai|to depart, emit, start
+暗|アン|くらい|gelap; tersembunyi|dark; hidden
+号|ゴウ|—|nomor, tanda, isyarat|number, signal, name
+遠|エン、オン|とおい|jauh|far
+足|ソク|あし、たりる|kaki; cukup|foot, leg; to suffice
+永|エイ|ながい|abadi, lama|eternal, long
+近|キン|ちかい|dekat|near
+最|サイ|もっとも|paling|most, the extreme
+強|キョウ、ゴウ|つよい、しいる|kuat; memaksa|strong; to force
+勉|ベン|—|berusaha keras|to strive, make effort
+風|フウ、フ|かぜ|angin; gaya|wind; style, manner
+弱|ジャク|よわい|lemah|weak
+重|ジュウ、チョウ|おもい、かさねる|berat; penting; menumpuk|heavy; important; to pile up
+体|タイ|からだ|tubuh|body
+軽|ケイ|かるい|ringan|light (weight)
+食|ショク|たべる、くう|makan; makanan|to eat; food
+太|タイ、タ|ふとい|gemuk, tebal, besar|thick, fat
+陽|ヨウ|—|matahari, sisi cerah|sun, positive
+細|サイ|ほそい、こまかい|ramping, halus, rinci|thin, fine, detailed
+特|トク|—|istimewa, khusus|special
+別|ベツ|わかれる|terpisah; lain; berbeda|separate; different
+急|キュウ|いそぐ|tergesa-gesa; mendadak|hurry; sudden
+分|ブン、フン、ブ|わける、わかる|membagi; menit; mengerti|to divide; minute; to understand
+有|ユウ、ウ|ある|ada, memiliki|to exist, have
+名|メイ、ミョウ|な|nama; terkenal|name; famous
+料|リョウ|—|bahan; biaya|material; fee
+便|ベン、ビン|たより|praktis; kabar; pos|convenient; mail, news
+郵|ユウ|—|pos|mail, post
+局|キョク|—|kantor, biro|bureau, office
+船|セン|ふね、ふな|kapal|ship, boat
+利|リ|きく|keuntungan; berguna|profit; to be useful
+用|ヨウ|もちいる|memakai; keperluan|to use; business, errand
+子|シ、ス|こ|anak|child
+不|フ、ブ|—|tidak, tanpa|not, un-
+安|アン|やすい|tenang, aman; murah|peaceful, safe; cheap
+運|ウン|はこぶ|mengangkut; nasib|to carry; luck, fortune
+定|テイ、ジョウ|さだめる|menetapkan, pasti|to fix, decide
+切|セツ、サイ|きる|memotong; penting, mendesak|to cut; pressing, earnest
+手|シュ|て|tangan|hand
+親|シン|おや、したしい|orang tua; akrab|parent; intimate, close
+元|ゲン、ガン|もと|asal, pangkal|origin, source
+気|キ、ケ|—|semangat, perasaan, hawa|spirit, mind, air
+紀|キ|—|zaman, catatan|era, chronicle
+前|ゼン|まえ|depan; sebelum|front; before
+好|コウ|すき、このむ|suka|to like
+意|イ|—|maksud, pikiran, niat|mind, intention, meaning
+物|ブツ、モツ|もの|benda, barang|thing, object
+救|キュウ|すくう|menolong, menyelamatkan|to rescue
+車|シャ|くるま|mobil, kendaraan|car, vehicle
+低|テイ|ひくい|rendah|low
+圧|アツ|—|tekanan|pressure
+広|コウ|ひろい|luas|wide, spacious
+短|タン|みじかい|pendek|short
+時|ジ|とき|waktu, jam|time, hour
+間|カン、ケン|あいだ、ま|antara, ruang, jarak waktu|interval, between, space
+良|リョウ|よい|baik|good
+心|シン|こころ|hati, perasaan|heart, mind
+悪|アク、オ|わるい|buruk, jahat|bad, evil
+正|セイ、ショウ|ただしい|benar, tepat|correct, right
+月|ゲツ、ガツ|つき|bulan|moon; month
+門|モン|かど|gerbang|gate
+変|ヘン|かわる、かえる|berubah; aneh|to change; strange
+化|カ、ケ|ばける|berubah wujud, menjadi|to change into, -ization
+赤|セキ|あかい|merah|red
+信|シン|—|percaya; kabar, sinyal|to believe; message, signal
+道|ドウ|みち|jalan; cara|road; way
+青|セイ|あおい|biru, hijau muda; muda|blue; young
+空|クウ|そら、から、あく|langit; kosong|sky; empty
+春|シュン|はる|musim semi|spring
+黒|コク|くろい|hitam|black
+真|シン|ま|benar, sejati; tepat|true, genuine; exactly
+白|ハク、ビャク|しろい|putih|white
+映|エイ|うつる、うつす、はえる|memantul, menayangkan|to reflect, project
+画|ガ、カク|—|gambar; rencana; goresan|picture; plan; brush stroke
+館|カン|—|gedung besar, balai|large building, hall
+計|ケイ|はかる|mengukur; rencana|to measure; plan
+本|ホン|もと|buku; pangkal; asal|book; origin; main
+家|カ、ケ|いえ、うち|rumah; keluarga; ahli|house; family; expert
+音|オン、イン|おと、ね|bunyi, suara|sound
+楽|ガク、ラク|たのしい|musik; senang; nyaman|music; fun; ease
+歌|カ|うた、うたう|lagu; menyanyi|song; to sing
+写|シャ|うつす|menyalin; memotret|to copy; photograph
+中|チュウ、ジュウ|なか|tengah, dalam|middle, inside
+実|ジツ|み、みのる|nyata, isi; buah|real, truth; fruit
+旅|リョ|たび|perjalanan|trip, travel
+行|コウ、ギョウ|いく、おこなう|pergi; melakukan; baris|to go; to carry out; line
+世|セ、セイ|よ|dunia; generasi|world; generation
+話|ワ|はなす、はなし|bicara; cerita|to talk; story
+界|カイ|—|dunia, batas, bidang|world, realm, boundary
+仕|シ、ジ|つかえる|melayani, bekerja|to serve, do
+方|ホウ|かた|arah; cara; orang (sopan)|direction; way; person (polite)
+火|カ|ひ|api|fire
+銀|ギン|—|perak|silver
+座|ザ|すわる|duduk; tempat duduk|to sit; seat
+会|カイ、エ|あう|bertemu; perkumpulan|to meet; association
+社|シャ|やしろ|perusahaan; kuil; masyarakat|company; shrine; society
+員|イン|—|anggota, petugas|member, staff
+店|テン|みせ|toko|shop
+医|イ|—|kedokteran|medicine, doctor
+者|シャ|もの|orang (pelaku)|person (who does)
+学|ガク|まなぶ|belajar; ilmu|to study; learning
+院|イン|—|lembaga, institusi|institution
+歯|シ|は|gigi|tooth
+作|サク、サ|つくる|membuat; karya|to make; work, creation
+働|ドウ|はたらく|bekerja|to work
+労|ロウ|—|kerja keras, jerih payah|labor, toil
+屋|オク|や|rumah, toko; atap|house, shop; roof
+上|ジョウ、ショウ|うえ、あがる|atas; naik|above, up
+八|ハチ|や、やっつ|delapan|eight
+百|ヒャク|—|seratus|hundred
+部|ブ|—|bagian, departemen|part, department
+産|サン|うむ|melahirkan; hasil|to give birth; produce
+生|セイ、ショウ|いきる、うまれる、なま|hidup, lahir; mentah|life; to be born; raw
+財|ザイ、サイ|—|harta, kekayaan|wealth, property
+業|ギョウ、ゴウ|わざ|usaha, pekerjaan; industri|business, industry, deed
+工|コウ、ク|—|pertukangan, buatan|craft, construction
+授|ジュ|さずける|memberi, mengajar|to give, instruct
+休|キュウ|やすむ|istirahat, libur|to rest
+林|リン|はやし|hutan kecil|grove
+小|ショウ|ちいさい、こ、お|kecil|small
+森|シン|もり|hutan lebat|forest
+地|チ、ジ|—|tanah, bumi; tempat|earth, ground; place
+図|ズ、ト|はかる|gambar, peta, diagram|diagram, map, plan
+鉄|テツ|—|besi|iron
+土|ド、ト|つち|tanah|soil, earth
+震|シン|ふるえる|bergetar, gempa|to shake, quake
+池|チ|いけ|kolam|pond
+電|デン|—|listrik|electricity
+海|カイ|うみ|laut|sea
+外|ガイ、ゲ|そと、ほか|luar; asing|outside; foreign
+西|セイ、サイ|にし|barat|west
+洋|ヨウ|—|samudra; Barat|ocean; Western
+服|フク|—|pakaian; mengikuti|clothes; to obey
+雪|セツ|ゆき|salju|snow
+新|シン|あたらしい、にい|baru|new
+吹|スイ|ふく|bertiup, meniup|to blow
+光|コウ|ひかり、ひかる|cahaya|light, ray
+観|カン|—|melihat, mengamati|to view, observe
+景|ケイ|—|pemandangan|scenery, view
+四|シ|よん、よ、よっつ|empat|four
+季|キ|—|musim|season
+節|セツ、セチ|ふし|ruas; musim; hemat|joint; season; section
+夏|カ|なつ|musim panas|summer
+祭|サイ|まつり|festival|festival
+秋|シュウ|あき|musim gugur|autumn
+田|デン|た|sawah|rice field
+冬|トウ|ふゆ|musim dingin|winter
+暑|ショ|あつい|panas (cuaca)|hot (weather)
+残|ザン|のこる|tersisa|to remain
+寒|カン|さむい|dingin|cold
+波|ハ|なみ|gelombang|wave
+暖|ダン|あたたかい|hangat|warm
+房|ボウ|ふさ|ruangan; tandan|room; tuft
+温|オン|あたたかい|hangat; suhu|warm; temperature
+涼|リョウ|すずしい|sejuk|cool
+力|リョク、リキ|ちから|tenaga, kekuatan|power, strength
+頭|トウ、ズ|あたま、かしら|kepala|head
+痛|ツウ|いたい|sakit, nyeri|pain
+顔|ガン|かお|wajah|face
+色|ショク、シキ|いろ|warna; ekspresi|color; appearance
+相|ソウ、ショウ|あい|saling; rupa; menteri|mutual; appearance; minister
+配|ハイ|くばる|membagikan; mengatur|to distribute; arrange
+声|セイ、ショウ|こえ|suara|voice
+病|ビョウ|やむ、やまい|sakit|illness
+薬|ヤク|くすり|obat|medicine
+目|モク|め|mata|eye
+品|ヒン|しな|barang; mutu|goods; quality
+科|カ|—|bidang, departemen|subject, department
+教|キョウ|おしえる|mengajar; ajaran|to teach; teaching
+書|ショ|かく|menulis; buku|to write; book
+内|ナイ|うち|dalam|inside
+側|ソク|がわ|sisi|side
+案|アン|—|rencana, gagasan|plan, idea
+朝|チョウ|あさ|pagi|morning
+今|コン、キン|いま|sekarang, ini|now, this
+昼|チュウ|ひる|siang|noon, daytime
+夜|ヤ|よる、よ|malam|night
+夕|セキ|ゆう|sore|evening
+七|シチ|なな、ななつ|tujuh|seven
+読|ドク|よむ|membaca|to read
+法|ホウ|—|hukum; cara|law; method
+晩|バン|—|malam (waktu)|evening, night
+毎|マイ|—|setiap|every
+飯|ハン|めし|nasi, makanan|cooked rice, meal
+曜|ヨウ|—|hari dalam minggu|day of the week
+水|スイ|みず|air|water
+何|カ|なに、なん|apa|what
+以|イ|—|dengan; sejak; batas|by means of; from, up to
+一|イチ、イツ|ひとつ|satu|one
+度|ド、タク|たび|kali; derajat|time, degree
+止|シ|とまる、とめる|berhenti|to stop
+停|テイ|—|berhenti, diam|to halt
+歩|ホ、ブ|あるく、あゆむ|berjalan|to walk
+散|サン|ちる|bertebaran, berpencar|to scatter
+進|シン|すすむ|maju|to advance
+横|オウ|よこ|samping, melintang|side, horizontal
+断|ダン|ことわる、たつ|memutus; menolak|to cut off; refuse
+走|ソウ|はしる|berlari|to run
+出|シュツ、スイ|でる、だす|keluar; mengeluarkan|to go out; put out
+起|キ|おきる、おこす|bangun; terjadi|to wake, rise; occur
+早|ソウ、サッ|はやい|cepat; awal|early, fast
+持|ジ|もつ|memegang, membawa, memiliki|to hold, have
+支|シ|ささえる|menopang, cabang|to support; branch
+待|タイ|まつ|menunggu|to wait
+招|ショウ|まねく|mengundang|to invite, beckon
+借|シャク|かりる|meminjam|to borrow
+金|キン、コン|かね|uang; emas|money; gold
+貸|タイ|かす|meminjamkan|to lend
+始|シ|はじまる、はじめる|mulai|to begin
+開|カイ|ひらく、あける|membuka|to open
+終|シュウ|おわる|selesai|to end
+回|カイ|まわる、まわす|putaran; kali|to turn; time(s)
+庭|テイ|にわ|halaman, taman|garden, yard
+族|ゾク|—|keluarga, suku|family, tribe
+私|シ|わたし、わたくし|saya; pribadi|I; private
+立|リツ|たつ|berdiri; didirikan|to stand; established
+活|カツ|いきる|hidup, aktif|alive, active
+自|ジ、シ|みずから|diri sendiri|oneself
+動|ドウ|うごく|bergerak|to move
+由|ユ、ユウ|—|sebab, alasan|reason, cause
+然|ゼン、ネン|—|keadaan alami; begitu|so, natural state
+両|リョウ|—|kedua; pasangan|both, pair
+替|タイ|かえる|menukar, mengganti|to exchange, replace
+兄|ケイ、キョウ|あに|kakak laki-laki|older brother
+弟|テイ、ダイ|おとうと|adik laki-laki|younger brother
+姉|シ|あね|kakak perempuan|older sister
+妹|マイ|いもうと|adik perempuan|younger sister
+転|テン|ころぶ、まわる|berputar, berguling|to roll, turn
+寿|ジュ|ことぶき|umur panjang, selamat|longevity, congratulations
+司|シ|—|mengurus, pejabat|to manage, official
+主|シュ、ス|ぬし、おも|tuan; utama|master, owner; main
+飼|シ|かう|memelihara (hewan)|to keep (animals)
+茶|チャ、サ|—|teh|tea
+形|ケイ、ギョウ|かたち、かた|bentuk|shape
+製|セイ|—|buatan, produksi|made, manufacture
+国|コク|くに|negara|country
+義|ギ|—|keadilan, makna|justice, meaning
+和|ワ|やわらぐ、なごむ|damai; gaya Jepang|peace; Japanese style
+制|セイ|—|aturan, kendali|system, control
+犬|ケン|いぬ|anjing|dog
+同|ドウ|おなじ|sama|same
+級|キュウ|—|tingkat, kelas|grade, class
+米|ベイ、マイ|こめ|beras; Amerika|rice; America
+資|シ|—|bahan, modal|resources, capital
+材|ザイ|—|bahan, kayu|material, timber
+理|リ|—|alasan; mengatur|reason, logic
+無|ム、ブ|ない|tidak ada|nothing, without
+肉|ニク|—|daging|meat
+牛|ギュウ|うし|sapi|cow
+筋|キン|すじ|otot, urat; alur|muscle; line, plot
+鳥|チョウ|とり|burung|bird
+野|ヤ|の|padang, ladang|field, plain
+原|ゲン|はら|dataran, asal|plain; origin
+菜|サイ|な|sayuran|vegetable
+喫|キツ|—|menyesap, menikmati|to consume, drink
+紅|コウ、ク|べに、くれない|merah tua|crimson, deep red
+味|ミ|あじ、あじわう|rasa|taste
+趣|シュ|おもむき|selera, hobi|taste, interest
+興|コウ、キョウ|おこる|minat, bangkit|interest, to rise
+代|ダイ、タイ|かわる、よ、しろ|zaman; mengganti; harga|era; to replace; fee
+使|シ|つかう|memakai; utusan|to use; envoy
+通|ツウ、ツ|とおる、かよう|melewati; pulang-pergi|to pass; to commute
+先|セン|さき|ujung; sebelumnya|ahead; previous
+送|ソウ|おくる|mengirim; mengantar|to send; escort
+放|ホウ|はなす|melepas, memancarkan|to release, broadcast
+返|ヘン|かえす|mengembalikan; membalas|to return; reply
+洗|セン|あらう|mencuci|to wash
+濯|タク|すすぐ|membilas|to rinse
+注|チュウ|そそぐ|menuang; mencurahkan|to pour; to focus
+射|シャ|いる|menembak, memancar|to shoot
+建|ケン、コン|たてる|membangun|to build
+築|チク|きずく|membangun, membentuk|to construct
+買|バイ|かう|membeli|to buy
+荷|カ|に|muatan, bawaan|load, baggage
+入|ニュウ|はいる、いれる|masuk|to enter
+美|ビ|うつくしい|indah|beautiful
+術|ジュツ|—|seni, teknik|art, technique
+堂|ドウ|—|aula, balai|hall
+講|コウ|—|kuliah, ceramah|lecture
+室|シツ|むろ|ruangan|room
+務|ム|つとめる|tugas, pekerjaan|duty, task
+番|バン|—|nomor; giliran; jaga|number; turn; watch
+三|サン|み、みっつ|tiga|three
+令|レイ|—|perintah|order, command
+交|コウ|まじわる|bersilang; bergaul|to cross; exchange
+差|サ|さす|selisih; menunjuk|difference; to point
+点|テン|—|titik; poin|dot, point
+乗|ジョウ|のる|naik|to ride, board
+券|ケン|—|tiket|ticket
+降|コウ|おりる、ふる|turun; jatuh (hujan)|to descend; to fall (rain)
+雨|ウ|あめ|hujan|rain
+量|リョウ|はかる|jumlah, takaran|quantity, amount
+賃|チン|—|upah, ongkos|wages, fare
+勤|キン|つとめる|bekerja, bertugas|to work, serve
+帰|キ|かえる|pulang|to return home
+見|ケン|みる|melihat|to see
+着|チャク|きる、つく|memakai; tiba|to wear; to arrive
+漢|カン|—|Han; kanji|Chinese (Han)
+字|ジ|あざ|huruf, aksara|character, letter
+習|シュウ|ならう|belajar (dari guru), berlatih|to learn, practise
+練|レン|ねる|melatih, mengasah|to train, polish
+復|フク|—|kembali, mengulang|to return, repeat
+慣|カン|なれる|terbiasa|to get used to
+英|エイ|—|Inggris; unggul|English; excellent
+語|ゴ|かたる|bahasa; bercerita|language; to tell
+雄|ユウ|お、おす|jantan; gagah|male; heroic
+考|コウ|かんがえる|berpikir|to think
+古|コ|ふるい|tua, kuno|old
+参|サン|まいる|ikut; berkunjung; rujukan|to participate; visit; refer
+研|ケン|とぐ|mengasah; meneliti|to polish; to study
+究|キュウ|きわめる|menyelidiki sampai tuntas|to investigate thoroughly
+問|モン|とう、とい|bertanya; soal|to ask; question
+題|ダイ|—|judul; soal|title; subject; problem
+質|シツ、シチ|—|mutu; sifat; bertanya|quality; nature
+宿|シュク|やど|penginapan; menginap|lodging; to lodge
+試|シ|こころみる、ためす|mencoba; menguji|to try, test
+験|ケン|—|menguji; bukti|to test, verify
+経|ケイ|へる|melewati; mengalami|to pass through; experience
+受|ジュ|うける|menerima; mengikuti|to receive; take (exam)
+答|トウ|こたえる|menjawab|to answer
+解|カイ、ゲ|とく|menguraikan; memecahkan|to solve, untie
+供|キョウ、ク|そなえる、とも|menyediakan; menemani|to offer; accompany
+禁|キン|—|melarang|to forbid
+紙|シ|かみ|kertas|paper
+聞|ブン、モン|きく|mendengar; bertanya|to hear; to ask
+引|イン|ひく|menarik|to pull
+閉|ヘイ|しめる、とじる|menutup|to close
+式|シキ|—|upacara; cara; rumus|ceremony; style; formula
+去|キョ、コ|さる|pergi; lalu|to leave; past
+年|ネン|とし|tahun|year
+過|カ|すぎる、すごす|lewat; berlebihan|to pass; excess
+消|ショウ|きえる、けす|lenyap; menghapus|to vanish; erase
+死|シ|しぬ|mati|to die
+集|シュウ|あつまる、あつめる|berkumpul; mengumpulkan|to gather, collect
+識|シキ|—|mengenal, pengetahuan|to know, discern
+売|バイ|うる|menjual|to sell
+販|ハン|—|menjual, dagang|to sell, trade
+機|キ|はた|mesin; kesempatan|machine; opportunity
+思|シ|おもう|berpikir, merasa|to think
+想|ソウ、ソ|—|membayangkan; gagasan|to imagine; idea
+</script>
+<script id="why" type="text/plain">
+台所|The place where the cooking counter is.
+都合がいい|Here 都 means "all" and 合 means "fit": when everything fits together, the circumstances are convenient.
+首都|The "head" city of a country: the capital.
+首相|The head minister of the cabinet: the prime minister.
+大変|A big change in circumstances, so it is tough, serious or a lot of work.
+勉強する|To push yourself hard at something. That effort is what we call study.
+説明|Explaining something so it becomes clear.
+発明|Setting off a bright new idea: an invention.
+暗号|A hidden sign: a code or PIN.
+遠足|A walk to somewhere far away: a school outing.
+永遠|Both kanji mean long and far, so it means forever.
+最近|The closest point in time: lately.
+体重|The weight of the body.
+軽食|A light meal: a snack.
+特急|A special express: the limited-express train.
+区別する|Dividing things up to separate them: to tell apart.
+有名|Having a name that people know: famous.
+便利|Convenient plus beneficial: handy.
+便り|Same 便 as in 便利, here in the sense of news that arrives: a letter or message.
+郵便局|The office that handles the post.
+利用する|Getting a benefit out of using something.
+親切|Close and attentive care: kindness.
+大切な|Something you handle with utmost care, so it is important.
+元気な|Your original, natural energy: healthy and lively.
+紀元前|Before the start of the era: BC.
+救急車|The vehicle that rescues in an emergency: an ambulance.
+低気圧|Air pressure that is low.
+良心|A good heart: conscience.
+正月|The correct (first) month: New Year.
+変化する|Both kanji mean change, so it means to change or transform.
+赤ちゃん|Newborn babies look red.
+赤道|A fixed word: the equator. Learn it as one unit.
+青春|In Japanese, blue also means young and unripe, so blue spring is youth.
+映画|Pictures that are projected: a film.
+計画|Measuring and drawing out what to do: a plan.
+時計|A tool that measures time: a clock or watch.
+音楽|Sound that brings enjoyment: music.
+写真|Copying the real thing: a photograph.
+世話する|A set word for looking after someone's daily needs. The kanji are not literal here.
+仕事|The matter you serve: your job.
+火事|An event involving fire: a fire.
+用事|A matter that needs you to act: an errand or business.
+返事|Sending a matter back: a reply.
+銀行|Silver was money, and 行 here means a business house: a bank.
+医者|A person of medicine: a doctor.
+歯医者|The doctor for teeth: a dentist.
+働く|A person (亻) in motion (動). This kanji was made in Japan.
+授業|The work of teaching: a lesson.
+産業|Business that produces things: industry.
+地図|A diagram of the land: a map.
+地震|The earth shaking: an earthquake.
+地下鉄|Iron rails beneath the ground: the subway.
+電池|A little pond of electricity: a battery.
+洋服|Clothes from the West: Western-style clothes.
+大使館|The large building of a major envoy: an embassy.
+観光|Viewing the glory of a place: sightseeing.
+台風|台 stands in for an older, harder kanji. Just learn this as one unit: typhoon.
+風景|The look (風) and view of a place: scenery.
+温暖化|Becoming warm: global warming.
+頭痛|Pain in the head: a headache.
+安心する|A peaceful heart: relief.
+心配する|Your heart spread across many worries.
+中心|The heart in the middle: the centre.
+病院|The institution for the sick: a hospital.
+科学|The study of branches of knowledge: science.
+化学|The study of how substances change: chemistry.
+案内する|Giving someone the plan of the inside: to guide.
+今朝|This morning.
+夕食|The evening meal.
+方法|The way and the rule for doing something: a method.
+合計|Fitting all the numbers together to measure: a total.
+以上|From this point and above: more than.
+以外|From this point outward: other than.
+一時停止|Stopping for one moment: the stop sign.
+散歩する|Walking without a goal, scattering about: a stroll.
+進歩する|Taking steps forward: progress.
+横断歩道|A walking road that cuts across: a crosswalk.
+気持ち|What your spirit holds: a feeling.
+招待する|Beckoning someone and waiting for them: to invite.
+待ち合わせ|Waiting so you can meet: an arranged meeting.
+借金|Borrowed money: debt.
+開始する|Opening something and starting: to begin.
+終電|The last electric train.
+家庭|The house and its garden: the home.
+自由|Acting from your own reasons: freedom.
+自然|As it is by itself: nature.
+両替|Exchanging one for the other: money exchange.
+回転寿司|Sushi that goes round: conveyor-belt sushi.
+主人|The main person of the house: husband or head of household.
+飼い主|The master of a kept animal: a pet owner.
+景色|The view and its colours: scenery.
+人形|A person in shape: a doll.
+食料品|Goods made from food material: groceries.
+制服|Clothes under control, the same for everyone: a uniform.
+同級生|A student of the same grade: a classmate.
+資料|Resources and material: reference data.
+料理|Arranging ingredients in a logical order: cooking.
+無理な|No reason to it: impossible or too much.
+理由|The logic behind something: a reason.
+喫茶店|A shop for sipping tea: a cafe.
+意味|The flavour of what is intended: meaning.
+趣味|Your taste and flavour: a hobby.
+興味|Interest that tastes good to you: interest.
+時代|A stretch of time: an era.
+代わりに|代 means replace: in place of.
+作文|Making sentences: a composition.
+作業|Making things by work: a task or manual work.
+文化|Writing and learning that change over time: culture.
+信号|A message sign: a signal or traffic light.
+自信|Trusting yourself: confidence.
+通信|Passing a message through: communication.
+放送|Releasing and sending out: a broadcast.
+洗濯する|Wash and rinse: to do laundry.
+注意する|Pouring your mind onto something: pay attention.
+注文する|注 here means "to note down" and 文 is writing: a written request, so to order.
+建築|Building and constructing: architecture.
+買い物|Buying things: shopping.
+入院する|Entering the hospital.
+美術館|A hall for the beautiful techniques: an art museum.
+食堂|A hall for eating: a canteen.
+地下室|The room beneath the ground: a basement.
+工場|The place where work is done: a factory.
+図書館|The hall of diagrams and books: a library.
+交通|Crossing and passing: traffic.
+交差点|The point where roads cross each other: an intersection.
+交番|Officers take turns on duty: the police box.
+運転する|Moving the wheels around: to drive.
+自転車|A vehicle that turns by itself: a bicycle.
+自動車|A vehicle that moves by itself: a car.
+運動|Moving the body: exercise.
+出発する|Going out and departing.
+着物|The thing you wear: a kimono.
+漢字|Characters of the Han people: kanji.
+復習する|Learning again: to review.
+習慣|Learning until you are used to it: a habit.
+考古学|The study of thinking about old things: archaeology.
+参考|Consulting while thinking: a reference.
+研究する|Polishing and investigating deeply: research.
+質問する|質 here means to inquire: to ask a question.
+宿題|Work that "stays" with you overnight: homework.
+試合|Putting your skills to the test against another: a match.
+試験|Testing and verifying: an exam.
+経験|Passing through and testing: experience.
+受験する|Receiving an exam: to sit an exam.
+間に合う|Fitting in the gap: in time.
+場合|A place where things fit: a case or situation.
+解答|Untying a problem with an answer: the solution.
+手紙|Paper from the hand: a letter.
+意見|What your mind sees: an opinion.
+用意する|Having your intention ready for use: to prepare.
+引き出し|Something you pull out: a drawer.
+去年|The year that has gone.
+過去|What has passed and gone: the past.
+集合する|Gathering to meet.
+知識|Knowing and discerning: knowledge.
+自動販売機|A machine that sells by itself: a vending machine.
+思想|Thinking and imagining: ideas or a school of thought.
+思い出|A thought that comes out: a memory.
+小説|A small talk, as opposed to grand history: fiction.
+死者|A person who died.
+急病|A sudden illness.
+病気|Sickness of the spirit and body: illness.
+七夕|The seventh evening: the Tanabata festival.
+夕方|Toward the evening: late afternoon.
+森林|A thick wood and a grove: forest.
+海外|Outside the sea: overseas.
+北海道|The northern sea circuit: Hokkaido.
+大西洋|The big western ocean: the Atlantic.
+真っ白|真 adds "truly": pure white.
+真ん中|真 adds "exactly": right in the middle.
+労働者|A person who does hard work.
+財産|Wealth that is produced: assets.
+生産する|Producing: to manufacture.
+政府|Politics and its offices: the government.
+市長|The head of a city: a mayor.
+県知事|The person who knows the affairs of the prefecture: the governor.
+下町|The low part of a town: the old downtown.
+今度|This time, or next time.
+中止する|Stopping in the middle: to cancel.
+力走する|Running with all your strength.
+早起き|Rising early.
+支持する|Supporting and holding up: to back someone.
+始発|The departure that starts the day: the first train.
+最終回|The last round: the final episode.
+本日休業|Closed for business today.
+</script>
 <script>
 (function(){
 "use strict";
@@ -1215,7 +1813,7 @@ function qReading(e){
   const o=new Set([e.r]);
   mutate(e.r).slice(0,2).forEach(x=>o.add(x));
   fill(o,shuffle(V).filter(x=>x!==e&&Math.abs(x.r.length-e.r.length)<=1).map(x=>x.r),4);
-  return{type:'reading',e,tag:'Reading',ask:'How is the underlined word read?',html:esc(e.w),cls:'u',options:shuffle([...o]),answer:e.r};
+  return{type:'reading',e,tag:'Reading',ask:'How is the underlined word read?',html:kjWrap(e.w),cls:'u',options:shuffle([...o]),answer:e.r};
 }
 function qWriting(e){
   const o=new Set([e.w]),ks=[...e.w].filter(isK);
@@ -1227,12 +1825,12 @@ function qWriting(e){
 function qMeaning(e){
   const o=new Set([e.m]);
   fill(o,shuffle(V).filter(x=>x.m!==e.m&&fw(x.m)!==fw(e.m)).map(x=>x.m),4);
-  return{type:'meaning',e,tag:'Meaning',ask:'What does it mean?',html:esc(e.w),cls:'',options:shuffle([...o]),answer:e.m};
+  return{type:'meaning',e,tag:'Meaning',ask:'What does it mean?',html:kjWrap(e.w),cls:'',options:shuffle([...o]),answer:e.m};
 }
 /* exam-style: one word underlined inside a story sentence; pick its reading, or the kanji for it */
 function qContext(b){
   const e=b.e,rd=Math.random()<.5,base=rd?qReading(e):qWriting(e);
-  const html=b.parts.map((p,i)=>p.t!==undefined?esc(p.t):i===b.pi?`<span class="uw">${esc(rd?p.surface:e.r)}</span>`:esc(p.surface)).join('');
+  const html=b.parts.map((p,i)=>p.t!==undefined?kjWrap(p.t):i===b.pi?`<span class="uw">${rd?kjWrap(p.surface):esc(e.r)}</span>`:kjWrap(p.surface)).join('');
   return Object.assign(base,{type:'context',tag:'In context',ask:rd?'How is the underlined word read?':'Which kanji fits the underlined word?',html,cls:'sent',tr:b.tr});
 }
 
@@ -1243,18 +1841,19 @@ function poolFor(s){
   if(s.kind==='weak'){const w=store.get('weak',{});return V.filter(e=>w[e.w]>0)}
   if(s.kind==='tricky')return V.filter(TRICKY);
   if(s.kind==='repeat')return V.filter(e=>e.chs.length>1);
+  if(s.kind==='kanji')return V.filter(e=>e.w.includes(s.k));
   return V;
 }
-function buildQuiz({fmt,n,scope,mock}){
+function buildQuiz({fmt,n,scope,mock,noCtx}){
   const pool=poolFor(scope),notes=[];
   if(!pool.length)return{qs:[],notes:['No words in this selection yet.']};
   let ctx=BLANKS.filter(b=>pool.includes(b.e));
-  if(!ctx.length){ctx=BLANKS;if(fmt==='context'||fmt==='mixed'||mock)notes.push('No story sentences use these words, so sentences from all stories are used.')}
+  if(!ctx.length){ctx=BLANKS;if(!noCtx&&(fmt==='context'||fmt==='mixed'||mock))notes.push('No story sentences use these words, so sentences from all stories are used.')}
   let types=[];
   if(mock){n=30;for(let i=0;i<30;i++)types.push(i<12?'reading':i<24?'writing':'context')}
   else{
-    n=Math.min(n,fmt==='context'?ctx.length:pool.length);
-    const cyc=['reading','writing','meaning','context'];
+    if(scope.kind!=='kanji')n=Math.min(n,fmt==='context'?ctx.length:pool.length);
+    const cyc=noCtx?['reading','writing','meaning']:['reading','writing','meaning','context'];
     for(let i=0;i<n;i++)types.push(fmt==='mixed'?cyc[i%4]:fmt);
   }
   if(mock||fmt==='mixed')types=shuffle(types);
@@ -1274,6 +1873,92 @@ function kin(e){
   });
   return out.join('');
 }
+/* ---- kanji popup: data, helpers, bottom sheet ---- */
+const KJ=new Map(),WHY=new Map();
+(function(){
+  document.getElementById('kdata').textContent.split('\n').forEach(l=>{l=l.trim();if(!l)return;const p=l.split('|');KJ.set(p[0],{k:p[0],on:p[1],kun:p[2],id:p[3],en:p[4]})});
+  document.getElementById('why').textContent.split('\n').forEach(l=>{l=l.trim();const i=l.indexOf('|');if(i>0)WHY.set(l.slice(0,i),l.slice(i+1))});
+})();
+const core=k=>{const e=KJ.get(k);return e?e.en.split(/[,;(]/)[0].replace(/^to /,'').trim():''};
+/* every kanji with data becomes a tap target */
+const kjWrap=s=>[...s].map(c=>isK(c)&&KJ.has(c)?`<span class="kj" role="button" tabindex="0" data-kj="${c}">${c}</span>`:esc(c)).join('');
+const kjChips=s=>[...new Set([...s].filter(c=>KJ.has(c)))].map(k=>`<button class="chip" data-kj="${k}"><b class="kjc">${k}</b> ${esc(core(k))}</button>`).join('');
+/* kanji-by-kanji breakdown of a word, plus the written logic when there is one */
+function breakHtml(e,cur){
+  const ks=[...e.w].filter(c=>isK(c)&&KJ.has(c)),why=WHY.get(e.w);
+  if(ks.length<2&&!why)return '';
+  const chips=ks.length>=2?`<div class="bk">${ks.map((k,i)=>`${i?'<span class="plus">+</span>':''}<button class="part${k===cur?' cur':''}" data-kj="${k}"><b>${k}</b><span>${esc(core(k))}</span></button>`).join('')}</div>`:'';
+  return chips+(why?`<p class="swn small">${esc(why)}</p>`:'');
+}
+const SH={cur:null,stack:[],from:null,all:false};
+const nK=e=>[...e.w].filter(isK).length;
+function sheetWords(k){
+  return (KIDX.get(k)||[]).slice().sort((a,b)=>((nK(a)===1)===(nK(b)===1)?0:nK(a)===1?-1:1)||a.chs[0]-b.chs[0]);
+}
+function swHtml(e,k){
+  return `<div class="sw"><div class="swh"><b>${esc(e.w)}</b><span class="rd">${esc(e.r)}</span><span class="mn">${esc(e.m)}</span></div>${breakHtml(e,k)}</div>`;
+}
+function renderSheet(){
+  const k=SH.cur,d=KJ.get(k),ws=sheetWords(k);
+  const clue=CLUES.flatMap(c=>c.i).find(i=>i[0]===k);
+  const shown=SH.all?ws:ws.slice(0,6);
+  const busy=TAB==='practice'&&Q&&Q.i<Q.qs.length;
+  $('#sheet').innerHTML=`
+  <div class="sh-top"><button class="btn small" id="sh-back"${SH.stack.length?'':' hidden'}>‹ Back</button><button class="btn small" id="sh-x">Close</button></div>
+  <div class="sh-hero"><div class="big" aria-hidden="true">${esc(k)}</div><div class="sh-m"><p class="eyebrow">Meaning</p><p class="sh-mean">${d?esc(d.id):'No notes yet'}</p>${d?`<p class="muted">${esc(d.en)}</p>`:''}</div></div>
+  ${d?`<div class="rdg"><div><p class="eyebrow">On reading · 音読み</p><p class="jp">${esc(d.on)}</p></div><div><p class="eyebrow">Kun reading · 訓読み</p><p class="jp">${esc(d.kun)}</p></div></div>`:''}
+  ${clue?`<div class="clue"><p class="eyebrow">Memory clue</p><p>${esc(clue[1])}</p></div>`:''}
+  <div class="stack"><h3>Why its words mean what they do</h3>
+    <p class="muted small">A word is built from the meanings of its kanji. Tap any part to open that kanji.</p>
+    <div>${shown.map(e=>swHtml(e,k)).join('')}</div>
+    ${ws.length>shown.length?`<button class="btn small" id="sh-more">Show all ${ws.length} words</button>`:''}
+  </div>
+  <div class="row">${busy?'':`<button class="btn primary" id="sh-quiz">Practise ${esc(k)}</button>`}<button class="btn" id="sh-web">See in Kanji web</button></div>`;
+}
+function openSheet(k,fromBack){
+  const sh=$('#sheet');
+  if(sh.hidden){SH.stack=[];SH.from=document.activeElement}
+  else if(SH.cur&&SH.cur!==k&&!fromBack)SH.stack.push(SH.cur);
+  SH.cur=k;SH.all=false;
+  renderSheet();
+  sh.hidden=false;$('#scrim').hidden=false;
+  document.documentElement.style.overflow='hidden';
+  sh.scrollTop=0;
+  const x=$('#sh-x');if(x)x.focus({preventScroll:true});
+}
+function closeSheet(){
+  const sh=$('#sheet');if(!sh||sh.hidden)return;
+  sh.hidden=true;$('#scrim').hidden=true;
+  document.documentElement.style.overflow='';
+  const f=SH.from;SH.from=null;SH.stack=[];
+  if(f&&document.contains(f)&&f.focus)f.focus({preventScroll:true});
+}
+document.addEventListener('click',e=>{
+  const t=e.target.closest('[data-kj]');
+  if(t){e.preventDefault();openSheet(t.dataset.kj);return}
+  if(e.target.id==='scrim'){closeSheet();return}
+  if(!e.target.closest('#sheet'))return;
+  const id=(e.target.closest('button')||{}).id;
+  if(id==='sh-x')closeSheet();
+  else if(id==='sh-back'){const p=SH.stack.pop();if(p)openSheet(p,true)}
+  else if(id==='sh-more'){SH.all=true;renderSheet()}
+  else if(id==='sh-web'){const k=SH.cur;closeSheet();openKanji(k)}
+  else if(id==='sh-quiz'){const k=SH.cur;closeSheet();startKanjiQuiz(k)}
+});
+document.addEventListener('keydown',e=>{
+  const sh=$('#sheet');
+  if(sh&&!sh.hidden){
+    if(e.key==='Escape'){closeSheet();return}
+    if(e.key==='Tab'){
+      const f=$$('button:not([hidden])',sh);if(!f.length)return;
+      const a=f[0],z=f[f.length-1];
+      if(e.shiftKey&&document.activeElement===a){e.preventDefault();z.focus()}
+      else if(!e.shiftKey&&document.activeElement===z){e.preventDefault();a.focus()}
+    }
+  }
+  const t=e.target;
+  if((e.key==='Enter'||e.key===' ')&&t&&t.matches&&t.matches('.kj')){e.preventDefault();openSheet(t.dataset.kj)}
+});
 /* ---- practice (quiz) and plan ---- */
 let TAB='plan';
 const toast=(m)=>{const t=$('#toast');t.textContent=m;t.hidden=false;clearTimeout(toast.h);toast.h=setTimeout(()=>{t.hidden=true},2600)};
@@ -1331,6 +2016,14 @@ function startQuiz(mock){
   if(mock)Q.timer=setInterval(tick,1000);
   renderQ();
 }
+/* quick drill on every word that contains one kanji; leaves the saved setup alone */
+function startKanjiQuiz(k){
+  const pool=V.filter(e=>e.w.includes(k));
+  if(!pool.length){toast('No words use this kanji yet.');return}
+  const r=buildQuiz({fmt:'mixed',n:Math.min(10,Math.max(pool.length,4)),scope:{kind:'kanji',k},mock:false,noCtx:true});
+  Q={qs:r.qs,i:0,score:0,missed:[],done:false,mock:false,t0:Date.now(),timer:null,notes:[]};
+  go('practice');renderQ();
+}
 function launch(part,mock){
   Object.assign(SETUP,part);store.set('setup',SETUP);
   go('practice');
@@ -1345,7 +2038,7 @@ function renderQ(){
     <div class="qhead"><span>${Q.i+1} / ${n}</span><span>${q.tag}${Q.mock?' · <span id="clk">'+mmss(Date.now()-Q.t0)+'</span>':''}</span><span>Score ${Q.score}</span></div>
     <div class="bar"><i style="width:${Q.i/n*100}%"></i></div>
     ${Q.i===0&&Q.notes.length?`<p class="small muted">${esc(Q.notes[0])}</p>`:''}
-    <div class="card stage"><p class="eyebrow">${q.ask}</p><div class="prompt ${q.cls}">${q.html}</div></div>
+    <div class="card stage"><p class="eyebrow">${q.ask}</p><div class="prompt ${q.cls}">${q.html}</div>${q.html.includes('data-kj')?'<p class="small muted">Tap any kanji to see its readings and meaning.</p>':''}</div>
     <div class="opts" id="opts">${q.options.map((o,k)=>`<button class="opt ${q.type==='meaning'?'meaning':''}" data-k="${k}"><kbd>${k+1}</kbd><span>${esc(o)}</span></button>`).join('')}</div>
     <div id="fb"></div>
     <div class="row"><button class="btn small" id="quit">End quiz</button></div>
@@ -1364,7 +2057,8 @@ function answer(k){
   const last=Q.i===Q.qs.length-1,hint=trapHint(e);
   $('#fb').innerHTML=`<div class="fb ${ok?'ok':'no'}">
     <p class="status">${ok?'Correct':'Not quite'}</p>
-    <div class="wordline"><b>${esc(e.w)}</b><span class="rd">${esc(e.r)}</span><span>${esc(e.m)}</span></div>
+    <div class="wordline"><b>${kjWrap(e.w)}</b><span class="rd">${esc(e.r)}</span><span>${esc(e.m)}</span></div>
+    ${breakHtml(e)}
     ${q.tr?`<p class="small">${esc(q.tr)}</p>`:''}
     ${hint&&q.type!=='meaning'?`<p class="small">${hint}</p>`:''}
     ${kin(e)}
@@ -1388,7 +2082,7 @@ function renderResults(){
   $('#back').onclick=()=>renderSetup();
 }
 document.addEventListener('keydown',e=>{
-  if(TAB!=='practice'||!Q||e.metaKey||e.ctrlKey||e.altKey)return;
+  if(TAB!=='practice'||!Q||e.metaKey||e.ctrlKey||e.altKey||!$('#sheet').hidden)return;
   const n=+e.key;
   if(n>=1&&n<=4&&!Q.done&&$('#opts')&&Q.qs[Q.i]&&n<=Q.qs[Q.i].options.length)answer(n-1);
 });
@@ -1493,9 +2187,11 @@ function renderStories(){
       const card=w.closest('.story'),en=BY.get(w.dataset.key);
       $$('.w.sel',card).forEach(x=>x.classList.remove('sel'));w.classList.add('sel');w.classList.toggle('show');
       const rd=w.dataset.rd,sf=w.dataset.sf;
-      $('.info',card).innerHTML=en
+      const kc=kjChips(sf);
+      $('.info',card).innerHTML=(en
         ?`<b>${esc(sf)}</b> ${esc(rd)} · ${esc(en.m)}${sf!==en.w?`<br><span class="muted small">Form of ${esc(en.w)} ${esc(en.r)}</span>`:''}<br><span class="muted small">Bab ${en.chs.join(', ')}</span>`
-        :`<b>${esc(sf)}</b> ${esc(rd)}<br><span class="muted small">Not in your list.</span>`;
+        :`<b>${esc(sf)}</b> ${esc(rd)}<br><span class="muted small">Not in your list.</span>`)
+        +(kc?`<div class="chips" style="margin-top:8px">${kc}</div>`:'');
     }
     if(q){
       const si=+q.dataset.quiz,by=new Map();
@@ -1540,8 +2236,8 @@ function renderPairs(){
 const TRAPS=['病院','特急','一回','急用','首相','習字','兄弟','紅茶','旅行する','注文する','入院する','実験','切手','作家','借金','出発する'];
 function renderClues(){
   $('#p-clues').innerHTML=`
-  <div class="card stack"><h2>Clues for look-alikes</h2><p class="muted small">Small stories and radical hints. Tap a kanji to see every word that uses it.</p></div>
-  ${CLUES.map(c=>`<div class="card cg"><h3>${esc(c.t)}</h3><p class="muted small">${esc(c.n)}</p><ul>${c.i.map(([k,d])=>`<li><button data-k="${esc(k)}" aria-label="Open ${esc(k)} in Kanji web">${esc(k)}</button><span>${esc(d)}</span></li>`).join('')}</ul></div>`).join('')}
+  <div class="card stack"><h2>Clues for look-alikes</h2><p class="muted small">Small stories and radical hints. Tap a kanji for its readings, meaning and every word that uses it.</p></div>
+  ${CLUES.map(c=>`<div class="card cg"><h3>${esc(c.t)}</h3><p class="muted small">${esc(c.n)}</p><ul>${c.i.map(([k,d])=>`<li><button data-kj="${esc(k)}" aria-label="Open ${esc(k)} details">${esc(k)}</button><span>${esc(d)}</span></li>`).join('')}</ul></div>`).join('')}
   <div class="card stack"><h3>Reading traps</h3>
     <p class="muted small">Exam wrong answers usually change a long vowel, a small っ or a voiced sound. Say these aloud, then drill them.</p>
     <div class="miss">${TRAPS.map(k=>BY.get(k)).filter(Boolean).map(e=>`<div><b>${esc(e.w)}</b><span class="rd">${esc(e.r)}</span><span class="muted small">${esc(e.m)}</span></div>`).join('')}</div>
@@ -1558,7 +2254,7 @@ let SELK=null,CV={r:false,m:false};
 function openKanji(k){SELK=k;go('web');if($('#kd'))renderWeb()}
 const seenMap=()=>store.get('seen',{});
 function rowHtml(e){
-  return `<div class="wr"><b>${esc(e.w)}</b><span class="rd${CV.r?' cover':''}">${esc(e.r)}</span><span class="mn${CV.m?' cover':''}">${esc(e.m)}</span><span class="ch">Bab ${e.chs.join(', ')}</span></div>`;
+  return `<div class="wr"><b>${kjWrap(e.w)}</b><span class="rd${CV.r?' cover':''}">${esc(e.r)}</span><span class="mn${CV.m?' cover':''}">${esc(e.m)}</span><span class="ch">Bab ${e.chs.join(', ')}</span></div>`;
 }
 function renderWeb(){
   const el=$('#p-web'),q=($('#wq')?$('#wq').value:'').trim();
@@ -1591,7 +2287,7 @@ function detailHtml(q){
   if(!SELK)return '<p class="muted">Pick a kanji above to see where it appears.</p>';
   const ws=(KIDX.get(SELK)||[]).slice().sort((a,b)=>a.chs[0]-b.chs[0]);
   const rel=[...new Set(ws.flatMap(e=>[...e.w].filter(isK)))].filter(x=>x!==SELK);
-  return `<div class="kdh"><div class="big">${esc(SELK)}</div><div><h3>${ws.length} word${ws.length===1?'':'s'}</h3><p class="muted small">in your list</p></div></div>
+  return `<div class="kdh"><div class="big">${esc(SELK)}</div><div class="stack" style="gap:6px"><div><h3>${ws.length} word${ws.length===1?'':'s'}</h3><p class="muted small">in your list</p></div><button class="btn small" data-kj="${esc(SELK)}">Readings and meaning</button></div></div>
     ${ws.map(rowHtml).join('')}
     ${rel.length?`<div class="group"><p class="eyebrow">Seen alongside</p><div class="chips">${rel.map(k=>`<button class="chip" data-k="${esc(k)}">${esc(k)}</button>`).join('')}</div></div>`:''}`;
 }
@@ -1601,6 +2297,7 @@ const TABS=['plan','practice','stories','pairs','clues','web'];
 const rendered={};
 const RENDER={plan:renderPlan,practice:()=>{if(!Q)renderSetup()},stories:renderStories,pairs:()=>{if(!PR)newRound()},clues:renderClues,web:renderWeb};
 function route(){
+  closeSheet();
   const h=location.hash.replace('#','');
   TAB=TABS.includes(h)?h:'plan';
   TABS.forEach(t=>{$('#p-'+t).hidden=t!==TAB});
