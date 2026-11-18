@@ -38,7 +38,7 @@ details{color:var(--mute);font-size:16px}summary{cursor:pointer}details p{margin
 .tools{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;margin:16px 0}
 select,input[type=search]{font:inherit;color:var(--ink);background:transparent;border:0;border-bottom:2px dashed var(--ink);padding:4px 2px;border-radius:0;outline-offset:3px}
 .find{display:flex;align-items:center;gap:6px;flex:1 1 220px}.find input{flex:1;min-width:0}
-.state{margin:10px 0;padding:18px;border:2px dashed var(--mute);border-radius:var(--cut);text-align:center}.state .btn{margin-top:10px}
+.state{margin:10px 0;padding:18px;border:2px dashed var(--mute);border-radius:var(--cut);text-align:center}.state .btn{margin-top:10px}.state small{display:block;margin-top:8px;color:var(--mute);font-size:14px;word-break:break-all}
 .lh{display:flex;align-items:baseline;gap:12px;margin:26px 0 2px;border-bottom:3px solid var(--red)}.lh h2{font-size:30px}.lh span{color:var(--mute);font-size:16px}
 .k{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;padding:16px 0;border-bottom:1.5px dashed #b4cbdc;content-visibility:auto;contain-intrinsic-size:auto 220px}
 .gb{position:relative;width:104px;height:104px;display:grid;place-items:center;border:2px solid var(--ink);background:var(--paper) var(--grid) 0 0/100% 100%}
@@ -116,11 +116,11 @@ select,input[type=search]{font:inherit;color:var(--ink);background:transparent;b
 <script>
 (() => {
   const CFG = {quizLen: 10, data: {
-    id: ["assets/textbook_kanji_cards_indonesian.json", "/assets/textbook_kanji_cards_indonesian.json"],
-    en: ["assets/textbook_kanji_cards_english.json", "/assets/textbook_kanji_cards_english.json"]}};
+    id: ["assets/textbook_kanji_cards_indonesian.json", "/assets/textbook_kanji_cards_indonesian.json", "https://iankreidehuter.space/assets/textbook_kanji_cards_indonesian.json"],
+    en: ["assets/textbook_kanji_cards_english.json", "/assets/textbook_kanji_cards_english.json", "https://iankreidehuter.space/assets/textbook_kanji_cards_english.json"]}};
   const T = {
-    en: {home:"Home",about:"About this list",cards:"Cards",flash:"Flashcards",quiz:"Quiz",load:"Open JSON",search:"Search kanji, reading or meaning",all:"All",learn:"To learn",known:"Known",alll:"All chapters",nomatch:"No kanji match this search or filter.",tap:"Tap the card to flip",back:"Previous",next:"Next",shuf:"Shuffle",know:"Mark as known",known1:"Known",listen:"Listen to",qm:"What does this kanji mean?",qk:"Which kanji matches this meaning?",ok:"Correct",no:"Not quite",again:"Play again",tocards:"Back to cards",prac:"Kanji to review",nomist:"No mistakes.",fin:"Finish",score:"Score",r1:"Excellent",r2:"Good work",r3:"Keep practicing",kn:"known",loading:"Loading kanji…",loadfail:"Couldn't load the kanji list from /assets.",badfile:"That file couldn't be read as kanji JSON.",nokanji:"That file has no kanji in it.",choose:"Choose a JSON file",need4:"The quiz needs at least 4 kanji. Widen the filter or search.",nolist:"No example words yet.",hint:"Mark a kanji as known with the stamp button. Your marks are saved in this browser."},
-    id: {home:"Beranda",about:"Tentang daftar ini",cards:"Kartu",flash:"Kartu hafalan",quiz:"Kuis",load:"Buka JSON",search:"Cari kanji, bacaan, atau arti",all:"Semua",learn:"Belum hafal",known:"Hafal",alll:"Semua bab",nomatch:"Tidak ada kanji yang cocok dengan pencarian atau filter ini.",tap:"Ketuk kartu untuk membalik",back:"Sebelumnya",next:"Berikutnya",shuf:"Acak",know:"Tandai hafal",known1:"Hafal",listen:"Dengarkan",qm:"Apa arti kanji ini?",qk:"Kanji mana yang cocok dengan arti ini?",ok:"Benar",no:"Kurang tepat",again:"Main lagi",tocards:"Kembali ke kartu",prac:"Kanji untuk diulang",nomist:"Tidak ada yang salah.",fin:"Selesai",score:"Skor",r1:"Luar biasa",r2:"Bagus",r3:"Terus berlatih",kn:"hafal",loading:"Memuat kanji…",loadfail:"Daftar kanji tidak bisa dimuat dari /assets.",badfile:"File itu tidak bisa dibaca sebagai JSON kanji.",nokanji:"File itu tidak berisi kanji.",choose:"Pilih file JSON",need4:"Kuis butuh minimal 4 kanji. Longgarkan filter atau pencarian.",nolist:"Belum ada contoh kata.",hint:"Tandai kanji yang sudah hafal dengan tombol stempel. Tandamu tersimpan di browser ini."}};
+    en: {home:"Home",about:"About this list",cards:"Cards",flash:"Flashcards",quiz:"Quiz",load:"Open JSON",search:"Search kanji, reading or meaning",all:"All",learn:"To learn",known:"Known",alll:"All chapters",nomatch:"No kanji match this search or filter.",tap:"Tap the card to flip",back:"Previous",next:"Next",shuf:"Shuffle",know:"Mark as known",known1:"Known",listen:"Listen to",qm:"What does this kanji mean?",qk:"Which kanji matches this meaning?",ok:"Correct",no:"Not quite",again:"Play again",tocards:"Back to cards",prac:"Kanji to review",nomist:"No mistakes.",fin:"Finish",score:"Score",r1:"Excellent",r2:"Good work",r3:"Keep practicing",kn:"known",loading:"Loading kanji…",loadfail:"Couldn't load the kanji list from /assets.",filehint:"This page was opened as a local file, which blocks loading. Open it from your website, or use Open JSON.",tried:"Tried:",badfile:"That file couldn't be read as kanji JSON.",nokanji:"That file has no kanji in it.",choose:"Choose a JSON file",need4:"The quiz needs at least 4 kanji. Widen the filter or search.",nolist:"No example words yet.",hint:"Mark a kanji as known with the stamp button. Your marks are saved in this browser."},
+    id: {home:"Beranda",about:"Tentang daftar ini",cards:"Kartu",flash:"Kartu hafalan",quiz:"Kuis",load:"Buka JSON",search:"Cari kanji, bacaan, atau arti",all:"Semua",learn:"Belum hafal",known:"Hafal",alll:"Semua bab",nomatch:"Tidak ada kanji yang cocok dengan pencarian atau filter ini.",tap:"Ketuk kartu untuk membalik",back:"Sebelumnya",next:"Berikutnya",shuf:"Acak",know:"Tandai hafal",known1:"Hafal",listen:"Dengarkan",qm:"Apa arti kanji ini?",qk:"Kanji mana yang cocok dengan arti ini?",ok:"Benar",no:"Kurang tepat",again:"Main lagi",tocards:"Kembali ke kartu",prac:"Kanji untuk diulang",nomist:"Tidak ada yang salah.",fin:"Selesai",score:"Skor",r1:"Luar biasa",r2:"Bagus",r3:"Terus berlatih",kn:"hafal",loading:"Memuat kanji…",loadfail:"Daftar kanji tidak bisa dimuat dari /assets.",filehint:"Halaman ini dibuka sebagai file lokal, sehingga pemuatan diblokir. Buka dari websitemu, atau pakai Buka JSON.",tried:"Dicoba:",badfile:"File itu tidak bisa dibaca sebagai JSON kanji.",nokanji:"File itu tidak berisi kanji.",choose:"Pilih file JSON",need4:"Kuis butuh minimal 4 kanji. Longgarkan filter atau pencarian.",nolist:"Belum ada contoh kata.",hint:"Tandai kanji yang sudah hafal dengan tombol stempel. Tandamu tersimpan di browser ini."}};
   const $ = s => document.querySelector(s), $$ = s => document.querySelectorAll(s);
   const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
   const arr = a => Array.isArray(a) ? a.map(String) : [];
@@ -145,9 +145,9 @@ select,input[type=search]{font:inherit;color:var(--ink);background:transparent;b
     $$("[data-tp]").forEach(e => { e.placeholder = t(e.dataset.tp); e.setAttribute("aria-label", t(e.dataset.tp)); });
     $$("[data-l]").forEach(b => b.setAttribute("aria-pressed", b.dataset.l === lang));
   }
-  function fail(m) {
+  function fail(m, tried) {
     $("#state").hidden = false;
-    $("#state").innerHTML = esc(m) + `<br><label class="btn">${ic("dir")}${esc(t("choose"))}<input type="file" accept=".json,application/json" hidden id="pick2"></label>`;
+    $("#state").innerHTML = esc(m) + (tried && tried.length ? `<small>${location.protocol === "file:" ? esc(t("filehint")) + "<br>" : ""}${esc(t("tried"))}<br>${tried.map(esc).join("<br>")}</small>` : "") + `<br><label class="btn">${ic("dir")}${esc(t("choose"))}<input type="file" accept=".json,application/json" hidden id="pick2"></label>`;
     ["#v-study", "#v-flash", "#v-quiz"].forEach(s => $(s).hidden = true);
   }
   function init(d, keep) {
@@ -172,8 +172,14 @@ select,input[type=search]{font:inherit;color:var(--ink);background:transparent;b
   }
   async function loadLang(keep) {
     $("#state").hidden = false; $("#state").textContent = t("loading");
-    for (const u of CFG.data[lang]) { try { const r = await fetch(u); if (r.ok) return init(await r.json(), keep); } catch (e) {} }
-    fail(t("loadfail"));
+    const tried = [];
+    for (const u of CFG.data[lang]) {
+      let d = null;
+      try { const r = await fetch(u, {cache: "no-cache"}); if (r.ok) d = await r.json(); else tried.push(`${u}: HTTP ${r.status}`); }
+      catch (e) { tried.push(`${u}: ${e.name === "SyntaxError" ? "not valid JSON" : "blocked or unreachable"}`); }
+      if (d) return init(d, keep);
+    }
+    fail(t("loadfail"), tried);
   }
   const save = () => { try { localStorage.setItem(KEY(), JSON.stringify([...known])); } catch (e) {} };
   function lopts() {
@@ -195,4 +201,92 @@ select,input[type=search]{font:inherit;color:var(--ink);background:transparent;b
   const vis = () => { const s = hira(q.trim()); return K.filter(k => (!lsel || k.lesson === lsel) && (flt === "all" || (flt === "known") === known.has(k.kanji)) && (!s || k.hay.includes(s))); };
   const rds = k => k.on.length || k.kun.length ? `<p class="rd">${k.on.length ? `<span><i>on</i><b lang="ja">${k.on.map(esc).join("・")}</b></span>` : ""}${k.kun.length ? `<span><i>kun</i><b lang="ja">${k.kun.map(esc).join("・")}</b></span>` : ""}</p>` : "";
   const words = a => a.length ? `<ul class="wl">${a.map(w => `<li><button type="button" class="sp" data-say="${esc(w.reading || w.word)}" aria-label="${esc(t("listen"))} ${esc(w.word)}">${ic("spk")}</button><ruby lang="ja">${esc(w.word)}${w.reading && w.reading !== w.word ? `<rt>${esc(w.reading)}</rt>` : ""}</ruby><span class="wm">${esc(w.meaning)}</span></li>`).join("")}</ul>` : `<p class="wm">${esc(t("nolist"))}</p>`;
-  const knBtn = k => { const on = known.has(k.kanji); return `<button type="button" class="kn" data-known="${esc(k.kanji)}" aria-pressed="${on}">${ic("maru")}${esc(t(on ? "kn
+  const knBtn = k => { const on = known.has(k.kanji); return `<button type="button" class="kn" data-known="${esc(k.kanji)}" aria-pressed="${on}">${ic("maru")}${esc(t(on ? "known1" : "know"))}</button>`; };
+  const entry = k => `<article class="k${known.has(k.kanji) ? " is-known" : ""}"><div><div class="gb"><span lang="ja">${esc(k.kanji)}</span>${STAMP}</div>${knBtn(k)}</div><div class="kb"><h3>${esc(k.mean)}</h3>${rds(k)}${words(k.words)}</div></article>`;
+
+  function render() {
+    ["study", "flash", "quiz"].forEach(m => $("#v-" + m).hidden = m !== mode);
+    $$("[data-m]").forEach(b => b.setAttribute("aria-selected", b.dataset.m === mode));
+    mode === "study" ? study() : mode === "flash" ? flash() : quizView();
+  }
+  function study() {
+    const v = vis(), el = $("#v-study");
+    if (!v.length) { el.innerHTML = `<p class="state">${esc(t("nomatch"))}</p>`; return; }
+    let h = "";
+    if (lessons.length) {
+      lessons.forEach(l => { const g = v.filter(k => k.lesson === l.n); if (g.length) h += `<section><div class="lh"><h2>${esc(l.name)}</h2><span>${g.length} kanji</span></div>${g.map(entry).join("")}</section>`; });
+      h += v.filter(k => !k.lesson).map(entry).join("");
+    } else h = v.map(entry).join("");
+    el.innerHTML = h;
+  }
+  function flash(anim) {
+    const el = $("#v-flash"); deck = vis();
+    if (!deck.length) { el.innerHTML = `<p class="state">${esc(t("nomatch"))}</p>`; return; }
+    if (shuf) deck.sort((a, b) => rank.get(a.kanji) - rank.get(b.kanji));
+    fi = Math.min(Math.max(fi, 0), deck.length - 1);
+    const k = deck[fi];
+    el.innerHTML = `<div class="fc ${back ? "back" : "front"}${anim ? " pop" : ""}${known.has(k.kanji) ? " is-known" : ""}" tabindex="0" data-act="flip" aria-label="${esc(t("tap"))}">${back ? `<h3>${esc(k.mean)}</h3>${rds(k)}${words(k.words)}` : `<span lang="ja">${esc(k.kanji)}</span>${STAMP}`}</div>
+<p class="hint">${esc(t("tap"))}</p>
+<div class="fbar"><button type="button" class="btn" data-act="prev">${ic("prev")}${esc(t("back"))}</button><b>${fi + 1} / ${deck.length}</b><button type="button" class="btn" data-act="next">${esc(t("next"))}${ic("next")}</button></div>
+<div class="fbar"><button type="button" class="btn" data-act="shuf" aria-pressed="${shuf}">${ic("shuf")}${esc(t("shuf"))}</button>${knBtn(k)}</div>`;
+  }
+  function startQuiz() {
+    const p = vis(); if (p.length < 4) { qz = {bad: 1}; return; }
+    qz = {i: 0, s: 0, w: [], p: -1, items: shuffle(p.slice()).slice(0, CFG.quizLen).map(k => {
+      const ot = []; shuffle(K.filter(x => x.kanji !== k.kanji && x.mean !== k.mean)).forEach(x => { if (ot.length < 3 && !ot.some(o => o.mean === x.mean)) ot.push(x); });
+      return {k, m: Math.random() < .5, o: shuffle([k, ...ot])};
+    })};
+  }
+  function quizView() {
+    const el = $("#v-quiz"); if (!qz) startQuiz();
+    if (qz.bad) { el.innerHTML = `<p class="state">${esc(t("need4"))}</p>`; return; }
+    const n = qz.items.length;
+    if (qz.i >= n) {
+      const pc = qz.s / n;
+      el.innerHTML = `<p class="qn">${esc(t("score"))}</p><p class="sc">${qz.s} / ${n}</p><p class="qp">${esc(t(pc >= .9 ? "r1" : pc >= .6 ? "r2" : "r3"))}</p>${qz.w.length ? `<p class="qn">${esc(t("prac"))}</p><div class="wrongs">${qz.w.map(k => `<span class="gb sm" lang="ja">${esc(k.kanji)}</span>`).join("")}</div>` : `<p class="qn">${esc(t("nomist"))}</p>`}<div class="fbar"><button type="button" class="btn" data-act="again">${ic("redo")}${esc(t("again"))}</button><button type="button" class="btn" data-act="tocards">${esc(t("tocards"))}</button></div>`;
+      return;
+    }
+    const it = qz.items[qz.i], done = qz.p >= 0;
+    el.innerHTML = `<p class="qn">${qz.i + 1} / ${n}</p>${it.m ? `<div class="gb qk"><span lang="ja">${esc(it.k.kanji)}</span></div>` : `<p class="qp">${esc(it.k.mean)}</p>`}<p class="qn">${esc(t(it.m ? "qm" : "qk"))}</p>
+<div class="qo">${it.o.map((o, j) => { const c = o === it.k; return `<button type="button" class="opt${done ? (c ? " good" : j === qz.p ? " bad" : "") : ""}" data-opt="${j}"${it.m ? "" : ' lang="ja"'}${done ? " disabled" : ""}>${done && (c || j === qz.p) ? ic(c ? "ok" : "x") : ""}${esc(it.m ? o.mean : o.kanji)}</button>`; }).join("")}</div>
+${done ? `<div class="fbar"><b>${esc(t(it.o[qz.p] === it.k ? "ok" : "no"))}</b><button type="button" class="btn" data-act="qnext">${esc(t(qz.i + 1 >= n ? "fin" : "next"))}${ic("next")}</button></div>` : ""}`;
+  }
+  function reset() { fi = 0; back = false; qz = null; chips(); render(); }
+  function toggle(kj) { known.has(kj) ? known.delete(kj) : known.add(kj); save(); progress(); chips(); const y = scrollY; render(); scrollTo(0, y); }
+  function act(a) {
+    const n = deck.length;
+    if (a === "flip") { back = !back; flash(true); }
+    else if (a === "prev" || a === "next") { fi = (fi + (a === "next" ? 1 : -1) + n) % n; back = false; flash(); }
+    else if (a === "shuf") { shuf = !shuf; if (shuf) rank = new Map(K.map(k => [k.kanji, Math.random()])); fi = 0; back = false; flash(); }
+    else if (a === "again") { qz = null; quizView(); }
+    else if (a === "tocards") { mode = "study"; qz = null; render(); }
+    else if (a === "qnext") { qz.i++; qz.p = -1; quizView(); }
+  }
+  document.addEventListener("click", e => {
+    const g = s => e.target.closest(s); let b;
+    if (b = g("[data-say]")) say(b.dataset.say);
+    else if (b = g("[data-known]")) toggle(b.dataset.known);
+    else if (b = g("[data-l]")) { if (b.dataset.l !== lang) { lang = b.dataset.l; try { localStorage.setItem("kanjiLang", lang); } catch (x) {} applyText(); loadLang(true); } }
+    else if (b = g("[data-m]")) { mode = b.dataset.m; qz = null; render(); }
+    else if (b = g("[data-f]")) { flt = b.dataset.f; reset(); }
+    else if (b = g("[data-opt]")) { const it = qz.items[qz.i]; qz.p = +b.dataset.opt; it.o[qz.p] === it.k ? qz.s++ : qz.w.push(it.k); quizView(); }
+    else if (b = g("[data-act]")) act(b.dataset.act);
+  });
+  document.addEventListener("keydown", e => {
+    if (mode !== "flash" || /INPUT|SELECT|BUTTON/.test(e.target.tagName)) return;
+    const a = {ArrowRight: "next", ArrowLeft: "prev", " ": "flip", Enter: "flip"}[e.key];
+    if (a && deck.length) { e.preventDefault(); act(a); }
+  });
+  document.addEventListener("change", e => {
+    if (e.target.id === "lesson") { lsel = +e.target.value; reset(); return; }
+    if (!e.target.matches("#pick,#pick2") || !e.target.files[0]) return;
+    const r = new FileReader();
+    r.onload = () => { try { init(JSON.parse(r.result)); } catch (x) { fail(t("badfile")); } };
+    r.readAsText(e.target.files[0]); e.target.value = "";
+  });
+  $("#q").addEventListener("input", e => { q = e.target.value; reset(); });
+  applyText(); loadLang(false);
+})();
+</script>
+</body>
+</html>
