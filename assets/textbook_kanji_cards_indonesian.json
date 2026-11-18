@@ -1,4445 +1,5163 @@
 {
-  "title": "Textbook Kanji — Screenshot Style",
-  "language": "Indonesian",
-  "source": "User's textbook photo, Part 2 のかんじ, Lessons 1–20",
-  "format_note": "Each kanji is a separate study card: meaning heading, Onyomi/Kunyomi, large kanji character, then vocabulary with reading and translation.",
-  "kanji_count": 200,
-  "cards": [
-    {
-      "heading": "Address",
-      "onyomi": [],
-      "kunyomi": [],
-      "kanji": "住",
-      "vocabulary": []
-    },
-    {
-      "heading": "tempat; alamat",
-      "onyomi": [
-        "ショ"
-      ],
-      "kunyomi": [
-        "ところ"
-      ],
-      "kanji": "所",
-      "vocabulary": [
-        {
-          "word": "所",
-          "reading": "ところ",
-          "meaning": "tempat"
-        },
-        {
-          "word": "住所",
-          "reading": "じゅうしょ",
-          "meaning": "alamat"
-        }
-      ]
-    },
-    {
-      "heading": "ibu kota",
-      "onyomi": [
-        "キョウ",
-        "ケイ"
-      ],
-      "kunyomi": [
-        "みやこ"
-      ],
-      "kanji": "京",
-      "vocabulary": [
-        {
-          "word": "東京",
-          "reading": "とうきょう",
-          "meaning": "Tokyo"
-        },
-        {
-          "word": "京都",
-          "reading": "きょうと",
-          "meaning": "Kyoto"
-        }
-      ]
-    },
-    {
-      "heading": "metropolitan; ibu kota",
-      "onyomi": [
-        "ト",
-        "ツ"
-      ],
-      "kunyomi": [
-        "みやこ"
-      ],
-      "kanji": "都",
-      "vocabulary": [
-        {
-          "word": "都",
-          "reading": "みやこ",
-          "meaning": "metropolitan; ibu kota"
-        },
-        {
-          "word": "京都",
-          "reading": "きょうと",
-          "meaning": "Kyoto"
-        }
-      ]
-    },
-    {
-      "heading": "prefektur perkotaan; kantor pemerintahan",
-      "onyomi": [
-        "フ"
-      ],
-      "kunyomi": [],
-      "kanji": "府",
-      "vocabulary": [
-        {
-          "word": "大阪府",
-          "reading": "おおさかふ",
-          "meaning": "Prefektur Osaka"
-        },
-        {
-          "word": "京都府",
-          "reading": "きょうとふ",
-          "meaning": "prefektur perkotaan; kantor pemerintahan"
-        }
-      ]
-    },
-    {
-      "heading": "prefektur",
-      "onyomi": [
-        "ケン"
-      ],
-      "kunyomi": [],
-      "kanji": "県",
-      "vocabulary": [
-        {
-          "word": "県",
-          "reading": "けん",
-          "meaning": "prefektur"
-        },
-        {
-          "word": "県立",
-          "reading": "けんりつ",
-          "meaning": "prefektur"
-        }
-      ]
-    },
-    {
-      "heading": "kota; pasar",
-      "onyomi": [
-        "シ"
-      ],
-      "kunyomi": [
-        "いち"
-      ],
-      "kanji": "市",
-      "vocabulary": [
-        {
-          "word": "市",
-          "reading": "し",
-          "meaning": "kota; pasar"
-        },
-        {
-          "word": "市役所",
-          "reading": "しやくしょ",
-          "meaning": "kota; pasar"
-        }
-      ]
-    },
-    {
-      "heading": "kecamatan; distrik",
-      "onyomi": [
-        "ク"
-      ],
-      "kunyomi": [],
-      "kanji": "区",
-      "vocabulary": [
-        {
-          "word": "区",
-          "reading": "く",
-          "meaning": "kecamatan; distrik"
-        },
-        {
-          "word": "区役所",
-          "reading": "くやくしょ",
-          "meaning": "kecamatan; distrik"
-        }
-      ]
-    },
-    {
-      "heading": "kota kecil; wilayah kota",
-      "onyomi": [
-        "チョウ"
-      ],
-      "kunyomi": [
-        "まち"
-      ],
-      "kanji": "町",
-      "vocabulary": [
-        {
-          "word": "町",
-          "reading": "まち",
-          "meaning": "kota kecil; wilayah kota"
-        },
-        {
-          "word": "町長",
-          "reading": "ちょうちょう",
-          "meaning": "kota kecil; wilayah kota"
-        }
-      ]
-    },
-    {
-      "heading": "desa",
-      "onyomi": [
-        "ソン"
-      ],
-      "kunyomi": [
-        "むら"
-      ],
-      "kanji": "村",
-      "vocabulary": [
-        {
-          "word": "村",
-          "reading": "むら",
-          "meaning": "desa"
-        },
-        {
-          "word": "村人",
-          "reading": "むらびと",
-          "meaning": "desa"
-        }
-      ]
-    },
-    {
-      "heading": "terang; jelas",
-      "onyomi": [
-        "メイ",
-        "ミョウ"
-      ],
-      "kunyomi": [
-        "あか(るい)",
-        "あ(ける)"
-      ],
-      "kanji": "明",
-      "vocabulary": [
-        {
-          "word": "明るい",
-          "reading": "あかるい",
-          "meaning": "terang"
-        },
-        {
-          "word": "説明",
-          "reading": "せつめい",
-          "meaning": "penjelasan"
-        }
-      ]
-    },
-    {
-      "heading": "gelap",
-      "onyomi": [
-        "アン"
-      ],
-      "kunyomi": [
-        "くら(い)"
-      ],
-      "kanji": "暗",
-      "vocabulary": [
-        {
-          "word": "暗い",
-          "reading": "くらい",
-          "meaning": "gelap"
-        },
-        {
-          "word": "暗記",
-          "reading": "あんき",
-          "meaning": "gelap"
-        }
-      ]
-    },
-    {
-      "heading": "jauh",
-      "onyomi": [
-        "エン"
-      ],
-      "kunyomi": [
-        "とお(い)"
-      ],
-      "kanji": "遠",
-      "vocabulary": [
-        {
-          "word": "遠い",
-          "reading": "とおい",
-          "meaning": "jauh"
-        },
-        {
-          "word": "遠足",
-          "reading": "えんそく",
-          "meaning": "jauh"
-        }
-      ]
-    },
-    {
-      "heading": "dekat",
-      "onyomi": [
-        "キン"
-      ],
-      "kunyomi": [
-        "ちか(い)"
-      ],
-      "kanji": "近",
-      "vocabulary": [
-        {
-          "word": "近い",
-          "reading": "ちかい",
-          "meaning": "dekat"
-        },
-        {
-          "word": "近所",
-          "reading": "きんじょ",
-          "meaning": "dekat"
-        }
-      ]
-    },
-    {
-      "heading": "kuat",
-      "onyomi": [
-        "キョウ",
-        "ゴウ"
-      ],
-      "kunyomi": [
-        "つよ(い)",
-        "つよ(める)"
-      ],
-      "kanji": "強",
-      "vocabulary": [
-        {
-          "word": "強い",
-          "reading": "つよい",
-          "meaning": "kuat"
-        },
-        {
-          "word": "勉強",
-          "reading": "べんきょう",
-          "meaning": "belajar"
-        }
-      ]
-    },
-    {
-      "heading": "lemah",
-      "onyomi": [
-        "ジャク"
-      ],
-      "kunyomi": [
-        "よわ(い)"
-      ],
-      "kanji": "弱",
-      "vocabulary": [
-        {
-          "word": "弱い",
-          "reading": "よわい",
-          "meaning": "lemah"
-        },
-        {
-          "word": "弱点",
-          "reading": "じゃくてん",
-          "meaning": "lemah"
-        }
-      ]
-    },
-    {
-      "heading": "berat; penting",
-      "onyomi": [
-        "ジュウ",
-        "チョウ"
-      ],
-      "kunyomi": [
-        "おも(い)",
-        "かさ(なる)"
-      ],
-      "kanji": "重",
-      "vocabulary": [
-        {
-          "word": "重い",
-          "reading": "おもい",
-          "meaning": "berat"
-        },
-        {
-          "word": "体重",
-          "reading": "たいじゅう",
-          "meaning": "berat; penting"
-        }
-      ]
-    },
-    {
-      "heading": "ringan",
-      "onyomi": [
-        "ケイ"
-      ],
-      "kunyomi": [
-        "かる(い)"
-      ],
-      "kanji": "軽",
-      "vocabulary": [
-        {
-          "word": "軽い",
-          "reading": "かるい",
-          "meaning": "ringan"
-        },
-        {
-          "word": "軽食",
-          "reading": "けいしょく",
-          "meaning": "ringan"
-        }
-      ]
-    },
-    {
-      "heading": "tebal; gemuk",
-      "onyomi": [
-        "タイ",
-        "タ"
-      ],
-      "kunyomi": [
-        "ふと(い)",
-        "ふと(る)"
-      ],
-      "kanji": "太",
-      "vocabulary": [
-        {
-          "word": "太い",
-          "reading": "ふとい",
-          "meaning": "tebal"
-        },
-        {
-          "word": "太る",
-          "reading": "ふとる",
-          "meaning": "tebal; gemuk"
-        }
-      ]
-    },
-    {
-      "heading": "tipis; kecil; terperinci",
-      "onyomi": [
-        "サイ"
-      ],
-      "kunyomi": [
-        "ほそ(い)",
-        "こま(かい)"
-      ],
-      "kanji": "細",
-      "vocabulary": [
-        {
-          "word": "細い",
-          "reading": "ほそい",
-          "meaning": "tipis"
-        },
-        {
-          "word": "細かい",
-          "reading": "こまかい",
-          "meaning": "tipis; kecil; terperinci"
-        }
-      ]
-    },
-    {
-      "heading": "khusus",
-      "onyomi": [
-        "トク"
-      ],
-      "kunyomi": [],
-      "kanji": "特",
-      "vocabulary": [
-        {
-          "word": "特別",
-          "reading": "とくべつ",
-          "meaning": "khusus"
-        },
-        {
-          "word": "特急",
-          "reading": "とっきゅう",
-          "meaning": "khusus"
-        }
-      ]
-    },
-    {
-      "heading": "berpisah; berbeda",
-      "onyomi": [
-        "ベツ"
-      ],
-      "kunyomi": [
-        "わか(れる)"
-      ],
-      "kanji": "別",
-      "vocabulary": [
-        {
-          "word": "別れる",
-          "reading": "わかれる",
-          "meaning": "berpisah; berbeda"
-        },
-        {
-          "word": "特別",
-          "reading": "とくべつ",
-          "meaning": "khusus"
-        }
-      ]
-    },
-    {
-      "heading": "ada; memiliki",
-      "onyomi": [
-        "ユウ",
-        "ウ"
-      ],
-      "kunyomi": [
-        "あ(る)"
-      ],
-      "kanji": "有",
-      "vocabulary": [
-        {
-          "word": "有る",
-          "reading": "ある",
-          "meaning": "ada; memiliki"
-        },
-        {
-          "word": "有名",
-          "reading": "ゆうめい",
-          "meaning": "ada; memiliki"
-        }
-      ]
-    },
-    {
-      "heading": "kemudahan; surat",
-      "onyomi": [
-        "ベン",
-        "ビン"
-      ],
-      "kunyomi": [
-        "たよ(り)"
-      ],
-      "kanji": "便",
-      "vocabulary": [
-        {
-          "word": "便利",
-          "reading": "べんり",
-          "meaning": "praktis; nyaman"
-        },
-        {
-          "word": "郵便",
-          "reading": "ゆうびん",
-          "meaning": "kemudahan; surat"
-        }
-      ]
-    },
-    {
-      "heading": "manfaat; keuntungan",
-      "onyomi": [
-        "リ"
-      ],
-      "kunyomi": [
-        "き(く)"
-      ],
-      "kanji": "利",
-      "vocabulary": [
-        {
-          "word": "便利",
-          "reading": "べんり",
-          "meaning": "praktis; nyaman"
-        },
-        {
-          "word": "利用",
-          "reading": "りよう",
-          "meaning": "manfaat; keuntungan"
-        }
-      ]
-    },
-    {
-      "heading": "tidak; awalan negatif",
-      "onyomi": [
-        "フ",
-        "ブ"
-      ],
-      "kunyomi": [],
-      "kanji": "不",
-      "vocabulary": [
-        {
-          "word": "不便",
-          "reading": "ふべん",
-          "meaning": "tidak praktis"
-        },
-        {
-          "word": "不安",
-          "reading": "ふあん",
-          "meaning": "tidak; awalan negatif"
-        }
-      ]
-    },
-    {
-      "heading": "memotong; penting (dalam 大切)",
-      "onyomi": [
-        "セツ",
-        "サイ"
-      ],
-      "kunyomi": [
-        "き(る)",
-        "き(れる)"
-      ],
-      "kanji": "切",
-      "vocabulary": [
-        {
-          "word": "切る",
-          "reading": "きる",
-          "meaning": "memotong; penting (dalam 大切)"
-        },
-        {
-          "word": "大切",
-          "reading": "たいせつ",
-          "meaning": "penting"
-        }
-      ]
-    },
-    {
-      "heading": "asal; mantan",
-      "onyomi": [
-        "ゲン",
-        "ガン"
-      ],
-      "kunyomi": [
-        "もと"
-      ],
-      "kanji": "元",
-      "vocabulary": [
-        {
-          "word": "元気",
-          "reading": "げんき",
-          "meaning": "sehat; bersemangat"
-        },
-        {
-          "word": "元々",
-          "reading": "もともと",
-          "meaning": "asal; mantan"
-        }
-      ]
-    },
-    {
-      "heading": "suka; menyukai",
-      "onyomi": [
-        "コウ"
-      ],
-      "kunyomi": [
-        "す(き)",
-        "この(む)"
-      ],
-      "kanji": "好",
-      "vocabulary": [
-        {
-          "word": "好き",
-          "reading": "すき",
-          "meaning": "suka"
-        },
-        {
-          "word": "好きな",
-          "reading": "すきな",
-          "meaning": "suka; menyukai"
-        }
-      ]
-    },
-    {
-      "heading": "mendesak; tiba-tiba",
-      "onyomi": [
-        "キュウ"
-      ],
-      "kunyomi": [
-        "いそ(ぐ)"
-      ],
-      "kanji": "急",
-      "vocabulary": [
-        {
-          "word": "急ぐ",
-          "reading": "いそぐ",
-          "meaning": "bergegas"
-        },
-        {
-          "word": "急に",
-          "reading": "きゅうに",
-          "meaning": "mendesak; tiba-tiba"
-        }
-      ]
-    },
-    {
-      "heading": "rendah",
-      "onyomi": [
-        "テイ"
-      ],
-      "kunyomi": [
-        "ひく(い)",
-        "ひく(める)"
-      ],
-      "kanji": "低",
-      "vocabulary": [
-        {
-          "word": "低い",
-          "reading": "ひくい",
-          "meaning": "rendah"
-        },
-        {
-          "word": "低温",
-          "reading": "ていおん",
-          "meaning": "rendah"
-        }
-      ]
-    },
-    {
-      "heading": "luas",
-      "onyomi": [
-        "コウ"
-      ],
-      "kunyomi": [
-        "ひろ(い)",
-        "ひろ(がる)"
-      ],
-      "kanji": "広",
-      "vocabulary": [
-        {
-          "word": "広い",
-          "reading": "ひろい",
-          "meaning": "luas"
-        },
-        {
-          "word": "広場",
-          "reading": "ひろば",
-          "meaning": "luas"
-        }
-      ]
-    },
-    {
-      "heading": "pendek",
-      "onyomi": [
-        "タン"
-      ],
-      "kunyomi": [
-        "みじか(い)"
-      ],
-      "kanji": "短",
-      "vocabulary": [
-        {
-          "word": "短い",
-          "reading": "みじかい",
-          "meaning": "pendek"
-        },
-        {
-          "word": "短時間",
-          "reading": "たんじかん",
-          "meaning": "pendek"
-        }
-      ]
-    },
-    {
-      "heading": "baik",
-      "onyomi": [
-        "リョウ"
-      ],
-      "kunyomi": [
-        "よ(い)"
-      ],
-      "kanji": "良",
-      "vocabulary": [
-        {
-          "word": "良い",
-          "reading": "よい",
-          "meaning": "baik"
-        },
-        {
-          "word": "仲良し",
-          "reading": "なかよし",
-          "meaning": "baik"
-        }
-      ]
-    },
-    {
-      "heading": "buruk",
-      "onyomi": [
-        "アク",
-        "オ"
-      ],
-      "kunyomi": [
-        "わる(い)"
-      ],
-      "kanji": "悪",
-      "vocabulary": [
-        {
-          "word": "悪い",
-          "reading": "わるい",
-          "meaning": "buruk"
-        },
-        {
-          "word": "悪口",
-          "reading": "わるぐち",
-          "meaning": "buruk"
-        }
-      ]
-    },
-    {
-      "heading": "benar; tepat",
-      "onyomi": [
-        "セイ",
-        "ショウ"
-      ],
-      "kunyomi": [
-        "ただ(しい)",
-        "ただ(す)"
-      ],
-      "kanji": "正",
-      "vocabulary": [
-        {
-          "word": "正しい",
-          "reading": "ただしい",
-          "meaning": "benar"
-        },
-        {
-          "word": "正月",
-          "reading": "しょうがつ",
-          "meaning": "benar; tepat"
-        }
-      ]
-    },
-    {
-      "heading": "aneh; berubah",
-      "onyomi": [
-        "ヘン"
-      ],
-      "kunyomi": [
-        "か(わる)",
-        "か(える)"
-      ],
-      "kanji": "変",
-      "vocabulary": [
-        {
-          "word": "変わる",
-          "reading": "かわる",
-          "meaning": "berubah"
-        },
-        {
-          "word": "大変",
-          "reading": "たいへん",
-          "meaning": "aneh; berubah"
-        }
-      ]
-    },
-    {
-      "heading": "merah",
-      "onyomi": [
-        "セキ",
-        "シャク"
-      ],
-      "kunyomi": [
-        "あか",
-        "あか(い)"
-      ],
-      "kanji": "赤",
-      "vocabulary": [
-        {
-          "word": "赤い",
-          "reading": "あかい",
-          "meaning": "merah"
-        },
-        {
-          "word": "赤ちゃん",
-          "reading": "あかちゃん",
-          "meaning": "merah"
-        }
-      ]
-    },
-    {
-      "heading": "biru",
-      "onyomi": [
-        "セイ",
-        "ショウ"
-      ],
-      "kunyomi": [
-        "あお",
-        "あお(い)"
-      ],
-      "kanji": "青",
-      "vocabulary": [
-        {
-          "word": "青い",
-          "reading": "あおい",
-          "meaning": "biru"
-        },
-        {
-          "word": "青空",
-          "reading": "あおぞら",
-          "meaning": "biru"
-        }
-      ]
-    },
-    {
-      "heading": "hitam",
-      "onyomi": [
-        "コク"
-      ],
-      "kunyomi": [
-        "くろ",
-        "くろ(い)"
-      ],
-      "kanji": "黒",
-      "vocabulary": [
-        {
-          "word": "黒い",
-          "reading": "くろい",
-          "meaning": "hitam"
-        },
-        {
-          "word": "黒板",
-          "reading": "こくばん",
-          "meaning": "hitam"
-        }
-      ]
-    },
-    {
-      "heading": "memantul; menayangkan",
-      "onyomi": [
-        "エイ"
-      ],
-      "kunyomi": [
-        "うつ(る)",
-        "うつ(す)"
-      ],
-      "kanji": "映",
-      "vocabulary": [
-        {
-          "word": "映画",
-          "reading": "えいが",
-          "meaning": "film"
-        },
-        {
-          "word": "映る",
-          "reading": "うつる",
-          "meaning": "memantul; menayangkan"
-        }
-      ]
-    },
-    {
-      "heading": "gambar; lukisan",
-      "onyomi": [
-        "ガ",
-        "カク"
-      ],
-      "kunyomi": [],
-      "kanji": "画",
-      "vocabulary": [
-        {
-          "word": "映画",
-          "reading": "えいが",
-          "meaning": "film"
-        },
-        {
-          "word": "画家",
-          "reading": "がか",
-          "meaning": "gambar; lukisan"
-        }
-      ]
-    },
-    {
-      "heading": "suara; bunyi",
-      "onyomi": [
-        "オン",
-        "イン"
-      ],
-      "kunyomi": [
-        "おと",
-        "ね"
-      ],
-      "kanji": "音",
-      "vocabulary": [
-        {
-          "word": "音",
-          "reading": "おと",
-          "meaning": "suara; bunyi"
-        },
-        {
-          "word": "音楽",
-          "reading": "おんがく",
-          "meaning": "musik"
-        }
-      ]
-    },
-    {
-      "heading": "musik; menyenangkan",
-      "onyomi": [
-        "ガク",
-        "ラク"
-      ],
-      "kunyomi": [
-        "たの(しい)",
-        "たの(しむ)"
-      ],
-      "kanji": "楽",
-      "vocabulary": [
-        {
-          "word": "音楽",
-          "reading": "おんがく",
-          "meaning": "musik"
-        },
-        {
-          "word": "楽しい",
-          "reading": "たのしい",
-          "meaning": "musik; menyenangkan"
-        }
-      ]
-    },
-    {
-      "heading": "lagu; bernyanyi",
-      "onyomi": [
-        "カ"
-      ],
-      "kunyomi": [
-        "うた",
-        "うた(う)"
-      ],
-      "kanji": "歌",
-      "vocabulary": [
-        {
-          "word": "歌",
-          "reading": "うた",
-          "meaning": "lagu"
-        },
-        {
-          "word": "歌う",
-          "reading": "うたう",
-          "meaning": "lagu; bernyanyi"
-        }
-      ]
-    },
-    {
-      "heading": "menyalin; memotret",
-      "onyomi": [
-        "シャ"
-      ],
-      "kunyomi": [
-        "うつ(す)",
-        "うつ(る)"
-      ],
-      "kanji": "写",
-      "vocabulary": [
-        {
-          "word": "写真",
-          "reading": "しゃしん",
-          "meaning": "foto"
-        },
-        {
-          "word": "写す",
-          "reading": "うつす",
-          "meaning": "menyalin; memotret"
-        }
-      ]
-    },
-    {
-      "heading": "benar; nyata",
-      "onyomi": [
-        "シン"
-      ],
-      "kunyomi": [
-        "ま"
-      ],
-      "kanji": "真",
-      "vocabulary": [
-        {
-          "word": "写真",
-          "reading": "しゃしん",
-          "meaning": "foto"
-        },
-        {
-          "word": "真ん中",
-          "reading": "まんなか",
-          "meaning": "benar; nyata"
-        }
-      ]
-    },
-    {
-      "heading": "perjalanan",
-      "onyomi": [
-        "リョ"
-      ],
-      "kunyomi": [
-        "たび"
-      ],
-      "kanji": "旅",
-      "vocabulary": [
-        {
-          "word": "旅",
-          "reading": "たび",
-          "meaning": "perjalanan"
-        },
-        {
-          "word": "旅行",
-          "reading": "りょこう",
-          "meaning": "perjalanan"
-        }
-      ]
-    },
-    {
-      "heading": "dunia; generasi",
-      "onyomi": [
-        "セイ",
-        "セ"
-      ],
-      "kunyomi": [
-        "よ"
-      ],
-      "kanji": "世",
-      "vocabulary": [
-        {
-          "word": "世界",
-          "reading": "せかい",
-          "meaning": "dunia"
-        },
-        {
-          "word": "世の中",
-          "reading": "よのなか",
-          "meaning": "dunia; generasi"
-        }
-      ]
-    },
-    {
-      "heading": "dunia; batas",
-      "onyomi": [
-        "カイ"
-      ],
-      "kunyomi": [],
-      "kanji": "界",
-      "vocabulary": [
-        {
-          "word": "世界",
-          "reading": "せかい",
-          "meaning": "dunia"
-        },
-        {
-          "word": "業界",
-          "reading": "ぎょうかい",
-          "meaning": "dunia; batas"
-        }
-      ]
-    },
-    {
-      "heading": "melayani; melakukan (dalam pekerjaan)",
-      "onyomi": [
-        "シ",
-        "ジ"
-      ],
-      "kunyomi": [
-        "つか(える)"
-      ],
-      "kanji": "仕",
-      "vocabulary": [
-        {
-          "word": "仕事",
-          "reading": "しごと",
-          "meaning": "pekerjaan"
-        },
-        {
-          "word": "仕方",
-          "reading": "しかた",
-          "meaning": "melayani; melakukan (dalam pekerjaan)"
-        }
-      ]
-    },
-    {
-      "heading": "hal; perkara",
-      "onyomi": [
-        "ジ",
-        "ズ"
-      ],
-      "kunyomi": [
-        "こと"
-      ],
-      "kanji": "事",
-      "vocabulary": [
-        {
-          "word": "仕事",
-          "reading": "しごと",
-          "meaning": "pekerjaan"
-        },
-        {
-          "word": "食事",
-          "reading": "しょくじ",
-          "meaning": "hal; perkara"
-        }
-      ]
-    },
-    {
-      "heading": "perak",
-      "onyomi": [
-        "ギン"
-      ],
-      "kunyomi": [],
-      "kanji": "銀",
-      "vocabulary": [
-        {
-          "word": "銀行",
-          "reading": "ぎんこう",
-          "meaning": "bank"
-        },
-        {
-          "word": "銀色",
-          "reading": "ぎんいろ",
-          "meaning": "perak"
-        }
-      ]
-    },
-    {
-      "heading": "anggota; staf",
-      "onyomi": [
-        "イン"
-      ],
-      "kunyomi": [],
-      "kanji": "員",
-      "vocabulary": [
-        {
-          "word": "会社員",
-          "reading": "かいしゃいん",
-          "meaning": "pegawai perusahaan"
-        },
-        {
-          "word": "店員",
-          "reading": "てんいん",
-          "meaning": "anggota; staf"
-        }
-      ]
-    },
-    {
-      "heading": "kedokteran; dokter",
-      "onyomi": [
-        "イ"
-      ],
-      "kunyomi": [],
-      "kanji": "医",
-      "vocabulary": [
-        {
-          "word": "医者",
-          "reading": "いしゃ",
-          "meaning": "dokter"
-        },
-        {
-          "word": "医学",
-          "reading": "いがく",
-          "meaning": "kedokteran; dokter"
-        }
-      ]
-    },
-    {
-      "heading": "orang",
-      "onyomi": [
-        "シャ"
-      ],
-      "kunyomi": [
-        "もの"
-      ],
-      "kanji": "者",
-      "vocabulary": [
-        {
-          "word": "医者",
-          "reading": "いしゃ",
-          "meaning": "dokter"
-        },
-        {
-          "word": "若者",
-          "reading": "わかもの",
-          "meaning": "orang"
-        }
-      ]
-    },
-    {
-      "heading": "bekerja",
-      "onyomi": [
-        "ドウ"
-      ],
-      "kunyomi": [
-        "はたら(く)"
-      ],
-      "kanji": "働",
-      "vocabulary": [
-        {
-          "word": "働く",
-          "reading": "はたらく",
-          "meaning": "bekerja"
-        },
-        {
-          "word": "労働",
-          "reading": "ろうどう",
-          "meaning": "bekerja"
-        }
-      ]
-    },
-    {
-      "heading": "toko; atap",
-      "onyomi": [
-        "オク"
-      ],
-      "kunyomi": [
-        "や"
-      ],
-      "kanji": "屋",
-      "vocabulary": [
-        {
-          "word": "部屋",
-          "reading": "へや",
-          "meaning": "kamar"
-        },
-        {
-          "word": "本屋",
-          "reading": "ほんや",
-          "meaning": "toko; atap"
-        }
-      ]
-    },
-    {
-      "heading": "menghasilkan; melahirkan",
-      "onyomi": [
-        "サン"
-      ],
-      "kunyomi": [
-        "う(む)",
-        "う(まれる)"
-      ],
-      "kanji": "産",
-      "vocabulary": [
-        {
-          "word": "産業",
-          "reading": "さんぎょう",
-          "meaning": "industri"
-        },
-        {
-          "word": "お土産",
-          "reading": "おみやげ",
-          "meaning": "menghasilkan; melahirkan"
-        }
-      ]
-    },
-    {
-      "heading": "usaha; pekerjaan",
-      "onyomi": [
-        "ギョウ",
-        "ゴウ"
-      ],
-      "kunyomi": [
-        "わざ"
-      ],
-      "kanji": "業",
-      "vocabulary": [
-        {
-          "word": "産業",
-          "reading": "さんぎょう",
-          "meaning": "industri"
-        },
-        {
-          "word": "授業",
-          "reading": "じゅぎょう",
-          "meaning": "usaha; pekerjaan"
-        }
-      ]
-    },
-    {
-      "heading": "hutan kecil",
-      "onyomi": [
-        "リン"
-      ],
-      "kunyomi": [
-        "はやし"
-      ],
-      "kanji": "林",
-      "vocabulary": [
-        {
-          "word": "林",
-          "reading": "はやし",
-          "meaning": "hutan kecil"
-        },
-        {
-          "word": "森林",
-          "reading": "しんりん",
-          "meaning": "hutan kecil"
-        }
-      ]
-    },
-    {
-      "heading": "hutan",
-      "onyomi": [
-        "シン"
-      ],
-      "kunyomi": [
-        "もり"
-      ],
-      "kanji": "森",
-      "vocabulary": [
-        {
-          "word": "森",
-          "reading": "もり",
-          "meaning": "hutan"
-        },
-        {
-          "word": "森林",
-          "reading": "しんりん",
-          "meaning": "hutan"
-        }
-      ]
-    },
-    {
-      "heading": "tanah; bumi",
-      "onyomi": [
-        "チ",
-        "ジ"
-      ],
-      "kunyomi": [],
-      "kanji": "地",
-      "vocabulary": [
-        {
-          "word": "地図",
-          "reading": "ちず",
-          "meaning": "peta"
-        },
-        {
-          "word": "地下",
-          "reading": "ちか",
-          "meaning": "tanah; bumi"
-        }
-      ]
-    },
-    {
-      "heading": "kolam",
-      "onyomi": [
-        "チ"
-      ],
-      "kunyomi": [
-        "いけ"
-      ],
-      "kanji": "池",
-      "vocabulary": [
-        {
-          "word": "池",
-          "reading": "いけ",
-          "meaning": "kolam"
-        },
-        {
-          "word": "電池",
-          "reading": "でんち",
-          "meaning": "kolam"
-        }
-      ]
-    },
-    {
-      "heading": "laut",
-      "onyomi": [
-        "カイ"
-      ],
-      "kunyomi": [
-        "うみ"
-      ],
-      "kanji": "海",
-      "vocabulary": [
-        {
-          "word": "海",
-          "reading": "うみ",
-          "meaning": "laut"
-        },
-        {
-          "word": "海外",
-          "reading": "かいがい",
-          "meaning": "laut"
-        }
-      ]
-    },
-    {
-      "heading": "samudra; barat",
-      "onyomi": [
-        "ヨウ"
-      ],
-      "kunyomi": [],
-      "kanji": "洋",
-      "vocabulary": [
-        {
-          "word": "太平洋",
-          "reading": "たいへいよう",
-          "meaning": "Samudra Pasifik"
-        },
-        {
-          "word": "洋服",
-          "reading": "ようふく",
-          "meaning": "samudra; barat"
-        }
-      ]
-    },
-    {
-      "heading": "salju",
-      "onyomi": [
-        "セツ"
-      ],
-      "kunyomi": [
-        "ゆき"
-      ],
-      "kanji": "雪",
-      "vocabulary": [
-        {
-          "word": "雪",
-          "reading": "ゆき",
-          "meaning": "salju"
-        },
-        {
-          "word": "大雪",
-          "reading": "おおゆき",
-          "meaning": "salju"
-        }
-      ]
-    },
-    {
-      "heading": "cahaya; bersinar",
-      "onyomi": [
-        "コウ"
-      ],
-      "kunyomi": [
-        "ひか(る)",
-        "ひかり"
-      ],
-      "kanji": "光",
-      "vocabulary": [
-        {
-          "word": "光",
-          "reading": "ひかり",
-          "meaning": "cahaya"
-        },
-        {
-          "word": "光る",
-          "reading": "ひかる",
-          "meaning": "cahaya; bersinar"
-        }
-      ]
-    },
-    {
-      "heading": "alas; panggung; kata bantu hitung",
-      "onyomi": [
-        "ダイ",
-        "タイ"
-      ],
-      "kunyomi": [],
-      "kanji": "台",
-      "vocabulary": [
-        {
-          "word": "台風",
-          "reading": "たいふう",
-          "meaning": "topan"
-        },
-        {
-          "word": "台所",
-          "reading": "だいどころ",
-          "meaning": "alas; panggung; kata bantu hitung"
-        }
-      ]
-    },
-    {
-      "heading": "angin; gaya",
-      "onyomi": [
-        "フウ",
-        "フ"
-      ],
-      "kunyomi": [
-        "かぜ",
-        "かざ"
-      ],
-      "kanji": "風",
-      "vocabulary": [
-        {
-          "word": "風",
-          "reading": "かぜ",
-          "meaning": "angin; gaya"
-        },
-        {
-          "word": "台風",
-          "reading": "たいふう",
-          "meaning": "topan"
-        }
-      ]
-    },
-    {
-      "heading": "musim",
-      "onyomi": [
-        "キ"
-      ],
-      "kunyomi": [],
-      "kanji": "季",
-      "vocabulary": [
-        {
-          "word": "季節",
-          "reading": "きせつ",
-          "meaning": "musim"
-        },
-        {
-          "word": "四季",
-          "reading": "しき",
-          "meaning": "musim"
-        }
-      ]
-    },
-    {
-      "heading": "musim; ruas",
-      "onyomi": [
-        "セツ",
-        "セチ"
-      ],
-      "kunyomi": [
-        "ふし"
-      ],
-      "kanji": "節",
-      "vocabulary": [
-        {
-          "word": "季節",
-          "reading": "きせつ",
-          "meaning": "musim"
-        },
-        {
-          "word": "節分",
-          "reading": "せつぶん",
-          "meaning": "musim; ruas"
-        }
-      ]
-    },
-    {
-      "heading": "musim semi",
-      "onyomi": [
-        "シュン"
-      ],
-      "kunyomi": [
-        "はる"
-      ],
-      "kanji": "春",
-      "vocabulary": [
-        {
-          "word": "春",
-          "reading": "はる",
-          "meaning": "musim semi"
-        },
-        {
-          "word": "春休み",
-          "reading": "はるやすみ",
-          "meaning": "musim semi"
-        }
-      ]
-    },
-    {
-      "heading": "musim panas",
-      "onyomi": [
-        "カ",
-        "ゲ"
-      ],
-      "kunyomi": [
-        "なつ"
-      ],
-      "kanji": "夏",
-      "vocabulary": [
-        {
-          "word": "夏",
-          "reading": "なつ",
-          "meaning": "musim panas"
-        },
-        {
-          "word": "夏休み",
-          "reading": "なつやすみ",
-          "meaning": "musim panas"
-        }
-      ]
-    },
-    {
-      "heading": "musim gugur",
-      "onyomi": [
-        "シュウ"
-      ],
-      "kunyomi": [
-        "あき"
-      ],
-      "kanji": "秋",
-      "vocabulary": [
-        {
-          "word": "秋",
-          "reading": "あき",
-          "meaning": "musim gugur"
-        },
-        {
-          "word": "秋分",
-          "reading": "しゅうぶん",
-          "meaning": "musim gugur"
-        }
-      ]
-    },
-    {
-      "heading": "musim dingin",
-      "onyomi": [
-        "トウ"
-      ],
-      "kunyomi": [
-        "ふゆ"
-      ],
-      "kanji": "冬",
-      "vocabulary": [
-        {
-          "word": "冬",
-          "reading": "ふゆ",
-          "meaning": "musim dingin"
-        },
-        {
-          "word": "冬休み",
-          "reading": "ふゆやすみ",
-          "meaning": "musim dingin"
-        }
-      ]
-    },
-    {
-      "heading": "panas (cuaca)",
-      "onyomi": [
-        "ショ"
-      ],
-      "kunyomi": [
-        "あつ(い)"
-      ],
-      "kanji": "暑",
-      "vocabulary": [
-        {
-          "word": "暑い",
-          "reading": "あつい",
-          "meaning": "panas (cuaca)"
-        },
-        {
-          "word": "暑さ",
-          "reading": "あつさ",
-          "meaning": "panas (cuaca)"
-        }
-      ]
-    },
-    {
-      "heading": "dingin (cuaca)",
-      "onyomi": [
-        "カン"
-      ],
-      "kunyomi": [
-        "さむ(い)"
-      ],
-      "kanji": "寒",
-      "vocabulary": [
-        {
-          "word": "寒い",
-          "reading": "さむい",
-          "meaning": "dingin (cuaca)"
-        },
-        {
-          "word": "寒さ",
-          "reading": "さむさ",
-          "meaning": "dingin (cuaca)"
-        }
-      ]
-    },
-    {
-      "heading": "hangat",
-      "onyomi": [
-        "ダン"
-      ],
-      "kunyomi": [
-        "あたた(かい)",
-        "あたた(める)"
-      ],
-      "kanji": "暖",
-      "vocabulary": [
-        {
-          "word": "暖かい",
-          "reading": "あたたかい",
-          "meaning": "hangat"
-        },
-        {
-          "word": "暖房",
-          "reading": "だんぼう",
-          "meaning": "hangat"
-        }
-      ]
-    },
-    {
-      "heading": "sejuk",
-      "onyomi": [
-        "リョウ"
-      ],
-      "kunyomi": [
-        "すず(しい)"
-      ],
-      "kanji": "涼",
-      "vocabulary": [
-        {
-          "word": "涼しい",
-          "reading": "すずしい",
-          "meaning": "sejuk"
-        },
-        {
-          "word": "涼風",
-          "reading": "りょうふう",
-          "meaning": "sejuk"
-        }
-      ]
-    },
-    {
-      "heading": "tubuh",
-      "onyomi": [
-        "タイ",
-        "テイ"
-      ],
-      "kunyomi": [
-        "からだ"
-      ],
-      "kanji": "体",
-      "vocabulary": [
-        {
-          "word": "体",
-          "reading": "からだ",
-          "meaning": "tubuh"
-        },
-        {
-          "word": "体重",
-          "reading": "たいじゅう",
-          "meaning": "tubuh"
-        }
-      ]
-    },
-    {
-      "heading": "kepala",
-      "onyomi": [
-        "トウ",
-        "ズ",
-        "ト"
-      ],
-      "kunyomi": [
-        "あたま"
-      ],
-      "kanji": "頭",
-      "vocabulary": [
-        {
-          "word": "頭",
-          "reading": "あたま",
-          "meaning": "kepala"
-        },
-        {
-          "word": "頭痛",
-          "reading": "ずつう",
-          "meaning": "kepala"
-        }
-      ]
-    },
-    {
-      "heading": "wajah",
-      "onyomi": [
-        "ガン"
-      ],
-      "kunyomi": [
-        "かお"
-      ],
-      "kanji": "顔",
-      "vocabulary": [
-        {
-          "word": "顔",
-          "reading": "かお",
-          "meaning": "wajah"
-        },
-        {
-          "word": "笑顔",
-          "reading": "えがお",
-          "meaning": "wajah"
-        }
-      ]
-    },
-    {
-      "heading": "leher; kepala",
-      "onyomi": [
-        "シュ"
-      ],
-      "kunyomi": [
-        "くび"
-      ],
-      "kanji": "首",
-      "vocabulary": [
-        {
-          "word": "首",
-          "reading": "くび",
-          "meaning": "leher"
-        },
-        {
-          "word": "首都",
-          "reading": "しゅと",
-          "meaning": "leher; kepala"
-        }
-      ]
-    },
-    {
-      "heading": "hati; pikiran",
-      "onyomi": [
-        "シン"
-      ],
-      "kunyomi": [
-        "こころ"
-      ],
-      "kanji": "心",
-      "vocabulary": [
-        {
-          "word": "心",
-          "reading": "こころ",
-          "meaning": "hati; pikiran"
-        },
-        {
-          "word": "心配",
-          "reading": "しんぱい",
-          "meaning": "hati; pikiran"
-        }
-      ]
-    },
-    {
-      "heading": "suara",
-      "onyomi": [
-        "セイ",
-        "ショウ"
-      ],
-      "kunyomi": [
-        "こえ",
-        "こわ"
-      ],
-      "kanji": "声",
-      "vocabulary": [
-        {
-          "word": "声",
-          "reading": "こえ",
-          "meaning": "suara"
-        },
-        {
-          "word": "大声",
-          "reading": "おおごえ",
-          "meaning": "suara"
-        }
-      ]
-    },
-    {
-      "heading": "penyakit",
-      "onyomi": [
-        "ビョウ",
-        "ヘイ"
-      ],
-      "kunyomi": [
-        "や(む)",
-        "やまい"
-      ],
-      "kanji": "病",
-      "vocabulary": [
-        {
-          "word": "病気",
-          "reading": "びょうき",
-          "meaning": "penyakit"
-        },
-        {
-          "word": "病院",
-          "reading": "びょういん",
-          "meaning": "rumah sakit"
-        }
-      ]
-    },
-    {
-      "heading": "obat",
-      "onyomi": [
-        "ヤク"
-      ],
-      "kunyomi": [
-        "くすり"
-      ],
-      "kanji": "薬",
-      "vocabulary": [
-        {
-          "word": "薬",
-          "reading": "くすり",
-          "meaning": "obat"
-        },
-        {
-          "word": "薬局",
-          "reading": "やっきょく",
-          "meaning": "obat"
-        }
-      ]
-    },
-    {
-      "heading": "jurusan; bidang pelajaran",
-      "onyomi": [
-        "カ"
-      ],
-      "kunyomi": [],
-      "kanji": "科",
-      "vocabulary": [
-        {
-          "word": "内科",
-          "reading": "ないか",
-          "meaning": "penyakit dalam"
-        },
-        {
-          "word": "科学",
-          "reading": "かがく",
-          "meaning": "jurusan; bidang pelajaran"
-        }
-      ]
-    },
-    {
-      "heading": "dalam",
-      "onyomi": [
-        "ナイ",
-        "ダイ"
-      ],
-      "kunyomi": [
-        "うち"
-      ],
-      "kanji": "内",
-      "vocabulary": [
-        {
-          "word": "内",
-          "reading": "うち",
-          "meaning": "dalam"
-        },
-        {
-          "word": "国内",
-          "reading": "こくない",
-          "meaning": "dalam"
-        }
-      ]
-    },
-    {
-      "heading": "pagi",
-      "onyomi": [
-        "チョウ"
-      ],
-      "kunyomi": [
-        "あさ"
-      ],
-      "kanji": "朝",
-      "vocabulary": [
-        {
-          "word": "朝",
-          "reading": "あさ",
-          "meaning": "pagi"
-        },
-        {
-          "word": "朝食",
-          "reading": "ちょうしょく",
-          "meaning": "pagi"
-        }
-      ]
-    },
-    {
-      "heading": "siang",
-      "onyomi": [
-        "チュウ"
-      ],
-      "kunyomi": [
-        "ひる"
-      ],
-      "kanji": "昼",
-      "vocabulary": [
-        {
-          "word": "昼",
-          "reading": "ひる",
-          "meaning": "siang"
-        },
-        {
-          "word": "昼食",
-          "reading": "ちゅうしょく",
-          "meaning": "siang"
-        }
-      ]
-    },
-    {
-      "heading": "malam",
-      "onyomi": [
-        "ヤ"
-      ],
-      "kunyomi": [
-        "よる",
-        "よ"
-      ],
-      "kanji": "夜",
-      "vocabulary": [
-        {
-          "word": "夜",
-          "reading": "よる",
-          "meaning": "malam"
-        },
-        {
-          "word": "今夜",
-          "reading": "こんや",
-          "meaning": "malam"
-        }
-      ]
-    },
-    {
-      "heading": "sore",
-      "onyomi": [
-        "セキ"
-      ],
-      "kunyomi": [
-        "ゆう"
-      ],
-      "kanji": "夕",
-      "vocabulary": [
-        {
-          "word": "夕方",
-          "reading": "ゆうがた",
-          "meaning": "sore"
-        },
-        {
-          "word": "夕食",
-          "reading": "ゆうしょく",
-          "meaning": "sore"
-        }
-      ]
-    },
-    {
-      "heading": "arah; orang; cara",
-      "onyomi": [
-        "ホウ"
-      ],
-      "kunyomi": [
-        "かた"
-      ],
-      "kanji": "方",
-      "vocabulary": [
-        {
-          "word": "夕方",
-          "reading": "ゆうがた",
-          "meaning": "sore"
-        },
-        {
-          "word": "方法",
-          "reading": "ほうほう",
-          "meaning": "arah; orang; cara"
-        }
-      ]
-    },
-    {
-      "heading": "malam",
-      "onyomi": [
-        "バン"
-      ],
-      "kunyomi": [],
-      "kanji": "晩",
-      "vocabulary": [
-        {
-          "word": "今晩",
-          "reading": "こんばん",
-          "meaning": "malam"
-        },
-        {
-          "word": "毎晩",
-          "reading": "まいばん",
-          "meaning": "malam"
-        }
-      ]
-    },
-    {
-      "heading": "mengukur; rencana",
-      "onyomi": [
-        "ケイ"
-      ],
-      "kunyomi": [
-        "はか(る)"
-      ],
-      "kanji": "計",
-      "vocabulary": [
-        {
-          "word": "時計",
-          "reading": "とけい",
-          "meaning": "jam"
-        },
-        {
-          "word": "計画",
-          "reading": "けいかく",
-          "meaning": "mengukur; rencana"
-        }
-      ]
-    },
-    {
-      "heading": "hari dalam minggu",
-      "onyomi": [
-        "ヨウ"
-      ],
-      "kunyomi": [],
-      "kanji": "曜",
-      "vocabulary": [
-        {
-          "word": "曜日",
-          "reading": "ようび",
-          "meaning": "hari dalam minggu"
-        },
-        {
-          "word": "月曜日",
-          "reading": "げつようび",
-          "meaning": "hari dalam minggu"
-        }
-      ]
-    },
-    {
-      "heading": "dengan; sejak",
-      "onyomi": [
-        "イ"
-      ],
-      "kunyomi": [],
-      "kanji": "以",
-      "vocabulary": [
-        {
-          "word": "以上",
-          "reading": "いじょう",
-          "meaning": "lebih dari; di atas"
-        },
-        {
-          "word": "以下",
-          "reading": "いか",
-          "meaning": "dengan; sejak"
-        }
-      ]
-    },
-    {
-      "heading": "derajat; kali",
-      "onyomi": [
-        "ド",
-        "ト",
-        "タク"
-      ],
-      "kunyomi": [
-        "たび"
-      ],
-      "kanji": "度",
-      "vocabulary": [
-        {
-          "word": "一度",
-          "reading": "いちど",
-          "meaning": "sekali"
-        },
-        {
-          "word": "今度",
-          "reading": "こんど",
-          "meaning": "derajat; kali"
-        }
-      ]
-    },
-    {
-      "heading": "berhenti; menghentikan",
-      "onyomi": [
-        "シ"
-      ],
-      "kunyomi": [
-        "と(まる)",
-        "と(める)"
-      ],
-      "kanji": "止",
-      "vocabulary": [
-        {
-          "word": "止まる",
-          "reading": "とまる",
-          "meaning": "berhenti"
-        },
-        {
-          "word": "止める",
-          "reading": "とめる",
-          "meaning": "berhenti; menghentikan"
-        }
-      ]
-    },
-    {
-      "heading": "berjalan; langkah",
-      "onyomi": [
-        "ホ",
-        "ブ",
-        "フ"
-      ],
-      "kunyomi": [
-        "ある(く)",
-        "あゆ(む)"
-      ],
-      "kanji": "歩",
-      "vocabulary": [
-        {
-          "word": "歩く",
-          "reading": "あるく",
-          "meaning": "berjalan"
-        },
-        {
-          "word": "散歩",
-          "reading": "さんぽ",
-          "meaning": "jalan-jalan"
-        }
-      ]
-    },
-    {
-      "heading": "berlari",
-      "onyomi": [
-        "ソウ"
-      ],
-      "kunyomi": [
-        "はし(る)"
-      ],
-      "kanji": "走",
-      "vocabulary": [
-        {
-          "word": "走る",
-          "reading": "はしる",
-          "meaning": "berlari"
-        },
-        {
-          "word": "競走",
-          "reading": "きょうそう",
-          "meaning": "berlari"
-        }
-      ]
-    },
-    {
-      "heading": "bangun; terjadi",
-      "onyomi": [
-        "キ"
-      ],
-      "kunyomi": [
-        "お(きる)",
-        "お(こる)",
-        "お(こす)"
-      ],
-      "kanji": "起",
-      "vocabulary": [
-        {
-          "word": "起きる",
-          "reading": "おきる",
-          "meaning": "bangun"
-        },
-        {
-          "word": "起こす",
-          "reading": "おこす",
-          "meaning": "bangun; terjadi"
-        }
-      ]
-    },
-    {
-      "heading": "memegang; memiliki",
-      "onyomi": [
-        "ジ"
-      ],
-      "kunyomi": [
-        "も(つ)"
-      ],
-      "kanji": "持",
-      "vocabulary": [
-        {
-          "word": "持つ",
-          "reading": "もつ",
-          "meaning": "memegang; memiliki"
-        },
-        {
-          "word": "気持ち",
-          "reading": "きもち",
-          "meaning": "memegang; memiliki"
-        }
-      ]
-    },
-    {
-      "heading": "menunggu",
-      "onyomi": [
-        "タイ"
-      ],
-      "kunyomi": [
-        "ま(つ)"
-      ],
-      "kanji": "待",
-      "vocabulary": [
-        {
-          "word": "待つ",
-          "reading": "まつ",
-          "meaning": "menunggu"
-        },
-        {
-          "word": "招待",
-          "reading": "しょうたい",
-          "meaning": "menunggu"
-        }
-      ]
-    },
-    {
-      "heading": "meminjam",
-      "onyomi": [
-        "シャク"
-      ],
-      "kunyomi": [
-        "か(りる)"
-      ],
-      "kanji": "借",
-      "vocabulary": [
-        {
-          "word": "借りる",
-          "reading": "かりる",
-          "meaning": "meminjam"
-        },
-        {
-          "word": "借金",
-          "reading": "しゃっきん",
-          "meaning": "meminjam"
-        }
-      ]
-    },
-    {
-      "heading": "meminjamkan",
-      "onyomi": [
-        "タイ"
-      ],
-      "kunyomi": [
-        "か(す)"
-      ],
-      "kanji": "貸",
-      "vocabulary": [
-        {
-          "word": "貸す",
-          "reading": "かす",
-          "meaning": "meminjamkan"
-        },
-        {
-          "word": "貸し出し",
-          "reading": "かしだし",
-          "meaning": "meminjamkan"
-        }
-      ]
-    },
-    {
-      "heading": "memulai; dimulai",
-      "onyomi": [
-        "シ"
-      ],
-      "kunyomi": [
-        "はじ(める)",
-        "はじ(まる)"
-      ],
-      "kanji": "始",
-      "vocabulary": [
-        {
-          "word": "始める",
-          "reading": "はじめる",
-          "meaning": "memulai sesuatu"
-        },
-        {
-          "word": "始まる",
-          "reading": "はじまる",
-          "meaning": "dimulai"
-        }
-      ]
-    },
-    {
-      "heading": "berakhir; menyelesaikan",
-      "onyomi": [
-        "シュウ"
-      ],
-      "kunyomi": [
-        "お(わる)",
-        "お(える)"
-      ],
-      "kanji": "終",
-      "vocabulary": [
-        {
-          "word": "終わる",
-          "reading": "おわる",
-          "meaning": "selesai; berakhir"
-        },
-        {
-          "word": "終了",
-          "reading": "しゅうりょう",
-          "meaning": "berakhir; menyelesaikan"
-        }
-      ]
-    },
-    {
-      "heading": "rumah; keluarga",
-      "onyomi": [
-        "カ",
-        "ケ"
-      ],
-      "kunyomi": [
-        "いえ",
-        "や"
-      ],
-      "kanji": "家",
-      "vocabulary": [
-        {
-          "word": "家",
-          "reading": "いえ",
-          "meaning": "rumah"
-        },
-        {
-          "word": "家族",
-          "reading": "かぞく",
-          "meaning": "keluarga"
-        }
-      ]
-    },
-    {
-      "heading": "keluarga; suku",
-      "onyomi": [
-        "ゾク"
-      ],
-      "kunyomi": [],
-      "kanji": "族",
-      "vocabulary": [
-        {
-          "word": "家族",
-          "reading": "かぞく",
-          "meaning": "keluarga"
-        },
-        {
-          "word": "民族",
-          "reading": "みんぞく",
-          "meaning": "keluarga; suku"
-        }
-      ]
-    },
-    {
-      "heading": "saya; pribadi",
-      "onyomi": [
-        "シ"
-      ],
-      "kunyomi": [
-        "わたし",
-        "わたくし"
-      ],
-      "kanji": "私",
-      "vocabulary": [
-        {
-          "word": "私",
-          "reading": "わたし",
-          "meaning": "saya"
-        },
-        {
-          "word": "私立",
-          "reading": "しりつ",
-          "meaning": "saya; pribadi"
-        }
-      ]
-    },
-    {
-      "heading": "diri sendiri",
-      "onyomi": [
-        "ジ",
-        "シ"
-      ],
-      "kunyomi": [
-        "みずか(ら)"
-      ],
-      "kanji": "自",
-      "vocabulary": [
-        {
-          "word": "自分",
-          "reading": "じぶん",
-          "meaning": "diri sendiri"
-        },
-        {
-          "word": "自転車",
-          "reading": "じてんしゃ",
-          "meaning": "diri sendiri"
-        }
-      ]
-    },
-    {
-      "heading": "orang tua; akrab",
-      "onyomi": [
-        "シン"
-      ],
-      "kunyomi": [
-        "おや",
-        "した(しい)"
-      ],
-      "kanji": "親",
-      "vocabulary": [
-        {
-          "word": "親",
-          "reading": "おや",
-          "meaning": "orang tua"
-        },
-        {
-          "word": "両親",
-          "reading": "りょうしん",
-          "meaning": "kedua orang tua"
-        }
-      ]
-    },
-    {
-      "heading": "kedua",
-      "onyomi": [
-        "リョウ"
-      ],
-      "kunyomi": [],
-      "kanji": "両",
-      "vocabulary": [
-        {
-          "word": "両親",
-          "reading": "りょうしん",
-          "meaning": "kedua orang tua"
-        },
-        {
-          "word": "両方",
-          "reading": "りょうほう",
-          "meaning": "kedua"
-        }
-      ]
-    },
-    {
-      "heading": "kakak laki-laki",
-      "onyomi": [
-        "ケイ",
-        "キョウ"
-      ],
-      "kunyomi": [
-        "あに"
-      ],
-      "kanji": "兄",
-      "vocabulary": [
-        {
-          "word": "兄",
-          "reading": "あに",
-          "meaning": "kakak laki-laki"
-        },
-        {
-          "word": "兄弟",
-          "reading": "きょうだい",
-          "meaning": "kakak laki-laki"
-        }
-      ]
-    },
-    {
-      "heading": "adik laki-laki",
-      "onyomi": [
-        "テイ",
-        "ダイ"
-      ],
-      "kunyomi": [
-        "おとうと"
-      ],
-      "kanji": "弟",
-      "vocabulary": [
-        {
-          "word": "弟",
-          "reading": "おとうと",
-          "meaning": "adik laki-laki"
-        },
-        {
-          "word": "兄弟",
-          "reading": "きょうだい",
-          "meaning": "adik laki-laki"
-        }
-      ]
-    },
-    {
-      "heading": "kakak perempuan",
-      "onyomi": [
-        "シ"
-      ],
-      "kunyomi": [
-        "あね"
-      ],
-      "kanji": "姉",
-      "vocabulary": [
-        {
-          "word": "姉",
-          "reading": "あね",
-          "meaning": "kakak perempuan"
-        },
-        {
-          "word": "姉妹",
-          "reading": "しまい",
-          "meaning": "kakak perempuan"
-        }
-      ]
-    },
-    {
-      "heading": "adik perempuan",
-      "onyomi": [
-        "マイ"
-      ],
-      "kunyomi": [
-        "いもうと"
-      ],
-      "kanji": "妹",
-      "vocabulary": [
-        {
-          "word": "妹",
-          "reading": "いもうと",
-          "meaning": "adik perempuan"
-        },
-        {
-          "word": "姉妹",
-          "reading": "しまい",
-          "meaning": "adik perempuan"
-        }
-      ]
-    },
-    {
-      "heading": "hidup; aktif",
-      "onyomi": [
-        "カツ"
-      ],
-      "kunyomi": [
-        "い(きる)"
-      ],
-      "kanji": "活",
-      "vocabulary": [
-        {
-          "word": "生活",
-          "reading": "せいかつ",
-          "meaning": "kehidupan sehari-hari"
-        },
-        {
-          "word": "活動",
-          "reading": "かつどう",
-          "meaning": "hidup; aktif"
-        }
-      ]
-    },
-    {
-      "heading": "berputar; kali",
-      "onyomi": [
-        "カイ",
-        "エ"
-      ],
-      "kunyomi": [
-        "まわ(る)",
-        "まわ(す)"
-      ],
-      "kanji": "回",
-      "vocabulary": [
-        {
-          "word": "回る",
-          "reading": "まわる",
-          "meaning": "berputar"
-        },
-        {
-          "word": "一回",
-          "reading": "いっかい",
-          "meaning": "satu kali"
-        }
-      ]
-    },
-    {
-      "heading": "utama; pemilik",
-      "onyomi": [
-        "シュ",
-        "ス"
-      ],
-      "kunyomi": [
-        "ぬし",
-        "おも"
-      ],
-      "kanji": "主",
-      "vocabulary": [
-        {
-          "word": "主人",
-          "reading": "しゅじん",
-          "meaning": "suami; tuan"
-        },
-        {
-          "word": "主人公",
-          "reading": "しゅじんこう",
-          "meaning": "utama; pemilik"
-        }
-      ]
-    },
-    {
-      "heading": "warna",
-      "onyomi": [
-        "ショク",
-        "シキ"
-      ],
-      "kunyomi": [
-        "いろ"
-      ],
-      "kanji": "色",
-      "vocabulary": [
-        {
-          "word": "色",
-          "reading": "いろ",
-          "meaning": "warna"
-        },
-        {
-          "word": "茶色",
-          "reading": "ちゃいろ",
-          "meaning": "warna"
-        }
-      ]
-    },
-    {
-      "heading": "bentuk",
-      "onyomi": [
-        "ケイ",
-        "ギョウ"
-      ],
-      "kunyomi": [
-        "かたち"
-      ],
-      "kanji": "形",
-      "vocabulary": [
-        {
-          "word": "形",
-          "reading": "かたち",
-          "meaning": "bentuk"
-        },
-        {
-          "word": "人形",
-          "reading": "にんぎょう",
-          "meaning": "bentuk"
-        }
-      ]
-    },
-    {
-      "heading": "barang; produk",
-      "onyomi": [
-        "ヒン"
-      ],
-      "kunyomi": [
-        "しな"
-      ],
-      "kanji": "品",
-      "vocabulary": [
-        {
-          "word": "品物",
-          "reading": "しなもの",
-          "meaning": "barang"
-        },
-        {
-          "word": "食品",
-          "reading": "しょくひん",
-          "meaning": "produk makanan"
-        }
-      ]
-    },
-    {
-      "heading": "rakyat; warga",
-      "onyomi": [
-        "ミン"
-      ],
-      "kunyomi": [
-        "たみ"
-      ],
-      "kanji": "民",
-      "vocabulary": [
-        {
-          "word": "国民",
-          "reading": "こくみん",
-          "meaning": "warga negara"
-        },
-        {
-          "word": "民族",
-          "reading": "みんぞく",
-          "meaning": "rakyat; warga"
-        }
-      ]
-    },
-    {
-      "heading": "pakaian",
-      "onyomi": [
-        "フク"
-      ],
-      "kunyomi": [],
-      "kanji": "服",
-      "vocabulary": [
-        {
-          "word": "服",
-          "reading": "ふく",
-          "meaning": "pakaian"
-        },
-        {
-          "word": "洋服",
-          "reading": "ようふく",
-          "meaning": "pakaian"
-        }
-      ]
-    },
-    {
-      "heading": "anjing",
-      "onyomi": [
-        "ケン"
-      ],
-      "kunyomi": [
-        "いぬ"
-      ],
-      "kanji": "犬",
-      "vocabulary": [
-        {
-          "word": "犬",
-          "reading": "いぬ",
-          "meaning": "anjing"
-        },
-        {
-          "word": "子犬",
-          "reading": "こいぬ",
-          "meaning": "anjing"
-        }
-      ]
-    },
-    {
-      "heading": "sama",
-      "onyomi": [
-        "ドウ"
-      ],
-      "kunyomi": [
-        "おな(じ)"
-      ],
-      "kanji": "同",
-      "vocabulary": [
-        {
-          "word": "同じ",
-          "reading": "おなじ",
-          "meaning": "sama"
-        },
-        {
-          "word": "同時",
-          "reading": "どうじ",
-          "meaning": "sama"
-        }
-      ]
-    },
-    {
-      "heading": "beras; Amerika",
-      "onyomi": [
-        "ベイ",
-        "マイ"
-      ],
-      "kunyomi": [
-        "こめ"
-      ],
-      "kanji": "米",
-      "vocabulary": [
-        {
-          "word": "米",
-          "reading": "こめ",
-          "meaning": "beras"
-        },
-        {
-          "word": "米国",
-          "reading": "べいこく",
-          "meaning": "beras; Amerika"
-        }
-      ]
-    },
-    {
-      "heading": "biaya; bahan",
-      "onyomi": [
-        "リョウ"
-      ],
-      "kunyomi": [],
-      "kanji": "料",
-      "vocabulary": [
-        {
-          "word": "料理",
-          "reading": "りょうり",
-          "meaning": "masakan; memasak"
-        },
-        {
-          "word": "料金",
-          "reading": "りょうきん",
-          "meaning": "biaya"
-        }
-      ]
-    },
-    {
-      "heading": "alasan; mengatur",
-      "onyomi": [
-        "リ"
-      ],
-      "kunyomi": [],
-      "kanji": "理",
-      "vocabulary": [
-        {
-          "word": "料理",
-          "reading": "りょうり",
-          "meaning": "masakan; memasak"
-        },
-        {
-          "word": "理由",
-          "reading": "りゆう",
-          "meaning": "alasan; mengatur"
-        }
-      ]
-    },
-    {
-      "heading": "daging",
-      "onyomi": [
-        "ニク"
-      ],
-      "kunyomi": [],
-      "kanji": "肉",
-      "vocabulary": [
-        {
-          "word": "肉",
-          "reading": "にく",
-          "meaning": "daging"
-        },
-        {
-          "word": "牛肉",
-          "reading": "ぎゅうにく",
-          "meaning": "daging"
-        }
-      ]
-    },
-    {
-      "heading": "burung",
-      "onyomi": [
-        "チョウ"
-      ],
-      "kunyomi": [
-        "とり"
-      ],
-      "kanji": "鳥",
-      "vocabulary": [
-        {
-          "word": "鳥",
-          "reading": "とり",
-          "meaning": "burung"
-        },
-        {
-          "word": "焼き鳥",
-          "reading": "やきとり",
-          "meaning": "burung"
-        }
-      ]
-    },
-    {
-      "heading": "ladang; liar",
-      "onyomi": [
-        "ヤ"
-      ],
-      "kunyomi": [
-        "の"
-      ],
-      "kanji": "野",
-      "vocabulary": [
-        {
-          "word": "野菜",
-          "reading": "やさい",
-          "meaning": "sayuran"
-        },
-        {
-          "word": "野球",
-          "reading": "やきゅう",
-          "meaning": "ladang; liar"
-        }
-      ]
-    },
-    {
-      "heading": "sayuran",
-      "onyomi": [
-        "サイ"
-      ],
-      "kunyomi": [
-        "な"
-      ],
-      "kanji": "菜",
-      "vocabulary": [
-        {
-          "word": "野菜",
-          "reading": "やさい",
-          "meaning": "sayuran"
-        },
-        {
-          "word": "菜の花",
-          "reading": "なのはな",
-          "meaning": "sayuran"
-        }
-      ]
-    },
-    {
-      "heading": "teh",
-      "onyomi": [
-        "チャ",
-        "サ"
-      ],
-      "kunyomi": [],
-      "kanji": "茶",
-      "vocabulary": [
-        {
-          "word": "お茶",
-          "reading": "おちゃ",
-          "meaning": "teh"
-        },
-        {
-          "word": "茶色",
-          "reading": "ちゃいろ",
-          "meaning": "teh"
-        }
-      ]
-    },
-    {
-      "heading": "nasi; makanan",
-      "onyomi": [
-        "ハン"
-      ],
-      "kunyomi": [
-        "めし"
-      ],
-      "kanji": "飯",
-      "vocabulary": [
-        {
-          "word": "ご飯",
-          "reading": "ごはん",
-          "meaning": "nasi; makanan"
-        },
-        {
-          "word": "朝ご飯",
-          "reading": "あさごはん",
-          "meaning": "nasi; makanan"
-        }
-      ]
-    },
-    {
-      "heading": "rasa",
-      "onyomi": [
-        "ミ"
-      ],
-      "kunyomi": [
-        "あじ",
-        "あじ(わう)"
-      ],
-      "kanji": "味",
-      "vocabulary": [
-        {
-          "word": "味",
-          "reading": "あじ",
-          "meaning": "rasa"
-        },
-        {
-          "word": "意味",
-          "reading": "いみ",
-          "meaning": "arti; makna"
-        }
-      ]
-    },
-    {
-      "heading": "generasi; pengganti",
-      "onyomi": [
-        "ダイ",
-        "タイ"
-      ],
-      "kunyomi": [
-        "か(わる)",
-        "か(える)",
-        "よ"
-      ],
-      "kanji": "代",
-      "vocabulary": [
-        {
-          "word": "時代",
-          "reading": "じだい",
-          "meaning": "zaman"
-        },
-        {
-          "word": "代わる",
-          "reading": "かわる",
-          "meaning": "generasi; pengganti"
-        }
-      ]
-    },
-    {
-      "heading": "menggunakan",
-      "onyomi": [
-        "シ"
-      ],
-      "kunyomi": [
-        "つか(う)"
-      ],
-      "kanji": "使",
-      "vocabulary": [
-        {
-          "word": "使う",
-          "reading": "つかう",
-          "meaning": "menggunakan"
-        },
-        {
-          "word": "大使",
-          "reading": "たいし",
-          "meaning": "menggunakan"
-        }
-      ]
-    },
-    {
-      "heading": "membuat",
-      "onyomi": [
-        "サク",
-        "サ"
-      ],
-      "kunyomi": [
-        "つく(る)"
-      ],
-      "kanji": "作",
-      "vocabulary": [
-        {
-          "word": "作る",
-          "reading": "つくる",
-          "meaning": "membuat"
-        },
-        {
-          "word": "作文",
-          "reading": "さくぶん",
-          "meaning": "membuat"
-        }
-      ]
-    },
-    {
-      "heading": "perubahan; -isasi",
-      "onyomi": [
-        "カ",
-        "ケ"
-      ],
-      "kunyomi": [
-        "ば(ける)",
-        "ば(かす)"
-      ],
-      "kanji": "化",
-      "vocabulary": [
-        {
-          "word": "文化",
-          "reading": "ぶんか",
-          "meaning": "budaya"
-        },
-        {
-          "word": "変化",
-          "reading": "へんか",
-          "meaning": "perubahan; -isasi"
-        }
-      ]
-    },
-    {
-      "heading": "percaya",
-      "onyomi": [
-        "シン"
-      ],
-      "kunyomi": [
-        "しん(じる)"
-      ],
-      "kanji": "信",
-      "vocabulary": [
-        {
-          "word": "信じる",
-          "reading": "しんじる",
-          "meaning": "percaya"
-        },
-        {
-          "word": "自信",
-          "reading": "じしん",
-          "meaning": "percaya"
-        }
-      ]
-    },
-    {
-      "heading": "maju; melanjutkan",
-      "onyomi": [
-        "シン"
-      ],
-      "kunyomi": [
-        "すす(む)",
-        "すす(める)"
-      ],
-      "kanji": "進",
-      "vocabulary": [
-        {
-          "word": "進む",
-          "reading": "すすむ",
-          "meaning": "maju"
-        },
-        {
-          "word": "進学",
-          "reading": "しんがく",
-          "meaning": "maju; melanjutkan"
-        }
-      ]
-    },
-    {
-      "heading": "mengirim",
-      "onyomi": [
-        "ソウ"
-      ],
-      "kunyomi": [
-        "おく(る)"
-      ],
-      "kanji": "送",
-      "vocabulary": [
-        {
-          "word": "送る",
-          "reading": "おくる",
-          "meaning": "mengirim"
-        },
-        {
-          "word": "放送",
-          "reading": "ほうそう",
-          "meaning": "mengirim"
-        }
-      ]
-    },
-    {
-      "heading": "mengembalikan; kembali",
-      "onyomi": [
-        "ヘン"
-      ],
-      "kunyomi": [
-        "かえ(す)",
-        "かえ(る)"
-      ],
-      "kanji": "返",
-      "vocabulary": [
-        {
-          "word": "返す",
-          "reading": "かえす",
-          "meaning": "mengembalikan"
-        },
-        {
-          "word": "返事",
-          "reading": "へんじ",
-          "meaning": "mengembalikan; kembali"
-        }
-      ]
-    },
-    {
-      "heading": "mencuci",
-      "onyomi": [
-        "セン"
-      ],
-      "kunyomi": [
-        "あら(う)"
-      ],
-      "kanji": "洗",
-      "vocabulary": [
-        {
-          "word": "洗う",
-          "reading": "あらう",
-          "meaning": "mencuci"
-        },
-        {
-          "word": "洗濯",
-          "reading": "せんたく",
-          "meaning": "mencuci"
-        }
-      ]
-    },
-    {
-      "heading": "menuangkan; perhatian",
-      "onyomi": [
-        "チュウ"
-      ],
-      "kunyomi": [
-        "そそ(ぐ)"
-      ],
-      "kanji": "注",
-      "vocabulary": [
-        {
-          "word": "注意",
-          "reading": "ちゅうい",
-          "meaning": "perhatian; hati-hati"
-        },
-        {
-          "word": "注文",
-          "reading": "ちゅうもん",
-          "meaning": "pesanan"
-        }
-      ]
-    },
-    {
-      "heading": "tempat; lokasi",
-      "onyomi": [
-        "ジョウ"
-      ],
-      "kunyomi": [
-        "ば"
-      ],
-      "kanji": "場",
-      "vocabulary": [
-        {
-          "word": "場所",
-          "reading": "ばしょ",
-          "meaning": "tempat"
-        },
-        {
-          "word": "工場",
-          "reading": "こうじょう",
-          "meaning": "pabrik"
-        }
-      ]
-    },
-    {
-      "heading": "membangun",
-      "onyomi": [
-        "ケン",
-        "コン"
-      ],
-      "kunyomi": [
-        "た(てる)",
-        "た(つ)"
-      ],
-      "kanji": "建",
-      "vocabulary": [
-        {
-          "word": "建てる",
-          "reading": "たてる",
-          "meaning": "membangun"
-        },
-        {
-          "word": "建物",
-          "reading": "たてもの",
-          "meaning": "bangunan"
-        }
-      ]
-    },
-    {
-      "heading": "benda; barang",
-      "onyomi": [
-        "ブツ",
-        "モツ"
-      ],
-      "kunyomi": [
-        "もの"
-      ],
-      "kanji": "物",
-      "vocabulary": [
-        {
-          "word": "物",
-          "reading": "もの",
-          "meaning": "benda; barang"
-        },
-        {
-          "word": "建物",
-          "reading": "たてもの",
-          "meaning": "bangunan"
-        }
-      ]
-    },
-    {
-      "heading": "institusi; rumah sakit",
-      "onyomi": [
-        "イン"
-      ],
-      "kunyomi": [],
-      "kanji": "院",
-      "vocabulary": [
-        {
-          "word": "病院",
-          "reading": "びょういん",
-          "meaning": "rumah sakit"
-        },
-        {
-          "word": "大学院",
-          "reading": "だいがくいん",
-          "meaning": "institusi; rumah sakit"
-        }
-      ]
-    },
-    {
-      "heading": "gedung; aula",
-      "onyomi": [
-        "カン"
-      ],
-      "kunyomi": [],
-      "kanji": "館",
-      "vocabulary": [
-        {
-          "word": "図書館",
-          "reading": "としょかん",
-          "meaning": "perpustakaan"
-        },
-        {
-          "word": "映画館",
-          "reading": "えいがかん",
-          "meaning": "gedung; aula"
-        }
-      ]
-    },
-    {
-      "heading": "aula",
-      "onyomi": [
-        "ドウ"
-      ],
-      "kunyomi": [],
-      "kanji": "堂",
-      "vocabulary": [
-        {
-          "word": "食堂",
-          "reading": "しょくどう",
-          "meaning": "kantin"
-        },
-        {
-          "word": "講堂",
-          "reading": "こうどう",
-          "meaning": "aula"
-        }
-      ]
-    },
-    {
-      "heading": "ruangan",
-      "onyomi": [
-        "シツ"
-      ],
-      "kunyomi": [
-        "むろ"
-      ],
-      "kanji": "室",
-      "vocabulary": [
-        {
-          "word": "教室",
-          "reading": "きょうしつ",
-          "meaning": "kelas"
-        },
-        {
-          "word": "部屋",
-          "reading": "へや",
-          "meaning": "kamar"
-        }
-      ]
-    },
-    {
-      "heading": "kerajinan; konstruksi",
-      "onyomi": [
-        "コウ",
-        "ク"
-      ],
-      "kunyomi": [],
-      "kanji": "工",
-      "vocabulary": [
-        {
-          "word": "工場",
-          "reading": "こうじょう",
-          "meaning": "pabrik"
-        },
-        {
-          "word": "工事",
-          "reading": "こうじ",
-          "meaning": "konstruksi"
-        }
-      ]
-    },
-    {
-      "heading": "diagram; peta",
-      "onyomi": [
-        "ズ",
-        "ト"
-      ],
-      "kunyomi": [
-        "はか(る)"
-      ],
-      "kanji": "図",
-      "vocabulary": [
-        {
-          "word": "地図",
-          "reading": "ちず",
-          "meaning": "peta"
-        },
-        {
-          "word": "図書館",
-          "reading": "としょかん",
-          "meaning": "perpustakaan"
-        }
-      ]
-    },
-    {
-      "heading": "nomor; gelar",
-      "onyomi": [
-        "ゴウ"
-      ],
-      "kunyomi": [],
-      "kanji": "号",
-      "vocabulary": [
-        {
-          "word": "番号",
-          "reading": "ばんごう",
-          "meaning": "nomor"
-        },
-        {
-          "word": "信号",
-          "reading": "しんごう",
-          "meaning": "nomor; gelar"
-        }
-      ]
-    },
-    {
-      "heading": "bercampur; berinteraksi",
-      "onyomi": [
-        "コウ"
-      ],
-      "kunyomi": [
-        "ま(じる)",
-        "ま(ぜる)",
-        "ま(じわる)"
-      ],
-      "kanji": "交",
-      "vocabulary": [
-        {
-          "word": "交通",
-          "reading": "こうつう",
-          "meaning": "lalu lintas; transportasi"
-        },
-        {
-          "word": "交番",
-          "reading": "こうばん",
-          "meaning": "pos polisi"
-        }
-      ]
-    },
-    {
-      "heading": "melewati; pulang-pergi",
-      "onyomi": [
-        "ツウ",
-        "ツ"
-      ],
-      "kunyomi": [
-        "とお(る)",
-        "とお(す)",
-        "かよ(う)"
-      ],
-      "kanji": "通",
-      "vocabulary": [
-        {
-          "word": "交通",
-          "reading": "こうつう",
-          "meaning": "lalu lintas; transportasi"
-        },
-        {
-          "word": "通る",
-          "reading": "とおる",
-          "meaning": "melewati; pulang-pergi"
-        }
-      ]
-    },
-    {
-      "heading": "bergerak",
-      "onyomi": [
-        "ドウ"
-      ],
-      "kunyomi": [
-        "うご(く)",
-        "うご(かす)"
-      ],
-      "kanji": "動",
-      "vocabulary": [
-        {
-          "word": "動く",
-          "reading": "うごく",
-          "meaning": "bergerak"
-        },
-        {
-          "word": "運動",
-          "reading": "うんどう",
-          "meaning": "bergerak"
-        }
-      ]
-    },
-    {
-      "heading": "naik kendaraan",
-      "onyomi": [
-        "ジョウ"
-      ],
-      "kunyomi": [
-        "の(る)",
-        "の(せる)"
-      ],
-      "kanji": "乗",
-      "vocabulary": [
-        {
-          "word": "乗る",
-          "reading": "のる",
-          "meaning": "naik kendaraan"
-        },
-        {
-          "word": "乗り物",
-          "reading": "のりもの",
-          "meaning": "naik kendaraan"
-        }
-      ]
-    },
-    {
-      "heading": "turun; jatuh (hujan/salju)",
-      "onyomi": [
-        "コウ",
-        "ゴ"
-      ],
-      "kunyomi": [
-        "お(りる)",
-        "お(ろす)",
-        "ふ(る)"
-      ],
-      "kanji": "降",
-      "vocabulary": [
-        {
-          "word": "降りる",
-          "reading": "おりる",
-          "meaning": "turun kendaraan"
-        },
-        {
-          "word": "降る",
-          "reading": "ふる",
-          "meaning": "turun (hujan/salju)"
-        }
-      ]
-    },
-    {
-      "heading": "mengangkut; keberuntungan",
-      "onyomi": [
-        "ウン"
-      ],
-      "kunyomi": [
-        "はこ(ぶ)"
-      ],
-      "kanji": "運",
-      "vocabulary": [
-        {
-          "word": "運ぶ",
-          "reading": "はこぶ",
-          "meaning": "mengangkut"
-        },
-        {
-          "word": "運転",
-          "reading": "うんてん",
-          "meaning": "mengemudi"
-        }
-      ]
-    },
-    {
-      "heading": "berputar; jatuh",
-      "onyomi": [
-        "テン"
-      ],
-      "kunyomi": [
-        "ころ(ぶ)",
-        "ころ(がる)"
-      ],
-      "kanji": "転",
-      "vocabulary": [
-        {
-          "word": "運転",
-          "reading": "うんてん",
-          "meaning": "mengemudi"
-        },
-        {
-          "word": "自転車",
-          "reading": "じてんしゃ",
-          "meaning": "berputar; jatuh"
-        }
-      ]
-    },
-    {
-      "heading": "pulang; mengembalikan",
-      "onyomi": [
-        "キ"
-      ],
-      "kunyomi": [
-        "かえ(る)",
-        "かえ(す)"
-      ],
-      "kanji": "帰",
-      "vocabulary": [
-        {
-          "word": "帰る",
-          "reading": "かえる",
-          "meaning": "pulang"
-        },
-        {
-          "word": "帰国",
-          "reading": "きこく",
-          "meaning": "pulang; mengembalikan"
-        }
-      ]
-    },
-    {
-      "heading": "berangkat; mengeluarkan; mulai",
-      "onyomi": [
-        "ハツ",
-        "ホツ"
-      ],
-      "kunyomi": [],
-      "kanji": "発",
-      "vocabulary": [
-        {
-          "word": "出発",
-          "reading": "しゅっぱつ",
-          "meaning": "keberangkatan"
-        },
-        {
-          "word": "発音",
-          "reading": "はつおん",
-          "meaning": "berangkat; mengeluarkan; mulai"
-        }
-      ]
-    },
-    {
-      "heading": "tiba; memakai",
-      "onyomi": [
-        "チャク",
-        "ジャク"
-      ],
-      "kunyomi": [
-        "き(る)",
-        "つ(く)",
-        "つ(ける)"
-      ],
-      "kanji": "着",
-      "vocabulary": [
-        {
-          "word": "着く",
-          "reading": "つく",
-          "meaning": "tiba"
-        },
-        {
-          "word": "着る",
-          "reading": "きる",
-          "meaning": "memakai"
-        }
-      ]
-    },
-    {
-      "heading": "Tiongkok; kanji",
-      "onyomi": [
-        "カン"
-      ],
-      "kunyomi": [],
-      "kanji": "漢",
-      "vocabulary": [
-        {
-          "word": "漢字",
-          "reading": "かんじ",
-          "meaning": "kanji"
-        },
-        {
-          "word": "漢語",
-          "reading": "かんご",
-          "meaning": "Tiongkok; kanji"
-        }
-      ]
-    },
-    {
-      "heading": "huruf; karakter",
-      "onyomi": [
-        "ジ"
-      ],
-      "kunyomi": [
-        "あざ"
-      ],
-      "kanji": "字",
-      "vocabulary": [
-        {
-          "word": "字",
-          "reading": "じ",
-          "meaning": "huruf; karakter"
-        },
-        {
-          "word": "漢字",
-          "reading": "かんじ",
-          "meaning": "kanji"
-        }
-      ]
-    },
-    {
-      "heading": "kalimat; tulisan",
-      "onyomi": [
-        "ブン",
-        "モン"
-      ],
-      "kunyomi": [
-        "ふみ"
-      ],
-      "kanji": "文",
-      "vocabulary": [
-        {
-          "word": "文",
-          "reading": "ぶん",
-          "meaning": "kalimat"
-        },
-        {
-          "word": "文化",
-          "reading": "ぶんか",
-          "meaning": "budaya"
-        }
-      ]
-    },
-    {
-      "heading": "mengajar",
-      "onyomi": [
-        "キョウ"
-      ],
-      "kunyomi": [
-        "おし(える)",
-        "おそ(わる)"
-      ],
-      "kanji": "教",
-      "vocabulary": [
-        {
-          "word": "教える",
-          "reading": "おしえる",
-          "meaning": "mengajar"
-        },
-        {
-          "word": "教室",
-          "reading": "きょうしつ",
-          "meaning": "kelas"
-        }
-      ]
-    },
-    {
-      "heading": "usaha; belajar (dalam 勉強)",
-      "onyomi": [
-        "ベン"
-      ],
-      "kunyomi": [],
-      "kanji": "勉",
-      "vocabulary": [
-        {
-          "word": "勉強",
-          "reading": "べんきょう",
-          "meaning": "belajar"
-        }
-      ]
-    },
-    {
-      "heading": "belajar; berlatih",
-      "onyomi": [
-        "シュウ"
-      ],
-      "kunyomi": [
-        "なら(う)"
-      ],
-      "kanji": "習",
-      "vocabulary": [
-        {
-          "word": "習う",
-          "reading": "ならう",
-          "meaning": "mempelajari"
-        },
-        {
-          "word": "練習",
-          "reading": "れんしゅう",
-          "meaning": "belajar; berlatih"
-        }
-      ]
-    },
-    {
-      "heading": "bahasa Inggris; unggul",
-      "onyomi": [
-        "エイ"
-      ],
-      "kunyomi": [],
-      "kanji": "英",
-      "vocabulary": [
-        {
-          "word": "英語",
-          "reading": "えいご",
-          "meaning": "bahasa Inggris"
-        },
-        {
-          "word": "英国",
-          "reading": "えいこく",
-          "meaning": "bahasa Inggris; unggul"
-        }
-      ]
-    },
-    {
-      "heading": "berpikir; mempertimbangkan",
-      "onyomi": [
-        "コウ"
-      ],
-      "kunyomi": [
-        "かんが(える)"
-      ],
-      "kanji": "考",
-      "vocabulary": [
-        {
-          "word": "考える",
-          "reading": "かんがえる",
-          "meaning": "berpikir"
-        },
-        {
-          "word": "参考",
-          "reading": "さんこう",
-          "meaning": "berpikir; mempertimbangkan"
-        }
-      ]
-    },
-    {
-      "heading": "mengasah; penelitian",
-      "onyomi": [
-        "ケン"
-      ],
-      "kunyomi": [
-        "と(ぐ)"
-      ],
-      "kanji": "研",
-      "vocabulary": [
-        {
-          "word": "研究",
-          "reading": "けんきゅう",
-          "meaning": "penelitian"
-        },
-        {
-          "word": "研究室",
-          "reading": "けんきゅうしつ",
-          "meaning": "ruang penelitian"
-        }
-      ]
-    },
-    {
-      "heading": "meneliti; menyelidiki",
-      "onyomi": [
-        "キュウ"
-      ],
-      "kunyomi": [
-        "きわ(める)"
-      ],
-      "kanji": "究",
-      "vocabulary": [
-        {
-          "word": "研究",
-          "reading": "けんきゅう",
-          "meaning": "penelitian"
-        },
-        {
-          "word": "研究者",
-          "reading": "けんきゅうしゃ",
-          "meaning": "meneliti; menyelidiki"
-        }
-      ]
-    },
-    {
-      "heading": "pertanyaan; bertanya",
-      "onyomi": [
-        "モン"
-      ],
-      "kunyomi": [
-        "と(う)"
-      ],
-      "kanji": "問",
-      "vocabulary": [
-        {
-          "word": "問題",
-          "reading": "もんだい",
-          "meaning": "masalah; soal"
-        },
-        {
-          "word": "問う",
-          "reading": "とう",
-          "meaning": "pertanyaan; bertanya"
-        }
-      ]
-    },
-    {
-      "heading": "topik; soal",
-      "onyomi": [
-        "ダイ"
-      ],
-      "kunyomi": [],
-      "kanji": "題",
-      "vocabulary": [
-        {
-          "word": "問題",
-          "reading": "もんだい",
-          "meaning": "masalah; soal"
-        },
-        {
-          "word": "宿題",
-          "reading": "しゅくだい",
-          "meaning": "PR"
-        }
-      ]
-    },
-    {
-      "heading": "mencoba; menguji",
-      "onyomi": [
-        "シ"
-      ],
-      "kunyomi": [
-        "ため(す)",
-        "こころ(みる)"
-      ],
-      "kanji": "試",
-      "vocabulary": [
-        {
-          "word": "試験",
-          "reading": "しけん",
-          "meaning": "ujian"
-        },
-        {
-          "word": "試す",
-          "reading": "ためす",
-          "meaning": "mencoba; menguji"
-        }
-      ]
-    },
-    {
-      "heading": "ujian; pengalaman",
-      "onyomi": [
-        "ケン",
-        "ゲン"
-      ],
-      "kunyomi": [],
-      "kanji": "験",
-      "vocabulary": [
-        {
-          "word": "試験",
-          "reading": "しけん",
-          "meaning": "ujian"
-        },
-        {
-          "word": "経験",
-          "reading": "けいけん",
-          "meaning": "pengalaman"
-        }
-      ]
-    },
-    {
-      "heading": "kualitas; pertanyaan",
-      "onyomi": [
-        "シツ",
-        "シチ",
-        "チ"
-      ],
-      "kunyomi": [],
-      "kanji": "質",
-      "vocabulary": [
-        {
-          "word": "質問",
-          "reading": "しつもん",
-          "meaning": "pertanyaan"
-        },
-        {
-          "word": "品質",
-          "reading": "ひんしつ",
-          "meaning": "kualitas; pertanyaan"
-        }
-      ]
-    },
-    {
-      "heading": "cocok; menggabungkan",
-      "onyomi": [
-        "ゴウ",
-        "ガッ",
-        "カッ"
-      ],
-      "kunyomi": [
-        "あ(う)",
-        "あ(わせる)"
-      ],
-      "kanji": "合",
-      "vocabulary": [
-        {
-          "word": "合う",
-          "reading": "あう",
-          "meaning": "cocok"
-        },
-        {
-          "word": "合格",
-          "reading": "ごうかく",
-          "meaning": "cocok; menggabungkan"
-        }
-      ]
-    },
-    {
-      "heading": "menjawab; jawaban",
-      "onyomi": [
-        "トウ"
-      ],
-      "kunyomi": [
-        "こた(える)",
-        "こた(え)"
-      ],
-      "kanji": "答",
-      "vocabulary": [
-        {
-          "word": "答える",
-          "reading": "こたえる",
-          "meaning": "menjawab"
-        },
-        {
-          "word": "答え",
-          "reading": "こたえ",
-          "meaning": "menjawab; jawaban"
-        }
-      ]
-    },
-    {
-      "heading": "menggunakan; urusan",
-      "onyomi": [
-        "ヨウ"
-      ],
-      "kunyomi": [
-        "もち(いる)"
-      ],
-      "kanji": "用",
-      "vocabulary": [
-        {
-          "word": "用事",
-          "reading": "ようじ",
-          "meaning": "urusan"
-        },
-        {
-          "word": "使用",
-          "reading": "しよう",
-          "meaning": "menggunakan; urusan"
-        }
-      ]
-    },
-    {
-      "heading": "kertas",
-      "onyomi": [
-        "シ"
-      ],
-      "kunyomi": [
-        "かみ"
-      ],
-      "kanji": "紙",
-      "vocabulary": [
-        {
-          "word": "紙",
-          "reading": "かみ",
-          "meaning": "kertas"
-        },
-        {
-          "word": "手紙",
-          "reading": "てがみ",
-          "meaning": "surat"
-        }
-      ]
-    },
-    {
-      "heading": "arti; maksud",
-      "onyomi": [
-        "イ"
-      ],
-      "kunyomi": [],
-      "kanji": "意",
-      "vocabulary": [
-        {
-          "word": "意味",
-          "reading": "いみ",
-          "meaning": "arti; makna"
-        },
-        {
-          "word": "意見",
-          "reading": "いけん",
-          "meaning": "arti; maksud"
-        }
-      ]
-    },
-    {
-      "heading": "menarik",
-      "onyomi": [
-        "イン"
-      ],
-      "kunyomi": [
-        "ひ(く)",
-        "ひ(ける)"
-      ],
-      "kanji": "引",
-      "vocabulary": [
-        {
-          "word": "引く",
-          "reading": "ひく",
-          "meaning": "menarik"
-        },
-        {
-          "word": "引き出し",
-          "reading": "ひきだし",
-          "meaning": "menarik"
-        }
-      ]
-    },
-    {
-      "heading": "membuka; terbuka",
-      "onyomi": [
-        "カイ"
-      ],
-      "kunyomi": [
-        "あ(く)",
-        "あ(ける)",
-        "ひら(く)"
-      ],
-      "kanji": "開",
-      "vocabulary": [
-        {
-          "word": "開ける",
-          "reading": "あける",
-          "meaning": "membuka"
-        },
-        {
-          "word": "開く",
-          "reading": "ひらく",
-          "meaning": "membuka"
-        }
-      ]
-    },
-    {
-      "heading": "menutup",
-      "onyomi": [
-        "ヘイ"
-      ],
-      "kunyomi": [
-        "し(める)",
-        "し(まる)",
-        "と(じる)"
-      ],
-      "kanji": "閉",
-      "vocabulary": [
-        {
-          "word": "閉める",
-          "reading": "しめる",
-          "meaning": "menutup"
-        },
-        {
-          "word": "閉まる",
-          "reading": "しまる",
-          "meaning": "tertutup"
-        }
-      ]
-    },
-    {
-      "heading": "pergi; masa lalu",
-      "onyomi": [
-        "キョ",
-        "コ"
-      ],
-      "kunyomi": [
-        "さ(る)"
-      ],
-      "kanji": "去",
-      "vocabulary": [
-        {
-          "word": "去年",
-          "reading": "きょねん",
-          "meaning": "tahun lalu"
-        },
-        {
-          "word": "去る",
-          "reading": "さる",
-          "meaning": "pergi; masa lalu"
-        }
-      ]
-    },
-    {
-      "heading": "meninggal",
-      "onyomi": [
-        "シ"
-      ],
-      "kunyomi": [
-        "し(ぬ)"
-      ],
-      "kanji": "死",
-      "vocabulary": [
-        {
-          "word": "死ぬ",
-          "reading": "しぬ",
-          "meaning": "meninggal"
-        },
-        {
-          "word": "死亡",
-          "reading": "しぼう",
-          "meaning": "meninggal"
-        }
-      ]
-    },
-    {
-      "heading": "berkumpul; mengumpulkan",
-      "onyomi": [
-        "シュウ"
-      ],
-      "kunyomi": [
-        "あつ(まる)",
-        "あつ(める)"
-      ],
-      "kanji": "集",
-      "vocabulary": [
-        {
-          "word": "集まる",
-          "reading": "あつまる",
-          "meaning": "berkumpul"
-        },
-        {
-          "word": "集める",
-          "reading": "あつめる",
-          "meaning": "mengumpulkan"
-        }
-      ]
-    },
-    {
-      "heading": "mengetahui",
-      "onyomi": [
-        "チ"
-      ],
-      "kunyomi": [
-        "し(る)"
-      ],
-      "kanji": "知",
-      "vocabulary": [
-        {
-          "word": "知る",
-          "reading": "しる",
-          "meaning": "mengetahui"
-        },
-        {
-          "word": "知識",
-          "reading": "ちしき",
-          "meaning": "mengetahui"
-        }
-      ]
-    },
-    {
-      "heading": "menjual",
-      "onyomi": [
-        "バイ"
-      ],
-      "kunyomi": [
-        "う(る)",
-        "う(れる)"
-      ],
-      "kanji": "売",
-      "vocabulary": [
-        {
-          "word": "売る",
-          "reading": "うる",
-          "meaning": "menjual"
-        },
-        {
-          "word": "売店",
-          "reading": "ばいてん",
-          "meaning": "menjual"
-        }
-      ]
-    },
-    {
-      "heading": "menjelaskan; teori",
-      "onyomi": [
-        "セツ"
-      ],
-      "kunyomi": [
-        "と(く)"
-      ],
-      "kanji": "説",
-      "vocabulary": [
-        {
-          "word": "説明",
-          "reading": "せつめい",
-          "meaning": "penjelasan"
-        },
-        {
-          "word": "小説",
-          "reading": "しょうせつ",
-          "meaning": "menjelaskan; teori"
-        }
-      ]
-    },
-    {
-      "heading": "berpikir; merasa",
-      "onyomi": [
-        "シ"
-      ],
-      "kunyomi": [
-        "おも(う)"
-      ],
-      "kanji": "思",
-      "vocabulary": [
-        {
-          "word": "思う",
-          "reading": "おもう",
-          "meaning": "berpikir"
-        },
-        {
-          "word": "思い出す",
-          "reading": "おもいだす",
-          "meaning": "berpikir; merasa"
-        }
-      ]
+ "title": "Kanji N4 — Bab 1–20",
+ "language": "Indonesian",
+ "level": "JLPT N4",
+ "source": "Kanji N4 Bab 1 - 20.pdf (textbook table: kanji, example, reading, meaning)",
+ "format_note": "One card per kanji, in the order of the textbook chapters (Bab 1–20): a short meaning, the big kanji, then example words with reading and translation. On'yomi/kun'yomi are not listed in the source PDF.",
+ "kanji_count": 199,
+ "lesson_order": [
+  {
+   "lesson": "Bab 1",
+   "kanji": [
+    "住",
+    "所",
+    "京",
+    "都",
+    "府",
+    "県",
+    "市",
+    "区",
+    "町",
+    "村"
+   ]
+  },
+  {
+   "lesson": "Bab 2",
+   "kanji": [
+    "明",
+    "暗",
+    "遠",
+    "近",
+    "強",
+    "弱",
+    "重",
+    "軽",
+    "太",
+    "細"
+   ]
+  },
+  {
+   "lesson": "Bab 3",
+   "kanji": [
+    "特",
+    "別",
+    "有",
+    "便",
+    "利",
+    "不",
+    "切",
+    "元",
+    "好",
+    "急"
+   ]
+  },
+  {
+   "lesson": "Bab 4",
+   "kanji": [
+    "低",
+    "広",
+    "短",
+    "良",
+    "悪",
+    "正",
+    "変",
+    "赤",
+    "青",
+    "黒"
+   ]
+  },
+  {
+   "lesson": "Bab 5",
+   "kanji": [
+    "映",
+    "画",
+    "音",
+    "楽",
+    "歌",
+    "写",
+    "真",
+    "旅",
+    "世",
+    "界"
+   ]
+  },
+  {
+   "lesson": "Bab 6",
+   "kanji": [
+    "仕",
+    "事",
+    "銀",
+    "員",
+    "医",
+    "者",
+    "働",
+    "屋",
+    "産",
+    "業"
+   ]
+  },
+  {
+   "lesson": "Bab 7",
+   "kanji": [
+    "林",
+    "森",
+    "地",
+    "池",
+    "海",
+    "洋",
+    "雪",
+    "光",
+    "台",
+    "風"
+   ]
+  },
+  {
+   "lesson": "Bab 8",
+   "kanji": [
+    "季",
+    "節",
+    "春",
+    "夏",
+    "秋",
+    "冬",
+    "暑",
+    "寒",
+    "暖",
+    "涼"
+   ]
+  },
+  {
+   "lesson": "Bab 9",
+   "kanji": [
+    "体",
+    "頭",
+    "顔",
+    "首",
+    "心",
+    "声",
+    "病",
+    "薬",
+    "科",
+    "内"
+   ]
+  },
+  {
+   "lesson": "Bab 10",
+   "kanji": [
+    "朝",
+    "昼",
+    "夜",
+    "夕",
+    "方",
+    "晩",
+    "計",
+    "曜",
+    "以",
+    "度"
+   ]
+  },
+  {
+   "lesson": "Bab 11",
+   "kanji": [
+    "止",
+    "歩",
+    "走",
+    "起",
+    "持",
+    "待",
+    "借",
+    "貸",
+    "始",
+    "終"
+   ]
+  },
+  {
+   "lesson": "Bab 12",
+   "kanji": [
+    "家",
+    "族",
+    "私",
+    "自",
+    "両",
+    "兄",
+    "弟",
+    "姉",
+    "妹"
+   ]
+  },
+  {
+   "lesson": "Bab 13",
+   "kanji": [
+    "活",
+    "回",
+    "主",
+    "色",
+    "形",
+    "品",
+    "民",
+    "服",
+    "犬",
+    "同"
+   ]
+  },
+  {
+   "lesson": "Bab 14",
+   "kanji": [
+    "米",
+    "料",
+    "理",
+    "肉",
+    "鳥",
+    "野",
+    "菜",
+    "茶",
+    "飯",
+    "味"
+   ]
+  },
+  {
+   "lesson": "Bab 15",
+   "kanji": [
+    "代",
+    "使",
+    "作",
+    "化",
+    "信",
+    "進",
+    "送",
+    "返",
+    "洗",
+    "注"
+   ]
+  },
+  {
+   "lesson": "Bab 16",
+   "kanji": [
+    "場",
+    "建",
+    "物",
+    "院",
+    "館",
+    "堂",
+    "室",
+    "工",
+    "図",
+    "号"
+   ]
+  },
+  {
+   "lesson": "Bab 17",
+   "kanji": [
+    "交",
+    "通",
+    "動",
+    "乗",
+    "降",
+    "運",
+    "転",
+    "帰",
+    "発",
+    "着"
+   ]
+  },
+  {
+   "lesson": "Bab 18",
+   "kanji": [
+    "漢",
+    "字",
+    "文",
+    "教",
+    "勉",
+    "習",
+    "英",
+    "考",
+    "研",
+    "究"
+   ]
+  },
+  {
+   "lesson": "Bab 19",
+   "kanji": [
+    "問",
+    "題",
+    "試",
+    "験",
+    "質",
+    "合",
+    "答",
+    "用",
+    "紙",
+    "意"
+   ]
+  },
+  {
+   "lesson": "Bab 20",
+   "kanji": [
+    "引",
+    "開",
+    "閉",
+    "去",
+    "死",
+    "集",
+    "知",
+    "売",
+    "説",
+    "思"
+   ]
+  }
+ ],
+ "cards": [
+  {
+   "heading": "tinggal",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "住",
+   "vocabulary": [
+    {
+     "word": "住む",
+     "reading": "すむ",
+     "meaning": "Tinggal"
+    },
+    {
+     "word": "住民",
+     "reading": "じゅうみん",
+     "meaning": "Penduduk"
     }
-  ]
+   ]
+  },
+  {
+   "heading": "tempat",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "所",
+   "vocabulary": [
+    {
+     "word": "所",
+     "reading": "ところ",
+     "meaning": "Tempat"
+    },
+    {
+     "word": "住所",
+     "reading": "じゅうしょ",
+     "meaning": "Alamat"
+    },
+    {
+     "word": "台所",
+     "reading": "だいどころ",
+     "meaning": "Dapur"
+    },
+    {
+     "word": "場所",
+     "reading": "ばしょ",
+     "meaning": "Tempat"
+    }
+   ]
+  },
+  {
+   "heading": "ibu kota",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "京",
+   "vocabulary": [
+    {
+     "word": "東京",
+     "reading": "とうきょう",
+     "meaning": "Tokyo"
+    }
+   ]
+  },
+  {
+   "heading": "kota besar; metropolis",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "都",
+   "vocabulary": [
+    {
+     "word": "東京都",
+     "reading": "とうきょうと",
+     "meaning": "Kota metropolis tokyo"
+    },
+    {
+     "word": "都合がいい",
+     "reading": "つごうがいい",
+     "meaning": "Tidak ada halangan"
+    },
+    {
+     "word": "首都",
+     "reading": "しゅと",
+     "meaning": "Ibu kota"
+    }
+   ]
+  },
+  {
+   "heading": "prefektur kota",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "府",
+   "vocabulary": [
+    {
+     "word": "京都府",
+     "reading": "きょうとふ",
+     "meaning": "Perfektur Kyoto"
+    },
+    {
+     "word": "大阪府",
+     "reading": "おおさかふ",
+     "meaning": "Perfektur Osaka"
+    },
+    {
+     "word": "政府",
+     "reading": "せいふ",
+     "meaning": "Pemerintah"
+    }
+   ]
+  },
+  {
+   "heading": "prefektur",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "県",
+   "vocabulary": [
+    {
+     "word": "山口県",
+     "reading": "やまぐちけん",
+     "meaning": "Perfektur Yamaguchi"
+    },
+    {
+     "word": "県知事",
+     "reading": "けんちじ",
+     "meaning": "Gubernur"
+    }
+   ]
+  },
+  {
+   "heading": "kota",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "市",
+   "vocabulary": [
+    {
+     "word": "京都市",
+     "reading": "きょうとし",
+     "meaning": "Kota Kyoto"
+    },
+    {
+     "word": "市長",
+     "reading": "しちょう",
+     "meaning": "Wali kota"
+    },
+    {
+     "word": "市場",
+     "reading": "いちば",
+     "meaning": "Pasar"
+    }
+   ]
+  },
+  {
+   "heading": "distrik",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "区",
+   "vocabulary": [
+    {
+     "word": "北区",
+     "reading": "きたく",
+     "meaning": "Distrik Kita"
+    },
+    {
+     "word": "文京区",
+     "reading": "ぶんきょうく",
+     "meaning": "Distrik Bunkyouku"
+    },
+    {
+     "word": "区長",
+     "reading": "くちょう",
+     "meaning": "Kepala distrik"
+    }
+   ]
+  },
+  {
+   "heading": "kota kecil",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "町",
+   "vocabulary": [
+    {
+     "word": "町",
+     "reading": "まち",
+     "meaning": "Kota"
+    },
+    {
+     "word": "下町",
+     "reading": "したまち",
+     "meaning": "Pusat kota"
+    },
+    {
+     "word": "町長",
+     "reading": "ちょうちょう",
+     "meaning": "Walikota"
+    }
+   ]
+  },
+  {
+   "heading": "desa",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "村",
+   "vocabulary": [
+    {
+     "word": "村",
+     "reading": "むら",
+     "meaning": "Desa"
+    },
+    {
+     "word": "村人",
+     "reading": "むらびと",
+     "meaning": "Warga desa"
+    },
+    {
+     "word": "村長",
+     "reading": "そんちょう",
+     "meaning": "Kepala desa"
+    }
+   ]
+  },
+  {
+   "heading": "terang",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "明",
+   "vocabulary": [
+    {
+     "word": "明るい",
+     "reading": "あかるい",
+     "meaning": "Terang"
+    },
+    {
+     "word": "明日",
+     "reading": "あした",
+     "meaning": "Besok"
+    },
+    {
+     "word": "説明",
+     "reading": "せつめい",
+     "meaning": "Penjelasan"
+    },
+    {
+     "word": "発明",
+     "reading": "はつめい",
+     "meaning": "Penemuan"
+    }
+   ]
+  },
+  {
+   "heading": "gelap",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "暗",
+   "vocabulary": [
+    {
+     "word": "暗い",
+     "reading": "くらい",
+     "meaning": "Gelap"
+    },
+    {
+     "word": "暗号",
+     "reading": "あんごう",
+     "meaning": "PIN"
+    }
+   ]
+  },
+  {
+   "heading": "jauh",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "遠",
+   "vocabulary": [
+    {
+     "word": "遠い",
+     "reading": "とおい",
+     "meaning": "Jauh"
+    },
+    {
+     "word": "遠足",
+     "reading": "えんそく",
+     "meaning": "Tamasya (anak-anak)"
+    },
+    {
+     "word": "永遠",
+     "reading": "えいえん",
+     "meaning": "Kekal, selamanya"
+    }
+   ]
+  },
+  {
+   "heading": "dekat",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "近",
+   "vocabulary": [
+    {
+     "word": "近い",
+     "reading": "ちかい",
+     "meaning": "Dekat"
+    },
+    {
+     "word": "近所",
+     "reading": "きんじょ",
+     "meaning": "Tetangga"
+    },
+    {
+     "word": "最近",
+     "reading": "さいきん",
+     "meaning": "Akhir-akhir ini"
+    }
+   ]
+  },
+  {
+   "heading": "kuat",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "強",
+   "vocabulary": [
+    {
+     "word": "強い",
+     "reading": "つよい",
+     "meaning": "Kuat"
+    },
+    {
+     "word": "勉強する",
+     "reading": "べんきょうする",
+     "meaning": "Belajar"
+    },
+    {
+     "word": "強風",
+     "reading": "きょうふう",
+     "meaning": "Angin kencang"
+    }
+   ]
+  },
+  {
+   "heading": "lemah",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "弱",
+   "vocabulary": [
+    {
+     "word": "弱い",
+     "reading": "よわい",
+     "meaning": "Lemah"
+    }
+   ]
+  },
+  {
+   "heading": "berat",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "重",
+   "vocabulary": [
+    {
+     "word": "重い",
+     "reading": "おもい",
+     "meaning": "Berat"
+    },
+    {
+     "word": "重大な",
+     "reading": "じゅうだいな",
+     "meaning": "Penting"
+    },
+    {
+     "word": "体重",
+     "reading": "たいじゅう",
+     "meaning": "Berat badan"
+    }
+   ]
+  },
+  {
+   "heading": "ringan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "軽",
+   "vocabulary": [
+    {
+     "word": "軽い",
+     "reading": "かるい",
+     "meaning": "Ringan"
+    },
+    {
+     "word": "軽食",
+     "reading": "けいしょく",
+     "meaning": "Snack"
+    }
+   ]
+  },
+  {
+   "heading": "tebal; gemuk",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "太",
+   "vocabulary": [
+    {
+     "word": "太い",
+     "reading": "ふとい",
+     "meaning": "Gemuk"
+    },
+    {
+     "word": "太陽",
+     "reading": "たいよう",
+     "meaning": "Matahari"
+    }
+   ]
+  },
+  {
+   "heading": "tipis; halus",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "細",
+   "vocabulary": [
+    {
+     "word": "細い",
+     "reading": "ほそい",
+     "meaning": "Ramping (tipis)"
+    },
+    {
+     "word": "細かい",
+     "reading": "こまかい",
+     "meaning": "Rinci"
+    }
+   ]
+  },
+  {
+   "heading": "istimewa",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "特",
+   "vocabulary": [
+    {
+     "word": "特に",
+     "reading": "とくに",
+     "meaning": "Terutama, istimewa"
+    },
+    {
+     "word": "特別な",
+     "reading": "とくべつな",
+     "meaning": "Khusus, spesial"
+    },
+    {
+     "word": "特急",
+     "reading": "とっきゅう",
+     "meaning": "Kereta ekspres"
+    }
+   ]
+  },
+  {
+   "heading": "lain; berpisah",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "別",
+   "vocabulary": [
+    {
+     "word": "別れる",
+     "reading": "わかれる",
+     "meaning": "Berpisah"
+    },
+    {
+     "word": "別々に",
+     "reading": "べつべつに",
+     "meaning": "Masing-masing"
+    },
+    {
+     "word": "区別する",
+     "reading": "くべつする",
+     "meaning": "Membedakan"
+    },
+    {
+     "word": "分別する",
+     "reading": "ぶんべつする",
+     "meaning": "Mengklasifikasikan"
+    }
+   ]
+  },
+  {
+   "heading": "ada; punya",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "有",
+   "vocabulary": [
+    {
+     "word": "有る",
+     "reading": "ある",
+     "meaning": "Ada"
+    },
+    {
+     "word": "有名",
+     "reading": "ゆうめい",
+     "meaning": "Terkenal"
+    },
+    {
+     "word": "有料",
+     "reading": "ゆうりょう",
+     "meaning": "Bayar"
+    }
+   ]
+  },
+  {
+   "heading": "kabar; praktis",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "便",
+   "vocabulary": [
+    {
+     "word": "便り",
+     "reading": "たより",
+     "meaning": "Surat"
+    },
+    {
+     "word": "郵便局",
+     "reading": "ゆうびんきょく",
+     "meaning": "Kantor pos"
+    },
+    {
+     "word": "船便",
+     "reading": "ふなびん",
+     "meaning": "Pos laut"
+    }
+   ]
+  },
+  {
+   "heading": "untung; guna",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "利",
+   "vocabulary": [
+    {
+     "word": "便利",
+     "reading": "べんり",
+     "meaning": "Praktis"
+    },
+    {
+     "word": "利用する",
+     "reading": "りようする",
+     "meaning": "Memanfaatkan; Menggunakan"
+    },
+    {
+     "word": "利子",
+     "reading": "りし",
+     "meaning": "Bunga"
+    },
+    {
+     "word": "有利な",
+     "reading": "ゆうりな",
+     "meaning": "Keuntungan"
+    }
+   ]
+  },
+  {
+   "heading": "tidak",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "不",
+   "vocabulary": [
+    {
+     "word": "不便",
+     "reading": "ふべん",
+     "meaning": "Tidak praktis"
+    },
+    {
+     "word": "不足",
+     "reading": "ふそく",
+     "meaning": "Tidak cukup"
+    },
+    {
+     "word": "不安",
+     "reading": "ふあん",
+     "meaning": "Cemas, khawatir"
+    },
+    {
+     "word": "不運",
+     "reading": "ふうん",
+     "meaning": "Tidak beruntung"
+    },
+    {
+     "word": "不安定",
+     "reading": "ふあんてい",
+     "meaning": "Tidak stabil"
+    }
+   ]
+  },
+  {
+   "heading": "memotong; penting",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "切",
+   "vocabulary": [
+    {
+     "word": "切る",
+     "reading": "きる",
+     "meaning": "Memotong"
+    },
+    {
+     "word": "切手",
+     "reading": "きって",
+     "meaning": "Perangko"
+    },
+    {
+     "word": "大切な",
+     "reading": "たいせつな",
+     "meaning": "Penting"
+    },
+    {
+     "word": "親切",
+     "reading": "しんせつ",
+     "meaning": "Ramah"
+    }
+   ]
+  },
+  {
+   "heading": "asal; sehat",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "元",
+   "vocabulary": [
+    {
+     "word": "元気な",
+     "reading": "げんきな",
+     "meaning": "Sehat"
+    },
+    {
+     "word": "元日",
+     "reading": "がんじつ",
+     "meaning": "Hari tahun baru"
+    },
+    {
+     "word": "紀元前",
+     "reading": "きげんぜん",
+     "meaning": "Sebelum masehi"
+    }
+   ]
+  },
+  {
+   "heading": "suka",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "好",
+   "vocabulary": [
+    {
+     "word": "好きな",
+     "reading": "すきな",
+     "meaning": "Suka"
+    },
+    {
+     "word": "好意",
+     "reading": "こうい",
+     "meaning": "Kasih sayang"
+    },
+    {
+     "word": "好物",
+     "reading": "こうぶつ",
+     "meaning": "(Makanan) favourit"
+    }
+   ]
+  },
+  {
+   "heading": "tergesa-gesa; mendadak",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "急",
+   "vocabulary": [
+    {
+     "word": "急に",
+     "reading": "きゅうに",
+     "meaning": "Tiba tiba"
+    },
+    {
+     "word": "特急",
+     "reading": "とっきゅう",
+     "meaning": "Kereta ekspres"
+    },
+    {
+     "word": "急ぐ",
+     "reading": "いそぐ",
+     "meaning": "Tergesa-gesa"
+    },
+    {
+     "word": "急用",
+     "reading": "きゅうよう",
+     "meaning": "Urusan mendadak"
+    },
+    {
+     "word": "救急車",
+     "reading": "きゅうきゅうしゃ",
+     "meaning": "Ambulance"
+    }
+   ]
+  },
+  {
+   "heading": "rendah",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "低",
+   "vocabulary": [
+    {
+     "word": "低い",
+     "reading": "ひくい",
+     "meaning": "Rendah"
+    },
+    {
+     "word": "低下する",
+     "reading": "ていかする",
+     "meaning": "Turun, menuruni"
+    },
+    {
+     "word": "低気圧",
+     "reading": "ていきあつ",
+     "meaning": "Tekanan rendah"
+    }
+   ]
+  },
+  {
+   "heading": "luas",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "広",
+   "vocabulary": [
+    {
+     "word": "広い",
+     "reading": "ひろい",
+     "meaning": "Luas"
+    },
+    {
+     "word": "広場",
+     "reading": "ひろば",
+     "meaning": "Lapangan / alun-alun"
+    },
+    {
+     "word": "広大な",
+     "reading": "こうだいな",
+     "meaning": "Luas"
+    }
+   ]
+  },
+  {
+   "heading": "pendek",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "短",
+   "vocabulary": [
+    {
+     "word": "短い",
+     "reading": "みじかい",
+     "meaning": "Pendek"
+    },
+    {
+     "word": "短時間",
+     "reading": "たんじかん",
+     "meaning": "Dalam waktu singkat"
+    }
+   ]
+  },
+  {
+   "heading": "baik",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "良",
+   "vocabulary": [
+    {
+     "word": "良い",
+     "reading": "よい; いい",
+     "meaning": "Baik"
+    },
+    {
+     "word": "良心",
+     "reading": "りょうしん",
+     "meaning": "Hati nurani"
+    }
+   ]
+  },
+  {
+   "heading": "buruk",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "悪",
+   "vocabulary": [
+    {
+     "word": "悪い",
+     "reading": "わるい",
+     "meaning": "Buruk, jelek, jahat"
+    },
+    {
+     "word": "悪人",
+     "reading": "あくにん",
+     "meaning": "Orang jahat"
+    },
+    {
+     "word": "悪気",
+     "reading": "わるぎ",
+     "meaning": "Keinginan / niat jahat"
+    }
+   ]
+  },
+  {
+   "heading": "benar",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "正",
+   "vocabulary": [
+    {
+     "word": "正しい",
+     "reading": "ただしい",
+     "meaning": "Benar"
+    },
+    {
+     "word": "正月",
+     "reading": "しょうがつ",
+     "meaning": "Tahun baru"
+    },
+    {
+     "word": "正門",
+     "reading": "せいもん",
+     "meaning": "Gerbang utama"
+    }
+   ]
+  },
+  {
+   "heading": "berubah; aneh",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "変",
+   "vocabulary": [
+    {
+     "word": "変わる",
+     "reading": "かわる",
+     "meaning": "Mengubah"
+    },
+    {
+     "word": "変な",
+     "reading": "へんな",
+     "meaning": "Aneh"
+    },
+    {
+     "word": "大変",
+     "reading": "たいへん",
+     "meaning": "Sulit, gawat, sukar"
+    },
+    {
+     "word": "変化する",
+     "reading": "へんかする",
+     "meaning": "Mengubah"
+    }
+   ]
+  },
+  {
+   "heading": "merah",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "赤",
+   "vocabulary": [
+    {
+     "word": "赤い",
+     "reading": "あかい",
+     "meaning": "Merah"
+    },
+    {
+     "word": "赤ちゃん",
+     "reading": "あかちゃん",
+     "meaning": "Bayi"
+    },
+    {
+     "word": "赤信号",
+     "reading": "あかしんごう",
+     "meaning": "Lampu lalu lintas"
+    },
+    {
+     "word": "赤道",
+     "reading": "せきどう",
+     "meaning": "Khatulistiwa"
+    }
+   ]
+  },
+  {
+   "heading": "biru",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "青",
+   "vocabulary": [
+    {
+     "word": "青い",
+     "reading": "あおい",
+     "meaning": "Biru"
+    },
+    {
+     "word": "青空",
+     "reading": "あおぞら",
+     "meaning": "Langit biru"
+    },
+    {
+     "word": "青春",
+     "reading": "せいしゅん",
+     "meaning": "Masa muda"
+    }
+   ]
+  },
+  {
+   "heading": "hitam",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "黒",
+   "vocabulary": [
+    {
+     "word": "黒い",
+     "reading": "くろい",
+     "meaning": "Hitam"
+    },
+    {
+     "word": "真っ黒",
+     "reading": "まっくろ",
+     "meaning": "Hitam legam"
+    },
+    {
+     "word": "白黒",
+     "reading": "しろくろ",
+     "meaning": "Hitam & putih"
+    }
+   ]
+  },
+  {
+   "heading": "memantulkan; menayangkan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "映",
+   "vocabulary": [
+    {
+     "word": "映す",
+     "reading": "うつす",
+     "meaning": "Merefleksikan"
+    },
+    {
+     "word": "映画",
+     "reading": "えいが",
+     "meaning": "Film"
+    },
+    {
+     "word": "映画館",
+     "reading": "えいがかん",
+     "meaning": "Bioskop"
+    }
+   ]
+  },
+  {
+   "heading": "gambar; rencana",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "画",
+   "vocabulary": [
+    {
+     "word": "計画",
+     "reading": "けいかく",
+     "meaning": "Rencana"
+    },
+    {
+     "word": "日本画",
+     "reading": "にほんが",
+     "meaning": "Lukisan jepang"
+    },
+    {
+     "word": "画家",
+     "reading": "がか",
+     "meaning": "Pelukis"
+    }
+   ]
+  },
+  {
+   "heading": "suara",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "音",
+   "vocabulary": [
+    {
+     "word": "音",
+     "reading": "おと",
+     "meaning": "Suara"
+    },
+    {
+     "word": "発音",
+     "reading": "はつおん",
+     "meaning": "Intonasi, pelafalan"
+    }
+   ]
+  },
+  {
+   "heading": "senang; musik",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "楽",
+   "vocabulary": [
+    {
+     "word": "楽しい",
+     "reading": "たのしい",
+     "meaning": "Menyenangkan"
+    },
+    {
+     "word": "音楽",
+     "reading": "おんがく",
+     "meaning": "Musik"
+    },
+    {
+     "word": "楽な",
+     "reading": "らくな",
+     "meaning": "Mudah"
+    }
+   ]
+  },
+  {
+   "heading": "lagu; menyanyi",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "歌",
+   "vocabulary": [
+    {
+     "word": "歌う",
+     "reading": "うたう",
+     "meaning": "Menyanyi"
+    },
+    {
+     "word": "歌手",
+     "reading": "かしゅ",
+     "meaning": "Penyanyi"
+    }
+   ]
+  },
+  {
+   "heading": "menyalin; memotret",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "写",
+   "vocabulary": [
+    {
+     "word": "写す",
+     "reading": "うつす",
+     "meaning": "Mengkopi"
+    },
+    {
+     "word": "写真",
+     "reading": "しゃしん",
+     "meaning": "Foto"
+    }
+   ]
+  },
+  {
+   "heading": "benar; sungguh",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "真",
+   "vocabulary": [
+    {
+     "word": "真ん中",
+     "reading": "まんなか",
+     "meaning": "(tepat) tengah-tengah"
+    },
+    {
+     "word": "真っ白",
+     "reading": "まっしろ",
+     "meaning": "Putih bersih, putih sekali"
+    },
+    {
+     "word": "真実",
+     "reading": "しんじつ",
+     "meaning": "Kebenaran"
+    }
+   ]
+  },
+  {
+   "heading": "perjalanan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "旅",
+   "vocabulary": [
+    {
+     "word": "旅行する",
+     "reading": "りょこうする",
+     "meaning": "Melakukan perjalanan"
+    },
+    {
+     "word": "旅館",
+     "reading": "りょかん",
+     "meaning": "Penginapan ala jepang"
+    },
+    {
+     "word": "旅",
+     "reading": "たび",
+     "meaning": "Melakukan perjalanan"
+    }
+   ]
+  },
+  {
+   "heading": "dunia; generasi",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "世",
+   "vocabulary": [
+    {
+     "word": "世話する",
+     "reading": "せわする",
+     "meaning": "Merawat, membesarkan"
+    },
+    {
+     "word": "世の中",
+     "reading": "よのなか",
+     "meaning": "Dunia, masyarakat"
+    },
+    {
+     "word": "２１世紀",
+     "reading": "２１せいき",
+     "meaning": "Abad 21"
+    }
+   ]
+  },
+  {
+   "heading": "dunia; batas",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "界",
+   "vocabulary": [
+    {
+     "word": "世界",
+     "reading": "せかい",
+     "meaning": "Dunia"
+    },
+    {
+     "word": "政界",
+     "reading": "せいかい",
+     "meaning": "Dunia politik"
+    }
+   ]
+  },
+  {
+   "heading": "melayani; bekerja",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "仕",
+   "vocabulary": [
+    {
+     "word": "仕事",
+     "reading": "しごと",
+     "meaning": "Pekerjaan"
+    },
+    {
+     "word": "仕方がない",
+     "reading": "しかたがない",
+     "meaning": "Apa boleh buat (pasrah)"
+    }
+   ]
+  },
+  {
+   "heading": "hal; urusan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "事",
+   "vocabulary": [
+    {
+     "word": "火事",
+     "reading": "かじ",
+     "meaning": "Kebakaran"
+    },
+    {
+     "word": "用事",
+     "reading": "ようじ",
+     "meaning": "Urusan"
+    },
+    {
+     "word": "大事な",
+     "reading": "だいじな",
+     "meaning": "Penting"
+    },
+    {
+     "word": "事",
+     "reading": "こと",
+     "meaning": "Hal"
+    }
+   ]
+  },
+  {
+   "heading": "perak; bank",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "銀",
+   "vocabulary": [
+    {
+     "word": "銀行",
+     "reading": "ぎんこう",
+     "meaning": "Bank"
+    },
+    {
+     "word": "銀",
+     "reading": "ぎん",
+     "meaning": "Perak"
+    },
+    {
+     "word": "銀座",
+     "reading": "ぎんざ",
+     "meaning": "Ginza"
+    }
+   ]
+  },
+  {
+   "heading": "anggota; pegawai",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "員",
+   "vocabulary": [
+    {
+     "word": "会社員",
+     "reading": "かいしゃいん",
+     "meaning": "Pegawai perusahaan"
+    },
+    {
+     "word": "銀行員",
+     "reading": "ぎんこういん",
+     "meaning": "Pegawai bank"
+    },
+    {
+     "word": "店員",
+     "reading": "てんいん",
+     "meaning": "Pegawai toko"
+    },
+    {
+     "word": "会員",
+     "reading": "かいいん",
+     "meaning": "Keanggotaan"
+    }
+   ]
+  },
+  {
+   "heading": "kedokteran; dokter",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "医",
+   "vocabulary": [
+    {
+     "word": "医者",
+     "reading": "いしゃ",
+     "meaning": "Dokter"
+    },
+    {
+     "word": "医学",
+     "reading": "いがく",
+     "meaning": "Kedokteran"
+    },
+    {
+     "word": "医院",
+     "reading": "いいん",
+     "meaning": "Klinik"
+    }
+   ]
+  },
+  {
+   "heading": "orang",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "者",
+   "vocabulary": [
+    {
+     "word": "者",
+     "reading": "もの",
+     "meaning": "Orang"
+    },
+    {
+     "word": "歯医者",
+     "reading": "はいしゃ",
+     "meaning": "Dokter gigi"
+    },
+    {
+     "word": "学者",
+     "reading": "がくしゃ",
+     "meaning": "Sarjana"
+    },
+    {
+     "word": "作者",
+     "reading": "さくしゃ",
+     "meaning": "Pengarang, author"
+    }
+   ]
+  },
+  {
+   "heading": "bekerja",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "働",
+   "vocabulary": [
+    {
+     "word": "働く",
+     "reading": "はたらく",
+     "meaning": "Bekerja"
+    },
+    {
+     "word": "労働者",
+     "reading": "ろうどうしゃ",
+     "meaning": "Pekerja"
+    }
+   ]
+  },
+  {
+   "heading": "toko; atap",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "屋",
+   "vocabulary": [
+    {
+     "word": "屋上",
+     "reading": "おくじょう",
+     "meaning": "Atap"
+    },
+    {
+     "word": "本屋",
+     "reading": "ほんや",
+     "meaning": "Toko buku"
+    },
+    {
+     "word": "八百屋",
+     "reading": "やおや",
+     "meaning": "Toko sayur"
+    },
+    {
+     "word": "部屋",
+     "reading": "へや",
+     "meaning": "Kamar"
+    }
+   ]
+  },
+  {
+   "heading": "melahirkan; menghasilkan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "産",
+   "vocabulary": [
+    {
+     "word": "産む",
+     "reading": "うむ",
+     "meaning": "Melahirkan"
+    },
+    {
+     "word": "生産する",
+     "reading": "せいさんする",
+     "meaning": "Memproduksi"
+    },
+    {
+     "word": "財産",
+     "reading": "ざいさん",
+     "meaning": "Asset, properti"
+    }
+   ]
+  },
+  {
+   "heading": "usaha; industri",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "業",
+   "vocabulary": [
+    {
+     "word": "産業",
+     "reading": "さんぎょう",
+     "meaning": "Industri"
+    },
+    {
+     "word": "工業",
+     "reading": "こうぎょう",
+     "meaning": "Manufaktur"
+    },
+    {
+     "word": "授業",
+     "reading": "じゅぎょう",
+     "meaning": "Kelas, pelajaran"
+    },
+    {
+     "word": "本日休業",
+     "reading": "ほんじつきゅうぎょう",
+     "meaning": "Hari ini tutup"
+    }
+   ]
+  },
+  {
+   "heading": "hutan kecil",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "林",
+   "vocabulary": [
+    {
+     "word": "林",
+     "reading": "はやし",
+     "meaning": "Kayu"
+    },
+    {
+     "word": "小林さん",
+     "reading": "こばやしさん",
+     "meaning": "Tuan Kobayashi"
+    },
+    {
+     "word": "林道",
+     "reading": "りんどう",
+     "meaning": "Jalan sekitar hutan"
+    }
+   ]
+  },
+  {
+   "heading": "hutan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "森",
+   "vocabulary": [
+    {
+     "word": "森",
+     "reading": "もり",
+     "meaning": "Hutan"
+    },
+    {
+     "word": "森林",
+     "reading": "しんりん",
+     "meaning": "Hutan belantara"
+    },
+    {
+     "word": "森さん",
+     "reading": "もりさん",
+     "meaning": "Tuan mori"
+    }
+   ]
+  },
+  {
+   "heading": "tanah; bumi",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "地",
+   "vocabulary": [
+    {
+     "word": "地図",
+     "reading": "ちず",
+     "meaning": "Peta"
+    },
+    {
+     "word": "地下鉄",
+     "reading": "ちかてつ",
+     "meaning": "Kereta api bawah tanah"
+    },
+    {
+     "word": "土地",
+     "reading": "とち",
+     "meaning": "Daratan"
+    },
+    {
+     "word": "地震",
+     "reading": "じしん",
+     "meaning": "Gempa bumi"
+    }
+   ]
+  },
+  {
+   "heading": "kolam",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "池",
+   "vocabulary": [
+    {
+     "word": "池",
+     "reading": "いけ",
+     "meaning": "Kolam"
+    },
+    {
+     "word": "電池",
+     "reading": "でんち",
+     "meaning": "Baterai"
+    }
+   ]
+  },
+  {
+   "heading": "laut",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "海",
+   "vocabulary": [
+    {
+     "word": "海",
+     "reading": "うみ",
+     "meaning": "Laut"
+    },
+    {
+     "word": "海外",
+     "reading": "かいがい",
+     "meaning": "Luar negeri"
+    },
+    {
+     "word": "北海道",
+     "reading": "ほっかいどう",
+     "meaning": "Hokkaido"
+    }
+   ]
+  },
+  {
+   "heading": "samudra; barat",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "洋",
+   "vocabulary": [
+    {
+     "word": "西洋",
+     "reading": "せいよう",
+     "meaning": "Ala barat"
+    },
+    {
+     "word": "東洋",
+     "reading": "とうよう",
+     "meaning": "Ala timur"
+    },
+    {
+     "word": "洋服",
+     "reading": "ようふく",
+     "meaning": "Pakaian ala barat"
+    },
+    {
+     "word": "大西洋",
+     "reading": "たいせいよう",
+     "meaning": "Samudra atlantik"
+    }
+   ]
+  },
+  {
+   "heading": "salju",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "雪",
+   "vocabulary": [
+    {
+     "word": "雪",
+     "reading": "ゆき",
+     "meaning": "Salju"
+    },
+    {
+     "word": "大雪",
+     "reading": "おおゆき",
+     "meaning": "Salju lebat / deras"
+    },
+    {
+     "word": "新雪",
+     "reading": "しんせつ",
+     "meaning": "Salju yang baru turun"
+    },
+    {
+     "word": "吹雪",
+     "reading": "ふぶき",
+     "meaning": "Badai salju"
+    }
+   ]
+  },
+  {
+   "heading": "cahaya",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "光",
+   "vocabulary": [
+    {
+     "word": "光",
+     "reading": "ひかり",
+     "meaning": "Cahaya"
+    },
+    {
+     "word": "光る",
+     "reading": "ひかる",
+     "meaning": "Bercahaya / bersinar"
+    },
+    {
+     "word": "日光",
+     "reading": "にっこう",
+     "meaning": "Cahaya matahari"
+    },
+    {
+     "word": "観光",
+     "reading": "かんこう",
+     "meaning": "Melihat-lihat"
+    }
+   ]
+  },
+  {
+   "heading": "meja; alas",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "台",
+   "vocabulary": [
+    {
+     "word": "台",
+     "reading": "だい",
+     "meaning": "Meja"
+    },
+    {
+     "word": "台所",
+     "reading": "だいどころ",
+     "meaning": "Dapur"
+    },
+    {
+     "word": "～～台",
+     "reading": "～～だい",
+     "meaning": "~~Unit"
+    },
+    {
+     "word": "土台",
+     "reading": "どだい",
+     "meaning": "Yayasan"
+    }
+   ]
+  },
+  {
+   "heading": "angin; gaya",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "風",
+   "vocabulary": [
+    {
+     "word": "風",
+     "reading": "かぜ",
+     "meaning": "Angin"
+    },
+    {
+     "word": "台風",
+     "reading": "たいふう",
+     "meaning": "Angin topan"
+    },
+    {
+     "word": "洋風",
+     "reading": "ようふう",
+     "meaning": "Ala / gaya barat"
+    },
+    {
+     "word": "風景",
+     "reading": "ふうけい",
+     "meaning": "Pemandangan"
+    }
+   ]
+  },
+  {
+   "heading": "musim",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "季",
+   "vocabulary": [
+    {
+     "word": "四季",
+     "reading": "しき",
+     "meaning": "4 Musim"
+    }
+   ]
+  },
+  {
+   "heading": "musim; ruas",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "節",
+   "vocabulary": [
+    {
+     "word": "季節",
+     "reading": "きせつ",
+     "meaning": "Musim"
+    },
+    {
+     "word": "節分",
+     "reading": "せつぶん",
+     "meaning": "Festival akhir di musim dingin"
+    }
+   ]
+  },
+  {
+   "heading": "musim semi",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "春",
+   "vocabulary": [
+    {
+     "word": "春",
+     "reading": "はる",
+     "meaning": "Musim semi"
+    },
+    {
+     "word": "青春",
+     "reading": "せいしゅん",
+     "meaning": "Masa muda"
+    }
+   ]
+  },
+  {
+   "heading": "musim panas",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "夏",
+   "vocabulary": [
+    {
+     "word": "夏",
+     "reading": "なつ",
+     "meaning": "Musim panas"
+    },
+    {
+     "word": "夏休み",
+     "reading": "なつやすみ",
+     "meaning": "Libur musim panas"
+    },
+    {
+     "word": "夏祭り",
+     "reading": "なつまつり",
+     "meaning": "Perayaan musim panas"
+    },
+    {
+     "word": "夏服",
+     "reading": "なつふく",
+     "meaning": "Baju musim panas"
+    }
+   ]
+  },
+  {
+   "heading": "musim gugur",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "秋",
+   "vocabulary": [
+    {
+     "word": "秋",
+     "reading": "あき",
+     "meaning": "Musim gugur"
+    },
+    {
+     "word": "秋田県",
+     "reading": "あきたけん",
+     "meaning": "Prefektur akita"
+    },
+    {
+     "word": "秋分の日",
+     "reading": "しゅうぶんのひ",
+     "meaning": "Hari ekuinoks"
+    }
+   ]
+  },
+  {
+   "heading": "musim dingin",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "冬",
+   "vocabulary": [
+    {
+     "word": "冬",
+     "reading": "ふゆ",
+     "meaning": "Musim dingin"
+    },
+    {
+     "word": "冬休み",
+     "reading": "ふゆやすみ",
+     "meaning": "Libur musim dingin"
+    },
+    {
+     "word": "春夏秋冬",
+     "reading": "しゅんかしゅうとう",
+     "meaning": "Musim semi, panas, gugur, dingin"
+    }
+   ]
+  },
+  {
+   "heading": "panas",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "暑",
+   "vocabulary": [
+    {
+     "word": "暑い",
+     "reading": "あつい",
+     "meaning": "Panas"
+    },
+    {
+     "word": "残暑",
+     "reading": "ざんしょ",
+     "meaning": "Musim panas yang tersisa"
+    }
+   ]
+  },
+  {
+   "heading": "dingin",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "寒",
+   "vocabulary": [
+    {
+     "word": "寒い",
+     "reading": "さむい",
+     "meaning": "Dingin"
+    },
+    {
+     "word": "寒波",
+     "reading": "かんぱ",
+     "meaning": "Gelombang udara dingin"
+    }
+   ]
+  },
+  {
+   "heading": "hangat",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "暖",
+   "vocabulary": [
+    {
+     "word": "暖かい",
+     "reading": "あたたかい",
+     "meaning": "Hangat"
+    },
+    {
+     "word": "暖冬",
+     "reading": "だんとう",
+     "meaning": "Musim dingin yang hangat"
+    },
+    {
+     "word": "暖房",
+     "reading": "だんぼう",
+     "meaning": "Pemanas ruangan"
+    },
+    {
+     "word": "温暖化",
+     "reading": "おんだんか",
+     "meaning": "Pemanasan global"
+    }
+   ]
+  },
+  {
+   "heading": "sejuk",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "涼",
+   "vocabulary": [
+    {
+     "word": "涼しい",
+     "reading": "すずしい",
+     "meaning": "Sejuk"
+    },
+    {
+     "word": "涼風",
+     "reading": "りょうふう",
+     "meaning": "Angin yang sejuk"
+    }
+   ]
+  },
+  {
+   "heading": "badan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "体",
+   "vocabulary": [
+    {
+     "word": "体",
+     "reading": "からだ",
+     "meaning": "Badan"
+    },
+    {
+     "word": "体力",
+     "reading": "たいりょく",
+     "meaning": "Kekuatan fisik"
+    },
+    {
+     "word": "体重",
+     "reading": "たいじゅう",
+     "meaning": "Berat badan"
+    }
+   ]
+  },
+  {
+   "heading": "kepala",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "頭",
+   "vocabulary": [
+    {
+     "word": "頭",
+     "reading": "あたま",
+     "meaning": "Kepala"
+    },
+    {
+     "word": "頭が良い",
+     "reading": "あたまがいい",
+     "meaning": "Pintar"
+    },
+    {
+     "word": "頭痛",
+     "reading": "ずつう",
+     "meaning": "Pusing"
+    }
+   ]
+  },
+  {
+   "heading": "wajah",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "顔",
+   "vocabulary": [
+    {
+     "word": "顔",
+     "reading": "かお",
+     "meaning": "Wajah"
+    },
+    {
+     "word": "顔色",
+     "reading": "かおいろ",
+     "meaning": "Wajah (raut, warna)"
+    }
+   ]
+  },
+  {
+   "heading": "leher; kepala",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "首",
+   "vocabulary": [
+    {
+     "word": "首",
+     "reading": "くび",
+     "meaning": "Leher"
+    },
+    {
+     "word": "首都",
+     "reading": "しゅと",
+     "meaning": "Ibu kota"
+    },
+    {
+     "word": "手首",
+     "reading": "てくび",
+     "meaning": "Pergelangan tangan"
+    },
+    {
+     "word": "首相",
+     "reading": "しゅしょう",
+     "meaning": "Perdana mentri"
+    }
+   ]
+  },
+  {
+   "heading": "hati",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "心",
+   "vocabulary": [
+    {
+     "word": "心",
+     "reading": "こころ",
+     "meaning": "Hati"
+    },
+    {
+     "word": "安心する",
+     "reading": "あんしんする",
+     "meaning": "Merasa tenang, lega"
+    },
+    {
+     "word": "心配する",
+     "reading": "しんぱいする",
+     "meaning": "Merasa khawatir"
+    },
+    {
+     "word": "中心",
+     "reading": "ちゅうしん",
+     "meaning": "Pusat, Tengah"
+    }
+   ]
+  },
+  {
+   "heading": "suara",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "声",
+   "vocabulary": [
+    {
+     "word": "声",
+     "reading": "こえ",
+     "meaning": "Suara"
+    },
+    {
+     "word": "大声",
+     "reading": "おおごえ",
+     "meaning": "Suara lantang"
+    }
+   ]
+  },
+  {
+   "heading": "sakit",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "病",
+   "vocabulary": [
+    {
+     "word": "病気",
+     "reading": "びょうき",
+     "meaning": "Sakit"
+    },
+    {
+     "word": "病院",
+     "reading": "びょういん",
+     "meaning": "Rumah sakit"
+    },
+    {
+     "word": "病人",
+     "reading": "びょうにん",
+     "meaning": "Orang sakit"
+    },
+    {
+     "word": "急病",
+     "reading": "きゅうびょう",
+     "meaning": "Sakit mendadak"
+    }
+   ]
+  },
+  {
+   "heading": "obat",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "薬",
+   "vocabulary": [
+    {
+     "word": "薬",
+     "reading": "くすり",
+     "meaning": "Obat"
+    },
+    {
+     "word": "目薬",
+     "reading": "めぐすり",
+     "meaning": "Obat mata"
+    },
+    {
+     "word": "薬品",
+     "reading": "やくひん",
+     "meaning": "Obat-obatan"
+    }
+   ]
+  },
+  {
+   "heading": "bidang; departemen",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "科",
+   "vocabulary": [
+    {
+     "word": "科学",
+     "reading": "かがく",
+     "meaning": "Ilmu pengetahuan"
+    },
+    {
+     "word": "教科書",
+     "reading": "きょうかしょ",
+     "meaning": "Buku pelajaran"
+    },
+    {
+     "word": "外科",
+     "reading": "げか",
+     "meaning": "Operasi"
+    }
+   ]
+  },
+  {
+   "heading": "dalam",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "内",
+   "vocabulary": [
+    {
+     "word": "内側",
+     "reading": "うちがわ",
+     "meaning": "Sebelah dalam"
+    },
+    {
+     "word": "内科",
+     "reading": "ないか",
+     "meaning": "Penyakit dalam"
+    },
+    {
+     "word": "車内",
+     "reading": "しゃない",
+     "meaning": "Dalam mobil"
+    },
+    {
+     "word": "案内する",
+     "reading": "あんないする",
+     "meaning": "Memandu"
+    }
+   ]
+  },
+  {
+   "heading": "pagi",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "朝",
+   "vocabulary": [
+    {
+     "word": "朝",
+     "reading": "あさ",
+     "meaning": "Pagi"
+    },
+    {
+     "word": "今朝",
+     "reading": "けさ",
+     "meaning": "Tadi pagi"
+    },
+    {
+     "word": "朝日",
+     "reading": "あさひ",
+     "meaning": "Matahari pagi"
+    },
+    {
+     "word": "朝食",
+     "reading": "ちょうしょく",
+     "meaning": "Sarapan"
+    }
+   ]
+  },
+  {
+   "heading": "siang",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "昼",
+   "vocabulary": [
+    {
+     "word": "昼",
+     "reading": "ひる",
+     "meaning": "Siang"
+    },
+    {
+     "word": "昼休み",
+     "reading": "ひるやすみ",
+     "meaning": "Istirahat siang"
+    },
+    {
+     "word": "昼ごはん",
+     "reading": "ひるごはん",
+     "meaning": "Makan siang"
+    },
+    {
+     "word": "昼食",
+     "reading": "ちゅうしょく",
+     "meaning": "Makan siang"
+    }
+   ]
+  },
+  {
+   "heading": "malam",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "夜",
+   "vocabulary": [
+    {
+     "word": "夜",
+     "reading": "よる",
+     "meaning": "Malam"
+    },
+    {
+     "word": "今夜",
+     "reading": "こんや",
+     "meaning": "Malam ini"
+    },
+    {
+     "word": "夜店",
+     "reading": "よみせ",
+     "meaning": "Pasar malam"
+    },
+    {
+     "word": "夜食",
+     "reading": "やしょく",
+     "meaning": "Makan malam"
+    }
+   ]
+  },
+  {
+   "heading": "sore",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "夕",
+   "vocabulary": [
+    {
+     "word": "夕日",
+     "reading": "ゆうひ",
+     "meaning": "Matahari terbenam"
+    },
+    {
+     "word": "夕食",
+     "reading": "ゆうしょく",
+     "meaning": "Makan malam"
+    },
+    {
+     "word": "七夕",
+     "reading": "たなばた",
+     "meaning": "Festival tanabata"
+    }
+   ]
+  },
+  {
+   "heading": "arah; cara",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "方",
+   "vocabulary": [
+    {
+     "word": "読み方",
+     "reading": "よみかた",
+     "meaning": "Cara baca"
+    },
+    {
+     "word": "夕方",
+     "reading": "ゆうがた",
+     "meaning": "Sore"
+    },
+    {
+     "word": "あの方",
+     "reading": "あのかた",
+     "meaning": "Orang itu"
+    },
+    {
+     "word": "方法",
+     "reading": "ほうほう",
+     "meaning": "Cara"
+    }
+   ]
+  },
+  {
+   "heading": "malam; petang",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "晩",
+   "vocabulary": [
+    {
+     "word": "今晩",
+     "reading": "こんばん",
+     "meaning": "Malam ini"
+    },
+    {
+     "word": "毎晩",
+     "reading": "まいばん",
+     "meaning": "Setiap malam"
+    },
+    {
+     "word": "晩ご飯",
+     "reading": "ばんごはん",
+     "meaning": "Makan malam"
+    }
+   ]
+  },
+  {
+   "heading": "mengukur; menghitung",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "計",
+   "vocabulary": [
+    {
+     "word": "時計",
+     "reading": "とけい",
+     "meaning": "Jam"
+    },
+    {
+     "word": "計画",
+     "reading": "けいかく",
+     "meaning": "Rencana"
+    },
+    {
+     "word": "計る",
+     "reading": "はかる",
+     "meaning": "Mengukur"
+    },
+    {
+     "word": "合計",
+     "reading": "ごうけい",
+     "meaning": "Jumlah"
+    }
+   ]
+  },
+  {
+   "heading": "hari dalam seminggu",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "曜",
+   "vocabulary": [
+    {
+     "word": "日曜日",
+     "reading": "にちようび",
+     "meaning": "Hari minggu"
+    },
+    {
+     "word": "水曜日",
+     "reading": "すいようび",
+     "meaning": "Hari rabu"
+    },
+    {
+     "word": "何曜日",
+     "reading": "なんようび",
+     "meaning": "Hari apa"
+    }
+   ]
+  },
+  {
+   "heading": "dari; sejak",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "以",
+   "vocabulary": [
+    {
+     "word": "以上",
+     "reading": "いじょう",
+     "meaning": "Lebih dari"
+    },
+    {
+     "word": "以下",
+     "reading": "いか",
+     "meaning": "Kurang dari"
+    },
+    {
+     "word": "以外",
+     "reading": "いがい",
+     "meaning": "Selain"
+    },
+    {
+     "word": "以前",
+     "reading": "いぜん",
+     "meaning": "Sebelumnya"
+    }
+   ]
+  },
+  {
+   "heading": "kali; derajat",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "度",
+   "vocabulary": [
+    {
+     "word": "一度",
+     "reading": "いちど",
+     "meaning": "Satu kali"
+    },
+    {
+     "word": "今度",
+     "reading": "こんど",
+     "meaning": "Lain kali"
+    },
+    {
+     "word": "25度",
+     "reading": "２５ど",
+     "meaning": "25 derajat"
+    },
+    {
+     "word": "温度",
+     "reading": "おんど",
+     "meaning": "Suhu"
+    }
+   ]
+  },
+  {
+   "heading": "berhenti",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "止",
+   "vocabulary": [
+    {
+     "word": "止まる",
+     "reading": "とまる",
+     "meaning": "Berhenti"
+    },
+    {
+     "word": "中止する",
+     "reading": "ちゅうしする",
+     "meaning": "Menghentikan"
+    },
+    {
+     "word": "一時停止",
+     "reading": "いちじていし",
+     "meaning": "Tanda berhenti"
+    }
+   ]
+  },
+  {
+   "heading": "berjalan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "歩",
+   "vocabulary": [
+    {
+     "word": "歩く",
+     "reading": "あるく",
+     "meaning": "Berjalan"
+    },
+    {
+     "word": "散歩する",
+     "reading": "さんぽする",
+     "meaning": "Berjalan-jalan"
+    },
+    {
+     "word": "進歩する",
+     "reading": "しんぽする",
+     "meaning": "Kemajuan"
+    },
+    {
+     "word": "横断歩道",
+     "reading": "おうだんほどう",
+     "meaning": "Tempat menyeberang"
+    }
+   ]
+  },
+  {
+   "heading": "berlari",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "走",
+   "vocabulary": [
+    {
+     "word": "走る",
+     "reading": "はしる",
+     "meaning": "Berlari"
+    },
+    {
+     "word": "力走する",
+     "reading": "りきそうする",
+     "meaning": "Berlari secepat mungkin"
+    },
+    {
+     "word": "走り出す",
+     "reading": "はしりだす",
+     "meaning": "Mulai berlari"
+    }
+   ]
+  },
+  {
+   "heading": "bangun; terjadi",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "起",
+   "vocabulary": [
+    {
+     "word": "起きる",
+     "reading": "おきる",
+     "meaning": "Bangun; terjadi"
+    },
+    {
+     "word": "起こす",
+     "reading": "おこす",
+     "meaning": "Membangunkan; menyebabkan"
+    },
+    {
+     "word": "早起き",
+     "reading": "はやおき",
+     "meaning": "Bangun cepat"
+    },
+    {
+     "word": "起業家",
+     "reading": "きぎょうか",
+     "meaning": "Wirausaha"
+    }
+   ]
+  },
+  {
+   "heading": "membawa; memegang",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "持",
+   "vocabulary": [
+    {
+     "word": "持つ",
+     "reading": "もつ",
+     "meaning": "Membawa"
+    },
+    {
+     "word": "気持ち",
+     "reading": "きもち",
+     "meaning": "Perasaan"
+    },
+    {
+     "word": "持ち物",
+     "reading": "もちもの",
+     "meaning": "Pemilik"
+    },
+    {
+     "word": "支持する",
+     "reading": "しじする",
+     "meaning": "Mendukung"
+    }
+   ]
+  },
+  {
+   "heading": "menunggu",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "待",
+   "vocabulary": [
+    {
+     "word": "待つ",
+     "reading": "まつ",
+     "meaning": "Menunggu"
+    },
+    {
+     "word": "待ち合わせ",
+     "reading": "まちあわせ",
+     "meaning": "Pertemuan"
+    },
+    {
+     "word": "招待する",
+     "reading": "しょうたいする",
+     "meaning": "Mengundang"
+    }
+   ]
+  },
+  {
+   "heading": "meminjam",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "借",
+   "vocabulary": [
+    {
+     "word": "借りる",
+     "reading": "かりる",
+     "meaning": "Meminjam"
+    },
+    {
+     "word": "借金",
+     "reading": "しゃっきん",
+     "meaning": "Utang"
+    }
+   ]
+  },
+  {
+   "heading": "meminjamkan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "貸",
+   "vocabulary": [
+    {
+     "word": "貸す",
+     "reading": "かす",
+     "meaning": "Meminjamkan"
+    },
+    {
+     "word": "貸家",
+     "reading": "かしや",
+     "meaning": "Rumah sewaan"
+    }
+   ]
+  },
+  {
+   "heading": "mulai",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "始",
+   "vocabulary": [
+    {
+     "word": "始まる",
+     "reading": "はじまる",
+     "meaning": "Mulai"
+    },
+    {
+     "word": "始める",
+     "reading": "はじめる",
+     "meaning": "Memulai"
+    },
+    {
+     "word": "開始する",
+     "reading": "かいしする",
+     "meaning": "Mulai"
+    },
+    {
+     "word": "始発",
+     "reading": "しはつ",
+     "meaning": "Keberangkatan pertama"
+    }
+   ]
+  },
+  {
+   "heading": "selesai",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "終",
+   "vocabulary": [
+    {
+     "word": "終わる",
+     "reading": "おわる",
+     "meaning": "Selesai"
+    },
+    {
+     "word": "終電",
+     "reading": "しゅうでん",
+     "meaning": "Kereta terakhir"
+    },
+    {
+     "word": "最終回",
+     "reading": "さいしゅうかい",
+     "meaning": "Episode terakhir"
+    }
+   ]
+  },
+  {
+   "heading": "rumah; keluarga",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "家",
+   "vocabulary": [
+    {
+     "word": "家",
+     "reading": "いえ",
+     "meaning": "Rumah"
+    },
+    {
+     "word": "画家",
+     "reading": "がか",
+     "meaning": "Pelukis"
+    },
+    {
+     "word": "家内",
+     "reading": "かない",
+     "meaning": "Istri; rumah"
+    },
+    {
+     "word": "家庭",
+     "reading": "かてい",
+     "meaning": "Rumah"
+    }
+   ]
+  },
+  {
+   "heading": "keluarga; suku",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "族",
+   "vocabulary": [
+    {
+     "word": "家族",
+     "reading": "かぞく",
+     "meaning": "Keluarga"
+    },
+    {
+     "word": "民族",
+     "reading": "みんぞく",
+     "meaning": "Suku"
+    },
+    {
+     "word": "水族館",
+     "reading": "すいぞくかん",
+     "meaning": "Akuarium"
+    }
+   ]
+  },
+  {
+   "heading": "saya; pribadi",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "私",
+   "vocabulary": [
+    {
+     "word": "私",
+     "reading": "わたし",
+     "meaning": "Saya"
+    },
+    {
+     "word": "私立大学",
+     "reading": "しりつだいがく",
+     "meaning": "Universitas Swasta"
+    },
+    {
+     "word": "私生活",
+     "reading": "しせいかつ",
+     "meaning": "Kehidupan pribadi"
+    }
+   ]
+  },
+  {
+   "heading": "diri sendiri",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "自",
+   "vocabulary": [
+    {
+     "word": "自分",
+     "reading": "じぶん",
+     "meaning": "Diri sendiri"
+    },
+    {
+     "word": "自動ドア",
+     "reading": "じどうドア",
+     "meaning": "Pintu otomatis"
+    },
+    {
+     "word": "自由",
+     "reading": "じゆう",
+     "meaning": "Bebas"
+    },
+    {
+     "word": "自然",
+     "reading": "しぜん",
+     "meaning": "Alami, natural"
+    }
+   ]
+  },
+  {
+   "heading": "kedua",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "両",
+   "vocabulary": [
+    {
+     "word": "両親",
+     "reading": "りょうしん",
+     "meaning": "Kedua orang tua"
+    },
+    {
+     "word": "両方",
+     "reading": "りょうほう",
+     "meaning": "Kedua belah pihak"
+    },
+    {
+     "word": "両手",
+     "reading": "りょうて",
+     "meaning": "Kedua tangan"
+    },
+    {
+     "word": "両替",
+     "reading": "りょうがえ",
+     "meaning": "Penukaran uang"
+    }
+   ]
+  },
+  {
+   "heading": "kakak laki-laki",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "兄",
+   "vocabulary": [
+    {
+     "word": "兄",
+     "reading": "あに",
+     "meaning": "Kakak LK"
+    },
+    {
+     "word": "お兄さん",
+     "reading": "おにいさん",
+     "meaning": "Kakak LK (orang lain)"
+    }
+   ]
+  },
+  {
+   "heading": "adik laki-laki",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "弟",
+   "vocabulary": [
+    {
+     "word": "弟",
+     "reading": "おとうと",
+     "meaning": "Adik laki-laki"
+    },
+    {
+     "word": "兄弟",
+     "reading": "きょうだい",
+     "meaning": "Saudara"
+    }
+   ]
+  },
+  {
+   "heading": "kakak perempuan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "姉",
+   "vocabulary": [
+    {
+     "word": "姉",
+     "reading": "あね",
+     "meaning": "Kakak PR"
+    },
+    {
+     "word": "お姉さん",
+     "reading": "おねえさん",
+     "meaning": "Kakak PR (orang lain)"
+    }
+   ]
+  },
+  {
+   "heading": "adik perempuan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "妹",
+   "vocabulary": [
+    {
+     "word": "妹",
+     "reading": "いもうと",
+     "meaning": "Adik perempuan"
+    },
+    {
+     "word": "姉妹",
+     "reading": "しまい",
+     "meaning": "Saudari"
+    },
+    {
+     "word": "姉妹都市",
+     "reading": "しまいとし",
+     "meaning": "Kota kembar"
+    }
+   ]
+  },
+  {
+   "heading": "hidup; aktif",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "活",
+   "vocabulary": [
+    {
+     "word": "生活",
+     "reading": "せいかつ",
+     "meaning": "Kehidupan"
+    },
+    {
+     "word": "活動",
+     "reading": "かつどう",
+     "meaning": "Aktifitas"
+    },
+    {
+     "word": "活発",
+     "reading": "かっぱつ",
+     "meaning": "Aktif"
+    }
+   ]
+  },
+  {
+   "heading": "berputar; kali",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "回",
+   "vocabulary": [
+    {
+     "word": "回す",
+     "reading": "まわす",
+     "meaning": "Memutar"
+    },
+    {
+     "word": "一回",
+     "reading": "いっかい",
+     "meaning": "Satu kali"
+    },
+    {
+     "word": "前回",
+     "reading": "ぜんかい",
+     "meaning": "Terakhir kali"
+    },
+    {
+     "word": "回転寿司",
+     "reading": "かいてんずし",
+     "meaning": "Sushi yang berputar"
+    }
+   ]
+  },
+  {
+   "heading": "utama; tuan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "主",
+   "vocabulary": [
+    {
+     "word": "主人",
+     "reading": "しゅじん",
+     "meaning": "Suami"
+    },
+    {
+     "word": "主食",
+     "reading": "しゅしょく",
+     "meaning": "Makanan utama"
+    },
+    {
+     "word": "主な",
+     "reading": "おもな",
+     "meaning": "Utama"
+    },
+    {
+     "word": "持ち主",
+     "reading": "もちぬし",
+     "meaning": "Pemilik (barang)"
+    },
+    {
+     "word": "飼い主",
+     "reading": "かいぬし",
+     "meaning": "Pemilik (hewan)"
+    }
+   ]
+  },
+  {
+   "heading": "warna",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "色",
+   "vocabulary": [
+    {
+     "word": "色",
+     "reading": "いろ",
+     "meaning": "Warna"
+    },
+    {
+     "word": "茶色",
+     "reading": "ちゃいろ",
+     "meaning": "Cokelat"
+    },
+    {
+     "word": "特色",
+     "reading": "とくしょく",
+     "meaning": "Karakteristik"
+    },
+    {
+     "word": "景色",
+     "reading": "けしき",
+     "meaning": "Pemandangan"
+    }
+   ]
+  },
+  {
+   "heading": "bentuk",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "形",
+   "vocabulary": [
+    {
+     "word": "形",
+     "reading": "かたち",
+     "meaning": "Bentuk"
+    },
+    {
+     "word": "人形",
+     "reading": "にんぎょう",
+     "meaning": "Boneka"
+    },
+    {
+     "word": "正方形",
+     "reading": "せいほうけい",
+     "meaning": "Persegi"
+    },
+    {
+     "word": "図形",
+     "reading": "ずけい",
+     "meaning": "Figur"
+    }
+   ]
+  },
+  {
+   "heading": "barang; kualitas",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "品",
+   "vocabulary": [
+    {
+     "word": "品物",
+     "reading": "しなもの",
+     "meaning": "Barang"
+    },
+    {
+     "word": "食料品",
+     "reading": "しょくりょうひん",
+     "meaning": "Bahan makanan"
+    },
+    {
+     "word": "電気製品",
+     "reading": "でんきせいひん",
+     "meaning": "Peralatan elektronik"
+    },
+    {
+     "word": "作品",
+     "reading": "さくひん",
+     "meaning": "Karya (tulisan, lagu)"
+    }
+   ]
+  },
+  {
+   "heading": "rakyat",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "民",
+   "vocabulary": [
+    {
+     "word": "国民",
+     "reading": "こくみん",
+     "meaning": "Warga negara"
+    },
+    {
+     "word": "市民",
+     "reading": "しみん",
+     "meaning": "Penduduk kota"
+    },
+    {
+     "word": "民族",
+     "reading": "みんぞく",
+     "meaning": "Suku, etnis, ras"
+    },
+    {
+     "word": "民主主義",
+     "reading": "みんしゅしゅぎ",
+     "meaning": "Demokrasi"
+    }
+   ]
+  },
+  {
+   "heading": "pakaian",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "服",
+   "vocabulary": [
+    {
+     "word": "服",
+     "reading": "ふく",
+     "meaning": "Baju"
+    },
+    {
+     "word": "洋服",
+     "reading": "ようふく",
+     "meaning": "Baju ala barat"
+    },
+    {
+     "word": "和服",
+     "reading": "わふく",
+     "meaning": "Baju ala jepang"
+    },
+    {
+     "word": "制服",
+     "reading": "せいふく",
+     "meaning": "Seragam"
+    }
+   ]
+  },
+  {
+   "heading": "anjing",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "犬",
+   "vocabulary": [
+    {
+     "word": "犬",
+     "reading": "いぬ",
+     "meaning": "Anjing"
+    },
+    {
+     "word": "子犬",
+     "reading": "こいぬ",
+     "meaning": "Anak anjing"
+    },
+    {
+     "word": "日本犬",
+     "reading": "にほんけん",
+     "meaning": "Anjing Jepang"
+    }
+   ]
+  },
+  {
+   "heading": "sama",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "同",
+   "vocabulary": [
+    {
+     "word": "同じ",
+     "reading": "おなじ",
+     "meaning": "Sama"
+    },
+    {
+     "word": "同時に",
+     "reading": "どうじに",
+     "meaning": "Dalam waktu bersamaan"
+    },
+    {
+     "word": "同級生",
+     "reading": "どうきゅうせい",
+     "meaning": "Teman sekelas"
+    }
+   ]
+  },
+  {
+   "heading": "beras",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "米",
+   "vocabulary": [
+    {
+     "word": "米",
+     "reading": "こめ",
+     "meaning": "Beras"
+    },
+    {
+     "word": "米国",
+     "reading": "べいこく",
+     "meaning": "Amerika"
+    },
+    {
+     "word": "白米",
+     "reading": "はくまい",
+     "meaning": "Beras putih"
+    }
+   ]
+  },
+  {
+   "heading": "bahan; biaya",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "料",
+   "vocabulary": [
+    {
+     "word": "料金",
+     "reading": "りょうきん",
+     "meaning": "Ongkos, biaya"
+    },
+    {
+     "word": "食料品",
+     "reading": "しょくりょうひん",
+     "meaning": "Bahan makanan"
+    },
+    {
+     "word": "資料",
+     "reading": "しりょう",
+     "meaning": "Data, dokumen"
+    },
+    {
+     "word": "材料",
+     "reading": "ざいりょう",
+     "meaning": "Material"
+    }
+   ]
+  },
+  {
+   "heading": "alasan; aturan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "理",
+   "vocabulary": [
+    {
+     "word": "料理",
+     "reading": "りょうり",
+     "meaning": "Memasak"
+    },
+    {
+     "word": "無理な",
+     "reading": "むりな",
+     "meaning": "Mustahil"
+    },
+    {
+     "word": "理由",
+     "reading": "りゆう",
+     "meaning": "Alasan"
+    }
+   ]
+  },
+  {
+   "heading": "daging",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "肉",
+   "vocabulary": [
+    {
+     "word": "肉",
+     "reading": "にく",
+     "meaning": "Daging"
+    },
+    {
+     "word": "牛肉",
+     "reading": "ぎゅうにく",
+     "meaning": "Daging sapi"
+    },
+    {
+     "word": "肉屋",
+     "reading": "にくや",
+     "meaning": "Toko daging"
+    },
+    {
+     "word": "筋肉",
+     "reading": "きんにく",
+     "meaning": "Otot"
+    }
+   ]
+  },
+  {
+   "heading": "burung",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "鳥",
+   "vocabulary": [
+    {
+     "word": "鳥",
+     "reading": "とり",
+     "meaning": "Burung"
+    },
+    {
+     "word": "小鳥",
+     "reading": "ことり",
+     "meaning": "Burung kecil"
+    },
+    {
+     "word": "白鳥",
+     "reading": "はくちょう",
+     "meaning": "Angsa"
+    }
+   ]
+  },
+  {
+   "heading": "ladang; liar",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "野",
+   "vocabulary": [
+    {
+     "word": "野原",
+     "reading": "のはら",
+     "meaning": "Ladang"
+    },
+    {
+     "word": "野鳥",
+     "reading": "やちょう",
+     "meaning": "Burung liar"
+    },
+    {
+     "word": "分野",
+     "reading": "ぶんや",
+     "meaning": "Area"
+    }
+   ]
+  },
+  {
+   "heading": "sayur",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "菜",
+   "vocabulary": [
+    {
+     "word": "野菜",
+     "reading": "やさい",
+     "meaning": "Sayur"
+    },
+    {
+     "word": "菜食",
+     "reading": "さいしょく",
+     "meaning": "Diet sayuran"
+    },
+    {
+     "word": "青菜",
+     "reading": "あおな",
+     "meaning": "Sayuran berdaun hijau"
+    }
+   ]
+  },
+  {
+   "heading": "teh",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "茶",
+   "vocabulary": [
+    {
+     "word": "お茶",
+     "reading": "おちゃ",
+     "meaning": "Teh"
+    },
+    {
+     "word": "茶色",
+     "reading": "ちゃいろ",
+     "meaning": "Coklat"
+    },
+    {
+     "word": "喫茶店",
+     "reading": "きっさてん",
+     "meaning": "Tempat minum kopi"
+    },
+    {
+     "word": "紅茶",
+     "reading": "こうちゃ",
+     "meaning": "Teh hitam"
+    }
+   ]
+  },
+  {
+   "heading": "nasi; makan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "飯",
+   "vocabulary": [
+    {
+     "word": "ご飯",
+     "reading": "ごはん",
+     "meaning": "Makan, nasi"
+    },
+    {
+     "word": "夕飯",
+     "reading": "ゆうはん",
+     "meaning": "Makan malam"
+    },
+    {
+     "word": "晩ご飯",
+     "reading": "ばんごはん",
+     "meaning": "Makan malam"
+    },
+    {
+     "word": "昼飯",
+     "reading": "ひるめし",
+     "meaning": "Makan siang"
+    }
+   ]
+  },
+  {
+   "heading": "rasa; arti",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "味",
+   "vocabulary": [
+    {
+     "word": "味",
+     "reading": "あじ",
+     "meaning": "Rasa"
+    },
+    {
+     "word": "意味",
+     "reading": "いみ",
+     "meaning": "Arti"
+    },
+    {
+     "word": "趣味",
+     "reading": "しゅみ",
+     "meaning": "Hobi"
+    },
+    {
+     "word": "興味",
+     "reading": "きょうみ",
+     "meaning": "Minat"
+    }
+   ]
+  },
+  {
+   "heading": "mengganti; zaman",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "代",
+   "vocabulary": [
+    {
+     "word": "代わる",
+     "reading": "かわる",
+     "meaning": "Mengganti"
+    },
+    {
+     "word": "代わりに",
+     "reading": "かわりに",
+     "meaning": "Sebagai gantinya"
+    },
+    {
+     "word": "時代",
+     "reading": "じだい",
+     "meaning": "Era"
+    },
+    {
+     "word": "ガス代",
+     "reading": "ガスだい",
+     "meaning": "Biaya gas"
+    }
+   ]
+  },
+  {
+   "heading": "menggunakan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "使",
+   "vocabulary": [
+    {
+     "word": "使う",
+     "reading": "つかう",
+     "meaning": "Menggunakan"
+    },
+    {
+     "word": "大使館",
+     "reading": "たいしかん",
+     "meaning": "Kedutaan besar"
+    },
+    {
+     "word": "使用中",
+     "reading": "しようちゅう",
+     "meaning": "Sedang digunakan"
+    }
+   ]
+  },
+  {
+   "heading": "membuat",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "作",
+   "vocabulary": [
+    {
+     "word": "作る",
+     "reading": "つくる",
+     "meaning": "Membuat"
+    },
+    {
+     "word": "作文",
+     "reading": "さくぶん",
+     "meaning": "Karangan"
+    },
+    {
+     "word": "作家",
+     "reading": "さっか",
+     "meaning": "Penulis"
+    },
+    {
+     "word": "作業",
+     "reading": "さぎょう",
+     "meaning": "Manufaktur"
+    }
+   ]
+  },
+  {
+   "heading": "berubah",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "化",
+   "vocabulary": [
+    {
+     "word": "変化する",
+     "reading": "へんかする",
+     "meaning": "Berubah"
+    },
+    {
+     "word": "文化",
+     "reading": "ぶんか",
+     "meaning": "Budaya"
+    },
+    {
+     "word": "化学",
+     "reading": "かがく",
+     "meaning": "Kimia"
+    },
+    {
+     "word": "映画化",
+     "reading": "えいがか",
+     "meaning": "Adaptasi (ke film)"
+    }
+   ]
+  },
+  {
+   "heading": "percaya; sinyal",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "信",
+   "vocabulary": [
+    {
+     "word": "信じる",
+     "reading": "しんじる",
+     "meaning": "Percaya"
+    },
+    {
+     "word": "信号",
+     "reading": "しんごう",
+     "meaning": "Sinyal, tanda"
+    },
+    {
+     "word": "自信",
+     "reading": "じしん",
+     "meaning": "Percaya diri"
+    },
+    {
+     "word": "通信",
+     "reading": "つうしん",
+     "meaning": "Korenspondensi, menjawab"
+    }
+   ]
+  },
+  {
+   "heading": "maju",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "進",
+   "vocabulary": [
+    {
+     "word": "進む",
+     "reading": "すすむ",
+     "meaning": "Maju"
+    },
+    {
+     "word": "進歩",
+     "reading": "しんぽ",
+     "meaning": "Kemajuan"
+    },
+    {
+     "word": "先進国",
+     "reading": "せんしんこく",
+     "meaning": "Negara maju"
+    }
+   ]
+  },
+  {
+   "heading": "mengirim",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "送",
+   "vocabulary": [
+    {
+     "word": "送る",
+     "reading": "おくる",
+     "meaning": "Mengirim"
+    },
+    {
+     "word": "送金",
+     "reading": "そうきん",
+     "meaning": "Pengiriman uang"
+    },
+    {
+     "word": "放送",
+     "reading": "ほうそう",
+     "meaning": "Siaran"
+    },
+    {
+     "word": "送信",
+     "reading": "そうしん",
+     "meaning": "Mengirim (email)"
+    }
+   ]
+  },
+  {
+   "heading": "mengembalikan; membalas",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "返",
+   "vocabulary": [
+    {
+     "word": "返す",
+     "reading": "かえす",
+     "meaning": "Mengembalikan"
+    },
+    {
+     "word": "返事",
+     "reading": "へんじ",
+     "meaning": "Jawaban"
+    },
+    {
+     "word": "返信",
+     "reading": "へんしん",
+     "meaning": "Membalas (email)"
+    },
+    {
+     "word": "くり返す",
+     "reading": "くりかえす",
+     "meaning": "Mengulang"
+    }
+   ]
+  },
+  {
+   "heading": "mencuci",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "洗",
+   "vocabulary": [
+    {
+     "word": "洗う",
+     "reading": "あらう",
+     "meaning": "Mencuci"
+    },
+    {
+     "word": "手洗い",
+     "reading": "てあらい",
+     "meaning": "Tempat cuci tangan"
+    },
+    {
+     "word": "お手洗い",
+     "reading": "おてあらい",
+     "meaning": "Toilet"
+    },
+    {
+     "word": "洗濯する",
+     "reading": "せんたくする",
+     "meaning": "Mencuci"
+    }
+   ]
+  },
+  {
+   "heading": "menuang; memperhatikan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "注",
+   "vocabulary": [
+    {
+     "word": "注意する",
+     "reading": "ちゅういする",
+     "meaning": "Memperingati; Menasihati; memperhatikan"
+    },
+    {
+     "word": "注文する",
+     "reading": "ちゅうもんする",
+     "meaning": "Memesan"
+    },
+    {
+     "word": "注射する",
+     "reading": "ちゅうしゃする",
+     "meaning": "Menyuntik"
+    }
+   ]
+  },
+  {
+   "heading": "tempat",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "場",
+   "vocabulary": [
+    {
+     "word": "場所",
+     "reading": "ばしょ",
+     "meaning": "Tempat"
+    },
+    {
+     "word": "工場",
+     "reading": "こうじょう",
+     "meaning": "Pabrik"
+    },
+    {
+     "word": "広場",
+     "reading": "ひろば",
+     "meaning": "Alun-alun"
+    },
+    {
+     "word": "運動場",
+     "reading": "うんどうじょう",
+     "meaning": "Tempat berolah-raga"
+    }
+   ]
+  },
+  {
+   "heading": "membangun",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "建",
+   "vocabulary": [
+    {
+     "word": "建てる",
+     "reading": "たてる",
+     "meaning": "Membangun"
+    },
+    {
+     "word": "建物",
+     "reading": "たてもの",
+     "meaning": "Bangunan"
+    },
+    {
+     "word": "建築",
+     "reading": "けんちく",
+     "meaning": "Arsitektur"
+    }
+   ]
+  },
+  {
+   "heading": "benda; barang",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "物",
+   "vocabulary": [
+    {
+     "word": "物",
+     "reading": "もの",
+     "meaning": "Barang"
+    },
+    {
+     "word": "買い物",
+     "reading": "かいもの",
+     "meaning": "Belanjaan"
+    },
+    {
+     "word": "動物",
+     "reading": "どうぶつ",
+     "meaning": "Hewan"
+    },
+    {
+     "word": "荷物",
+     "reading": "にもつ",
+     "meaning": "Barang bawaan"
+    }
+   ]
+  },
+  {
+   "heading": "institusi; rumah sakit",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "院",
+   "vocabulary": [
+    {
+     "word": "病院",
+     "reading": "びょういん",
+     "meaning": "Rumah sakit"
+    },
+    {
+     "word": "入院する",
+     "reading": "にゅういんする",
+     "meaning": "Masuk rumah sakit"
+    },
+    {
+     "word": "大学院",
+     "reading": "だいがくいん",
+     "meaning": "Pasca sarjana"
+    }
+   ]
+  },
+  {
+   "heading": "gedung",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "館",
+   "vocabulary": [
+    {
+     "word": "映画館",
+     "reading": "えいがかん",
+     "meaning": "Bioskop"
+    },
+    {
+     "word": "大使館",
+     "reading": "たいしかん",
+     "meaning": "Kedutaan besar"
+    },
+    {
+     "word": "旅館",
+     "reading": "りょかん",
+     "meaning": "Penginapan ala jepang"
+    },
+    {
+     "word": "美術館",
+     "reading": "びじゅつかん",
+     "meaning": "Gedung kesenian"
+    }
+   ]
+  },
+  {
+   "heading": "aula",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "堂",
+   "vocabulary": [
+    {
+     "word": "食堂",
+     "reading": "しょくどう",
+     "meaning": "Kantin"
+    },
+    {
+     "word": "講堂",
+     "reading": "こうどう",
+     "meaning": "Auditorium"
+    }
+   ]
+  },
+  {
+   "heading": "ruang",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "室",
+   "vocabulary": [
+    {
+     "word": "教室",
+     "reading": "きょうしつ",
+     "meaning": "Kelas"
+    },
+    {
+     "word": "地下室",
+     "reading": "ちかしつ",
+     "meaning": "Ruang bawah tanah"
+    },
+    {
+     "word": "待合室",
+     "reading": "まちあいしつ",
+     "meaning": "Ruang tunggu"
+    },
+    {
+     "word": "事務室",
+     "reading": "じむしつ",
+     "meaning": "Kantor, ruang kantor"
+    }
+   ]
+  },
+  {
+   "heading": "kerajinan; pekerjaan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "工",
+   "vocabulary": [
+    {
+     "word": "工場",
+     "reading": "こうじょう",
+     "meaning": "Pabrik"
+    },
+    {
+     "word": "工事",
+     "reading": "こうじ",
+     "meaning": "Konstruksi"
+    },
+    {
+     "word": "工業",
+     "reading": "こうぎょう",
+     "meaning": "Manufaktur"
+    },
+    {
+     "word": "工作",
+     "reading": "こうさく",
+     "meaning": "Kerajinan"
+    }
+   ]
+  },
+  {
+   "heading": "gambar; peta",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "図",
+   "vocabulary": [
+    {
+     "word": "図",
+     "reading": "ず",
+     "meaning": "Gambar"
+    },
+    {
+     "word": "地図",
+     "reading": "ちず",
+     "meaning": "Peta"
+    },
+    {
+     "word": "図書館",
+     "reading": "としょかん",
+     "meaning": "Perpustakaan"
+    },
+    {
+     "word": "合図",
+     "reading": "あいず",
+     "meaning": "Sinyal, tanda"
+    }
+   ]
+  },
+  {
+   "heading": "nomor; tanda",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "号",
+   "vocabulary": [
+    {
+     "word": "信号",
+     "reading": "しんごう",
+     "meaning": "Sinyal, tanda"
+    },
+    {
+     "word": "電話番号",
+     "reading": "でんわばんごう",
+     "meaning": "Nomor telpon"
+    },
+    {
+     "word": "三号室",
+     "reading": "さんごうしつ",
+     "meaning": "Ruang nomor 3"
+    },
+    {
+     "word": "号令",
+     "reading": "ごうれい",
+     "meaning": "Perintah"
+    }
+   ]
+  },
+  {
+   "heading": "bergantian; bersilang",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "交",
+   "vocabulary": [
+    {
+     "word": "交通",
+     "reading": "こうつう",
+     "meaning": "Lalu lintas"
+    },
+    {
+     "word": "交差点",
+     "reading": "こうさてん",
+     "meaning": "Perempatan jalan"
+    },
+    {
+     "word": "交番",
+     "reading": "こうばん",
+     "meaning": "Pos polisi"
+    },
+    {
+     "word": "交代",
+     "reading": "こうたい",
+     "meaning": "Menukar, bertukar"
+    }
+   ]
+  },
+  {
+   "heading": "melewati; pulang pergi",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "通",
+   "vocabulary": [
+    {
+     "word": "通る",
+     "reading": "とおる",
+     "meaning": "Melewati"
+    },
+    {
+     "word": "通う",
+     "reading": "かよう",
+     "meaning": "Pulang pergi"
+    },
+    {
+     "word": "通学する",
+     "reading": "つうがく",
+     "meaning": "Pulang pergi (sekolah)"
+    },
+    {
+     "word": "大通り",
+     "reading": "おおどおり",
+     "meaning": "Jalan utama"
+    }
+   ]
+  },
+  {
+   "heading": "bergerak",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "動",
+   "vocabulary": [
+    {
+     "word": "動く",
+     "reading": "うごく",
+     "meaning": "Bergerak"
+    },
+    {
+     "word": "運動",
+     "reading": "うんどう",
+     "meaning": "Olahraga"
+    },
+    {
+     "word": "自動車",
+     "reading": "じどうしゃ",
+     "meaning": "Mobil"
+    }
+   ]
+  },
+  {
+   "heading": "naik",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "乗",
+   "vocabulary": [
+    {
+     "word": "乗る",
+     "reading": "のる",
+     "meaning": "Naik"
+    },
+    {
+     "word": "タクシー乗り場",
+     "reading": "タクシーのりば",
+     "meaning": "Tempat naik taksi"
+    },
+    {
+     "word": "乗車券",
+     "reading": "じょうしゃけん",
+     "meaning": "Tiket naik (kendaraan)"
+    }
+   ]
+  },
+  {
+   "heading": "turun",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "降",
+   "vocabulary": [
+    {
+     "word": "降りる",
+     "reading": "おりる",
+     "meaning": "Turun (kendaraan)"
+    },
+    {
+     "word": "降る",
+     "reading": "ふる",
+     "meaning": "Turun (hujan)"
+    },
+    {
+     "word": "乗り降り",
+     "reading": "のりおり",
+     "meaning": "Naik dan turun"
+    },
+    {
+     "word": "降雨量",
+     "reading": "こううりょう",
+     "meaning": "Curah hujan"
+    }
+   ]
+  },
+  {
+   "heading": "membawa; nasib",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "運",
+   "vocabulary": [
+    {
+     "word": "運ぶ",
+     "reading": "はこぶ",
+     "meaning": "Mengangkut"
+    },
+    {
+     "word": "運動する",
+     "reading": "うんどうする",
+     "meaning": "Berolahraga"
+    },
+    {
+     "word": "運がいい",
+     "reading": "うんがいい",
+     "meaning": "Beruntung"
+    },
+    {
+     "word": "運賃",
+     "reading": "うんちん",
+     "meaning": "Tarif, ongkos"
+    }
+   ]
+  },
+  {
+   "heading": "berputar; berpindah",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "転",
+   "vocabulary": [
+    {
+     "word": "運転する",
+     "reading": "うんてんする",
+     "meaning": "Mengemudi"
+    },
+    {
+     "word": "自転車",
+     "reading": "じてんしゃ",
+     "meaning": "Sepeda"
+    },
+    {
+     "word": "回転",
+     "reading": "かいてん",
+     "meaning": "Berputar"
+    },
+    {
+     "word": "転勤",
+     "reading": "てんきん",
+     "meaning": "Pindah kerja"
+    }
+   ]
+  },
+  {
+   "heading": "pulang",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "帰",
+   "vocabulary": [
+    {
+     "word": "帰る",
+     "reading": "かえる",
+     "meaning": "Pulang"
+    },
+    {
+     "word": "帰国する",
+     "reading": "きこくする",
+     "meaning": "Pulang ke negara"
+    },
+    {
+     "word": "お帰りなさい",
+     "reading": "おかえりなさい",
+     "meaning": "Selamat datang (rumah)"
+    }
+   ]
+  },
+  {
+   "heading": "berangkat; memancar",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "発",
+   "vocabulary": [
+    {
+     "word": "出発する",
+     "reading": "しゅっぱつする",
+     "meaning": "Berangkat"
+    },
+    {
+     "word": "発見",
+     "reading": "はっけん",
+     "meaning": "Menemukan"
+    },
+    {
+     "word": "発明",
+     "reading": "はつめい",
+     "meaning": "Penemuan"
+    },
+    {
+     "word": "発車",
+     "reading": "はっしゃ",
+     "meaning": "Keberangkatan"
+    }
+   ]
+  },
+  {
+   "heading": "tiba; memakai",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "着",
+   "vocabulary": [
+    {
+     "word": "着る",
+     "reading": "きる",
+     "meaning": "Memakai (baju, dll)"
+    },
+    {
+     "word": "着く",
+     "reading": "つく",
+     "meaning": "Tiba, sampai"
+    },
+    {
+     "word": "着物",
+     "reading": "きもの",
+     "meaning": "Kimono"
+    },
+    {
+     "word": "着信メール",
+     "reading": "ちゃくしんメール",
+     "meaning": "Email masuk"
+    }
+   ]
+  },
+  {
+   "heading": "kanji; Tiongkok",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "漢",
+   "vocabulary": [
+    {
+     "word": "漢字",
+     "reading": "かんじ",
+     "meaning": "Kanji"
+    }
+   ]
+  },
+  {
+   "heading": "huruf",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "字",
+   "vocabulary": [
+    {
+     "word": "字",
+     "reading": "じ",
+     "meaning": "Huruf"
+    },
+    {
+     "word": "漢字",
+     "reading": "かんじ",
+     "meaning": "Huruf kanji"
+    },
+    {
+     "word": "活字",
+     "reading": "かつじ",
+     "meaning": "Jenis"
+    },
+    {
+     "word": "習字",
+     "reading": "しゅうじ",
+     "meaning": "Tulisan tangan"
+    },
+    {
+     "word": "名字",
+     "reading": "みょうじ",
+     "meaning": "Nama keluarga"
+    }
+   ]
+  },
+  {
+   "heading": "kalimat; tulisan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "文",
+   "vocabulary": [
+    {
+     "word": "文",
+     "reading": "ぶん",
+     "meaning": "Kalimat"
+    },
+    {
+     "word": "文学",
+     "reading": "ぶんがく",
+     "meaning": "Sastra"
+    },
+    {
+     "word": "文字",
+     "reading": "もじ",
+     "meaning": "Karakter, huruf"
+    },
+    {
+     "word": "注文する",
+     "reading": "ちゅうもんする",
+     "meaning": "Memesan"
+    }
+   ]
+  },
+  {
+   "heading": "mengajar",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "教",
+   "vocabulary": [
+    {
+     "word": "教える",
+     "reading": "おしえる",
+     "meaning": "Mengajarkan"
+    },
+    {
+     "word": "教室",
+     "reading": "きょうしつ",
+     "meaning": "Kelas"
+    },
+    {
+     "word": "教科書",
+     "reading": "きょうかしょ",
+     "meaning": "Buku pelajaran"
+    },
+    {
+     "word": "教会",
+     "reading": "きょうかい",
+     "meaning": "Gereja"
+    }
+   ]
+  },
+  {
+   "heading": "giat; belajar",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "勉",
+   "vocabulary": [
+    {
+     "word": "勉強する",
+     "reading": "べんきょうする",
+     "meaning": "Belajar"
+    }
+   ]
+  },
+  {
+   "heading": "belajar; berlatih",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "習",
+   "vocabulary": [
+    {
+     "word": "習う",
+     "reading": "ならう",
+     "meaning": "Belajar (dari orang lain)"
+    },
+    {
+     "word": "練習",
+     "reading": "れんしゅう",
+     "meaning": "Latihan"
+    },
+    {
+     "word": "復習する",
+     "reading": "ふくしゅうする",
+     "meaning": "Mengulang pelajaran"
+    },
+    {
+     "word": "習慣",
+     "reading": "しゅうかん",
+     "meaning": "Kebiasaan"
+    },
+    {
+     "word": "自習",
+     "reading": "じしゅう",
+     "meaning": "Belajar sendiri"
+    }
+   ]
+  },
+  {
+   "heading": "Inggris; unggul",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "英",
+   "vocabulary": [
+    {
+     "word": "英語",
+     "reading": "えいご",
+     "meaning": "Bahasa inggris"
+    },
+    {
+     "word": "英国",
+     "reading": "えいこく",
+     "meaning": "Inggris"
+    },
+    {
+     "word": "英雄",
+     "reading": "えいゆう",
+     "meaning": "Pahlawan"
+    }
+   ]
+  },
+  {
+   "heading": "berpikir",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "考",
+   "vocabulary": [
+    {
+     "word": "考える",
+     "reading": "かんがえる",
+     "meaning": "Memikirkan"
+    },
+    {
+     "word": "考古学",
+     "reading": "こうこがく",
+     "meaning": "Arkeologi"
+    },
+    {
+     "word": "参考",
+     "reading": "さんこう",
+     "meaning": "Referensi"
+    }
+   ]
+  },
+  {
+   "heading": "mengasah; meneliti",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "研",
+   "vocabulary": [
+    {
+     "word": "研究する",
+     "reading": "けんきゅうする",
+     "meaning": "Meneliti"
+    }
+   ]
+  },
+  {
+   "heading": "meneliti; mencari",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "究",
+   "vocabulary": [
+    {
+     "word": "研究者",
+     "reading": "けんきゅうしゃ",
+     "meaning": "Peneliti"
+    },
+    {
+     "word": "研究室",
+     "reading": "けんきゅうしつ",
+     "meaning": "Ruang penelitian"
+    }
+   ]
+  },
+  {
+   "heading": "bertanya; pertanyaan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "問",
+   "vocabulary": [
+    {
+     "word": "問い",
+     "reading": "とい",
+     "meaning": "Pertanyaan"
+    },
+    {
+     "word": "問題",
+     "reading": "もんだい",
+     "meaning": "Pertanyaan, soal, masalah"
+    },
+    {
+     "word": "質問する",
+     "reading": "しつもんする",
+     "meaning": "Bertanya"
+    },
+    {
+     "word": "学問",
+     "reading": "がくもん",
+     "meaning": "Beasiswa"
+    }
+   ]
+  },
+  {
+   "heading": "judul; soal",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "題",
+   "vocabulary": [
+    {
+     "word": "題名",
+     "reading": "だいめい",
+     "meaning": "Judul"
+    },
+    {
+     "word": "問題",
+     "reading": "もんだい",
+     "meaning": "Pertanyaan"
+    },
+    {
+     "word": "宿題",
+     "reading": "しゅくだい",
+     "meaning": "Pekerjaan rumah"
+    },
+    {
+     "word": "話題",
+     "reading": "わだい",
+     "meaning": "Topik"
+    }
+   ]
+  },
+  {
+   "heading": "mencoba; ujian",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "試",
+   "vocabulary": [
+    {
+     "word": "試合",
+     "reading": "しあい",
+     "meaning": "Pertandingan"
+    },
+    {
+     "word": "試験",
+     "reading": "しけん",
+     "meaning": "Ujian"
+    },
+    {
+     "word": "入試",
+     "reading": "にゅうし",
+     "meaning": "Ujian masuk"
+    },
+    {
+     "word": "試す",
+     "reading": "ためす",
+     "meaning": "Mencoba"
+    },
+    {
+     "word": "試食",
+     "reading": "ししょく",
+     "meaning": "Sampel makanan"
+    }
+   ]
+  },
+  {
+   "heading": "ujian; pengalaman",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "験",
+   "vocabulary": [
+    {
+     "word": "試験",
+     "reading": "しけん",
+     "meaning": "Ujian"
+    },
+    {
+     "word": "実験",
+     "reading": "じっけん",
+     "meaning": "Percobaan"
+    },
+    {
+     "word": "経験",
+     "reading": "けいけん",
+     "meaning": "Pengalaman"
+    },
+    {
+     "word": "受験する",
+     "reading": "じゅけんする",
+     "meaning": "Mengikuti ujian"
+    }
+   ]
+  },
+  {
+   "heading": "kualitas; sifat",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "質",
+   "vocabulary": [
+    {
+     "word": "質問する",
+     "reading": "しつもんする",
+     "meaning": "Bertanya"
+    },
+    {
+     "word": "品質",
+     "reading": "ひんしつ",
+     "meaning": "Kualitas"
+    },
+    {
+     "word": "人質",
+     "reading": "ひとじち",
+     "meaning": "Sandera"
+    }
+   ]
+  },
+  {
+   "heading": "cocok; bertemu",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "合",
+   "vocabulary": [
+    {
+     "word": "間に合う",
+     "reading": "まにあう",
+     "meaning": "Tepat waktu"
+    },
+    {
+     "word": "試合",
+     "reading": "しあい",
+     "meaning": "Pertandingan"
+    },
+    {
+     "word": "場合",
+     "reading": "ばあい",
+     "meaning": "Apabila, jika, saat"
+    },
+    {
+     "word": "都合がいい",
+     "reading": "つごうがいい",
+     "meaning": "Tidak ada halangan"
+    }
+   ]
+  },
+  {
+   "heading": "menjawab",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "答",
+   "vocabulary": [
+    {
+     "word": "答える",
+     "reading": "こたえる",
+     "meaning": "Menjawab"
+    },
+    {
+     "word": "答え",
+     "reading": "こたえ",
+     "meaning": "Jawaban"
+    },
+    {
+     "word": "解答",
+     "reading": "かいとう",
+     "meaning": "Jawaban"
+    }
+   ]
+  },
+  {
+   "heading": "menggunakan; keperluan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "用",
+   "vocabulary": [
+    {
+     "word": "用事",
+     "reading": "ようじ",
+     "meaning": "Urusan"
+    },
+    {
+     "word": "利用する",
+     "reading": "りようする",
+     "meaning": "Memanfaatkan; Menggunakan"
+    },
+    {
+     "word": "子供用",
+     "reading": "こどもよう",
+     "meaning": "Untuk anak"
+    },
+    {
+     "word": "使用禁止",
+     "reading": "しようきんし",
+     "meaning": "Dilarang digunakan"
+    }
+   ]
+  },
+  {
+   "heading": "kertas",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "紙",
+   "vocabulary": [
+    {
+     "word": "紙",
+     "reading": "かみ",
+     "meaning": "Kertas"
+    },
+    {
+     "word": "手紙",
+     "reading": "てがみ",
+     "meaning": "Surat"
+    },
+    {
+     "word": "コピー用紙",
+     "reading": "コピーようし",
+     "meaning": "Kertas fotokopi"
+    },
+    {
+     "word": "新聞紙",
+     "reading": "しんぶんし",
+     "meaning": "Kertas koran"
+    }
+   ]
+  },
+  {
+   "heading": "maksud; pikiran",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "意",
+   "vocabulary": [
+    {
+     "word": "意味",
+     "reading": "いみ",
+     "meaning": "Arti"
+    },
+    {
+     "word": "注意する",
+     "reading": "ちゅういする",
+     "meaning": "Memperhatikan"
+    },
+    {
+     "word": "用意する",
+     "reading": "よういする",
+     "meaning": "Mempersiapkan"
+    },
+    {
+     "word": "意見",
+     "reading": "いけん",
+     "meaning": "Pendapat"
+    }
+   ]
+  },
+  {
+   "heading": "menarik",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "引",
+   "vocabulary": [
+    {
+     "word": "引く",
+     "reading": "ひく",
+     "meaning": "Menarik"
+    },
+    {
+     "word": "引き出し",
+     "reading": "ひきだし",
+     "meaning": "Mengambil (uang)"
+    },
+    {
+     "word": "引力",
+     "reading": "いんりょく",
+     "meaning": "Gravitasi"
+    }
+   ]
+  },
+  {
+   "heading": "membuka",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "開",
+   "vocabulary": [
+    {
+     "word": "開ける",
+     "reading": "あける",
+     "meaning": "Membuka"
+    },
+    {
+     "word": "開く",
+     "reading": "ひらく",
+     "meaning": "Membuka (kursus)"
+    },
+    {
+     "word": "開店",
+     "reading": "かいてん",
+     "meaning": "Membuka toko"
+    },
+    {
+     "word": "開始する",
+     "reading": "かいしする",
+     "meaning": "Memulai"
+    }
+   ]
+  },
+  {
+   "heading": "menutup",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "閉",
+   "vocabulary": [
+    {
+     "word": "閉める",
+     "reading": "しめる",
+     "meaning": "Menutup"
+    },
+    {
+     "word": "閉じる",
+     "reading": "とじる",
+     "meaning": "Menutup (mata)"
+    },
+    {
+     "word": "閉館する",
+     "reading": "へいかんする",
+     "meaning": "Menutup fasilitas"
+    },
+    {
+     "word": "閉会式",
+     "reading": "へいかいしき",
+     "meaning": "Upacara penutupan"
+    }
+   ]
+  },
+  {
+   "heading": "pergi; lalu",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "去",
+   "vocabulary": [
+    {
+     "word": "去年",
+     "reading": "きょねん",
+     "meaning": "Tahun lalu"
+    },
+    {
+     "word": "過去",
+     "reading": "かこ",
+     "meaning": "Masa lalu"
+    },
+    {
+     "word": "消去",
+     "reading": "しょうきょ",
+     "meaning": "Menghapus"
+    }
+   ]
+  },
+  {
+   "heading": "mati",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "死",
+   "vocabulary": [
+    {
+     "word": "死ぬ",
+     "reading": "しぬ",
+     "meaning": "Mati"
+    },
+    {
+     "word": "死者",
+     "reading": "ししゃ",
+     "meaning": "Mayat"
+    },
+    {
+     "word": "急死",
+     "reading": "きゅうし",
+     "meaning": "Mati mendadak"
+    },
+    {
+     "word": "病死",
+     "reading": "びょうし",
+     "meaning": "Mati karena penyakit"
+    }
+   ]
+  },
+  {
+   "heading": "mengumpulkan",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "集",
+   "vocabulary": [
+    {
+     "word": "集める",
+     "reading": "あつめる",
+     "meaning": "Mengumpulkan"
+    },
+    {
+     "word": "集まる",
+     "reading": "あつまる",
+     "meaning": "Berkumpul"
+    },
+    {
+     "word": "文集",
+     "reading": "ぶんしゅう",
+     "meaning": "Kumpulan kalimat"
+    },
+    {
+     "word": "集合する",
+     "reading": "しゅうごうする",
+     "meaning": "Berkumpul"
+    }
+   ]
+  },
+  {
+   "heading": "mengetahui",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "知",
+   "vocabulary": [
+    {
+     "word": "知る",
+     "reading": "しる",
+     "meaning": "Mengetahui"
+    },
+    {
+     "word": "知り合い",
+     "reading": "しりあい",
+     "meaning": "Kenalan"
+    },
+    {
+     "word": "通知",
+     "reading": "つうち",
+     "meaning": "Pemberitahuan"
+    },
+    {
+     "word": "知識",
+     "reading": "ちしき",
+     "meaning": "Pengetahuan"
+    }
+   ]
+  },
+  {
+   "heading": "menjual",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "売",
+   "vocabulary": [
+    {
+     "word": "売る",
+     "reading": "うる",
+     "meaning": "Menjual"
+    },
+    {
+     "word": "売店",
+     "reading": "ばいてん",
+     "meaning": "Kios, kedai"
+    },
+    {
+     "word": "自動販売機",
+     "reading": "じどうはんばいき",
+     "meaning": "Mesin penjual otomatis"
+    }
+   ]
+  },
+  {
+   "heading": "menjelaskan; pendapat",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "説",
+   "vocabulary": [
+    {
+     "word": "説明する",
+     "reading": "せつめいする",
+     "meaning": "Menjelaskan"
+    },
+    {
+     "word": "小説",
+     "reading": "しょうせつ",
+     "meaning": "Novel"
+    }
+   ]
+  },
+  {
+   "heading": "berpikir",
+   "onyomi": [],
+   "kunyomi": [],
+   "kanji": "思",
+   "vocabulary": [
+    {
+     "word": "思う",
+     "reading": "おもう",
+     "meaning": "Berfikir"
+    },
+    {
+     "word": "思い出す",
+     "reading": "おもいだす",
+     "meaning": "Teringat"
+    },
+    {
+     "word": "思い出",
+     "reading": "おもいで",
+     "meaning": "Ingatan, kenangan"
+    },
+    {
+     "word": "思想",
+     "reading": "しそう",
+     "meaning": "Ide"
+    }
+   ]
+  }
+ ]
 }
